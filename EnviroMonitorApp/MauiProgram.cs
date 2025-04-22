@@ -1,24 +1,25 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using EnviroMonitorApp.Services;
+using EnviroMonitorApp.Views;    
 
 namespace EnviroMonitorApp;
 
 public static class MauiProgram
 {
-	public static MauiApp CreateMauiApp()
-	{
-		var builder = MauiApp.CreateBuilder();
-		builder
-			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+    public static MauiApp CreateMauiApp()
+    {
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+            });
 
-#if DEBUG
-		builder.Logging.AddDebug();
-#endif
+        // Register pages/services
+        builder.Services.AddSingleton<Views.MainPage>();
+		builder.Services.AddSingleton<ExcelReaderService>();
 
-		return builder.Build();
-	}
+
+        return builder.Build();
+    }
 }

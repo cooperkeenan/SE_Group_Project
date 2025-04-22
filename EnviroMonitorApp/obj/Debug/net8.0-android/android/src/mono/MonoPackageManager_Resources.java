@@ -3,6 +3,11 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "EnviroMonitorApp.dll" comes first in this list. */
 		"EnviroMonitorApp.dll",
+		"ClosedXML.dll",
+		"ClosedXML.Parser.dll",
+		"DocumentFormat.OpenXml.dll",
+		"DocumentFormat.OpenXml.Framework.dll",
+		"ExcelNumberFormat.dll",
 		"GoogleGson.dll",
 		"Microsoft.Extensions.Configuration.dll",
 		"Microsoft.Extensions.Configuration.Abstractions.dll",
@@ -19,6 +24,9 @@ public class MonoPackageManager_Resources {
 		"Microsoft.Maui.dll",
 		"Microsoft.Maui.Essentials.dll",
 		"Microsoft.Maui.Graphics.dll",
+		"RBush.dll",
+		"SixLabors.Fonts.dll",
+		"System.IO.Packaging.dll",
 		"Xamarin.Android.Glide.dll",
 		"Xamarin.Android.Glide.Annotations.dll",
 		"Xamarin.Android.Glide.DiskLruCache.dll",

@@ -1,11 +1,16 @@
-﻿namespace EnviroMonitorApp;
+﻿using Microsoft.Maui.Controls;
+using EnviroMonitorApp.Services;
+
+
+namespace EnviroMonitorApp;
 
 public partial class App : Application
 {
-	public App()
-	{
-		InitializeComponent();
+    public App()
+    {
+        InitializeComponent();
 
-		MainPage = new AppShell();
-	}
+        MainPage = new Views.MainPage(new ExcelReaderService());
+
+    }
 }
