@@ -1,5 +1,7 @@
 ﻿using EnviroMonitorApp.Services;
 using EnviroMonitorApp.Views;    
+using EnviroMonitorApp.ViewModels;
+
 
 namespace EnviroMonitorApp;
 
@@ -19,6 +21,7 @@ public static class MauiProgram
         // Register pages/services
         builder.Services.AddSingleton<Views.MainPage>();
 		builder.Services.AddSingleton<ExcelReaderService>();
+    	builder.Services.AddSingleton<IEnvironmentalDataService, EnvironmentalDataService>();
 
 
         return builder.Build();

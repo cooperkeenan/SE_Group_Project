@@ -1,49 +1,23 @@
 ﻿using EnviroMonitorApp.Services;
-using EnviroMonitorApp.Models;
-using System.Diagnostics;
+using EnviroMonitorApp.ViewModels;
 
-namespace EnviroMonitorApp.Views;
-
-public partial class MainPage : ContentPage
+namespace EnviroMonitorApp.Views
 {
-    private readonly ExcelReaderService _excel;
+	public partial class MainPage : ContentPage
+	{
+	readonly WeatherViewModel _vm;
 
-    public MainPage(ExcelReaderService excel)
-    {
-        InitializeComponent();
-        _excel = excel;
-    }
-
-    protected override async void OnAppearing()
+	public MainPage(IEnvironmentalDataService dataService)
 		{
-			base.OnAppearing();
-			Debug.WriteLine("OnAppearing triggered");
-
-			StatusLabel.Text = "Reading files...";
-
-			try
-			{
-				// ✅ Corrected parser usage
-				var weatherData = _excel.ReadWeather("Weather.xlsx");
-
-				var airData = _excel.ReadAirQuality("Air_quality.xlsx");
-				Debug.WriteLine($"Air rows: {airData.Count}");
-				Debug.WriteLine($"First PM2.5: {airData[0].PM25}");
-
-				var waterData = _excel.ReadWaterQuality("Water_quality.xlsx");
-				Debug.WriteLine($"Water rows: {waterData.Count}");
-				Debug.WriteLine($"First EC: {waterData[0].EC}");
-
-				StatusLabel.Text = $"Loaded {weatherData.Count} weather, {airData.Count} air, {waterData.Count} water rows.";
-
-				DataList.ItemsSource = weatherData;
-			}
-			catch (Exception ex)
-			{
-				Debug.WriteLine($"Excel parsing failed: {ex}");
-				StatusLabel.Text = $"Error: {ex.Message}";
-				await DisplayAlert("Error", ex.Message, "OK");
-			}
+			InitializeComponent();
+			_vm = new WeatherViewModel(dataService);
+			BindingContext = _vm;
 		}
 
+		protected override async void OnAppearing()
+		{
+			base.OnAppearing();
+			await _vm.LoadAsync();
+		}
+	}
 }

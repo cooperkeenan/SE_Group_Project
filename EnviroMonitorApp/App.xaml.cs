@@ -2,6 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using EnviroMonitorApp.Views;         
 using EnviroMonitorApp.Services;    
+using EnviroMonitorApp.ViewModels;
+
 
 namespace EnviroMonitorApp;
 
@@ -14,7 +16,10 @@ public partial class App : Application
         InitializeComponent();
         Services = services;
 
-        MainPage = new NavigationPage(new MainPage(services.GetRequiredService<ExcelReaderService>()));
+        // after: resolve the interface, not the concrete reader
+		var dataService = services.GetRequiredService<IEnvironmentalDataService>();
+		MainPage = new NavigationPage(new MainPage(dataService));
+
 
     }
 
