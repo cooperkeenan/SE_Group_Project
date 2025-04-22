@@ -30,6 +30,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="ClosedXML" Version="0.104.2" />
+		<PackageReference Include="EPPlus" Version="6.3.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
@@ -37,7 +38,10 @@
 
 	<ItemGroup>
 		<MauiAsset Include="Resources/Raw/Weather.xlsx" />
+		<MauiAsset Include="Resources/Raw/Air_quality.xlsx" />
+		<MauiAsset Include="Resources/Raw/Water_quality.xlsx" />
 	</ItemGroup>
+
 
 
 

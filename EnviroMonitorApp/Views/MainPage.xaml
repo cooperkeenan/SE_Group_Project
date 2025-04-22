@@ -1,34 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="EnviroMonitorApp.Views.MainPage"
-    Title="Dashboard">
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EnviroMonitorApp.Views.MainPage"
+             Title="Dashboard">
 
     <VerticalStackLayout Padding="20" Spacing="15">
 
-        <Label
-            Text="🌱 Welcome to EnviroMonitor"
-            FontSize="22"
-            HorizontalOptions="Center" />
+        <Label x:Name="StatusLabel"
+               Text="Status will appear here"
+               FontSize="16"
+               TextColor="Gray"
+               HorizontalOptions="Center" />
 
-        <Label
-            x:Name="StatusLabel"
-            Text="👀 Loading..."
-            FontSize="16"
-            TextColor="Gray"
-            HorizontalOptions="Center" />
-
-        <CollectionView x:Name="DataList" Margin="0,20,0,0" HeightRequest="400">
+        <CollectionView x:Name="DataList">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame BorderColor="LightGray" Padding="10" Margin="0,5">
-                        <VerticalStackLayout>
-                            <Label Text="{Binding Date}" FontAttributes="Bold" />
-                            <Label Text="{Binding Temperature, StringFormat='🌡️ Temp: {0} °C'}" />
-                            <Label Text="{Binding Humidity, StringFormat='💧 RH: {0}%'}" />
-                        </VerticalStackLayout>
-                    </Frame>
+                    <VerticalStackLayout>
+                        <Label Text="{Binding Date}" FontAttributes="Bold" />
+                        <Label Text="{Binding Temperature}" />
+                        <Label Text="{Binding Humidity}" />
+                    </VerticalStackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

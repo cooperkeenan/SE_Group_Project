@@ -15,34 +15,35 @@ public partial class MainPage : ContentPage
     }
 
     protected override async void OnAppearing()
-    {
-        base.OnAppearing();
-        Debug.WriteLine("📍 OnAppearing triggered");
+		{
+			base.OnAppearing();
+			Debug.WriteLine("OnAppearing triggered");
 
-        StatusLabel.Text = "🔄 Reading...";
+			StatusLabel.Text = "Reading files...";
 
-        try
-        {
-            var data = _excel.ReadWeather("Weather.xlsx");
-            Debug.WriteLine($"📦 Data rows: {data.Count}");
+			try
+			{
+				// ✅ Corrected parser usage
+				var weatherData = _excel.ReadWeather("Weather.xlsx");
 
-            if (data.Any())
-            {
-                Debug.WriteLine($"🔥 First row temp: {data[0].Temperature}");
-                StatusLabel.Text = $"✅ Showing {data.Count} rows";
+				var airData = _excel.ReadAirQuality("Air_quality.xlsx");
+				Debug.WriteLine($"Air rows: {airData.Count}");
+				Debug.WriteLine($"First PM2.5: {airData[0].PM25}");
 
-                DataList.ItemsSource = data;
-            }
-            else
-            {
-                StatusLabel.Text = "⚠️ No data found";
-            }
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine($"❌ Excel parsing failed: {ex}");
-            StatusLabel.Text = $"❌ Error: {ex.Message}";
-            await DisplayAlert("❌ Error", ex.Message, "OK");
-        }
-    }
+				var waterData = _excel.ReadWaterQuality("Water_quality.xlsx");
+				Debug.WriteLine($"Water rows: {waterData.Count}");
+				Debug.WriteLine($"First EC: {waterData[0].EC}");
+
+				StatusLabel.Text = $"Loaded {weatherData.Count} weather, {airData.Count} air, {waterData.Count} water rows.";
+
+				DataList.ItemsSource = weatherData;
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine($"Excel parsing failed: {ex}");
+				StatusLabel.Text = $"Error: {ex.Message}";
+				await DisplayAlert("Error", ex.Message, "OK");
+			}
+		}
+
 }

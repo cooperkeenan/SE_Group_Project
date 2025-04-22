@@ -1,51 +1,117 @@
-using EnviroMonitorApp.Models;
-using ClosedXML.Excel;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using EnviroMonitorApp.Models;
+using OfficeOpenXml;
+using Microsoft.Maui.Storage;
 
-namespace EnviroMonitorApp.Services;
-
-public class ExcelReaderService
+namespace EnviroMonitorApp.Services
 {
-    public List<WeatherRecord> ReadWeather(string filename)
+    public class ExcelReaderService
     {
-        var results = new List<WeatherRecord>();
-
-        try
+        public ExcelReaderService()
         {
-            Debug.WriteLine($"📁 Trying to open: {filename}");
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
-            var streamTask = FileSystem.OpenAppPackageFileAsync(filename);
-            streamTask.Wait();
+        }
 
-            using var stream = streamTask.Result;
-            Debug.WriteLine("📂 Stream loaded ✅");
+        public List<WeatherRecord> ReadWeather(string filename)
+        {
+            var results = new List<WeatherRecord>();
 
-            using var workbook = new XLWorkbook(stream);
-            var sheet = workbook.Worksheet(1);
-            Debug.WriteLine($"📄 Opened sheet: {sheet.Name}");
+            var file = FileSystem.OpenAppPackageFileAsync(filename).Result;
 
-            // Skip metadata rows (1-4)
-            foreach (var row in sheet.RowsUsed().Skip(4))
+            using var package = new ExcelPackage(file);
+            var sheet = package.Workbook.Worksheets[0];
+
+            for (int row = 5; sheet.Cells[row, 1].Value != null; row++)
             {
-                var record = new WeatherRecord
+                try
                 {
-                    Date = row.Cell(1).GetString(),
-                    Temperature = row.Cell(2).GetDouble(),
-                    Humidity = row.Cell(3).GetDouble()
-                };
-
-                Debug.WriteLine($"🌡️ Temp={record.Temperature}, 💧 RH={record.Humidity}");
-                results.Add(record);
+                    results.Add(new WeatherRecord
+                    {
+                        Date = sheet.Cells[row, 1].Text,
+                        Temperature = double.Parse(sheet.Cells[row, 2].Text),
+                        Humidity = double.Parse(sheet.Cells[row, 3].Text)
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"[Weather] Error parsing row {row}: {ex.Message}");
+                }
             }
 
-            Debug.WriteLine($"✅ Finished reading {results.Count} rows.");
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine($"❌ EXCEPTION in ReadWeather(): {ex}");
-            throw;
+            return results;
         }
 
-        return results;
+        public List<AirQualityRecord> ReadAirQuality(string filename)
+        {
+            var results = new List<AirQualityRecord>();
+
+            var file = FileSystem.OpenAppPackageFileAsync(filename).Result;
+
+            using var package = new ExcelPackage(file);
+            var sheet = package.Workbook.Worksheets[0];
+
+            for (int row = 11; sheet.Cells[row, 1].Value != null; row++)
+            {
+                try
+                {
+                    var date = DateTime.Parse(sheet.Cells[row, 1].Text);
+                    var time = TimeSpan.Parse(sheet.Cells[row, 2].Text);
+                    var dateTime = date + time;
+
+                    results.Add(new AirQualityRecord
+                    {
+                        DateTime = dateTime,
+                        NitrogenDioxide = double.Parse(sheet.Cells[row, 3].Text),
+                        SulphurDioxide = double.Parse(sheet.Cells[row, 4].Text),
+                        PM25 = double.Parse(sheet.Cells[row, 5].Text),
+                        PM10 = double.Parse(sheet.Cells[row, 6].Text)
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"[Air] Error parsing row {row}: {ex.Message}");
+                }
+            }
+
+            return results;
+        }
+
+        public List<WaterQualityRecord> ReadWaterQuality(string filename)
+        {
+            var results = new List<WaterQualityRecord>();
+
+            var file = FileSystem.OpenAppPackageFileAsync(filename).Result;
+
+            using var package = new ExcelPackage(file);
+            var sheet = package.Workbook.Worksheets[0];
+
+            for (int row = 6; sheet.Cells[row, 1].Value != null; row++)
+            {
+                try
+                {
+                    var date = DateTime.Parse(sheet.Cells[row, 1].Text);
+                    var time = TimeSpan.Parse(sheet.Cells[row, 2].Text);
+                    var dateTime = date + time;
+
+                    results.Add(new WaterQualityRecord
+                    {
+                        DateTime = dateTime,
+                        Nitrate = double.Parse(sheet.Cells[row, 3].Text),
+                        Nitrite = double.Parse(sheet.Cells[row, 4].Text),
+                        Phosphate = double.Parse(sheet.Cells[row, 5].Text),
+                        EC = double.Parse(sheet.Cells[row, 6].Text)
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"[Water] Error parsing row {row}: {ex.Message}");
+                }
+            }
+
+            return results;
+        }
     }
 }

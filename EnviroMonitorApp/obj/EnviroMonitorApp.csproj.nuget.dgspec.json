@@ -49,6 +49,10 @@
               "target": "Package",
               "version": "[0.104.2, )"
             },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[6.3.0, )"
+            },
             "Microsoft.Extensions.Logging.Debug": {
               "target": "Package",
               "version": "[8.0.1, )"
