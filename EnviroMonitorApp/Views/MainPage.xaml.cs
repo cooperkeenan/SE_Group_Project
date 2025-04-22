@@ -1,4 +1,5 @@
 ﻿using EnviroMonitorApp.Services;
+using EnviroMonitorApp.Models;
 using System.Diagnostics;
 
 namespace EnviroMonitorApp.Views;
@@ -9,7 +10,6 @@ public partial class MainPage : ContentPage
 
     public MainPage(ExcelReaderService excel)
     {
-        Debug.WriteLine("🔥 MainPage constructor fired");
         InitializeComponent();
         _excel = excel;
     }
@@ -29,14 +29,14 @@ public partial class MainPage : ContentPage
             if (data.Any())
             {
                 Debug.WriteLine($"🔥 First row temp: {data[0].Temperature}");
-                StatusLabel.Text = $"✅ {data.Count} rows loaded";
+                StatusLabel.Text = $"✅ Showing {data.Count} rows";
+
+                DataList.ItemsSource = data;
             }
             else
             {
                 StatusLabel.Text = "⚠️ No data found";
             }
-
-            await DisplayAlert("✅ Success", $"Loaded {data.Count} records", "OK");
         }
         catch (Exception ex)
         {

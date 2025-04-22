@@ -5,22 +5,33 @@
     x:Class="EnviroMonitorApp.Views.MainPage"
     Title="Dashboard">
 
-    <VerticalStackLayout
-        Padding="30"
-        Spacing="25"
-        VerticalOptions="Center">
+    <VerticalStackLayout Padding="20" Spacing="15">
 
         <Label
             Text="🌱 Welcome to EnviroMonitor"
-            FontSize="24"
+            FontSize="22"
             HorizontalOptions="Center" />
 
         <Label
             x:Name="StatusLabel"
             Text="👀 Loading..."
             FontSize="16"
-            TextColor="DarkGray"
+            TextColor="Gray"
             HorizontalOptions="Center" />
+
+        <CollectionView x:Name="DataList" Margin="0,20,0,0" HeightRequest="400">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="LightGray" Padding="10" Margin="0,5">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Date}" FontAttributes="Bold" />
+                            <Label Text="{Binding Temperature, StringFormat='🌡️ Temp: {0} °C'}" />
+                            <Label Text="{Binding Humidity, StringFormat='💧 RH: {0}%'}" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
     </VerticalStackLayout>
 </ContentPage>
