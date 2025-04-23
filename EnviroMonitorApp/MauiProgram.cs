@@ -3,9 +3,10 @@ using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Refit;
-using EnviroMonitorApp;
 using EnviroMonitorApp.Services;
 using EnviroMonitorApp.Services.Apis;
+using EnviroMonitorApp.Views;
+using EnviroMonitorApp.ViewModels;
 
 namespace EnviroMonitorApp
 {
@@ -20,27 +21,39 @@ namespace EnviroMonitorApp
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            // Register the OpenAQ client
+            // register API key provider
+            builder.Services.AddSingleton<ApiKeyProvider>();
+
+            // Refit clients for external APIs
             builder.Services
                 .AddRefitClient<IAirQualityApi>()
                 .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://api.openaq.org"));
 
-            // Register the OpenWeatherMap client
             builder.Services
                 .AddRefitClient<IWeatherApi>()
                 .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://api.openweathermap.org/data/2.5"));
 
-            // Register the USGS Water Services client
             builder.Services
                 .AddRefitClient<IWaterQualityApi>()
-                .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://waterservices.usgs.gov/nwis/iv"));
+                .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://enviro.waterservice.gov/iv"));
 
-            // Your helpers & aggregate service
-            builder.Services.AddSingleton<ApiKeyProvider>();
+            // core data service
             builder.Services.AddSingleton<IEnvironmentalDataService, EnvironmentalDataApiService>();
+
+            // view models
+            builder.Services.AddTransient<AirQualityViewModel>();
+
+            // pages
+            builder.Services.AddTransient<AirQualityPage>(sp =>
+            {
+                var vm = sp.GetRequiredService<AirQualityViewModel>();
+                return new AirQualityPage(sp.GetRequiredService<IEnvironmentalDataService>())
+                {
+                    BindingContext = vm
+                };
+            });
 
             return builder.Build();
         }
