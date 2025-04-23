@@ -72,6 +72,14 @@
               "target": "Package",
               "version": "[8.0.12, )",
               "autoReferenced": true
+            },
+            "Refit": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Refit.HttpClientFactory": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             }
           },
           "imports": [
@@ -115,6 +123,14 @@
               "target": "Package",
               "version": "[8.0.12, )",
               "autoReferenced": true
+            },
+            "Refit": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Refit.HttpClientFactory": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             }
           },
           "imports": [
@@ -158,6 +174,14 @@
               "target": "Package",
               "version": "[8.0.12, )",
               "autoReferenced": true
+            },
+            "Refit": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Refit.HttpClientFactory": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             }
           },
           "imports": [

@@ -4,5 +4,53 @@
         <name>EnviroMonitorApp</name>
     </assembly>
     <members>
+        <member name="T:Refit.Implementation.Generated">
+            <inheritdoc />
+        </member>
+        <member name="T:Refit.Implementation.Generated.EnviroMonitorAppServicesApisIAirQualityApi">
+            <inheritdoc />
+        </member>
+        <member name="P:Refit.Implementation.Generated.EnviroMonitorAppServicesApisIAirQualityApi.Client">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.EnviroMonitorAppServicesApisIAirQualityApi.#ctor(System.Net.Http.HttpClient,Refit.IRequestBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.EnviroMonitorAppServicesApisIAirQualityApi.GetMeasurements(System.String,System.String,System.String,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.EnviroMonitorAppServicesApisIAirQualityApi.EnviroMonitorApp#Services#Apis#IAirQualityApi#GetMeasurements(System.String,System.String,System.String,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="T:Refit.Implementation.Generated.EnviroMonitorAppServicesApisIWaterQualityApi">
+            <inheritdoc />
+        </member>
+        <member name="P:Refit.Implementation.Generated.EnviroMonitorAppServicesApisIWaterQualityApi.Client">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.EnviroMonitorAppServicesApisIWaterQualityApi.#ctor(System.Net.Http.HttpClient,Refit.IRequestBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.EnviroMonitorAppServicesApisIWaterQualityApi.Search(System.String,System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.EnviroMonitorAppServicesApisIWaterQualityApi.EnviroMonitorApp#Services#Apis#IWaterQualityApi#Search(System.String,System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Refit.Implementation.Generated.EnviroMonitorAppServicesApisIWeatherApi">
+            <inheritdoc />
+        </member>
+        <member name="P:Refit.Implementation.Generated.EnviroMonitorAppServicesApisIWeatherApi.Client">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.EnviroMonitorAppServicesApisIWeatherApi.#ctor(System.Net.Http.HttpClient,Refit.IRequestBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.EnviroMonitorAppServicesApisIWeatherApi.GetForecast(System.Double,System.Double,System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.EnviroMonitorAppServicesApisIWeatherApi.EnviroMonitorApp#Services#Apis#IWeatherApi#GetForecast(System.Double,System.Double,System.String,System.String)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>
