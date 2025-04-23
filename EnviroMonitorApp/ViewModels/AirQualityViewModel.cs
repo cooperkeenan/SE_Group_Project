@@ -1,23 +1,54 @@
-
-
+using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using EnviroMonitorApp.Models;
 using EnviroMonitorApp.Services;
-using EnviroMonitorApp.ViewModels;
 
-public class AirQualityViewModel : BaseViewModel
+namespace EnviroMonitorApp.ViewModels
 {
-  readonly IEnvironmentalDataService _svc;
-  public ObservableCollection<AirQualityRecord> Items { get; }
-    = new ObservableCollection<AirQualityRecord>();
+    public class AirQualityViewModel : INotifyPropertyChanged
+    {
+        private readonly IEnvironmentalDataService _dataService;
 
-  public AirQualityViewModel(IEnvironmentalDataService svc) => _svc = svc;
+        public ObservableCollection<AirQualityRecord> AirQuality { get; private set; }
 
-  public async Task LoadAsync()
-  {
-    var data = await _svc.GetAirQualityAsync();
-    Items.Clear();
-    foreach (var r in data) Items.Add(r);
-  }
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        public AirQualityViewModel(IEnvironmentalDataService dataService)
+        {
+            _dataService = dataService;
+            AirQuality = new ObservableCollection<AirQualityRecord>();
+        }
+
+        public async Task LoadAsync()
+        {
+            try
+            {
+                Debug.WriteLine("⏳ Fetching air quality data...");
+                var data = await _dataService.GetAirQualityAsync();
+                Debug.WriteLine($"✅ Got {data.Count} records.");
+
+                AirQuality.Clear();
+                foreach (var record in data)
+                {
+                    AirQuality.Add(record);
+                }
+
+                OnPropertyChanged(nameof(AirQuality));
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"❌ Load failed: {ex}");
+                throw;
+            }
+        }
+
+        protected void OnPropertyChanged([CallerMemberName] string? name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+    }
 }

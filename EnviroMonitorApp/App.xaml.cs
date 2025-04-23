@@ -12,8 +12,11 @@ namespace EnviroMonitorApp
 
             try
             {
-                var dataSvc = services.GetRequiredService<IEnvironmentalDataService>();
-                MainPage = new NavigationPage(new AirQualityPage(dataSvc))
+                var dataService = services.GetRequiredService<IEnvironmentalDataService>();
+
+                // Launch your AirQualityPage inside a nav container
+                var page = new AirQualityPage(dataService);
+                MainPage = new NavigationPage(page)
                 {
                     BarBackgroundColor = Colors.DarkSlateBlue,
                     BarTextColor       = Colors.White
@@ -21,14 +24,19 @@ namespace EnviroMonitorApp
             }
             catch (Exception ex)
             {
-                // Show the error so we know what’s wrong
+                // Display error directly on screen
                 MainPage = new ContentPage
                 {
-                    Content = new Label
+                    BackgroundColor = Colors.Black,
+                    Content = new ScrollView
                     {
-                        Text = $"Startup exception:\n{ex}",
-                        TextColor = Colors.Red,
-                        Padding = 20
+                        Content = new Label
+                        {
+                            Text = $"⚠️ Startup error:\n\n{ex}",
+                            TextColor = Colors.OrangeRed,
+                            Padding = new Thickness(20),
+                            FontSize = 14
+                        }
                     }
                 };
             }
