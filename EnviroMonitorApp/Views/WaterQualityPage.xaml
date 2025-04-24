@@ -7,11 +7,48 @@
     <CollectionView ItemsSource="{Binding WaterQuality}">
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="models:WaterQualityRecord">
-                <HorizontalStackLayout Padding="8" Spacing="12">
-                    <Label Text="{Binding Timestamp, StringFormat='{}{0:HH:mm}'}"
-                        WidthRequest="60"/>
-                    <Label Text="{Binding Nitrate, StringFormat='{}{0:F1} mg/L'}"/>
-                </HorizontalStackLayout>
+                <Frame CornerRadius="12"
+                       BorderColor="LightGray"
+                       Padding="12"
+                       Margin="8">
+
+                    <VerticalStackLayout Spacing="4">
+                        <!-- timestamp -->
+                        <Label Text="{Binding Timestamp,
+                                              StringFormat='Updated {0:yyyy-MM-dd HH:mm}'}"
+                               FontAttributes="Bold"/>
+
+                        <!-- data rows -->
+                        <Grid ColumnDefinitions="Auto,*"
+                              RowDefinitions="Auto,Auto,Auto,Auto"
+                              RowSpacing="2">
+
+                            <Label Text="Nitrate:" FontAttributes="Bold"/>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Nitrate,
+                                                  StringFormat='{}{0:F2} mg/L',
+                                                  FallbackValue='—'}"/>
+
+                            <Label Grid.Row="1" Text="pH:" FontAttributes="Bold"/>
+                            <Label Grid.Row="1" Grid.Column="1"
+                                   Text="{Binding PH,
+                                                  StringFormat='{}{0:F2}',
+                                                  FallbackValue='—'}"/>
+
+                            <Label Grid.Row="2" Text="Dissolved O₂:" FontAttributes="Bold"/>
+                            <Label Grid.Row="2" Grid.Column="1"
+                                   Text="{Binding DissolvedOxygen,
+                                                  StringFormat='{}{0:F2} mg/L',
+                                                  FallbackValue='—'}"/>
+
+                            <Label Grid.Row="3" Text="Temperature:" FontAttributes="Bold"/>
+                            <Label Grid.Row="3" Grid.Column="1"
+                                   Text="{Binding Temperature,
+                                                  StringFormat='{}{0:F1} °C',
+                                                  FallbackValue='—'}"/>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Frame>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>

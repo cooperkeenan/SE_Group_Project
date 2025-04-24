@@ -11,17 +11,18 @@ namespace EnviroMonitorApp.Services
 {
     public class EnvironmentalDataApiService : IEnvironmentalDataService
     {
-        readonly IAirQualityApi _airApi;
-        readonly IWeatherApi    _weatherApi;
-        readonly ApiKeyProvider _keys;
-        readonly IWaterQualityApi _waterApi;
+        // injected clients
+        private readonly IAirQualityApi   _airApi;
+        private readonly IWeatherApi      _weatherApi;
+        private readonly IWaterQualityApi _waterApi;
+        private readonly ApiKeyProvider   _keys;
 
-
-        private static DateTime _airCacheStamp  = DateTime.MinValue;
+        // simple in-memory caches
+        private static DateTime _airStamp = DateTime.MinValue;
         private static List<AirQualityRecord>? _airCache;
 
-        private static DateTime _wxCacheStamp   = DateTime.MinValue;
-        private static List<WeatherRecord>?    _wxCache;
+        private static DateTime _wxStamp  = DateTime.MinValue;
+        private static List<WeatherRecord>? _wxCache;
 
         public EnvironmentalDataApiService(
             IAirQualityApi airApi,
@@ -29,123 +30,122 @@ namespace EnviroMonitorApp.Services
             IWaterQualityApi waterApi,
             ApiKeyProvider keys)
         {
-            _airApi = airApi;
+            _airApi   = airApi;
             _weatherApi = weatherApi;
             _waterApi = waterApi;
-            _keys = keys;
+            _keys     = keys;
         }
 
-
+        // ─────────────────────── AIR ────────────────────────────
         public async Task<List<AirQualityRecord>> GetAirQualityAsync()
         {
-            if (_airCache != null && (DateTime.UtcNow - _airCacheStamp) < TimeSpan.FromMinutes(10))
+            if (_airCache != null && (DateTime.UtcNow-_airStamp) < TimeSpan.FromMinutes(10))
                 return _airCache;
 
-            var records = new List<AirQualityRecord>();
+            var outList = new List<AirQualityRecord>();
+            var locs = await _airApi.GetLocations(
+                           iso:"GB",
+                           latlon:"51.5074,-0.1278",
+                           radiusMeters:25_000,
+                           parameterIdsCsv:"7,9,2,1",
+                           limit:10);
 
-            try
+            foreach (var l in locs.Results)
             {
-                var locResp = await _airApi.GetLocations(
-                    iso:             "GB",
-                    latlon:          "51.5074,-0.1278",
-                    radiusMeters:    25_000,
-                    parameterIdsCsv: "7,9,2,1",
-                    limit:           10 // reduced to avoid API throttling
-                );
-
-                foreach (var loc in locResp.Results)
+                var latest = await _airApi.GetLocationLatest(l.Id);
+                double no2=0,so2=0,pm25=0,pm10=0; DateTime ts=DateTime.MinValue;
+                foreach (var m in latest.Results)
                 {
-                    var latest = await _airApi.GetLocationLatest(loc.Id);
-
-                    double no2 = 0, so2 = 0, pm25 = 0, pm10 = 0;
-                    DateTime stamp = DateTime.MinValue;
-
-                    foreach (var m in latest.Results)
+                    ts = (DateTime.Parse(m.Datetime.Utc) > ts) ? DateTime.Parse(m.Datetime.Utc) : ts;
+                    var sensor = l.Sensors.FirstOrDefault(s=>s.Id==m.SensorsId);
+                    if (sensor==null) continue;
+                    switch(sensor.Parameter.Name.ToLower())
                     {
-                        var dt = DateTime.Parse(m.Datetime.Utc, CultureInfo.InvariantCulture);
-                        stamp  = dt > stamp ? dt : stamp;
-
-                        var sensor = loc.Sensors.FirstOrDefault(s => s.Id == m.SensorsId);
-                        if (sensor is null) continue;
-
-                        switch (sensor.Parameter.Name.ToLowerInvariant())
-                        {
-                            case "no2":  no2  = m.Value; break;
-                            case "so2":  so2  = m.Value; break;
-                            case "pm25": pm25 = m.Value; break;
-                            case "pm10": pm10 = m.Value; break;
-                        }
+                        case "no2":  no2  = m.Value; break;
+                        case "so2":  so2  = m.Value; break;
+                        case "pm25": pm25 = m.Value; break;
+                        case "pm10": pm10 = m.Value; break;
                     }
-
-                    records.Add(new AirQualityRecord
-                    {
-                        Timestamp = stamp,
-                        NO2       = no2,
-                        SO2       = so2,
-                        PM25      = pm25,
-                        PM10      = pm10
-                    });
                 }
-
-                _airCache = records;
-                _airCacheStamp = DateTime.UtcNow;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-                throw;
+                outList.Add(new AirQualityRecord{Timestamp=ts,NO2=no2,SO2=so2,PM25=pm25,PM10=pm10});
             }
 
-            return records;
+            _airCache = outList; _airStamp = DateTime.UtcNow;
+            return outList;
         }
 
-        public async Task<List<WeatherRecord>> GetWeatherAsync()
+        // ─────────────────────── WEATHER ───────────────────────
+        public async Task<IReadOnlyList<WeatherRecord>> GetWeatherAsync()
         {
-            if (_wxCache != null && (DateTime.UtcNow - _wxCacheStamp) < TimeSpan.FromMinutes(10))
+            if (_wxCache!=null && (DateTime.UtcNow-_wxStamp)<TimeSpan.FromMinutes(10))
                 return _wxCache;
 
             var resp = await _weatherApi.GetForecast(
-                lat:    51.5074,
-                lon:   -0.1278,
-                apiKey: _keys.OpenWeatherMap,
-                units:  "metric"
-            );
+                           51.5074,-0.1278,_keys.OpenWeatherMap,"metric");
 
-            var list = resp.List
-                .Select(it => new WeatherRecord
-                {
-                    Timestamp   = DateTimeOffset.FromUnixTimeSeconds(it.Dt).DateTime,
-                    Temperature = it.Main.Temp,
-                    Humidity    = it.Main.Humidity,
-                    WindSpeed   = it.Wind.Speed
-                })
-                .ToList();
-
-            _wxCache = list;
-            _wxCacheStamp = DateTime.UtcNow;
-
-            return list;
-        }
-
-        public async Task<IReadOnlyList<WaterQualityRecord>> GetWaterQualityAsync(int hours = 24)
-        {
-            var since = DateTime.UtcNow.AddHours(-hours).ToString("yyyy-MM-ddTHH:mm:ssZ");
-
-            var resp = await _waterApi.GetRange(
-                measureUrl: "https://environment.data.gov.uk/hydrology/id/measures/E05962A-nitrate-i-subdaily-mgL",
-                sinceUtc:   since
-            );
-
-            return resp.Items.Select(r => new WaterQualityRecord
-            {
-                Timestamp = DateTime.Parse(r.DateTime),
-                Nitrate   = r.Value
+            _wxCache = resp.List.Select(r=>new WeatherRecord{
+                Timestamp   = DateTimeOffset.FromUnixTimeSeconds(r.Dt).DateTime,
+                Temperature = r.Main.Temp,
+                Humidity    = r.Main.Humidity,
+                WindSpeed   = r.Wind.Speed
             }).ToList();
+
+            _wxStamp = DateTime.UtcNow;
+            return _wxCache;
         }
+
+        // ─────────────────────── WATER (live multi-station) ────
+        private static readonly Dictionary<string,string> _measureMap = new()
+        {
+            ["nitrate"] = "https://environment.data.gov.uk/hydrology/id/measures/E05962A-nitrate-i-subdaily-mgL",
+            ["ph"]      = "https://environment.data.gov.uk/hydrology/id/measures/E05962A-ph-i-subdaily",
+            ["oxygen"]  = "https://environment.data.gov.uk/hydrology/id/measures/E05962A-do-i-subdaily-mgL",
+            ["temp"]    = "https://environment.data.gov.uk/hydrology/id/measures/E05962A-temp-i-subdaily-C"
+        };
+
+        public async Task<IReadOnlyList<WaterQualityRecord>> GetWaterQualityAsync(int hours)
+        {
+            var since = DateTime.UtcNow.AddHours(-hours)
+                                    .ToString("yyyy-MM-ddTHH:mm:ssZ");
+
+            // 1️⃣  pull every parameter in parallel
+            var tasks = _measureMap.Select(kvp =>
+                _waterApi.GetRange(kvp.Value, since)
+                        .ContinueWith(t => (kvp.Key, t.Result)))
+                        .ToArray();
+
+            await Task.WhenAll(tasks);
+
+            // 2️⃣  merge by timestamp (to the minute)
+            var bucket = new Dictionary<DateTime, WaterQualityRecord>();
+
+            foreach (var (key, resp) in tasks.Select(t => t.Result))
+            foreach (var r in resp.Items.Take(100))   // cap to avoid huge joins
+            {
+                var ts = DateTime.Parse(r.DateTime).AddSeconds(-DateTime.Parse(r.DateTime).Second); // round to minute
+                if (!bucket.TryGetValue(ts, out var rec))
+                    bucket[ts] = rec = new WaterQualityRecord { Timestamp = ts };
+
+                switch (key)
+                {
+                    case "nitrate":   rec.Nitrate         = r.Value; break;
+                    case "ph":        rec.PH              = r.Value; break;
+                    case "oxygen":    rec.DissolvedOxygen = r.Value; break;
+                    case "temp":      rec.Temperature     = r.Value; break;
+                }
+            }
+
+            // 3️⃣  order & take newest 10
+            return bucket.Values.OrderByDescending(r => r.Timestamp)
+                                .Take(10)
+                                .ToList();
+        }
+        // fulfils IEnvironmentalDataService
         public Task<IReadOnlyList<WaterQualityRecord>> GetWaterQualityAsync()
         {
-            // default to the last 24 h
+            // default: last 24 h (you can choose any horizon)
             return GetWaterQualityAsync(24);
         }
+
     }
 }

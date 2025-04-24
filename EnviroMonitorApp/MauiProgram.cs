@@ -3,6 +3,7 @@ using Refit;
 using EnviroMonitorApp.Services;
 using EnviroMonitorApp.Services.Apis;
 using EnviroMonitorApp.Views;  
+using EnviroMonitorApp.ViewModels;
 
 namespace EnviroMonitorApp;
 
@@ -28,6 +29,7 @@ public static class MauiProgram
 		builder.Services.AddTransient<AirQualityPage>(); // tab pages
 		builder.Services.AddTransient<WeatherPage>();
 		builder.Services.AddTransient<WaterQualityPage>();
+		builder.Services.AddTransient<WaterQualityViewModel>();
 
 
 
