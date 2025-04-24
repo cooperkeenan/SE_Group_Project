@@ -1,9 +1,12 @@
-﻿namespace EnviroMonitorApp;
+﻿using Microsoft.Maui.Controls;
 
-public partial class AppShell : Shell
+namespace EnviroMonitorApp
 {
-    public AppShell()
+    public partial class AppShell : Shell
     {
-        InitializeComponent();
+        public AppShell()
+        {
+            InitializeComponent();
+        }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Maui.Controls;
 
 namespace EnviroMonitorApp.Views
@@ -7,6 +8,11 @@ namespace EnviroMonitorApp.Views
         public SensorConfigurationPage()
         {
             InitializeComponent();
+        }
+
+        void OnMenuClicked(object sender, EventArgs e)
+        {
+            Shell.Current.FlyoutIsPresented = !Shell.Current.FlyoutIsPresented;
         }
     }
 }

@@ -1,12 +1,28 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Shell
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:EnviroMonitorApp.Views"
     x:Class="EnviroMonitorApp.AppShell">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate views:MainPage}" />
-</Shell>
+  <FlyoutItem Title="Dashboard" Icon="dashboard.svg">
+    <ShellContent ContentTemplate="{DataTemplate views:DashboardPage}" />
+  </FlyoutItem>
 
+  <FlyoutItem Title="Users" Icon="users.svg">
+    <ShellContent ContentTemplate="{DataTemplate views:UserManagementPage}" />
+  </FlyoutItem>
+
+  <FlyoutItem Title="Sensors" Icon="sensor.svg">
+    <ShellContent ContentTemplate="{DataTemplate views:SensorConfigurationPage}" />
+  </FlyoutItem>
+
+  <FlyoutItem Title="History" Icon="history.svg">
+    <ShellContent ContentTemplate="{DataTemplate views:SensorHistoryPage}" />
+  </FlyoutItem>
+
+  <FlyoutItem Title="Backups" Icon="backup.svg">
+    <ShellContent ContentTemplate="{DataTemplate views:BackupManagementPage}" />
+  </FlyoutItem>
+
+</Shell>

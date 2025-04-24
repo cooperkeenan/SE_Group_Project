@@ -2,11 +2,25 @@
 <ContentPage
     x:Class="EnviroMonitorApp.Views.SensorHistoryPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Sensor History">
+
+  <ContentPage.ToolbarItems>
+    <ToolbarItem IconImageSource="hamburger.png"
+                 Order="Primary"
+                 Priority="0"
+                 Clicked="OnMenuClicked" />
+  </ContentPage.ToolbarItems>
+
+  <Shell.TitleView>
+    <Label Text="Sensor History"
+           HorizontalOptions="Center"
+           VerticalOptions="Center" />
+  </Shell.TitleView>
+
   <ContentPage.Content>
-    <Label
-      Text="Sensor History Page"
-      VerticalOptions="Center"
-      HorizontalOptions="Center" />
+    <Label Text="Sensor History Page"
+           VerticalOptions="Center"
+           HorizontalOptions="Center" />
   </ContentPage.Content>
 </ContentPage>
