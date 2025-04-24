@@ -5,13 +5,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Dashboard">
 
-  <ContentPage.ToolbarItems>
-    <ToolbarItem IconImageSource="hamburger.png"
-                 Order="Primary"
-                 Priority="0"
-                 Clicked="OnMenuClicked" />
-  </ContentPage.ToolbarItems>
-
   <Shell.TitleView>
     <Label Text="Dashboard"
            HorizontalOptions="Center"
