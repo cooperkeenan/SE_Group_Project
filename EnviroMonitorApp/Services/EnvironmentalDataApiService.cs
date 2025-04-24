@@ -15,6 +15,12 @@ namespace EnviroMonitorApp.Services
         readonly IWeatherApi    _weatherApi;
         readonly ApiKeyProvider _keys;
 
+        private static DateTime _airCacheStamp  = DateTime.MinValue;
+        private static List<AirQualityRecord>? _airCache;
+
+        private static DateTime _wxCacheStamp   = DateTime.MinValue;
+        private static List<WeatherRecord>?    _wxCache;
+
         public EnvironmentalDataApiService(
             IAirQualityApi airApi,
             IWeatherApi    weatherApi,
@@ -27,21 +33,21 @@ namespace EnviroMonitorApp.Services
 
         public async Task<List<AirQualityRecord>> GetAirQualityAsync()
         {
+            if (_airCache != null && (DateTime.UtcNow - _airCacheStamp) < TimeSpan.FromMinutes(10))
+                return _airCache;
+
             var records = new List<AirQualityRecord>();
 
             try
             {
-                // 1️⃣  grab all London locations with NO₂, SO₂, PM₂.₅, PM₁₀
                 var locResp = await _airApi.GetLocations(
                     iso:             "GB",
                     latlon:          "51.5074,-0.1278",
                     radiusMeters:    25_000,
-                    parameterIdsCsv: "7,9,2,1", // NO₂=7, SO₂=9, PM₂.₅=2, PM₁₀=1
-                    limit:           50
+                    parameterIdsCsv: "7,9,2,1",
+                    limit:           10 // reduced to avoid API throttling
                 );
 
-                // 2️⃣  fetch “latest” block for each location,
-                //      then pivot into a single AirQualityRecord
                 foreach (var loc in locResp.Results)
                 {
                     var latest = await _airApi.GetLocationLatest(loc.Id);
@@ -75,12 +81,13 @@ namespace EnviroMonitorApp.Services
                         PM10      = pm10
                     });
                 }
+
+                _airCache = records;
+                _airCacheStamp = DateTime.UtcNow;
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("╔══ Deserialization failed ════════════════════════════");
                 Debug.WriteLine(ex);
-                Debug.WriteLine("╚═════════════════════════════════════════════════════");
                 throw;
             }
 
@@ -89,6 +96,9 @@ namespace EnviroMonitorApp.Services
 
         public async Task<List<WeatherRecord>> GetWeatherAsync()
         {
+            if (_wxCache != null && (DateTime.UtcNow - _wxCacheStamp) < TimeSpan.FromMinutes(10))
+                return _wxCache;
+
             var resp = await _weatherApi.GetForecast(
                 lat:    51.5074,
                 lon:   -0.1278,
@@ -96,7 +106,7 @@ namespace EnviroMonitorApp.Services
                 units:  "metric"
             );
 
-            return resp.List
+            var list = resp.List
                 .Select(it => new WeatherRecord
                 {
                     Timestamp   = DateTimeOffset.FromUnixTimeSeconds(it.Dt).DateTime,
@@ -105,6 +115,11 @@ namespace EnviroMonitorApp.Services
                     WindSpeed   = it.Wind.Speed
                 })
                 .ToList();
+
+            _wxCache = list;
+            _wxCacheStamp = DateTime.UtcNow;
+
+            return list;
         }
     }
 }

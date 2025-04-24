@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Shell
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:views="clr-namespace:EnviroMonitorApp.Views"
-    x:Class="EnviroMonitorApp.AppShell">
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:EnviroMonitorApp.Views"
+       x:Class="EnviroMonitorApp.AppShell">
 
-  <!-- Air Quality only for now -->
-  <FlyoutItem Title="Air Quality" Icon="air.png">
-    <ShellContent 
-      Title="Air" 
-      ContentTemplate="{DataTemplate views:AirQualityPage}" />
-  </FlyoutItem>
+    <TabBar>
+        <ShellContent Title="Air"
+                      ContentTemplate="{DataTemplate views:AirQualityPage}" />
 
-  <!--
-  <FlyoutItem Title="Weather" Icon="weather.png">
-    <ShellContent Title="Weather" ContentTemplate="{DataTemplate views:WeatherPage}" />
-  </FlyoutItem>
-
-  <FlyoutItem Title="Water" Icon="water.png">
-    <ShellContent Title="Water" ContentTemplate="{DataTemplate views:WaterQualityPage}" />
-  </FlyoutItem>
-  -->
+        <ShellContent Title="Weather"
+                      ContentTemplate="{DataTemplate views:WeatherPage}" />
+    </TabBar>
 
 </Shell>

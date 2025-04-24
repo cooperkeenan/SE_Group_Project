@@ -28,7 +28,7 @@ namespace EnviroMonitorApp.Services.Apis
     public interface IWeatherApi
     {
         // forecast endpoint returns a List<...>
-        [Get("/forecast")]
+        [Get("/data/2.5/forecast")] 
         Task<OpenWeatherForecastResponse> GetForecast(
             [AliasAs("lat")] double lat,
             [AliasAs("lon")] double lon,

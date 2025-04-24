@@ -2,6 +2,7 @@
 using Refit;
 using EnviroMonitorApp.Services;
 using EnviroMonitorApp.Services.Apis;
+using EnviroMonitorApp.Views;  
 
 namespace EnviroMonitorApp;
 
@@ -22,6 +23,11 @@ public static class MauiProgram
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
+
+		builder.Services.AddSingleton<AppShell>();       // root
+		builder.Services.AddTransient<AirQualityPage>(); // tab pages
+		builder.Services.AddTransient<WeatherPage>();
+
 
         // your key provider
         builder.Services.AddSingleton<ApiKeyProvider>();
@@ -54,6 +60,8 @@ public static class MauiProgram
         // register your data service
         builder.Services
             .AddSingleton<IEnvironmentalDataService, EnvironmentalDataApiService>();
+		
+
 
         return builder.Build();
     }

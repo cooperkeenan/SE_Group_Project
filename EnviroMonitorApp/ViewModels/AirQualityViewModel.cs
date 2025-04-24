@@ -27,9 +27,8 @@ namespace EnviroMonitorApp.ViewModels
         {
             try
             {
-                Debug.WriteLine("⏳ Fetching air quality data...");
+
                 var data = await _dataService.GetAirQualityAsync();
-                Debug.WriteLine($"✅ Got {data.Count} records.");
 
                 AirQuality.Clear();
                 foreach (var record in data)
@@ -41,7 +40,7 @@ namespace EnviroMonitorApp.ViewModels
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"❌ Load failed: {ex}");
+                Debug.WriteLine($" Load failed: {ex}");
                 throw;
             }
         }
