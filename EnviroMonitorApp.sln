@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnviroMonitorApp", "EnviroMonitorApp\EnviroMonitorApp.csproj", "{2FBA5515-A284-4B96-AA02-7211EA9AA621}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnviroMonitorApp.Tests", "EnviroMonitorApp.Tests\EnviroMonitorApp.Tests.csproj", "{99A5C1BE-E0D1-4166-89B4-07F6D4FA4D1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{2FBA5515-A284-4B96-AA02-7211EA9AA621}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FBA5515-A284-4B96-AA02-7211EA9AA621}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FBA5515-A284-4B96-AA02-7211EA9AA621}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99A5C1BE-E0D1-4166-89B4-07F6D4FA4D1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99A5C1BE-E0D1-4166-89B4-07F6D4FA4D1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99A5C1BE-E0D1-4166-89B4-07F6D4FA4D1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99A5C1BE-E0D1-4166-89B4-07F6D4FA4D1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

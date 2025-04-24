@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EnviroMonitorApp.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f5af1af46db55727ea8b01d583a022eb831d6ab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8db574c0a90efc80d4488494b4454d9bd539d795")]
 [assembly: System.Reflection.AssemblyProductAttribute("EnviroMonitorApp.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EnviroMonitorApp.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
