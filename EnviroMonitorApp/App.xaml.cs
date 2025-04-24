@@ -9,6 +9,8 @@ namespace EnviroMonitorApp
         {
             InitializeComponent();
             MainPage = shell;        // the Shell is now the root page
+
+
         }
     }
 }

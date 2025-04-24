@@ -9,6 +9,7 @@ namespace EnviroMonitorApp
         public AppShell()
         {
             InitializeComponent();
+			Routing.RegisterRoute(nameof(WaterQualityPage), typeof(WaterQualityPage));
 
             // optional explicit routes (not needed for simple tabs)
             Routing.RegisterRoute(nameof(AirQualityPage), typeof(AirQualityPage));

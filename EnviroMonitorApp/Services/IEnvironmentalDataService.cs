@@ -9,5 +9,8 @@ namespace EnviroMonitorApp.Services
     {
         Task<List<AirQualityRecord>> GetAirQualityAsync();
         Task<List<WeatherRecord>>    GetWeatherAsync();
+        Task<IReadOnlyList<WaterQualityRecord>> GetWaterQualityAsync();
+
+
     }
 }

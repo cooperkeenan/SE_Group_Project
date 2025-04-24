@@ -27,6 +27,8 @@ public static class MauiProgram
 		builder.Services.AddSingleton<AppShell>();       // root
 		builder.Services.AddTransient<AirQualityPage>(); // tab pages
 		builder.Services.AddTransient<WeatherPage>();
+		builder.Services.AddTransient<WaterQualityPage>();
+
 
 
         // your key provider
@@ -56,6 +58,14 @@ public static class MauiProgram
             {
                 c.BaseAddress = new Uri("https://api.openweathermap.org/");
             });
+
+		builder.Services
+			.AddRefitClient<IWaterQualityApi>()
+			.ConfigureHttpClient(c =>
+			{
+				c.BaseAddress = new Uri("https://environment.data.gov.uk/");
+			});
+
 
         // register your data service
         builder.Services

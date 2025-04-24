@@ -14,6 +14,8 @@ namespace EnviroMonitorApp.Services
         readonly IAirQualityApi _airApi;
         readonly IWeatherApi    _weatherApi;
         readonly ApiKeyProvider _keys;
+        readonly IWaterQualityApi _waterApi;
+
 
         private static DateTime _airCacheStamp  = DateTime.MinValue;
         private static List<AirQualityRecord>? _airCache;
@@ -23,13 +25,16 @@ namespace EnviroMonitorApp.Services
 
         public EnvironmentalDataApiService(
             IAirQualityApi airApi,
-            IWeatherApi    weatherApi,
+            IWeatherApi weatherApi,
+            IWaterQualityApi waterApi,
             ApiKeyProvider keys)
         {
-            _airApi     = airApi;
+            _airApi = airApi;
             _weatherApi = weatherApi;
-            _keys       = keys;
+            _waterApi = waterApi;
+            _keys = keys;
         }
+
 
         public async Task<List<AirQualityRecord>> GetAirQualityAsync()
         {
@@ -120,6 +125,27 @@ namespace EnviroMonitorApp.Services
             _wxCacheStamp = DateTime.UtcNow;
 
             return list;
+        }
+
+        public async Task<IReadOnlyList<WaterQualityRecord>> GetWaterQualityAsync(int hours = 24)
+        {
+            var since = DateTime.UtcNow.AddHours(-hours).ToString("yyyy-MM-ddTHH:mm:ssZ");
+
+            var resp = await _waterApi.GetRange(
+                measureUrl: "https://environment.data.gov.uk/hydrology/id/measures/E05962A-nitrate-i-subdaily-mgL",
+                sinceUtc:   since
+            );
+
+            return resp.Items.Select(r => new WaterQualityRecord
+            {
+                Timestamp = DateTime.Parse(r.DateTime),
+                Nitrate   = r.Value
+            }).ToList();
+        }
+        public Task<IReadOnlyList<WaterQualityRecord>> GetWaterQualityAsync()
+        {
+            // default to the last 24 h
+            return GetWaterQualityAsync(24);
         }
     }
 }
