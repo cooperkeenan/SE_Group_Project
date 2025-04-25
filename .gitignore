@@ -7,3 +7,4 @@ obj/
 
 .env
 .DS_Store
+appsettings.development.json
