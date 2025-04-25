@@ -1,3 +1,5 @@
+namespace EnviroMonitorApp.Models;
+
 public class WaterQualityRecord
 {
     public DateTime DateTime { get; set; }
