@@ -64,25 +64,20 @@ CREATE TABLE metadata (
 
 
 CREATE TABLE air_quality_records (
-    record_date DATE,
+    record_datetime DATETIME PRIMARY KEY,
     record_time TIME,
     nitrogen_dioxide FLOAT,
     sulphur_dioxide FLOAT,
     pm25 FLOAT,
-    pm10 FLOAT,
-
-    PRIMARY KEY (record_date, record_time)
+    pm10 FLOAT
 );
 
 CREATE TABLE water_quality_records (
-    record_date DATE,
-    record_time TIME,
+    record_datetime DATETIME PRIMARY KEY,
     nitrate FLOAT,
     nitrite FLOAT,
     phosphate FLOAT,
     ec FLOAT
-
-    PRIMARY KEY (record_date, record_time)
 );
 
 CREATE TABLE weather_records (
