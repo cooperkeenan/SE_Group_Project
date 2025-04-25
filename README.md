@@ -1,9 +1,5 @@
 # EnviroMonitor
 
-## Dependencies
-### nuget
-- `Microsoft.EntityFrameworkCore` - For database context
-
 ### Setting up the database
 Ensure the following dependencies are installed:
 - Microsoft.EntityFrameworkCore

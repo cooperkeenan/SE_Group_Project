@@ -3,6 +3,7 @@ using EnviroMonitorApp.Services;
 using EnviroMonitorApp.Views;
 using EnviroMonitorApp.ViewModels;
 using EnviroMonitorApp.Data;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace EnviroMonitorApp;
@@ -39,6 +40,9 @@ public static class MauiProgram
         builder.Services.AddSingleton<Views.MainPage>();
 		builder.Services.AddSingleton<ExcelReaderService>();
     	builder.Services.AddSingleton<IEnvironmentalDataService, EnvironmentalDataService>();
+
+        var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+        builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connectionString));
 
 
         return builder.Build();
