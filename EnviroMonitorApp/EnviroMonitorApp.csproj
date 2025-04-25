@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net8.0-android</TargetFrameworks>
+		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst;net8.0-windows</TargetFrameworks>
 		<OutputType>Exe</OutputType>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
@@ -44,12 +44,13 @@
 		<MauiAsset Include="Resources/Raw/Water_quality.xlsx" />
 	</ItemGroup>
 
+
 	<ItemGroup>
-	  <Folder Include="Data\" />
+		<EmbeddedResource Include="appsettings.json" />
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 	</ItemGroup>
-
-
-
 
 
 </Project>
