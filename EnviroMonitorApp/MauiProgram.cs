@@ -1,6 +1,8 @@
-﻿using EnviroMonitorApp.Services;
-using EnviroMonitorApp.Views;    
+﻿using Microsoft.Extensions.Configuration;
+using EnviroMonitorApp.Services;
+using EnviroMonitorApp.Views;
 using EnviroMonitorApp.ViewModels;
+using EnviroMonitorApp.Data;
 
 
 namespace EnviroMonitorApp;
@@ -11,6 +13,21 @@ public static class MauiProgram
     {
 
         var builder = MauiApp.CreateBuilder();
+        
+        #if DEBUG
+            var appsettingsFile = "appsettings.development.json";
+        #else
+            var appsettingsFile = "appsettings.json";
+        #endif
+        
+        // Load app settings
+        var config = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile(appsettingsFile)
+            .Build();
+        
+        builder.Configuration.AddConfiguration(config);
+        
         builder
             .UseMauiApp<App>()
             .ConfigureFonts(fonts =>
