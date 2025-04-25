@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using EnviroMonitorApp.Models;
 using OfficeOpenXml;
-using Microsoft.Maui.Storage;
 
 namespace EnviroMonitorApp.Services
 {
@@ -30,9 +27,11 @@ namespace EnviroMonitorApp.Services
                 {
                     results.Add(new WeatherRecord
                     {
-                        Date = sheet.Cells[row, 1].Text,
-                        Temperature = double.Parse(sheet.Cells[row, 2].Text),
-                        Humidity = double.Parse(sheet.Cells[row, 3].Text)
+                        DateTime = Convert.ToDateTime(sheet.Cells[row, 1].Text),
+                        Temperature = float.Parse(sheet.Cells[row, 2].Text),
+                        RelativeHumidity = int.Parse(sheet.Cells[row, 3].Text),
+                        WindSpeed = float.Parse(sheet.Cells[row, 4].Text),
+                        WindDirection = int.Parse(sheet.Cells[row, 5].Text)
                     });
                 }
                 catch (Exception ex)
