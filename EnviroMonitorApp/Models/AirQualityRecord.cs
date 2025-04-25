@@ -1,3 +1,5 @@
+namespace EnviroMonitorApp.Models;
+
 public class AirQualityRecord
 {
     public DateTime DateTime { get; set; }

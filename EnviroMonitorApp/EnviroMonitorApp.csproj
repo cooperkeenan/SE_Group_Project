@@ -42,6 +42,10 @@
 		<MauiAsset Include="Resources/Raw/Water_quality.xlsx" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Data\" />
+	</ItemGroup>
+
 
 
 
