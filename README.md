@@ -23,8 +23,19 @@ To connect to the database through Azure Studio, create a new connection with th
 
 Or use the following connection string:
 ```
-Server=localhost;Database=EnviroMonitorDB;User Id=sa;Password=[Password];TrustServerCertificate=True;
+Server=[Computer IP];Database=EnviroMonitorDB;User Id=sa;Password=[Password];TrustServerCertificate=True;
 ```
+
+#### Create the database
+Create the database by importing and running the `create_database.sql` file with Azure Data Studio
+
+#### Populate Tables
+Run the following scripts in any order to populate the tables with relevant data
+- `populate_metadata.sql`
+- `populate_air_quality_records.sql`
+- `populate_water_quality_records.sql`
+- `populate_weather_records.sql`
+
 
 ## Configurations
 ### `appsettings.json`
