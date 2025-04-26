@@ -1,1 +1,13 @@
+# report generator 
 EnviroMonitorApp.Tests/generate-coverage.sh
+
+# macOS
+.DS_Store
+
+# Build artifacts
+bin/
+obj/
+
+# DocFX output
+_site/
+api/
