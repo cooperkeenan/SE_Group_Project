@@ -12,5 +12,6 @@
 - **Coverage dashboard:**  
   <https://raw.githack.com/cooperkeenan/SE_Group_Project/UnitTests/APIs/docs/coverage-report/index.html>
 
-- **Generated API docs:**  
-  <https://raw.githack.com/cooperkeenan/SE_Group_Project/UnitTests/APIs/docs/api-docs/site/index.html>
+
+[View API Docs](https://raw.githack.com/cooperkeenan/SE_Group_Project/UnitTests%2FAPIs/docs/api-docs/site/index.html)
+
