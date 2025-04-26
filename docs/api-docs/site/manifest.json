@@ -1,4 +1,606 @@
 {
   "source_base_path": "/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docs/api-docs",
-  "files": []
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.App.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.App.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.App",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.AppShell.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.AppShell.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.AppShell",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.MainPage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.MainPage.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.MainPage",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.MauiProgram.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.MauiProgram.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.MauiProgram",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Models.AirQualityRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Models.AirQualityRecord.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Models.AirQualityRecord",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Models.WaterQualityRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Models.WaterQualityRecord.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Models.WaterQualityRecord",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Models.WeatherRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Models.WeatherRecord.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Models.WeatherRecord",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Models.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Models",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.ApiKeyProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.ApiKeyProvider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.ApiKeyProvider",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.DateWrapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.DateWrapper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.DateWrapper",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.IAirQualityApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.IAirQualityApi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.IAirQualityApi",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.IWaterQualityApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.IWaterQualityApi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.IWaterQualityApi",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.IWeatherApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.IWeatherApi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.IWeatherApi",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.LatestResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.LatestResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.LatestResult",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.Location.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.Location.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.Location",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.LocationLatestResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.LocationLatestResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.LocationLatestResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.LocationResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.LocationResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.LocationResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.Meta.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.Meta.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.Meta",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.OpenWeatherForecastResponse.ListItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.OpenWeatherForecastResponse.ListItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.OpenWeatherForecastResponse.ListItem",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.OpenWeatherForecastResponse.MainInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.OpenWeatherForecastResponse.MainInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.OpenWeatherForecastResponse.MainInfo",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.OpenWeatherForecastResponse.WindInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.OpenWeatherForecastResponse.WindInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.OpenWeatherForecastResponse.WindInfo",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.OpenWeatherForecastResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.OpenWeatherForecastResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.OpenWeatherForecastResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.Parameter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.Parameter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.Parameter",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.ReadingItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.ReadingItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.ReadingItem",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.Sensor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.Sensor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.Sensor",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.WaterQualityResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.WaterQualityResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.WaterQualityResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.EnvironmentalDataApiService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.EnvironmentalDataApiService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.EnvironmentalDataApiService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.HttpLoggingHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.HttpLoggingHandler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.HttpLoggingHandler",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.HttpLoggingHandler.yml\" sourcestartlinenumber=\"1\">Dumps every request/response to Debug so you can\nwatch JSON (or errors) in logcat / VS output.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.IEnvironmentalDataService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.IEnvironmentalDataService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.IEnvironmentalDataService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.ViewModels.AirQualityViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.ViewModels.AirQualityViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.ViewModels.AirQualityViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.ViewModels.BaseViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.ViewModels.BaseViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.ViewModels.BaseViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.ViewModels.WaterQualityViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.ViewModels.WaterQualityViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.ViewModels.WaterQualityViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.ViewModels.WeatherViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.ViewModels.WeatherViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.ViewModels.WeatherViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.ViewModels.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.ViewModels.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.ViewModels",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Views.AirQualityPage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Views.AirQualityPage.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Views.AirQualityPage",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Views.WaterQualityPage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Views.WaterQualityPage.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Views.WaterQualityPage",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Views.WeatherPage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Views.WeatherPage.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Views.WeatherPage",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Views.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Views.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Views",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
 }
