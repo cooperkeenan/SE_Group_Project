@@ -1,0 +1,1576 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<coverage line-rate="0.5043" branch-rate="0.6833" version="1.9" timestamp="1745691439" lines-covered="174" lines-valid="345" branches-covered="41" branches-valid="60">
+  <sources>
+    <source>/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/EnviroMonitorApp/</source>
+  </sources>
+  <packages>
+    <package name="EnviroMonitorApp" line-rate="0.5043" branch-rate="0.6833" complexity="143">
+      <classes>
+        <class name="__XamlGeneratedCode__.__Type14E9A93B05FBB852" filename="obj/Debug/net8.0/Microsoft.Maui.Controls.SourceGen/Microsoft.Maui.Controls.SourceGen.CodeBehindGenerator/Resources_Styles_Colors.xaml.sg.cs" line-rate="0" branch-rate="1" complexity="2">
+          <methods>
+            <method name="InitializeComponent" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="29" hits="0" branch="False" />
+                <line number="30" hits="0" branch="False" />
+                <line number="31" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="20" hits="0" branch="False" />
+                <line number="21" hits="0" branch="False" />
+                <line number="22" hits="0" branch="False" />
+                <line number="23" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="29" hits="0" branch="False" />
+            <line number="30" hits="0" branch="False" />
+            <line number="31" hits="0" branch="False" />
+            <line number="20" hits="0" branch="False" />
+            <line number="21" hits="0" branch="False" />
+            <line number="22" hits="0" branch="False" />
+            <line number="23" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="__XamlGeneratedCode__.__Type235003C313650CCC" filename="obj/Debug/net8.0/Microsoft.Maui.Controls.SourceGen/Microsoft.Maui.Controls.SourceGen.CodeBehindGenerator/Resources_Styles_Styles.xaml.sg.cs" line-rate="0" branch-rate="1" complexity="2">
+          <methods>
+            <method name="InitializeComponent" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="29" hits="0" branch="False" />
+                <line number="30" hits="0" branch="False" />
+                <line number="31" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="20" hits="0" branch="False" />
+                <line number="21" hits="0" branch="False" />
+                <line number="22" hits="0" branch="False" />
+                <line number="23" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="29" hits="0" branch="False" />
+            <line number="30" hits="0" branch="False" />
+            <line number="31" hits="0" branch="False" />
+            <line number="20" hits="0" branch="False" />
+            <line number="21" hits="0" branch="False" />
+            <line number="22" hits="0" branch="False" />
+            <line number="23" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.App" filename="obj/Debug/net8.0/Microsoft.Maui.Controls.SourceGen/Microsoft.Maui.Controls.SourceGen.CodeBehindGenerator/App.xaml.sg.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="InitializeComponent" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="21" hits="0" branch="False" />
+                <line number="22" hits="0" branch="False" />
+                <line number="23" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="21" hits="0" branch="False" />
+            <line number="22" hits="0" branch="False" />
+            <line number="23" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.App" filename="App.xaml.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(EnviroMonitorApp.AppShell)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="0" branch="False" />
+                <line number="9" hits="0" branch="False" />
+                <line number="10" hits="0" branch="False" />
+                <line number="11" hits="0" branch="False" />
+                <line number="14" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="8" hits="0" branch="False" />
+            <line number="9" hits="0" branch="False" />
+            <line number="10" hits="0" branch="False" />
+            <line number="11" hits="0" branch="False" />
+            <line number="14" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.AppShell" filename="obj/Debug/net8.0/Microsoft.Maui.Controls.SourceGen/Microsoft.Maui.Controls.SourceGen.CodeBehindGenerator/AppShell.xaml.sg.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="InitializeComponent" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="21" hits="0" branch="False" />
+                <line number="22" hits="0" branch="False" />
+                <line number="23" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="21" hits="0" branch="False" />
+            <line number="22" hits="0" branch="False" />
+            <line number="23" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.AppShell" filename="AppShell.xaml.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="0" branch="False" />
+                <line number="10" hits="0" branch="False" />
+                <line number="11" hits="0" branch="False" />
+                <line number="12" hits="0" branch="False" />
+                <line number="15" hits="0" branch="False" />
+                <line number="16" hits="0" branch="False" />
+                <line number="17" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="9" hits="0" branch="False" />
+            <line number="10" hits="0" branch="False" />
+            <line number="11" hits="0" branch="False" />
+            <line number="12" hits="0" branch="False" />
+            <line number="15" hits="0" branch="False" />
+            <line number="16" hits="0" branch="False" />
+            <line number="17" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.MauiProgram" filename="MauiProgram.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="CreateMauiApp" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="13" hits="0" branch="False" />
+                <line number="14" hits="0" branch="False" />
+                <line number="16" hits="0" branch="False" />
+                <line number="17" hits="0" branch="False" />
+                <line number="18" hits="0" branch="False" />
+                <line number="19" hits="0" branch="False" />
+                <line number="20" hits="0" branch="False" />
+                <line number="21" hits="0" branch="False" />
+                <line number="22" hits="0" branch="False" />
+                <line number="25" hits="0" branch="False" />
+                <line number="28" hits="0" branch="False" />
+                <line number="29" hits="0" branch="False" />
+                <line number="30" hits="0" branch="False" />
+                <line number="31" hits="0" branch="False" />
+                <line number="32" hits="0" branch="False" />
+                <line number="37" hits="0" branch="False" />
+                <line number="39" hits="0" branch="False" />
+                <line number="43" hits="0" branch="False" />
+                <line number="44" hits="0" branch="False" />
+                <line number="45" hits="0" branch="False" />
+                <line number="46" hits="0" branch="False" />
+                <line number="47" hits="0" branch="False" />
+                <line number="48" hits="0" branch="False" />
+                <line number="49" hits="0" branch="False" />
+                <line number="50" hits="0" branch="False" />
+                <line number="51" hits="0" branch="False" />
+                <line number="52" hits="0" branch="False" />
+                <line number="53" hits="0" branch="False" />
+                <line number="56" hits="0" branch="False" />
+                <line number="57" hits="0" branch="False" />
+                <line number="58" hits="0" branch="False" />
+                <line number="59" hits="0" branch="False" />
+                <line number="60" hits="0" branch="False" />
+                <line number="61" hits="0" branch="False" />
+                <line number="62" hits="0" branch="False" />
+                <line number="64" hits="0" branch="False" />
+                <line number="65" hits="0" branch="False" />
+                <line number="66" hits="0" branch="False" />
+                <line number="67" hits="0" branch="False" />
+                <line number="68" hits="0" branch="False" />
+                <line number="69" hits="0" branch="False" />
+                <line number="73" hits="0" branch="False" />
+                <line number="74" hits="0" branch="False" />
+                <line number="78" hits="0" branch="False" />
+                <line number="79" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="13" hits="0" branch="False" />
+            <line number="14" hits="0" branch="False" />
+            <line number="16" hits="0" branch="False" />
+            <line number="17" hits="0" branch="False" />
+            <line number="18" hits="0" branch="False" />
+            <line number="19" hits="0" branch="False" />
+            <line number="20" hits="0" branch="False" />
+            <line number="21" hits="0" branch="False" />
+            <line number="22" hits="0" branch="False" />
+            <line number="25" hits="0" branch="False" />
+            <line number="28" hits="0" branch="False" />
+            <line number="29" hits="0" branch="False" />
+            <line number="30" hits="0" branch="False" />
+            <line number="31" hits="0" branch="False" />
+            <line number="32" hits="0" branch="False" />
+            <line number="37" hits="0" branch="False" />
+            <line number="39" hits="0" branch="False" />
+            <line number="43" hits="0" branch="False" />
+            <line number="44" hits="0" branch="False" />
+            <line number="45" hits="0" branch="False" />
+            <line number="46" hits="0" branch="False" />
+            <line number="47" hits="0" branch="False" />
+            <line number="48" hits="0" branch="False" />
+            <line number="49" hits="0" branch="False" />
+            <line number="50" hits="0" branch="False" />
+            <line number="51" hits="0" branch="False" />
+            <line number="52" hits="0" branch="False" />
+            <line number="53" hits="0" branch="False" />
+            <line number="56" hits="0" branch="False" />
+            <line number="57" hits="0" branch="False" />
+            <line number="58" hits="0" branch="False" />
+            <line number="59" hits="0" branch="False" />
+            <line number="60" hits="0" branch="False" />
+            <line number="61" hits="0" branch="False" />
+            <line number="62" hits="0" branch="False" />
+            <line number="64" hits="0" branch="False" />
+            <line number="65" hits="0" branch="False" />
+            <line number="66" hits="0" branch="False" />
+            <line number="67" hits="0" branch="False" />
+            <line number="68" hits="0" branch="False" />
+            <line number="69" hits="0" branch="False" />
+            <line number="73" hits="0" branch="False" />
+            <line number="74" hits="0" branch="False" />
+            <line number="78" hits="0" branch="False" />
+            <line number="79" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.MainPage" filename="Views/MainPage.xaml.cs" line-rate="0" branch-rate="0" complexity="3">
+          <methods>
+            <method name="OnCounterClicked" signature="(System.Object,System.EventArgs)" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="13" hits="0" branch="False" />
+                <line number="14" hits="0" branch="False" />
+                <line number="16" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="26" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="17" hits="0" branch="False" />
+                <line number="19" hits="0" branch="False" />
+                <line number="21" hits="0" branch="False" />
+                <line number="22" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="False" />
+                <line number="7" hits="0" branch="False" />
+                <line number="8" hits="0" branch="False" />
+                <line number="9" hits="0" branch="False" />
+                <line number="10" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="13" hits="0" branch="False" />
+            <line number="14" hits="0" branch="False" />
+            <line number="16" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="26" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="17" hits="0" branch="False" />
+            <line number="19" hits="0" branch="False" />
+            <line number="21" hits="0" branch="False" />
+            <line number="22" hits="0" branch="False" />
+            <line number="5" hits="0" branch="False" />
+            <line number="7" hits="0" branch="False" />
+            <line number="8" hits="0" branch="False" />
+            <line number="9" hits="0" branch="False" />
+            <line number="10" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.MainPage" filename="obj/Debug/net8.0/Microsoft.Maui.Controls.SourceGen/Microsoft.Maui.Controls.SourceGen.CodeBehindGenerator/Views_MainPage.xaml.sg.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="InitializeComponent" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="25" hits="0" branch="False" />
+                <line number="26" hits="0" branch="False" />
+                <line number="27" hits="0" branch="False" />
+                <line number="28" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="25" hits="0" branch="False" />
+            <line number="26" hits="0" branch="False" />
+            <line number="27" hits="0" branch="False" />
+            <line number="28" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Views.AirQualityPage" filename="obj/Debug/net8.0/Microsoft.Maui.Controls.SourceGen/Microsoft.Maui.Controls.SourceGen.CodeBehindGenerator/Views_AirQualityPage.xaml.sg.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="InitializeComponent" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="21" hits="0" branch="False" />
+                <line number="22" hits="0" branch="False" />
+                <line number="23" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="21" hits="0" branch="False" />
+            <line number="22" hits="0" branch="False" />
+            <line number="23" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Views.AirQualityPage" filename="Views/AirQualityPage.xaml.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(EnviroMonitorApp.Services.IEnvironmentalDataService)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="11" hits="0" branch="False" />
+                <line number="12" hits="0" branch="False" />
+                <line number="13" hits="0" branch="False" />
+                <line number="15" hits="0" branch="False" />
+                <line number="16" hits="0" branch="False" />
+                <line number="17" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="11" hits="0" branch="False" />
+            <line number="12" hits="0" branch="False" />
+            <line number="13" hits="0" branch="False" />
+            <line number="15" hits="0" branch="False" />
+            <line number="16" hits="0" branch="False" />
+            <line number="17" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Views.AirQualityPage/&lt;OnAppearing&gt;d__2" filename="Views/AirQualityPage.xaml.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="20" hits="0" branch="False" />
+                <line number="21" hits="0" branch="False" />
+                <line number="24" hits="0" branch="False" />
+                <line number="25" hits="0" branch="False" />
+                <line number="26" hits="0" branch="False" />
+                <line number="27" hits="0" branch="False" />
+                <line number="28" hits="0" branch="False" />
+                <line number="29" hits="0" branch="False" />
+                <line number="30" hits="0" branch="False" />
+                <line number="31" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="20" hits="0" branch="False" />
+            <line number="21" hits="0" branch="False" />
+            <line number="24" hits="0" branch="False" />
+            <line number="25" hits="0" branch="False" />
+            <line number="26" hits="0" branch="False" />
+            <line number="27" hits="0" branch="False" />
+            <line number="28" hits="0" branch="False" />
+            <line number="29" hits="0" branch="False" />
+            <line number="30" hits="0" branch="False" />
+            <line number="31" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Views.WaterQualityPage" filename="obj/Debug/net8.0/Microsoft.Maui.Controls.SourceGen/Microsoft.Maui.Controls.SourceGen.CodeBehindGenerator/Views_WaterQualityPage.xaml.sg.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="InitializeComponent" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="21" hits="0" branch="False" />
+                <line number="22" hits="0" branch="False" />
+                <line number="23" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="21" hits="0" branch="False" />
+            <line number="22" hits="0" branch="False" />
+            <line number="23" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Views.WaterQualityPage" filename="Views/WaterQualityPage.xaml.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(EnviroMonitorApp.Services.IEnvironmentalDataService)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="11" hits="0" branch="False" />
+                <line number="12" hits="0" branch="False" />
+                <line number="13" hits="0" branch="False" />
+                <line number="14" hits="0" branch="False" />
+                <line number="15" hits="0" branch="False" />
+                <line number="16" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="11" hits="0" branch="False" />
+            <line number="12" hits="0" branch="False" />
+            <line number="13" hits="0" branch="False" />
+            <line number="14" hits="0" branch="False" />
+            <line number="15" hits="0" branch="False" />
+            <line number="16" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Views.WaterQualityPage/&lt;OnAppearing&gt;d__2" filename="Views/WaterQualityPage.xaml.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="19" hits="0" branch="False" />
+                <line number="20" hits="0" branch="False" />
+                <line number="21" hits="0" branch="False" />
+                <line number="22" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="19" hits="0" branch="False" />
+            <line number="20" hits="0" branch="False" />
+            <line number="21" hits="0" branch="False" />
+            <line number="22" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Views.WeatherPage" filename="obj/Debug/net8.0/Microsoft.Maui.Controls.SourceGen/Microsoft.Maui.Controls.SourceGen.CodeBehindGenerator/Views_WeatherPage.xaml.sg.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="InitializeComponent" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="21" hits="0" branch="False" />
+                <line number="22" hits="0" branch="False" />
+                <line number="23" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="21" hits="0" branch="False" />
+            <line number="22" hits="0" branch="False" />
+            <line number="23" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Views.WeatherPage" filename="Views/WeatherPage.xaml.cs" line-rate="0" branch-rate="1" complexity="2">
+          <methods>
+            <method name=".ctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="13" hits="0" branch="False" />
+                <line number="14" hits="0" branch="False" />
+                <line number="15" hits="0" branch="False" />
+                <line number="16" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(EnviroMonitorApp.Services.IEnvironmentalDataService)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="19" hits="0" branch="False" />
+                <line number="20" hits="0" branch="False" />
+                <line number="21" hits="0" branch="False" />
+                <line number="22" hits="0" branch="False" />
+                <line number="23" hits="0" branch="False" />
+                <line number="24" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="13" hits="0" branch="False" />
+            <line number="14" hits="0" branch="False" />
+            <line number="15" hits="0" branch="False" />
+            <line number="16" hits="0" branch="False" />
+            <line number="19" hits="0" branch="False" />
+            <line number="20" hits="0" branch="False" />
+            <line number="21" hits="0" branch="False" />
+            <line number="22" hits="0" branch="False" />
+            <line number="23" hits="0" branch="False" />
+            <line number="24" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Views.WeatherPage/&lt;OnAppearing&gt;d__3" filename="Views/WeatherPage.xaml.cs" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="27" hits="0" branch="False" />
+                <line number="28" hits="0" branch="False" />
+                <line number="29" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="64" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="30" hits="0" branch="False" />
+                <line number="31" hits="0" branch="False" />
+                <line number="32" hits="0" branch="False" />
+                <line number="33" hits="0" branch="False" />
+                <line number="34" hits="0" branch="False" />
+                <line number="35" hits="0" branch="False" />
+                <line number="36" hits="0" branch="False" />
+                <line number="37" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="27" hits="0" branch="False" />
+            <line number="28" hits="0" branch="False" />
+            <line number="29" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="64" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="30" hits="0" branch="False" />
+            <line number="31" hits="0" branch="False" />
+            <line number="32" hits="0" branch="False" />
+            <line number="33" hits="0" branch="False" />
+            <line number="34" hits="0" branch="False" />
+            <line number="35" hits="0" branch="False" />
+            <line number="36" hits="0" branch="False" />
+            <line number="37" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.ViewModels.AirQualityViewModel" filename="ViewModels/AirQualityViewModel.cs" line-rate="1" branch-rate="0.5" complexity="4">
+          <methods>
+            <method name="get_AirQuality" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="16" hits="6" branch="False" />
+              </lines>
+            </method>
+            <method name="OnPropertyChanged" signature="(System.String)" line-rate="1" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="49" hits="1" branch="False" />
+                <line number="50" hits="1" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="8" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="51" hits="1" branch="False" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(EnviroMonitorApp.Services.IEnvironmentalDataService)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="20" hits="2" branch="False" />
+                <line number="21" hits="2" branch="False" />
+                <line number="22" hits="2" branch="False" />
+                <line number="23" hits="2" branch="False" />
+                <line number="24" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="16" hits="6" branch="False" />
+            <line number="49" hits="1" branch="False" />
+            <line number="50" hits="1" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="8" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="51" hits="1" branch="False" />
+            <line number="20" hits="2" branch="False" />
+            <line number="21" hits="2" branch="False" />
+            <line number="22" hits="2" branch="False" />
+            <line number="23" hits="2" branch="False" />
+            <line number="24" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.ViewModels.AirQualityViewModel/&lt;LoadAsync&gt;d__9" filename="ViewModels/AirQualityViewModel.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="2">
+              <lines>
+                <line number="27" hits="2" branch="False" />
+                <line number="29" hits="2" branch="False" />
+                <line number="31" hits="2" branch="False" />
+                <line number="33" hits="1" branch="False" />
+                <line number="34" hits="5" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="251" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="35" hits="1" branch="False" />
+                <line number="36" hits="1" branch="False" />
+                <line number="37" hits="1" branch="False" />
+                <line number="39" hits="1" branch="False" />
+                <line number="40" hits="1" branch="False" />
+                <line number="41" hits="1" branch="False" />
+                <line number="42" hits="1" branch="False" />
+                <line number="43" hits="1" branch="False" />
+                <line number="44" hits="1" branch="False" />
+                <line number="46" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="27" hits="2" branch="False" />
+            <line number="29" hits="2" branch="False" />
+            <line number="31" hits="2" branch="False" />
+            <line number="33" hits="1" branch="False" />
+            <line number="34" hits="5" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="251" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="35" hits="1" branch="False" />
+            <line number="36" hits="1" branch="False" />
+            <line number="37" hits="1" branch="False" />
+            <line number="39" hits="1" branch="False" />
+            <line number="40" hits="1" branch="False" />
+            <line number="41" hits="1" branch="False" />
+            <line number="42" hits="1" branch="False" />
+            <line number="43" hits="1" branch="False" />
+            <line number="44" hits="1" branch="False" />
+            <line number="46" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.ViewModels.BaseViewModel" filename="ViewModels/BaseViewModel.cs" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="Raise" signature="(System.String)" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="11" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="7" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="11" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="7" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.ViewModels.WaterQualityViewModel" filename="ViewModels/WaterQualityViewModel.cs" line-rate="0.75" branch-rate="0" complexity="5">
+          <methods>
+            <method name="get_WaterQuality" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="16" hits="8" branch="False" />
+              </lines>
+            </method>
+            <method name="OnPropertyChanged" signature="(System.String)" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="41" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="7" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+              </lines>
+            </method>
+            <method name=".ctor" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="20" hits="3" branch="False" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(EnviroMonitorApp.Services.IEnvironmentalDataService)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="23" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="16" hits="8" branch="False" />
+            <line number="41" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="7" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="20" hits="3" branch="False" />
+            <line number="23" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.ViewModels.WaterQualityViewModel/&lt;LoadAsync&gt;d__6" filename="ViewModels/WaterQualityViewModel.cs" line-rate="1" branch-rate="1" complexity="4">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="4">
+              <lines>
+                <line number="26" hits="2" branch="False" />
+                <line number="27" hits="3" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="31" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="29" hits="1" branch="False" />
+                <line number="30" hits="1" branch="False" />
+                <line number="32" hits="1" branch="False" />
+                <line number="33" hits="5" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="333" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="34" hits="1" branch="False" />
+                <line number="35" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="26" hits="2" branch="False" />
+            <line number="27" hits="3" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="31" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="29" hits="1" branch="False" />
+            <line number="30" hits="1" branch="False" />
+            <line number="32" hits="1" branch="False" />
+            <line number="33" hits="5" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="333" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="34" hits="1" branch="False" />
+            <line number="35" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.ViewModels.WeatherViewModel" filename="ViewModels/WeatherViewModel.cs" line-rate="1" branch-rate="0.5" complexity="4">
+          <methods>
+            <method name="get_Forecast" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="16" hits="6" branch="False" />
+              </lines>
+            </method>
+            <method name="OnPropertyChanged" signature="(System.String)" line-rate="1" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="32" hits="1" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="7" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+              </lines>
+            </method>
+            <method name=".ctor" signature="(EnviroMonitorApp.Services.IEnvironmentalDataService)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="17" hits="1" branch="False" />
+                <line number="21" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="16" hits="6" branch="False" />
+            <line number="32" hits="1" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="7" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="17" hits="1" branch="False" />
+            <line number="21" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.ViewModels.WeatherViewModel/&lt;LoadAsync&gt;d__8" filename="ViewModels/WeatherViewModel.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="2">
+              <lines>
+                <line number="24" hits="1" branch="False" />
+                <line number="25" hits="1" branch="False" />
+                <line number="26" hits="1" branch="False" />
+                <line number="27" hits="9" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="240" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="28" hits="1" branch="False" />
+                <line number="29" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="24" hits="1" branch="False" />
+            <line number="25" hits="1" branch="False" />
+            <line number="26" hits="1" branch="False" />
+            <line number="27" hits="9" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="240" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="28" hits="1" branch="False" />
+            <line number="29" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.ApiKeyProvider" filename="Services/ApiKeyProvider.cs" line-rate="0.5" branch-rate="1" complexity="2">
+          <methods>
+            <method name="get_OpenAqKey" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="6" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_OpenWeatherMap" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="3" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="6" hits="0" branch="False" />
+            <line number="9" hits="3" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.EnvironmentalDataApiService" filename="Services/EnvironmentalDataApiService.cs" line-rate="0.8695" branch-rate="1" complexity="3">
+          <methods>
+            <method name="GetWaterQualityAsync" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="145" hits="0" branch="False" />
+                <line number="147" hits="0" branch="False" />
+                <line number="148" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(EnviroMonitorApp.Services.Apis.IAirQualityApi,EnviroMonitorApp.Services.Apis.IWeatherApi,EnviroMonitorApp.Services.Apis.IWaterQualityApi,EnviroMonitorApp.Services.ApiKeyProvider)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="27" hits="6" branch="False" />
+                <line number="28" hits="6" branch="False" />
+                <line number="29" hits="6" branch="False" />
+                <line number="30" hits="6" branch="False" />
+                <line number="31" hits="6" branch="False" />
+                <line number="32" hits="6" branch="False" />
+                <line number="33" hits="6" branch="False" />
+                <line number="34" hits="6" branch="False" />
+                <line number="35" hits="6" branch="False" />
+                <line number="36" hits="6" branch="False" />
+                <line number="37" hits="6" branch="False" />
+              </lines>
+            </method>
+            <method name=".cctor" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="21" hits="1" branch="False" />
+                <line number="24" hits="1" branch="False" />
+                <line number="98" hits="1" branch="False" />
+                <line number="99" hits="1" branch="False" />
+                <line number="100" hits="1" branch="False" />
+                <line number="101" hits="1" branch="False" />
+                <line number="102" hits="1" branch="False" />
+                <line number="103" hits="1" branch="False" />
+                <line number="104" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="145" hits="0" branch="False" />
+            <line number="147" hits="0" branch="False" />
+            <line number="148" hits="0" branch="False" />
+            <line number="27" hits="6" branch="False" />
+            <line number="28" hits="6" branch="False" />
+            <line number="29" hits="6" branch="False" />
+            <line number="30" hits="6" branch="False" />
+            <line number="31" hits="6" branch="False" />
+            <line number="32" hits="6" branch="False" />
+            <line number="33" hits="6" branch="False" />
+            <line number="34" hits="6" branch="False" />
+            <line number="35" hits="6" branch="False" />
+            <line number="36" hits="6" branch="False" />
+            <line number="37" hits="6" branch="False" />
+            <line number="21" hits="1" branch="False" />
+            <line number="24" hits="1" branch="False" />
+            <line number="98" hits="1" branch="False" />
+            <line number="99" hits="1" branch="False" />
+            <line number="100" hits="1" branch="False" />
+            <line number="101" hits="1" branch="False" />
+            <line number="102" hits="1" branch="False" />
+            <line number="103" hits="1" branch="False" />
+            <line number="104" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.EnvironmentalDataApiService/&lt;&gt;c" filename="Services/EnvironmentalDataApiService.cs" line-rate="1" branch-rate="1" complexity="3">
+          <methods>
+            <method name="&lt;GetWeatherAsync&gt;b__10_0" signature="(EnviroMonitorApp.Services.Apis.OpenWeatherForecastResponse/ListItem)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="86" hits="6" branch="False" />
+                <line number="87" hits="6" branch="False" />
+                <line number="88" hits="6" branch="False" />
+                <line number="89" hits="6" branch="False" />
+                <line number="90" hits="6" branch="False" />
+                <line number="91" hits="6" branch="False" />
+              </lines>
+            </method>
+            <method name="&lt;GetWaterQualityAsync&gt;b__12_3" signature="(System.Threading.Tasks.Task`1&lt;System.ValueTuple`2&lt;System.String,EnviroMonitorApp.Services.Apis.WaterQualityResponse&gt;&gt;)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="122" hits="15" branch="False" />
+              </lines>
+            </method>
+            <method name="&lt;GetWaterQualityAsync&gt;b__12_1" signature="(EnviroMonitorApp.Models.WaterQualityRecord)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="139" hits="3" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="86" hits="6" branch="False" />
+            <line number="87" hits="6" branch="False" />
+            <line number="88" hits="6" branch="False" />
+            <line number="89" hits="6" branch="False" />
+            <line number="90" hits="6" branch="False" />
+            <line number="91" hits="6" branch="False" />
+            <line number="122" hits="15" branch="False" />
+            <line number="139" hits="3" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.EnvironmentalDataApiService/&lt;&gt;c__DisplayClass12_0" filename="Services/EnvironmentalDataApiService.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="&lt;GetWaterQualityAsync&gt;b__0" signature="(System.Collections.Generic.KeyValuePair`2&lt;System.String,System.String&gt;)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="113" hits="4" branch="False" />
+                <line number="114" hits="8" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="113" hits="4" branch="False" />
+            <line number="114" hits="8" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.EnvironmentalDataApiService/&lt;&gt;c__DisplayClass9_0" filename="Services/EnvironmentalDataApiService.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="&lt;GetAirQualityAsync&gt;b__0" signature="(EnviroMonitorApp.Services.Apis.Sensor)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="60" hits="20" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="60" hits="20" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.EnvironmentalDataApiService/&lt;GetAirQualityAsync&gt;d__9" filename="Services/EnvironmentalDataApiService.cs" line-rate="0.9655" branch-rate="0.85" complexity="20">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0.9655" branch-rate="0.85" complexity="20">
+              <lines>
+                <line number="41" hits="2" branch="False" />
+                <line number="42" hits="2" branch="True" condition-coverage="50% (2/4)">
+                  <conditions>
+                    <condition number="34" type="jump" coverage="50%" />
+                    <condition number="75" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="43" hits="0" branch="False" />
+                <line number="45" hits="2" branch="False" />
+                <line number="46" hits="2" branch="False" />
+                <line number="47" hits="2" branch="False" />
+                <line number="48" hits="2" branch="False" />
+                <line number="49" hits="2" branch="False" />
+                <line number="50" hits="2" branch="False" />
+                <line number="51" hits="2" branch="False" />
+                <line number="53" hits="14" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="1102" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="54" hits="4" branch="False" />
+                <line number="55" hits="4" branch="False" />
+                <line number="56" hits="20" branch="False" />
+                <line number="57" hits="28" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="965" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="58" hits="8" branch="False" />
+                <line number="59" hits="8" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="622" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="61" hits="8" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="715" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="62" hits="8" branch="True" condition-coverage="100% (8/8)">
+                  <conditions>
+                    <condition number="773" type="jump" coverage="100%" />
+                    <condition number="787" type="jump" coverage="100%" />
+                    <condition number="801" type="jump" coverage="100%" />
+                    <condition number="815" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="64" hits="4" branch="False" />
+                <line number="65" hits="4" branch="False" />
+                <line number="66" hits="4" branch="False" />
+                <line number="67" hits="4" branch="False" />
+                <line number="69" hits="8" branch="False" />
+                <line number="70" hits="4" branch="False" />
+                <line number="71" hits="4" branch="False" />
+                <line number="73" hits="4" branch="False" />
+                <line number="74" hits="2" branch="False" />
+                <line number="75" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="41" hits="2" branch="False" />
+            <line number="42" hits="2" branch="True" condition-coverage="50% (2/4)">
+              <conditions>
+                <condition number="34" type="jump" coverage="50%" />
+                <condition number="75" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="43" hits="0" branch="False" />
+            <line number="45" hits="2" branch="False" />
+            <line number="46" hits="2" branch="False" />
+            <line number="47" hits="2" branch="False" />
+            <line number="48" hits="2" branch="False" />
+            <line number="49" hits="2" branch="False" />
+            <line number="50" hits="2" branch="False" />
+            <line number="51" hits="2" branch="False" />
+            <line number="53" hits="14" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="1102" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="54" hits="4" branch="False" />
+            <line number="55" hits="4" branch="False" />
+            <line number="56" hits="20" branch="False" />
+            <line number="57" hits="28" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="965" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="58" hits="8" branch="False" />
+            <line number="59" hits="8" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="622" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="61" hits="8" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="715" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="62" hits="8" branch="True" condition-coverage="100% (8/8)">
+              <conditions>
+                <condition number="773" type="jump" coverage="100%" />
+                <condition number="787" type="jump" coverage="100%" />
+                <condition number="801" type="jump" coverage="100%" />
+                <condition number="815" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="64" hits="4" branch="False" />
+            <line number="65" hits="4" branch="False" />
+            <line number="66" hits="4" branch="False" />
+            <line number="67" hits="4" branch="False" />
+            <line number="69" hits="8" branch="False" />
+            <line number="70" hits="4" branch="False" />
+            <line number="71" hits="4" branch="False" />
+            <line number="73" hits="4" branch="False" />
+            <line number="74" hits="2" branch="False" />
+            <line number="75" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.EnvironmentalDataApiService/&lt;GetWaterQualityAsync&gt;d__12" filename="Services/EnvironmentalDataApiService.cs" line-rate="0.9047" branch-rate="0.7142000000000001" complexity="14">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0.9047" branch-rate="0.7142000000000001" complexity="14">
+              <lines>
+                <line number="107" hits="1" branch="False" />
+                <line number="108" hits="1" branch="False" />
+                <line number="109" hits="1" branch="False" />
+                <line number="112" hits="1" branch="False" />
+                <line number="115" hits="1" branch="False" />
+                <line number="117" hits="1" branch="False" />
+                <line number="120" hits="1" branch="False" />
+                <line number="123" hits="18" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="764" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="124" hits="3" branch="False" />
+                <line number="125" hits="3" branch="False" />
+                <line number="126" hits="3" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="480" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="127" hits="2" branch="False" />
+                <line number="129" hits="3" branch="True" condition-coverage="50% (4/8)">
+                  <conditions>
+                    <condition number="565" type="jump" coverage="100%" />
+                    <condition number="579" type="jump" coverage="50%" />
+                    <condition number="593" type="jump" coverage="0%" />
+                    <condition number="607" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="131" hits="4" branch="False" />
+                <line number="132" hits="2" branch="False" />
+                <line number="133" hits="0" branch="False" />
+                <line number="134" hits="0" branch="False" />
+                <line number="136" hits="3" branch="False" />
+                <line number="140" hits="1" branch="False" />
+                <line number="141" hits="1" branch="False" />
+                <line number="142" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="107" hits="1" branch="False" />
+            <line number="108" hits="1" branch="False" />
+            <line number="109" hits="1" branch="False" />
+            <line number="112" hits="1" branch="False" />
+            <line number="115" hits="1" branch="False" />
+            <line number="117" hits="1" branch="False" />
+            <line number="120" hits="1" branch="False" />
+            <line number="123" hits="18" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="764" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="124" hits="3" branch="False" />
+            <line number="125" hits="3" branch="False" />
+            <line number="126" hits="3" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="480" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="127" hits="2" branch="False" />
+            <line number="129" hits="3" branch="True" condition-coverage="50% (4/8)">
+              <conditions>
+                <condition number="565" type="jump" coverage="100%" />
+                <condition number="579" type="jump" coverage="50%" />
+                <condition number="593" type="jump" coverage="0%" />
+                <condition number="607" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="131" hits="4" branch="False" />
+            <line number="132" hits="2" branch="False" />
+            <line number="133" hits="0" branch="False" />
+            <line number="134" hits="0" branch="False" />
+            <line number="136" hits="3" branch="False" />
+            <line number="140" hits="1" branch="False" />
+            <line number="141" hits="1" branch="False" />
+            <line number="142" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.EnvironmentalDataApiService/&lt;GetWeatherAsync&gt;d__10" filename="Services/EnvironmentalDataApiService.cs" line-rate="1" branch-rate="1" complexity="4">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="4">
+              <lines>
+                <line number="79" hits="5" branch="False" />
+                <line number="80" hits="5" branch="True" condition-coverage="100% (4/4)">
+                  <conditions>
+                    <condition number="23" type="jump" coverage="100%" />
+                    <condition number="64" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="81" hits="2" branch="False" />
+                <line number="83" hits="3" branch="False" />
+                <line number="84" hits="3" branch="False" />
+                <line number="93" hits="3" branch="False" />
+                <line number="94" hits="3" branch="False" />
+                <line number="95" hits="5" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="79" hits="5" branch="False" />
+            <line number="80" hits="5" branch="True" condition-coverage="100% (4/4)">
+              <conditions>
+                <condition number="23" type="jump" coverage="100%" />
+                <condition number="64" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="81" hits="2" branch="False" />
+            <line number="83" hits="3" branch="False" />
+            <line number="84" hits="3" branch="False" />
+            <line number="93" hits="3" branch="False" />
+            <line number="94" hits="3" branch="False" />
+            <line number="95" hits="5" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.HttpLoggingHandler/&lt;SendAsync&gt;d__0" filename="Services/HttpLoggingHandler.cs" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="16" hits="0" branch="False" />
+                <line number="17" hits="0" branch="False" />
+                <line number="19" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="145" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="20" hits="0" branch="False" />
+                <line number="22" hits="0" branch="False" />
+                <line number="24" hits="0" branch="False" />
+                <line number="25" hits="0" branch="False" />
+                <line number="27" hits="0" branch="False" />
+                <line number="28" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="16" hits="0" branch="False" />
+            <line number="17" hits="0" branch="False" />
+            <line number="19" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="145" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="20" hits="0" branch="False" />
+            <line number="22" hits="0" branch="False" />
+            <line number="24" hits="0" branch="False" />
+            <line number="25" hits="0" branch="False" />
+            <line number="27" hits="0" branch="False" />
+            <line number="28" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.Apis.WaterQualityResponse" filename="Services/Apis/IWaterQualityApi.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="get_Items" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="12" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="9" hits="12" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.Apis.ReadingItem" filename="Services/Apis/IWaterQualityApi.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name="get_DateTime" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="14" hits="12" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Value" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="15" hits="6" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="14" hits="12" branch="False" />
+            <line number="15" hits="6" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.Apis.OpenWeatherForecastResponse" filename="Services/Apis/IWeatherApi.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="get_List" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="10" hits="9" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="10" hits="9" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.Apis.OpenWeatherForecastResponse/ListItem" filename="Services/Apis/IWeatherApi.cs" line-rate="1" branch-rate="1" complexity="3">
+          <methods>
+            <method name="get_Dt" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="13" hits="6" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Main" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="14" hits="12" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Wind" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="15" hits="9" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="13" hits="6" branch="False" />
+            <line number="14" hits="12" branch="False" />
+            <line number="15" hits="9" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.Apis.OpenWeatherForecastResponse/MainInfo" filename="Services/Apis/IWeatherApi.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name="get_Temp" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="19" hits="5" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Humidity" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="20" hits="5" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="19" hits="5" branch="False" />
+            <line number="20" hits="5" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.Apis.OpenWeatherForecastResponse/WindInfo" filename="Services/Apis/IWeatherApi.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="get_Speed" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="24" hits="5" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="24" hits="5" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.Apis.LocationLatestResponse" filename="Services/Apis/LocationLastestResponse.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name="get_Meta" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="4" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Results" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="10" hits="12" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="9" hits="4" branch="False" />
+            <line number="10" hits="12" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.Apis.LatestResult" filename="Services/Apis/LocationLastestResponse.cs" line-rate="1" branch-rate="1" complexity="3">
+          <methods>
+            <method name="get_Datetime" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="15" hits="32" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Value" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="16" hits="16" branch="False" />
+              </lines>
+            </method>
+            <method name="get_SensorsId" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="17" hits="20" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="15" hits="32" branch="False" />
+            <line number="16" hits="16" branch="False" />
+            <line number="17" hits="20" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.Apis.LocationResponse" filename="Services/Apis/LocationResponse.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name="get_Meta" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="10" hits="2" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Results" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="11" hits="6" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="10" hits="2" branch="False" />
+            <line number="11" hits="6" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.Apis.Meta" filename="Services/Apis/LocationResponse.cs" line-rate="0" branch-rate="1" complexity="3">
+          <methods>
+            <method name="get_Page" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="16" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Limit" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="17" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Found" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="18" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="16" hits="0" branch="False" />
+            <line number="17" hits="0" branch="False" />
+            <line number="18" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.Apis.Location" filename="Services/Apis/LocationResponse.cs" line-rate="1" branch-rate="1" complexity="4">
+          <methods>
+            <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="23" hits="8" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Name" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="24" hits="4" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Sensors" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="25" hits="16" branch="False" />
+              </lines>
+            </method>
+            <method name="get_DatetimeLast" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="26" hits="4" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="23" hits="8" branch="False" />
+            <line number="24" hits="4" branch="False" />
+            <line number="25" hits="16" branch="False" />
+            <line number="26" hits="4" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.Apis.Sensor" filename="Services/Apis/LocationResponse.cs" line-rate="1" branch-rate="1" complexity="3">
+          <methods>
+            <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="31" hits="20" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Name" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="32" hits="8" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Parameter" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="33" hits="24" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="31" hits="20" branch="False" />
+            <line number="32" hits="8" branch="False" />
+            <line number="33" hits="24" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.Apis.Parameter" filename="Services/Apis/LocationResponse.cs" line-rate="0.6666" branch-rate="1" complexity="3">
+          <methods>
+            <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="38" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Name" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="39" hits="24" branch="False" />
+              </lines>
+            </method>
+            <method name="get_DisplayName" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="40" hits="8" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="38" hits="0" branch="False" />
+            <line number="39" hits="24" branch="False" />
+            <line number="40" hits="8" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Services.Apis.DateWrapper" filename="Services/Apis/LocationResponse.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name="get_Utc" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="46" hits="32" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Local" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="48" hits="8" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="46" hits="32" branch="False" />
+            <line number="48" hits="8" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Models.AirQualityRecord" filename="Models/AirQualityRecord.cs" line-rate="1" branch-rate="1" complexity="5">
+          <methods>
+            <method name="get_Timestamp" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="9" branch="False" />
+              </lines>
+            </method>
+            <method name="get_NO2" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="6" hits="9" branch="False" />
+              </lines>
+            </method>
+            <method name="get_SO2" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="9" branch="False" />
+              </lines>
+            </method>
+            <method name="get_PM25" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="9" branch="False" />
+              </lines>
+            </method>
+            <method name="get_PM10" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="9" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="9" branch="False" />
+            <line number="6" hits="9" branch="False" />
+            <line number="7" hits="9" branch="False" />
+            <line number="8" hits="9" branch="False" />
+            <line number="9" hits="9" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Models.WaterQualityRecord" filename="Models/WaterQualityRecord.cs" line-rate="1" branch-rate="1" complexity="5">
+          <methods>
+            <method name="get_Timestamp" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="11" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Nitrate" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="5" branch="False" />
+              </lines>
+            </method>
+            <method name="get_PH" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="4" branch="False" />
+              </lines>
+            </method>
+            <method name="get_DissolvedOxygen" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="3" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Temperature" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="10" hits="3" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="11" branch="False" />
+            <line number="7" hits="5" branch="False" />
+            <line number="8" hits="4" branch="False" />
+            <line number="9" hits="3" branch="False" />
+            <line number="10" hits="3" branch="False" />
+          </lines>
+        </class>
+        <class name="EnviroMonitorApp.Models.WeatherRecord" filename="Models/WeatherRecord.cs" line-rate="1" branch-rate="1" complexity="4">
+          <methods>
+            <method name="get_Timestamp" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="8" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Temperature" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="6" hits="9" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Humidity" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="9" branch="False" />
+              </lines>
+            </method>
+            <method name="get_WindSpeed" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="9" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="8" branch="False" />
+            <line number="6" hits="9" branch="False" />
+            <line number="7" hits="9" branch="False" />
+            <line number="8" hits="9" branch="False" />
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>

@@ -15,6 +15,18 @@
     <!-- …other platform-specific tags… -->
   </PropertyGroup>
 
+  <PropertyGroup>
+    <!-- existing props… -->
+    <CollectCoverage>true</CollectCoverage>
+    <CoverletOutputFormat>opencover</CoverletOutputFormat>
+    <!-- exclude anything in EnviroMonitorApp.Views namespace and XamlGeneratedCode -->
+    <Exclude>
+      [EnviroMonitorApp]EnviroMonitorApp.Views*
+      ,[EnviroMonitorApp]EnviroMonitorApp.*.XamlGeneratedCode*
+    </Exclude>
+  </PropertyGroup>
+
+
   <ItemGroup>
     <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
     <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />

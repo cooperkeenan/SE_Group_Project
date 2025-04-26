@@ -9,4 +9,4 @@
 | AirQualityViewModel             | 100 %    |
 | WaterQualityViewModel           | 91.6 %   |
 
-[View full report](coverage-report/index.html)
+[View full report](https://raw.githack.com/cooperkeenan/SE_Group_Project/UnitTests/APIs/docs/coverage-report/index.html)

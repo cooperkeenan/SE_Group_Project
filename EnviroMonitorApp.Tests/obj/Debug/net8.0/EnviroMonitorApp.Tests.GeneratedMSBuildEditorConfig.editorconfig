@@ -12,3 +12,9 @@ build_property.RootNamespace = EnviroMonitorApp.Tests
 build_property.ProjectDir = /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/EnviroMonitorApp.Tests/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
+
+[/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/EnviroMonitorApp.Tests/coverage-report/report.css]
+build_metadata.AdditionalFiles.GenKind = Css
+build_metadata.AdditionalFiles.ManifestResourceName = EnviroMonitorApp.Tests.coverage_report.report.css
+build_metadata.AdditionalFiles.TargetPath = coverage-report/report.css
+build_metadata.AdditionalFiles.RelativePath = coverage-report/report.css
