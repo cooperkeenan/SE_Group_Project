@@ -11,6 +11,7 @@
     <Compile Include="..\EnviroMonitorApp\Services\**\*.cs" />
     <Compile Include="..\EnviroMonitorApp\Services\Apis\**\*.cs" />
     <Compile Include="..\EnviroMonitorApp\Models\**\*.cs" />
+    <Compile Include="..\EnviroMonitorApp\ViewModels\**\*.cs" />
     <Compile Include="Tests\**\*.cs" />
   </ItemGroup>
   <ItemGroup>

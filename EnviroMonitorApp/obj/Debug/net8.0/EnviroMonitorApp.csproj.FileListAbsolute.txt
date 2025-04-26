@@ -1,0 +1,14 @@
+/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/EnviroMonitorApp/bin/Debug/net8.0/EnviroMonitorApp.deps.json
+/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/EnviroMonitorApp/bin/Debug/net8.0/EnviroMonitorApp.dll
+/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/EnviroMonitorApp/bin/Debug/net8.0/EnviroMonitorApp.pdb
+/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/EnviroMonitorApp/obj/Debug/net8.0/EnviroMonitorApp.csproj.AssemblyReference.cache
+/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/EnviroMonitorApp/obj/Debug/net8.0/EnviroMonitorApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/EnviroMonitorApp/obj/Debug/net8.0/EnviroMonitorApp.AssemblyInfoInputs.cache
+/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/EnviroMonitorApp/obj/Debug/net8.0/EnviroMonitorApp.AssemblyInfo.cs
+/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/EnviroMonitorApp/obj/Debug/net8.0/EnviroMonitorApp.csproj.CoreCompileInputs.cache
+/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/EnviroMonitorApp/obj/Debug/net8.0/EnviroMonitorApp.sourcelink.json
+/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/EnviroMonitorApp/obj/Debug/net8.0/XamlC.stamp
+/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/EnviroMonitorApp/obj/Debug/net8.0/EnviroMonitorApp.dll
+/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/EnviroMonitorApp/obj/Debug/net8.0/refint/EnviroMonitorApp.dll
+/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/EnviroMonitorApp/obj/Debug/net8.0/EnviroMonitorApp.pdb
+/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/EnviroMonitorApp/obj/Debug/net8.0/ref/EnviroMonitorApp.dll
