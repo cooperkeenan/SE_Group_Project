@@ -203,5 +203,10 @@
     "href": "api/EnviroMonitorApp.html",
     "title": "Namespace EnviroMonitorApp | EnviroMonitorApp API",
     "summary": "Namespace EnviroMonitorApp Classes App AppShell MainPage MauiProgram"
+  },
+  "index.html": {
+    "href": "index.html",
+    "title": "EnviroMonitorApp API | EnviroMonitorApp API",
+    "summary": "EnviroMonitorApp API Docs Welcome! Click API in the left-hand nav to browse the classes, or open the full index at api/toc.html."
   }
 }
