@@ -1,11 +1,9 @@
 ---
-_layout: landing
+title: EnviroMonitorApp API
 ---
 
-# This is the **HOMEPAGE**.
+# EnviroMonitorApp API Docs
 
-Refer to [Markdown](http://daringfireball.net/projects/markdown/) for how to write markdown files.
+Welcome! Click **API** in the left-hand nav to browse the classes, or  
+open the full index at [api/toc.html](api/toc.html).
 
-## Quick Start Notes:
-
-1. Add images to the *images* folder if the file is referencing an image.
