@@ -1,53 +1,70 @@
 using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
+using System.Windows.Input;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Microcharts;
 using EnviroMonitorApp.Models;
 using EnviroMonitorApp.Services;
 
 namespace EnviroMonitorApp.ViewModels
 {
-    public class AirQualityViewModel : INotifyPropertyChanged
+    public partial class AirQualityViewModel : ObservableObject
     {
-        private readonly IEnvironmentalDataService _dataService;
-
-        public ObservableCollection<AirQualityRecord> AirQuality { get; private set; }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
+        readonly IEnvironmentalDataService _dataService;
 
         public AirQualityViewModel(IEnvironmentalDataService dataService)
         {
             _dataService = dataService;
-            AirQuality = new ObservableCollection<AirQualityRecord>();
+            LoadDataCommand = new AsyncRelayCommand(LoadDataAsync);
+            ChartData = new ObservableCollection<ChartEntry>();
         }
 
-        public async Task LoadAsync()
+        [ObservableProperty]
+        DateTime startDate = DateTime.UtcNow.AddDays(-7);
+
+        [ObservableProperty]
+        DateTime endDate = DateTime.UtcNow;
+
+        [ObservableProperty]
+        string selectedRegion = string.Empty;
+
+        [ObservableProperty]
+        bool isBusy;
+
+        public ObservableCollection<ChartEntry> ChartData { get; }
+        public ICommand LoadDataCommand { get; }
+
+        async Task LoadDataAsync()
         {
+            if (IsBusy) return;
             try
             {
+                IsBusy = true;
+                ChartData.Clear();
 
-                var data = await _dataService.GetAirQualityAsync();
+                // ← updated call
+                var records = await _dataService
+                    .GetAirQualityAsync(StartDate, EndDate, SelectedRegion);
 
-                AirQuality.Clear();
-                foreach (var record in data)
+                foreach (var rec in records)
                 {
-                    AirQuality.Add(record);
+                    ChartData.Add(new ChartEntry((float)rec.NO2)
+                    {
+                        Label      = rec.Timestamp.ToString("MM/dd"),
+                        ValueLabel = rec.NO2.ToString("F1")
+                    });
                 }
-
-                OnPropertyChanged(nameof(AirQuality));
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($" Load failed: {ex}");
-                throw;
+                Debug.WriteLine($"AirQuality load failed: {ex}");
             }
-        }
-
-        protected void OnPropertyChanged([CallerMemberName] string? name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

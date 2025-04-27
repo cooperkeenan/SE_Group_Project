@@ -4,78 +4,86 @@ using EnviroMonitorApp.Services;
 using EnviroMonitorApp.Services.Apis;
 using EnviroMonitorApp.Views;  
 using EnviroMonitorApp.ViewModels;
+using Microsoft.Maui.Controls;   // for Routing
 
-namespace EnviroMonitorApp;
-
-public static class MauiProgram
+namespace EnviroMonitorApp
 {
-    public static MauiApp CreateMauiApp()
+    public static class MauiProgram
     {
-        var builder = MauiApp.CreateBuilder();
+        public static MauiApp CreateMauiApp()
+        {
+            var builder = MauiApp.CreateBuilder();
 
-        builder
-            .UseMauiApp<App>()
-            .ConfigureFonts(fonts =>
-            {
-                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-            });
+            builder
+              .UseMauiApp<App>()
+              .ConfigureFonts(fonts =>
+              {
+                  fonts.AddFont("OpenSans-Regular.ttf",   "OpenSansRegular");
+                  fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+              });
 
-#if DEBUG
-        builder.Logging.AddDebug();
-#endif
+    #if DEBUG
+            builder.Logging.AddDebug();
+    #endif
 
-		builder.Services.AddSingleton<AppShell>();       // root
-		builder.Services.AddTransient<AirQualityPage>(); // tab pages
-		builder.Services.AddTransient<WeatherPage>();
-		builder.Services.AddTransient<WaterQualityPage>();
-		builder.Services.AddTransient<WaterQualityViewModel>();
+            //
+            // 1️⃣  Pages
+            builder.Services.AddSingleton<AppShell>();
+            builder.Services.AddTransient<AirQualityPage>();
+            builder.Services.AddTransient<WeatherPage>();
+            builder.Services.AddTransient<WaterQualityPage>();
+            // builder.Services.AddTransient<HistoricalDataPage>();   // ← comment out until you add that view
 
+            //
+            // 2️⃣  ViewModels
+            builder.Services.AddTransient<AirQualityViewModel>();
+            builder.Services.AddTransient<WeatherViewModel>();
+            builder.Services.AddTransient<WaterQualityViewModel>();
+            builder.Services.AddTransient<HistoricalDataViewModel>();
 
+            //
+            // 3️⃣  API key provider & logging
+            builder.Services.AddSingleton<ApiKeyProvider>();
+            builder.Services.AddTransient<HttpLoggingHandler>();
 
-        // your key provider
-        builder.Services.AddSingleton<ApiKeyProvider>();
+            //
+            // 4️⃣  Refit clients
+            builder.Services
+                .AddRefitClient<IAirQualityApi>()
+                .AddHttpMessageHandler<HttpLoggingHandler>()
+                .ConfigureHttpClient((sp, c) =>
+                {
+                    var kp = sp.GetRequiredService<ApiKeyProvider>();
+                    c.BaseAddress = new Uri("https://api.openaq.org/");
+                    c.DefaultRequestHeaders.Add("X-API-Key", kp.OpenAqKey);
+                });
 
-		builder.Services.AddTransient<HttpLoggingHandler>();
+            builder.Services
+                .AddRefitClient<IWeatherApi>()
+                .AddHttpMessageHandler<HttpLoggingHandler>()
+                .ConfigureHttpClient(c =>
+                {
+                    c.BaseAddress = new Uri("https://api.openweathermap.org/");
+                });
 
+            builder.Services
+                .AddRefitClient<IWaterQualityApi>()
+                .ConfigureHttpClient(c =>
+                {
+                    c.BaseAddress = new Uri("https://environment.data.gov.uk/");
+                });
 
-        // OpenAQ v3 client — inject your X-API-Key header here
-        builder.Services
-			.AddRefitClient<IAirQualityApi>()
-			.AddHttpMessageHandler<HttpLoggingHandler>()
-			.ConfigureHttpClient(c =>
-			{
-				c.BaseAddress = new Uri("https://api.openaq.org/");
-				var kp = builder.Services
-								.BuildServiceProvider()
-								.GetRequiredService<ApiKeyProvider>();
-				c.DefaultRequestHeaders.Add("X-API-Key", kp.OpenAqKey);
-			});
+            //
+            // 5️⃣  Your unified data‐service
+            builder.Services
+                .AddSingleton<IEnvironmentalDataService, EnvironmentalDataApiService>();
 
-        // OpenWeatherMap
-        builder.Services
-            .AddRefitClient<IWeatherApi>()
-			.AddHttpMessageHandler<HttpLoggingHandler>()
-            .ConfigureHttpClient(c =>
-            {
-                c.BaseAddress = new Uri("https://api.openweathermap.org/");
-            });
+            var app = builder.Build();
 
-		builder.Services
-			.AddRefitClient<IWaterQualityApi>()
-			.ConfigureHttpClient(c =>
-			{
-				c.BaseAddress = new Uri("https://environment.data.gov.uk/");
-			});
+            //Routing.RegisterRoute(nameof(HistoricalDataPage), typeof(HistoricalDataPage));
+            //↑ comment this out too until you actually add that page class
 
-
-        // register your data service
-        builder.Services
-            .AddSingleton<IEnvironmentalDataService, EnvironmentalDataApiService>();
-		
-
-
-        return builder.Build();
+            return app;
+        }
     }
 }
-

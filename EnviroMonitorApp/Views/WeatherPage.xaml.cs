@@ -1,5 +1,3 @@
-// Views/WeatherPage.xaml.cs
-using EnviroMonitorApp.Services;
 using EnviroMonitorApp.ViewModels;
 using Microsoft.Maui.Controls;
 
@@ -7,32 +5,23 @@ namespace EnviroMonitorApp.Views
 {
     public partial class WeatherPage : ContentPage
     {
-        private readonly WeatherViewModel _vm;
+        readonly WeatherViewModel _vm;
 
-        // ← Shell will call THIS one
-        public WeatherPage() : this(
-            // grab the service from the MAUI DI container:
-            App.Current!.Handler.MauiContext.Services.GetRequiredService<IEnvironmentalDataService>())
-        { }
-
-        // your DI-friendly ctor (kept for unit tests, manual nav, etc.)
-        public WeatherPage(IEnvironmentalDataService svc)
+        // MAUI will resolve this ctor (WeatherViewModel is registered in MauiProgram)
+        public WeatherPage(WeatherViewModel vm)
         {
             InitializeComponent();
-            _vm = new WeatherViewModel(svc);
-            BindingContext = _vm;
+            BindingContext = _vm = vm;
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-            if (_vm.Forecast.Count == 0)
+
+            // Only load once per appearance
+            if (_vm.ChartData.Count == 0)
             {
-                try { await _vm.LoadAsync(); }
-                catch (Exception ex)
-                {
-                    await DisplayAlert("Weather error", ex.Message, "OK");
-                }
+                _vm.LoadDataCommand.Execute(null);
             }
         }
     }

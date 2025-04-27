@@ -10,31 +10,34 @@ using EnviroMonitorApp.Services;
 
 namespace EnviroMonitorApp.ViewModels
 {
-    public partial class WeatherViewModel : ObservableObject
+    public partial class HistoricalDataViewModel : ObservableObject
     {
         readonly IEnvironmentalDataService _dataService;
 
-        public WeatherViewModel(IEnvironmentalDataService dataService)
+        public HistoricalDataViewModel(IEnvironmentalDataService dataService)
         {
-            _dataService = dataService;
-            LoadDataCommand = new AsyncRelayCommand(LoadDataAsync);
-            ChartData = new ObservableCollection<ChartEntry>();
+            _dataService      = dataService;
+            LoadDataCommand   = new AsyncRelayCommand(LoadDataAsync);
+            ChartData         = new ObservableCollection<ChartEntry>();
         }
 
         [ObservableProperty]
-        DateTime startDate = DateTime.UtcNow.AddDays(-7);
+        DateTime startDate  = DateTime.UtcNow.AddDays(-7);
 
         [ObservableProperty]
-        DateTime endDate = DateTime.UtcNow;
+        DateTime endDate    = DateTime.UtcNow;
 
         [ObservableProperty]
-        string selectedRegion = string.Empty;
+        string selectedSensorType = "Air";
 
         [ObservableProperty]
-        bool isBusy;
+        string selectedRegion     = "All";
 
         public ObservableCollection<ChartEntry> ChartData { get; }
         public ICommand LoadDataCommand { get; }
+
+        [ObservableProperty]
+        bool isBusy;
 
         async Task LoadDataAsync()
         {
@@ -44,22 +47,23 @@ namespace EnviroMonitorApp.ViewModels
                 IsBusy = true;
                 ChartData.Clear();
 
-                // ← passing from/to/region:
+                // now matches your updated interface
                 var records = await _dataService
-                    .GetWeatherAsync(StartDate, EndDate, SelectedRegion);
+                    .GetAirQualityAsync(StartDate, EndDate, SelectedRegion);
 
+                // build Microcharts entries
                 foreach (var rec in records)
                 {
-                    ChartData.Add(new ChartEntry((float)rec.Temperature)
+                    ChartData.Add(new ChartEntry((float)rec.NO2)
                     {
                         Label      = rec.Timestamp.ToString("MM/dd"),
-                        ValueLabel = rec.Temperature.ToString("F1")
+                        ValueLabel = rec.NO2.ToString("F1")
                     });
                 }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Weather load failed: {ex}");
+                Debug.WriteLine($"LoadData failed: {ex}");
             }
             finally
             {

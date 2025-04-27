@@ -1,23 +1,28 @@
-// Views/WaterQualityPage.xaml.cs
-using EnviroMonitorApp.Services;
 using EnviroMonitorApp.ViewModels;
+using Microsoft.Maui.Controls;
 
-namespace EnviroMonitorApp.Views;
-
-public partial class WaterQualityPage : ContentPage
+namespace EnviroMonitorApp.Views
 {
-    private readonly WaterQualityViewModel _vm;
-
-    public WaterQualityPage(IEnvironmentalDataService svc)
+    public partial class WaterQualityPage : ContentPage
     {
-        InitializeComponent();
-        _vm = new WaterQualityViewModel(svc);
-        BindingContext = _vm;
-    }
+        readonly WaterQualityViewModel _vm;
 
-    protected override async void OnAppearing()
-    {
-        base.OnAppearing();
-        await _vm.LoadAsync();
+        // MAUI DI will automatically inject WaterQualityViewModel
+        public WaterQualityPage(WaterQualityViewModel vm)
+        {
+            InitializeComponent();
+            BindingContext = _vm = vm;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            // Only kick off once per appearance
+            if (_vm.WaterQuality.Count == 0)
+            {
+                _vm.LoadDataCommand.Execute(null);
+            }
+        }
     }
 }

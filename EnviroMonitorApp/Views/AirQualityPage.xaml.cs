@@ -1,4 +1,3 @@
-using EnviroMonitorApp.Services;
 using EnviroMonitorApp.ViewModels;
 using Microsoft.Maui.Controls;
 
@@ -6,27 +5,21 @@ namespace EnviroMonitorApp.Views
 {
     public partial class AirQualityPage : ContentPage
     {
-        private readonly AirQualityViewModel _vm;
+        readonly AirQualityViewModel _vm;
 
-        public AirQualityPage(IEnvironmentalDataService dataService)
+        public AirQualityPage(AirQualityViewModel vm)
         {
-            InitializeComponent(); // ← required to parse XAML
-
-            _vm = new AirQualityViewModel(dataService);
-            BindingContext = _vm;
+            InitializeComponent();
+            BindingContext = _vm = vm;
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
 
-            try
+            if (_vm.ChartData.Count == 0)
             {
-                await _vm.LoadAsync(); // this is where the data comes from
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Load error", ex.Message, "OK");
+                _vm.LoadDataCommand.Execute(null);
             }
         }
     }
