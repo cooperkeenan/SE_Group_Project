@@ -1,8 +1,10 @@
-namespace EnviroMonitorApp.Models;
-
-public class WeatherRecord
+namespace EnviroMonitorApp.Models
 {
-    public string? Date { get; set; }
-    public double Temperature { get; set; }
-    public double Humidity { get; set; }
+    public class WeatherRecord
+    {
+        public DateTime Timestamp { get; set; }
+        public double Temperature { get; set; }
+        public double Humidity { get; set; }
+        public double WindSpeed { get; set; }
+    }
 }

@@ -1,11 +1,19 @@
-// IEnvironmentalDataService.cs
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using EnviroMonitorApp.Models;
 
-public interface IEnvironmentalDataService
+namespace EnviroMonitorApp.Services
 {
-  Task<List<WeatherRecord>> GetWeatherAsync();
-  Task<List<AirQualityRecord>> GetAirQualityAsync();
-  Task<List<WaterQualityRecord>> GetWaterQualityAsync();
+    public interface IEnvironmentalDataService
+    {
+        /* Air */
+        Task<List<AirQualityRecord>>            GetAirQualityAsync();
+
+        /* Weather */
+        Task<IReadOnlyList<WeatherRecord>>      GetWeatherAsync();
+
+        /* Water – latest merged reading (one record) */
+        Task<IReadOnlyList<WaterQualityRecord>> GetWaterQualityAsync();
+        Task<IReadOnlyList<WaterQualityRecord>> GetWaterQualityAsync(int hours);
+    }
 }

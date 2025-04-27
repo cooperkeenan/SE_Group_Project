@@ -1,28 +1,16 @@
-﻿using Microsoft.Maui.Controls;
-using Microsoft.Extensions.DependencyInjection;
-using EnviroMonitorApp.Views;         
-using EnviroMonitorApp.Services;    
-using EnviroMonitorApp.ViewModels;
+﻿// App.xaml.cs
+using Microsoft.Maui.Controls;
 
-
-namespace EnviroMonitorApp;
-
-public partial class App : Application
+namespace EnviroMonitorApp
 {
-    public IServiceProvider Services { get; }
-
-    public App(IServiceProvider services)
+    public partial class App : Application
     {
-        InitializeComponent();
-        Services = services;
-
-        // after: resolve the interface, not the concrete reader
-		var dataService = services.GetRequiredService<IEnvironmentalDataService>();
-		MainPage = new NavigationPage(new MainPage(dataService));
+        public App(AppShell shell)   // ← just inject the shell
+        {
+            InitializeComponent();
+            MainPage = shell;        // the Shell is now the root page
 
 
+        }
     }
-
-    public static IServiceProvider ServiceProvider =>
-        ((App)Current!).Services!;
 }

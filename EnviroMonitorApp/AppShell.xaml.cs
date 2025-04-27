@@ -1,9 +1,19 @@
-﻿namespace EnviroMonitorApp;
+﻿// AppShell.xaml.cs
+using Microsoft.Maui.Controls;
+using EnviroMonitorApp.Views;
 
-public partial class AppShell : Shell
+namespace EnviroMonitorApp
 {
-    public AppShell()
+    public partial class AppShell : Shell
     {
-        InitializeComponent();
+        public AppShell()
+        {
+            InitializeComponent();
+			Routing.RegisterRoute(nameof(WaterQualityPage), typeof(WaterQualityPage));
+
+            // optional explicit routes (not needed for simple tabs)
+            Routing.RegisterRoute(nameof(AirQualityPage), typeof(AirQualityPage));
+            Routing.RegisterRoute(nameof(WeatherPage),    typeof(WeatherPage));
+        }
     }
 }

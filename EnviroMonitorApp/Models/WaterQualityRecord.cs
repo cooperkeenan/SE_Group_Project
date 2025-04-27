@@ -1,10 +1,12 @@
-namespace EnviroMonitorApp.Models;
-
-public class WaterQualityRecord
+namespace EnviroMonitorApp.Models
 {
-    public DateTime DateTime { get; set; }
-    public double Nitrate { get; set; }
-    public double Nitrite { get; set; }
-    public double Phosphate { get; set; }
-    public double EC { get; set; } // E. coli or similar measurement
+    public class WaterQualityRecord
+    {
+        public DateTime Timestamp       { get; set; }
+
+        public double? Nitrate          { get; set; }
+        public double? PH               { get; set; }
+        public double? DissolvedOxygen  { get; set; } // mg/L
+        public double? Temperature      { get; set; } // °C
+    }
 }
