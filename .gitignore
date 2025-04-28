@@ -7,3 +7,5 @@ obj/
 
 .env
 .DS_Store
+
+senv/ 

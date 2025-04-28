@@ -5,6 +5,8 @@ using EnviroMonitorApp.Services.Apis;
 using EnviroMonitorApp.Views;  
 using EnviroMonitorApp.ViewModels;
 using Microsoft.Maui.Controls;   // for Routing
+using Microcharts.Maui;                         // <-- for UseMicrocharts()
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace EnviroMonitorApp
 {
@@ -16,6 +18,8 @@ namespace EnviroMonitorApp
 
             builder
               .UseMauiApp<App>()
+              .UseSkiaSharp()        // registers the SKIA renderers
+              .UseMicrocharts()      // registers ChartView handler
               .ConfigureFonts(fonts =>
               {
                   fonts.AddFont("OpenSans-Regular.ttf",   "OpenSansRegular");
@@ -26,28 +30,24 @@ namespace EnviroMonitorApp
             builder.Logging.AddDebug();
     #endif
 
-            //
-            // 1️⃣  Pages
+            // ─── 1️⃣  Pages ──────────────────────────────
             builder.Services.AddSingleton<AppShell>();
             builder.Services.AddTransient<AirQualityPage>();
             builder.Services.AddTransient<WeatherPage>();
             builder.Services.AddTransient<WaterQualityPage>();
-            // builder.Services.AddTransient<HistoricalDataPage>();   // ← comment out until you add that view
+            builder.Services.AddTransient<HistoricalDataPage>();   // ← register your page here
 
-            //
-            // 2️⃣  ViewModels
+            // ─── 2️⃣  ViewModels ──────────────────────────
             builder.Services.AddTransient<AirQualityViewModel>();
             builder.Services.AddTransient<WeatherViewModel>();
             builder.Services.AddTransient<WaterQualityViewModel>();
             builder.Services.AddTransient<HistoricalDataViewModel>();
 
-            //
-            // 3️⃣  API key provider & logging
+            // ─── 3️⃣  API key provider & logging ─────────
             builder.Services.AddSingleton<ApiKeyProvider>();
             builder.Services.AddTransient<HttpLoggingHandler>();
 
-            //
-            // 4️⃣  Refit clients
+            // ─── 4️⃣  Refit clients ────────────────────────
             builder.Services
                 .AddRefitClient<IAirQualityApi>()
                 .AddHttpMessageHandler<HttpLoggingHandler>()
@@ -73,15 +73,15 @@ namespace EnviroMonitorApp
                     c.BaseAddress = new Uri("https://environment.data.gov.uk/");
                 });
 
-            //
-            // 5️⃣  Your unified data‐service
+            // ─── 5️⃣  Unified data‐service ─────────────────
             builder.Services
                 .AddSingleton<IEnvironmentalDataService, EnvironmentalDataApiService>();
 
+            // build the app
             var app = builder.Build();
 
-            //Routing.RegisterRoute(nameof(HistoricalDataPage), typeof(HistoricalDataPage));
-            //↑ comment this out too until you actually add that page class
+            // optional: register a route if you want GoToAsync support
+            Routing.RegisterRoute(nameof(HistoricalDataPage), typeof(HistoricalDataPage));
 
             return app;
         }

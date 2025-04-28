@@ -15,7 +15,7 @@
 
         <ShellContent Title="Water" ContentTemplate="{DataTemplate views:WaterQualityPage}" />
 
-        <ShellContent Title="History"  ContentTemplate="{DataTemplate views:HistoricalDataPage}" />
+        <ShellContent Title="History" Icon="history.png" ContentTemplate="{DataTemplate views:HistoricalDataPage}" />
 
     </TabBar>
 
