@@ -1,10 +1,8 @@
-using System;
+// Views/HistoricalDataPage.xaml.cs
 using System.Diagnostics;
-using System.Linq;
-using Microsoft.Maui.Controls;
 using EnviroMonitorApp.ViewModels;
+using Microsoft.Maui.Controls;
 using Microsoft.Extensions.DependencyInjection;
-using Android.Util;  // for Log.Error
 
 namespace EnviroMonitorApp.Views
 {
@@ -12,35 +10,17 @@ namespace EnviroMonitorApp.Views
     {
         readonly HistoricalDataViewModel _vm;
 
-        // Shell will use this parameterless ctor
         public HistoricalDataPage()
-            : this(App.Current!
-                    .Handler.MauiContext
-                    .Services
-                    .GetRequiredService<HistoricalDataViewModel>())
+            : this(App.Current!.Handler.MauiContext.Services.GetRequiredService<HistoricalDataViewModel>())
         {
             Debug.WriteLine("⚙️ HistoricalDataPage(): parameterless ctor called");
         }
 
-        // DI-friendly ctor
         public HistoricalDataPage(HistoricalDataViewModel vm)
         {
             Debug.WriteLine("⚙️ HistoricalDataPage(vm): DI ctor called");
-            _vm = vm;
-
-            try
-            {
-                InitializeComponent();
-                Debug.WriteLine("⚙️ HistoricalDataPage: InitializeComponent complete");
-            }
-            catch (Exception ex)
-            {
-                // Log XAML‐inflation errors so we can see them in logcat
-                Log.Error("XAML_ERROR", $"HistoricalDataPage InitializeComponent error: {ex}");
-                throw;
-            }
-
-            BindingContext = _vm;
+            InitializeComponent();
+            BindingContext = _vm = vm;
             Debug.WriteLine("⚙️ HistoricalDataPage: BindingContext set");
         }
 
@@ -49,18 +29,10 @@ namespace EnviroMonitorApp.Views
             base.OnAppearing();
             Debug.WriteLine("⚙️ HistoricalDataPage: OnAppearing");
 
-            try
+            if (_vm.ChartData.Count == 0 && _vm.LoadDataCommand.CanExecute(null))
             {
-                if (!_vm.ChartData.Any())
-                {
-                    Debug.WriteLine("⚙️ HistoricalDataPage: firing LoadDataCommand");
-                    _vm.LoadDataCommand.Execute(null);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"❌ HistoricalDataPage.OnAppearing error: {ex}");
-                DisplayAlert("Error", ex.Message, "OK");
+                Debug.WriteLine("⚙️ HistoricalDataPage: executing LoadDataCommand");
+                _vm.LoadDataCommand.Execute(null);
             }
         }
     }

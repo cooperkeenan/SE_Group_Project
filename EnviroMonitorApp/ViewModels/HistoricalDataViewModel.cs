@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
@@ -7,7 +8,6 @@ using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microcharts;
-using System.Collections.Generic;
 using EnviroMonitorApp.Models;
 using EnviroMonitorApp.Services;
 
@@ -20,13 +20,17 @@ namespace EnviroMonitorApp.ViewModels
         public HistoricalDataViewModel(IEnvironmentalDataService dataService)
         {
             Debug.WriteLine("⚙️ HistoricalDataViewModel: ctor");
+
             _dataService    = dataService;
             LoadDataCommand = new AsyncRelayCommand(LoadDataAsync);
             ChartData       = new ObservableCollection<ChartEntry>();
             RawData         = new ObservableCollection<AirQualityRecord>();
+
+            // whenever entries arrive, let the chart know to redraw
+            ChartData.CollectionChanged += (_, __) => OnPropertyChanged(nameof(Chart));
         }
 
-        // ————————————————————————————————————— Filters & State
+        // — Filters & state
         private DateTime _startDate = DateTime.UtcNow.AddDays(-7);
         public DateTime StartDate
         {
@@ -62,21 +66,25 @@ namespace EnviroMonitorApp.ViewModels
             set => SetProperty(ref _isBusy, value);
         }
 
-        // ————————————————————————————————————— Data & Commands
+        // — Data & commands
         public ObservableCollection<ChartEntry> ChartData { get; }
         public ObservableCollection<AirQualityRecord> RawData { get; }
         public ICommand LoadDataCommand { get; }
 
+        /// <summary>
+        /// Bind your ChartView.Chart to this property.
+        /// </summary>
         public Chart Chart
         {
             get
             {
-                // both ObservableCollection<ChartEntry> and ChartEntry[] are IEnumerable<ChartEntry>
-                IEnumerable<ChartEntry> entries = ChartData.Any()
-                    ? ChartData
+                // if no real data yet, supply one dummy entry at zero
+                IList<ChartEntry> entries = ChartData.Any()
+                    ? (IList<ChartEntry>)ChartData
                     : new[]
                     {
-                        new ChartEntry(0f) {
+                        new ChartEntry(0f)
+                        {
                             Label      = "",
                             ValueLabel = ""
                         }
@@ -90,13 +98,11 @@ namespace EnviroMonitorApp.ViewModels
             }
         }
 
-
         async Task LoadDataAsync()
         {
-            Debug.WriteLine("⚙️ HistoricalDataViewModel: LoadDataAsync starting");
             if (IsBusy)
             {
-                Debug.WriteLine("⚠️ already busy, skipping");
+                Debug.WriteLine("⚠️ LoadDataAsync: already busy, skipping");
                 return;
             }
 
@@ -130,7 +136,6 @@ namespace EnviroMonitorApp.ViewModels
             finally
             {
                 IsBusy = false;
-                Debug.WriteLine("⚙️ LoadDataAsync complete");
             }
         }
     }
