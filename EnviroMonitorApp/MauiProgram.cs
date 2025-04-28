@@ -1,12 +1,17 @@
-﻿using Microsoft.Extensions.Logging;
+﻿// EnviroMonitorApp/MauiProgram.cs
+using System;
+using Microsoft.Extensions.Logging;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls.Hosting;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Hosting;
 using Refit;
+using Microcharts.Maui;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 using EnviroMonitorApp.Services;
 using EnviroMonitorApp.Services.Apis;
-using EnviroMonitorApp.Views;  
+using EnviroMonitorApp.Views;
 using EnviroMonitorApp.ViewModels;
-using Microsoft.Maui.Controls;   // for Routing
-using Microcharts.Maui;                         // <-- for UseMicrocharts()
-using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace EnviroMonitorApp
 {
@@ -17,37 +22,37 @@ namespace EnviroMonitorApp
             var builder = MauiApp.CreateBuilder();
 
             builder
-              .UseMauiApp<App>()
-              .UseSkiaSharp()        // registers the SKIA renderers
-              .UseMicrocharts()      // registers ChartView handler
-              .ConfigureFonts(fonts =>
-              {
-                  fonts.AddFont("OpenSans-Regular.ttf",   "OpenSansRegular");
-                  fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-              });
+                .UseMauiApp<App>()
+                .UseSkiaSharp()
+                .UseMicrocharts()
+                .ConfigureFonts(fonts =>
+                {
+                    fonts.AddFont("OpenSans-Regular.ttf",  "OpenSansRegular");
+                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                });
 
-    #if DEBUG
+#if DEBUG
             builder.Logging.AddDebug();
-    #endif
+#endif
 
-            // ─── 1️⃣  Pages ──────────────────────────────
+            // 1️⃣ Pages
             builder.Services.AddSingleton<AppShell>();
             builder.Services.AddTransient<AirQualityPage>();
             builder.Services.AddTransient<WeatherPage>();
             builder.Services.AddTransient<WaterQualityPage>();
-            builder.Services.AddTransient<HistoricalDataPage>();   // ← register your page here
+            builder.Services.AddTransient<HistoricalDataPage>();
 
-            // ─── 2️⃣  ViewModels ──────────────────────────
+            // 2️⃣ ViewModels
             builder.Services.AddTransient<AirQualityViewModel>();
             builder.Services.AddTransient<WeatherViewModel>();
             builder.Services.AddTransient<WaterQualityViewModel>();
             builder.Services.AddTransient<HistoricalDataViewModel>();
 
-            // ─── 3️⃣  API key provider & logging ─────────
+            // 3️⃣ API key + logging handler
             builder.Services.AddSingleton<ApiKeyProvider>();
             builder.Services.AddTransient<HttpLoggingHandler>();
 
-            // ─── 4️⃣  Refit clients ────────────────────────
+            // 4️⃣ Refit clients
             builder.Services
                 .AddRefitClient<IAirQualityApi>()
                 .AddHttpMessageHandler<HttpLoggingHandler>()
@@ -68,21 +73,23 @@ namespace EnviroMonitorApp
 
             builder.Services
                 .AddRefitClient<IWaterQualityApi>()
+                .AddHttpMessageHandler<HttpLoggingHandler>()
                 .ConfigureHttpClient(c =>
                 {
                     c.BaseAddress = new Uri("https://environment.data.gov.uk/");
                 });
 
-            // ─── 5️⃣  Unified data‐service ─────────────────
-            builder.Services
-                .AddSingleton<IEnvironmentalDataService, EnvironmentalDataApiService>();
+            // 5️⃣ Raw API service (for seeding)
+            builder.Services.AddSingleton<EnvironmentalDataApiService>();
 
-            // build the app
+            // 6️⃣ SQLite store & IEnvironmentalDataService
+            builder.Services.AddSingleton<SqlDataService>();
+            builder.Services.AddSingleton<IEnvironmentalDataService>(sp =>
+                sp.GetRequiredService<SqlDataService>());
+
+            // build & route
             var app = builder.Build();
-
-            // optional: register a route if you want GoToAsync support
             Routing.RegisterRoute(nameof(HistoricalDataPage), typeof(HistoricalDataPage));
-
             return app;
         }
     }

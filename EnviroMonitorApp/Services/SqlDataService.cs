@@ -1,91 +1,74 @@
+// EnviroMonitorApp/Services/SqlDataService.cs
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Threading.Tasks;
-using Dapper;
+using Microsoft.Maui.Storage;
+using SQLite;
 using EnviroMonitorApp.Models;
-using Microsoft.Data.SqlClient;
 
 namespace EnviroMonitorApp.Services
 {
+    /// <summary>
+    /// Opens a local SQLite file, provides CRUD, and can seed from API.
+    /// </summary>
     public class SqlDataService : IEnvironmentalDataService
     {
-        private readonly string _connectionString;
+        readonly SQLiteAsyncConnection _db;
 
-        public SqlDataService(string connectionString)
-            => _connectionString = connectionString;
-
-        private SqlConnection GetOpenConnection()
+        public SqlDataService()
         {
-            var conn = new SqlConnection(_connectionString);
-            conn.Open();
-            return conn;
+            // Build or open the DB in the app’s data folder
+            var dbPath = Path.Combine(FileSystem.AppDataDirectory, "enviro.db3");
+            _db = new SQLiteAsyncConnection(dbPath);
+
+            // Ensure tables exist (creates file if needed)
+            _db.CreateTableAsync<AirQualityRecord>().Wait();
+            _db.CreateTableAsync<WeatherRecord>().Wait();
+            _db.CreateTableAsync<WaterQualityRecord>().Wait();
         }
 
-        public async Task<List<AirQualityRecord>> 
-            GetAirQualityAsync(DateTime from, DateTime to, string region)
+        /// <summary>
+        /// Delete all old rows and insert fresh.
+        /// </summary>
+        public async Task SeedAsync(
+            List<AirQualityRecord>   air,
+            List<WeatherRecord>      weather,
+            List<WaterQualityRecord> water)
         {
-            const string sql = @"
-                SELECT Timestamp, NO2, SO2, PM25, PM10
-                  FROM AirQuality
-                 WHERE Timestamp BETWEEN @From AND @To
-                   AND (@Region = '' OR Region = @Region)
-                 ORDER BY Timestamp";
+            await _db.DeleteAllAsync<AirQualityRecord>();
+            await _db.InsertAllAsync(air);
 
-            using var conn = GetOpenConnection();
-            var rows = await conn.QueryAsync<AirQualityRecord>(sql, new {
-                From   = from,
-                To     = to,
-                Region = region ?? ""
-            });
-            return rows.ToList();
+            await _db.DeleteAllAsync<WeatherRecord>();
+            await _db.InsertAllAsync(weather);
+
+            await _db.DeleteAllAsync<WaterQualityRecord>();
+            await _db.InsertAllAsync(water);
         }
 
-        public async Task<List<WeatherRecord>> 
-            GetWeatherAsync(DateTime from, DateTime to, string region)
-        {
-            const string sql = @"
-                SELECT Timestamp, Temperature, Humidity, WindSpeed
-                  FROM Weather
-                 WHERE Timestamp BETWEEN @From AND @To
-                   AND (@Region = '' OR Region = @Region)
-                 ORDER BY Timestamp";
+        public Task<List<AirQualityRecord>> GetAirQualityAsync(DateTime from, DateTime to, string region) =>
+            _db.Table<AirQualityRecord>()
+               .Where(r => r.Timestamp >= from && r.Timestamp <= to)
+               .OrderBy(r => r.Timestamp)
+               .ToListAsync();
 
-            using var conn = GetOpenConnection();
-            var rows = await conn.QueryAsync<WeatherRecord>(sql, new {
-                From   = from,
-                To     = to,
-                Region = region ?? ""
-            });
-            return rows.ToList();
-        }
+        public Task<List<WeatherRecord>> GetWeatherAsync(DateTime from, DateTime to, string region) =>
+            _db.Table<WeatherRecord>()
+               .Where(r => r.Timestamp >= from && r.Timestamp <= to)
+               .OrderBy(r => r.Timestamp)
+               .ToListAsync();
 
-        public async Task<List<WaterQualityRecord>> 
-            GetWaterQualityAsync(DateTime from, DateTime to, string region)
-        {
-            const string sql = @"
-                SELECT Timestamp, Nitrate, PH, DissolvedOxygen, Temperature
-                  FROM WaterQuality
-                 WHERE Timestamp BETWEEN @From AND @To
-                   AND (@Region = '' OR Region = @Region)
-                 ORDER BY Timestamp";
+        public Task<List<WaterQualityRecord>> GetWaterQualityAsync(DateTime from, DateTime to, string region) =>
+            _db.Table<WaterQualityRecord>()
+               .Where(r => r.Timestamp >= from && r.Timestamp <= to)
+               .OrderBy(r => r.Timestamp)
+               .ToListAsync();
 
-            using var conn = GetOpenConnection();
-            var rows = await conn.QueryAsync<WaterQualityRecord>(sql, new {
-                From   = from,
-                To     = to,
-                Region = region ?? ""
-            });
-            return rows.ToList();
-        }
-
-        public Task<List<WaterQualityRecord>> 
-            GetWaterQualityAsync(int hours, string region = "")
-        {
-            // Delegate to the DateTime-based overload
-            var to   = DateTime.UtcNow;
-            var from = to.AddHours(-hours);
-            return GetWaterQualityAsync(from, to, region);
-        }
+        public Task<List<WaterQualityRecord>> GetWaterQualityAsync(int hours, string region = "") =>
+            _db.Table<WaterQualityRecord>()
+               .Where(r => r.Timestamp >= DateTime.UtcNow.AddHours(-hours))
+               .OrderByDescending(r => r.Timestamp)
+               .Take(10)
+               .ToListAsync();
     }
 }

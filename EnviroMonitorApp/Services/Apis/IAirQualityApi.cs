@@ -1,4 +1,4 @@
-// Services/Apis/IAirQualityApi.cs
+// EnviroMonitorApp/Services/Apis/IAirQualityApi.cs
 using Refit;
 using System.Threading.Tasks;
 
@@ -17,5 +17,15 @@ namespace EnviroMonitorApp.Services.Apis
 
         [Get("/v3/locations/{locationId}/latest")]
         Task<LocationLatestResponse> GetLocationLatest(int locationId);
+
+        // ─── New: historical measurements on a sensor ───────────────────
+        [Get("/v3/sensors/{sensorId}/measurements")]
+        Task<MeasurementsResponse> GetSensorMeasurementsAsync(
+            [AliasAs("sensorId")]      int    sensorId,
+            [AliasAs("datetime_from")] string datetimeFromUtc,
+            [AliasAs("datetime_to")]   string datetimeToUtc,
+            [AliasAs("limit")]         int    limit,
+            [AliasAs("page")]          int    page
+        );
     }
 }
