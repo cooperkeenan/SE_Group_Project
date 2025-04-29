@@ -1,5 +1,4 @@
-﻿// MauiProgram.cs
-using EnviroMonitorApp.Services;
+﻿using EnviroMonitorApp.Services;
 using EnviroMonitorApp.Services.Apis;
 using EnviroMonitorApp.ViewModels;
 using EnviroMonitorApp.Views;
@@ -32,7 +31,7 @@ namespace EnviroMonitorApp
             builder.Logging.AddDebug();
 #endif
 
-            // 1️⃣ Pages & ViewModels
+            // ─── Pages & ViewModels ─────────────────────────
             builder.Services.AddSingleton<AppShell>();
             builder.Services.AddTransient<AirQualityPage>();
             builder.Services.AddTransient<WeatherPage>();
@@ -44,11 +43,11 @@ namespace EnviroMonitorApp
             builder.Services.AddTransient<WaterQualityViewModel>();
             builder.Services.AddTransient<HistoricalDataViewModel>();
 
-            // 2️⃣ API key provider & HTTP logging
+            // ─── API key + logging handler ───────────────────
             builder.Services.AddSingleton<ApiKeyProvider>();
             builder.Services.AddTransient<HttpLoggingHandler>();
 
-            // 3️⃣ Refit clients
+            // ─── Refit API clients ───────────────────────────
             builder.Services
                    .AddRefitClient<IAirQualityApi>()
                    .AddHttpMessageHandler<HttpLoggingHandler>()
@@ -75,10 +74,9 @@ namespace EnviroMonitorApp
                        c.BaseAddress = new Uri("https://environment.data.gov.uk/");
                    });
 
-            // 4️⃣ Register your core API service *by its concrete type*…
-            builder.Services.AddSingleton<EnvironmentalDataApiService>();
-
-            // 5️⃣ Then register your SQLite‐backed service, which consumes the API service:
+            // ─── Core data services ──────────────────────────
+            builder.Services.AddSingleton<EnvironmentalDataApiService>(); // the “API‐only” service
+            builder.Services.AddSingleton<SqlDataService>();               // concrete SQL
             builder.Services.AddSingleton<IEnvironmentalDataService, SqlDataService>();
 
             return builder.Build();

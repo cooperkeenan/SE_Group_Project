@@ -21,17 +21,17 @@ namespace EnviroMonitorApp.Services
         private readonly IWaterQualityApi _waterApi;
         private readonly ApiKeyProvider   _keys;
 
-        // 10-minute in-memory caches
-        private static DateTime _airStamp = DateTime.MinValue;
-        private static List<AirQualityRecord>?    _airCache;
-        private static DateTime _wxStamp  = DateTime.MinValue;
-        private static List<WeatherRecord>?       _wxCache;
+        // in-memory caches (10-minute TTL)
+        private static DateTime _airStamp  = DateTime.MinValue;
+        private static List<AirQualityRecord>? _airCache;
+        private static DateTime _wxStamp   = DateTime.MinValue;
+        private static List<WeatherRecord>?   _wxCache;
 
         public EnvironmentalDataApiService(
-            IAirQualityApi airApi,
-            IWeatherApi weatherApi,
+            IAirQualityApi   airApi,
+            IWeatherApi      weatherApi,
             IWaterQualityApi waterApi,
-            ApiKeyProvider keys)
+            ApiKeyProvider   keys)
         {
             _airApi     = airApi;
             _weatherApi = weatherApi;
@@ -40,89 +40,77 @@ namespace EnviroMonitorApp.Services
         }
 
         // ───────────────────────────────────────────────────────────────────
-        // 1) AIR: sensors/{id}/measurements → AirQualityRecord
+        // 1) AIR: sensors/{id}/measurements → AirQualityRecord (paginated)
         // ───────────────────────────────────────────────────────────────────
-        public async Task<List<AirQualityRecord>> 
-            GetAirQualityAsync(DateTime from, DateTime to, string region)
+        public async Task<List<AirQualityRecord>> GetAirQualityAsync(
+            DateTime from, DateTime to, string region)
         {
-            // cache slice if fresh
             if (_airCache != null &&
-                (DateTime.UtcNow - _airStamp) < TimeSpan.FromMinutes(10))
+                DateTime.UtcNow - _airStamp < TimeSpan.FromMinutes(10))
             {
                 return _airCache
                     .Where(r => r.Timestamp >= from && r.Timestamp <= to)
                     .ToList();
             }
 
-            // region → coords stub
+            // map region to coords
             var (iso, coords) = region switch
             {
                 "London" => ("GB", "51.5074,-0.1278"),
                 _        => throw new ArgumentException($"Unknown region '{region}'")
             };
 
-            // find locations
+            // lookup locations
             var locResp = await _airApi.GetLocations(
                 iso: iso,
                 latlon: coords,
                 radiusMeters: 25_000,
-                parameterIdsCsv: "2,1,7,9",  // parameter IDs
+                parameterIdsCsv: "2,1,7,9",
                 limit: 10
             );
 
             var allMeas = new List<Measurement>();
+            const int pageSize = 100;
+
             foreach (var loc in locResp.Results)
             {
                 foreach (var sensor in loc.Sensors)
                 {
-                    int page = 1, foundCount;
+                    int page = 1, returned;
                     do
                     {
                         var resp = await _airApi.GetSensorMeasurementsAsync(
                             sensor.Id,
                             from.ToString("O", CultureInfo.InvariantCulture),
                             to  .ToString("O", CultureInfo.InvariantCulture),
-                            limit: 100,
+                            limit: pageSize,
                             page:  page
                         );
-
-                        if (resp?.Results != null)
-                            allMeas.AddRange(resp.Results);
-
-                        // parse found (could be ">100" or number)
-                        string raw = resp?.Meta.Found.ValueKind switch
-                        {
-                            JsonValueKind.String => resp.Meta.Found.GetString()!,
-                            JsonValueKind.Number => resp.Meta.Found.GetRawText(),
-                            _                    => "0"
-                        };
-                        if (raw.StartsWith(">")) raw = raw.Substring(1);
-                        foundCount = int.TryParse(raw, out var n) ? n : 0;
-
+                        var batch = resp?.Results ?? Array.Empty<Measurement>();
+                        allMeas.AddRange(batch);
+                        returned = batch.Length;
                         page++;
                     }
-                    while ((page - 1) * 100 < foundCount);
+                    while (returned == pageSize);
                 }
             }
 
-            // pivot by measurement.period.datetimeFrom.utc
+            // pivot into per-timestamp records
             var records = allMeas
                 .Where(m => m.Period?.DatetimeFrom?.Utc != null)
                 .GroupBy(m =>
-                {
-                    // parse the UTC timestamp
-                    var utcStr = m.Period.DatetimeFrom.Utc;
-                    return DateTime.Parse(utcStr, CultureInfo.InvariantCulture,
-                                          DateTimeStyles.AdjustToUniversal);
-                })
+                    DateTime.Parse(
+                        m.Period.DatetimeFrom.Utc!,
+                        CultureInfo.InvariantCulture,
+                        DateTimeStyles.AdjustToUniversal
+                    )
+                )
                 .Select(grp =>
                 {
                     var rec = new AirQualityRecord { Timestamp = grp.Key };
                     foreach (var m in grp)
                     {
-                        var param = m.Parameter?.Name?.ToLowerInvariant();
-                        if (param == null) continue;
-                        switch (param)
+                        switch (m.Parameter?.Name?.ToLowerInvariant())
                         {
                             case "no2":  rec.NO2  = m.Value; break;
                             case "so2":  rec.SO2  = m.Value; break;
@@ -141,20 +129,19 @@ namespace EnviroMonitorApp.Services
         }
 
         // ───────────────────────────────────────────────────────────────────
-        // 2) WEATHER: OpenWeatherMap 3-hour forecast → WeatherRecord
+        // 2) WEATHER: 3-hour forecast → WeatherRecord (no paging)
         // ───────────────────────────────────────────────────────────────────
-        public async Task<List<WeatherRecord>> 
-            GetWeatherAsync(DateTime from, DateTime to, string region)
+        public async Task<List<WeatherRecord>> GetWeatherAsync(
+            DateTime from, DateTime to, string region)
         {
             if (_wxCache != null &&
-                (DateTime.UtcNow - _wxStamp) < TimeSpan.FromMinutes(10))
+                DateTime.UtcNow - _wxStamp < TimeSpan.FromMinutes(10))
             {
                 return _wxCache
                     .Where(r => r.Timestamp >= from && r.Timestamp <= to)
                     .ToList();
             }
 
-            // hardcode London, change to dynamic if needed
             var resp = await _weatherApi.GetForecast(
                 lat:   51.5074,
                 lon:  -0.1278,
@@ -193,8 +180,8 @@ namespace EnviroMonitorApp.Services
             ["temp"]    = "https://environment.data.gov.uk/hydrology/id/measures/E05962A-temp-i-subdaily-C"
         };
 
-        public async Task<List<WaterQualityRecord>> 
-            GetWaterQualityAsync(DateTime from, DateTime to, string region)
+        public async Task<List<WaterQualityRecord>> GetWaterQualityAsync(
+            DateTime from, DateTime to, string region)
         {
             var hours = (int)Math.Ceiling((to - from).TotalHours);
             var data  = await GetWaterQualityAsync(hours, region);
@@ -203,8 +190,8 @@ namespace EnviroMonitorApp.Services
                 .ToList();
         }
 
-        public async Task<List<WaterQualityRecord>> 
-            GetWaterQualityAsync(int hours, string region = "")
+        public async Task<List<WaterQualityRecord>> GetWaterQualityAsync(
+            int hours, string region = "")
         {
             var since = DateTime.UtcNow
                            .AddHours(-hours)
@@ -224,7 +211,7 @@ namespace EnviroMonitorApp.Services
                 if (resp?.Items == null) continue;
                 foreach (var r in resp.Items.Take(100))
                 {
-                    if (!DateTime.TryParse(r.DateTime, out var dt)) 
+                    if (!DateTime.TryParse(r.DateTime, out var dt))
                         continue;
                     var ts = dt.AddSeconds(-dt.Second);
 

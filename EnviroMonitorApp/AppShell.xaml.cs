@@ -1,5 +1,4 @@
-﻿// AppShell.xaml.cs
-using System;
+﻿using System;
 using Microsoft.Maui.Controls;
 using EnviroMonitorApp.Services;
 using EnviroMonitorApp.Views;
@@ -8,13 +7,19 @@ namespace EnviroMonitorApp
 {
     public partial class AppShell : Shell
     {
-        readonly IEnvironmentalDataService _dataSvc;
+        readonly SqlDataService            _sql;    // concrete
+        readonly IEnvironmentalDataService _api;    // the interface
+
         bool _hasSeeded;
 
-        public AppShell(IEnvironmentalDataService dataSvc)
+        public AppShell(
+            IEnvironmentalDataService apiSvc,  // will actually be your SqlDataService under the hood
+            SqlDataService sqlSvc)             // also ask for the concrete so you can call SeedAsync
         {
             InitializeComponent();
-            _dataSvc = dataSvc;
+
+            _api = apiSvc;
+            _sql = sqlSvc;
 
             Routing.RegisterRoute(nameof(WaterQualityPage),   typeof(WaterQualityPage));
             Routing.RegisterRoute(nameof(AirQualityPage),     typeof(AirQualityPage));
@@ -26,14 +31,15 @@ namespace EnviroMonitorApp
         {
             base.OnAppearing();
 
-            if (_hasSeeded) return;
-            _hasSeeded = true;
+            if (!_hasSeeded)
+            {
+                _hasSeeded = true;
 
-            // seed, e.g. last 30 days of air data for “London”
-            await _dataSvc.GetAirQualityAsync(
-                DateTime.UtcNow.AddDays(-30),
-                DateTime.UtcNow,
-                "London");
+                var from = DateTime.UtcNow.AddDays(-30);
+                var to   = DateTime.UtcNow;
+                // call your SqlDataService.SeedAsync, not "sqlSvc" which local name didn’t exist
+                await _sql.SeedAsync(from, to, "London");
+            }
         }
     }
 }
