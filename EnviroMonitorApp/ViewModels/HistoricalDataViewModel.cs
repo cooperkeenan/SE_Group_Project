@@ -1,7 +1,6 @@
-// EnviroMonitorApp/ViewModels/HistoricalDataViewModel.cs
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,13 +8,12 @@ using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microcharts;
+using SkiaSharp;
 using EnviroMonitorApp.Models;
 using EnviroMonitorApp.Services;
 
 namespace EnviroMonitorApp.ViewModels
 {
-    public enum SensorType { Air, Weather, Water }
-
     public class HistoricalDataViewModel : ObservableObject
     {
         readonly IEnvironmentalDataService _dataService;
@@ -24,105 +22,177 @@ namespace EnviroMonitorApp.ViewModels
         {
             _dataService    = dataService;
             LoadDataCommand = new AsyncRelayCommand(LoadDataAsync);
-            ChartData       = new ObservableCollection<ChartEntry>();
-            RawData         = new ObservableCollection<object>();
-            SensorTypes     = Enum.GetValues<SensorType>().ToList();
-            Regions         = new List<string> { "London" };
-            StartDate       = DateTime.UtcNow.AddDays(-7);
-            EndDate         = DateTime.UtcNow;
-            SelectedSensorType = SensorType.Air;
-            SelectedRegion     = "London";
-            ChartData.CollectionChanged += (_,__) => OnPropertyChanged(nameof(Chart));
+
+            ChartData = new ObservableCollection<ChartEntry>();
+            RawData   = new ObservableCollection<AirQualityRecord>();
+
+            // when the chart data collection changes, notify the Chart getter
+            ChartData.CollectionChanged += (_, __) => OnPropertyChanged(nameof(Chart));
+
+            // set up the pickers
+            SensorTypes        = new[] { "Air", "Weather", "Water" };
+            Regions            = new[] { "All", "London" };
+            SelectedSensorType = SensorTypes.First();
+            SelectedRegion     = Regions.First();
+            StartDate          = DateTime.UtcNow.AddDays(-7);
+            EndDate            = DateTime.UtcNow;
+
+            // listen for ANY of the four filter props changing
+            PropertyChanged += Filter_PropertyChanged;
         }
 
-        public List<SensorType> SensorTypes { get; }
-        public List<string>     Regions     { get; }
+        void Filter_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName is nameof(StartDate)
+             or nameof(EndDate)
+             or nameof(SelectedSensorType)
+             or nameof(SelectedRegion))
+            {
+                // re‐load in the background
+                _ = LoadDataAsync();
+            }
+        }
 
-        private DateTime _startDate;
-        public DateTime StartDate { get => _startDate; set => SetProperty(ref _startDate, value); }
+        // — your filters, fully observable —
+        public string[] SensorTypes { get; }
+        string _selectedSensorType;
+        public  string  SelectedSensorType
+        {
+            get => _selectedSensorType;
+            set => SetProperty(ref _selectedSensorType, value);
+        }
 
-        private DateTime _endDate;
-        public DateTime EndDate { get => _endDate; set => SetProperty(ref _endDate, value); }
+        public string[] Regions { get; }
+        string _selectedRegion;
+        public  string  SelectedRegion
+        {
+            get => _selectedRegion;
+            set => SetProperty(ref _selectedRegion, value);
+        }
 
-        private SensorType _selectedSensorType;
-        public SensorType SelectedSensorType { get => _selectedSensorType; set => SetProperty(ref _selectedSensorType, value); }
+        DateTime _startDate;
+        public  DateTime StartDate
+        {
+            get => _startDate;
+            set => SetProperty(ref _startDate, value);
+        }
 
-        private string _selectedRegion;
-        public string SelectedRegion { get => _selectedRegion; set => SetProperty(ref _selectedRegion, value); }
+        DateTime _endDate;
+        public  DateTime EndDate
+        {
+            get => _endDate;
+            set => SetProperty(ref _endDate, value);
+        }
 
-        private bool _isBusy;
-        public bool IsBusy { get => _isBusy; set => SetProperty(ref _isBusy, value); }
+        bool _isBusy;
+        public bool IsBusy
+        {
+            get => _isBusy;
+            set => SetProperty(ref _isBusy, value);
+        }
 
-        public ObservableCollection<ChartEntry> ChartData { get; }
-        public ObservableCollection<object>     RawData   { get; }
-        public ICommand LoadDataCommand { get; }
+        // — data & commands —
+        public ObservableCollection<ChartEntry>       ChartData { get; }
+        public ObservableCollection<AirQualityRecord> RawData   { get; }
+        public ICommand                              LoadDataCommand { get; }
 
-        public Chart Chart => new LineChart {
-            Entries = ChartData.Any() ? ChartData : new[] { new ChartEntry(0) },
-            LabelTextSize = 24
-        };
+        /// <summary>
+        /// Bound to your ChartView.Chart
+        /// </summary>
+        public Chart Chart
+        {
+            get
+            {
+                var entries = ChartData.Any()
+                    ? (IList<ChartEntry>)ChartData
+                    : new[]
+                    {
+                        new ChartEntry(0f)
+                        {
+                            Label      = "",
+                            ValueLabel = ""
+                        }
+                    };
 
-        private async Task LoadDataAsync()
+                return new LineChart
+                {
+                    Entries            = entries,
+                    LineSize           = 3,
+                    PointSize          = 6,
+                    LineAreaAlpha      = 30,
+                    LineMode           = LineMode.Straight,
+                    LabelTextSize      = 14,
+                    ValueLabelTextSize = 12
+                };
+            }
+        }
+
+        async Task LoadDataAsync()
         {
             if (IsBusy) return;
-            IsBusy = true;
+
             try
             {
+                IsBusy = true;
                 ChartData.Clear();
                 RawData.Clear();
-                switch (SelectedSensorType)
+
+                // 1️⃣ fetch exactly the requested span
+                var records = await _dataService
+                    .GetAirQualityAsync(StartDate, EndDate, SelectedRegion);
+
+                // 2️⃣ store raw
+                foreach (var r in records)
+                    RawData.Add(r);
+
+                // 3️⃣ if >7 days, daily‐aggregate
+                var days = (EndDate.Date - StartDate.Date).TotalDays;
+                bool daily = days > 7;
+
+                var plotSet = daily
+                    ? records
+                        .GroupBy(r => r.Timestamp.Date)
+                        .Select(g => new AirQualityRecord {
+                            Timestamp = g.Key,
+                            NO2       = g.Average(x => x.NO2),
+                            SO2       = g.Average(x => x.SO2),
+                            PM25      = g.Average(x => x.PM25),
+                            PM10      = g.Average(x => x.PM10)
+                        })
+                        .OrderBy(r => r.Timestamp)
+                        .ToList()
+                    : records.OrderBy(r => r.Timestamp).ToList();
+
+                // 4️⃣ build chart entries
+                foreach (var rec in plotSet)
                 {
-                    case SensorType.Air:
-                        await LoadAirAsync();    break;
-                    case SensorType.Weather:
-                        await LoadWeatherAsync();break;
-                    case SensorType.Water:
-                        await LoadWaterAsync();  break;
+                    var val = SelectedSensorType switch
+                    {
+                        "Air"     => rec.NO2,
+                        "Weather" => 0,
+                        "Water"   => 0,
+                        _         => rec.NO2
+                    };
+
+                    ChartData.Add(new ChartEntry((float)val)
+                    {
+                        Label      = daily
+                                     ? rec.Timestamp.ToString("MM/dd")
+                                     : rec.Timestamp.ToString("MM/dd HH:mm"),
+                        ValueLabel = daily ? "" : val.ToString("F1"),
+                        Color      = SKColor.Parse("#FF6200EE")
+                    });
                 }
+
+                Debug.WriteLine($"⚙️ ChartData loaded {ChartData.Count} points");
             }
             catch (Exception ex)
             {
                 Debug.WriteLine($"❌ LoadDataAsync failed: {ex}");
             }
-            finally { IsBusy = false; }
-        }
-
-        private async Task LoadAirAsync()
-        {
-            var recs = await _dataService.GetAirQualityAsync(StartDate, EndDate, SelectedRegion);
-            foreach (var r in recs)
+            finally
             {
-                ChartData.Add(new ChartEntry((float)r.NO2) {
-                    Label = r.Timestamp.ToString("MM/dd"),
-                    ValueLabel = r.NO2.ToString("F1")
-                });
-                RawData.Add(r);
-            }
-        }
-
-        private async Task LoadWeatherAsync()
-        {
-            var recs = await _dataService.GetWeatherAsync(StartDate, EndDate, SelectedRegion);
-            foreach (var r in recs)
-            {
-                ChartData.Add(new ChartEntry((float)r.Temperature) {
-                    Label = r.Timestamp.ToString("MM/dd"),
-                    ValueLabel = r.Temperature.ToString("F1")
-                });
-                RawData.Add(r);
-            }
-        }
-
-        private async Task LoadWaterAsync()
-        {
-            var recs = await _dataService.GetWaterQualityAsync(StartDate, EndDate, SelectedRegion);
-            foreach (var r in recs)
-            {
-                ChartData.Add(new ChartEntry((float)(r.DissolvedOxygen ?? 0)) {
-                    Label = r.Timestamp.ToString("MM/dd"),
-                    ValueLabel = (r.DissolvedOxygen ?? 0).ToString("F1")
-                });
-                RawData.Add(r);
+                IsBusy = false;
             }
         }
     }
