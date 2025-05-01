@@ -45,8 +45,7 @@ namespace EnviroMonitorApp.Services
         public async Task<List<AirQualityRecord>> GetAirQualityAsync(
             DateTime from, DateTime to, string region)
         {
-            if (_airCache != null &&
-                DateTime.UtcNow - _airStamp < TimeSpan.FromMinutes(10))
+            if (_airCache != null && DateTime.UtcNow - _airStamp < TimeSpan.FromMinutes(10))
             {
                 return _airCache
                     .Where(r => r.Timestamp >= from && r.Timestamp <= to)

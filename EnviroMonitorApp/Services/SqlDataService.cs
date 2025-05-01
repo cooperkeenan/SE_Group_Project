@@ -1,132 +1,119 @@
 // EnviroMonitorApp/Services/SqlDataService.cs
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.Maui.Storage;
 using SQLite;
 using EnviroMonitorApp.Models;
-using EnviroMonitorApp.Services;
-using System.Diagnostics;
 
 namespace EnviroMonitorApp.Services
 {
     public class SqlDataService : IEnvironmentalDataService
     {
         readonly SQLiteAsyncConnection _db;
-        readonly EnvironmentalDataApiService _api;
         const string FileName = "enviro.db3";
-        const int ChunkSizeDays = 1; // one‐day chunks
 
-        public SqlDataService(EnvironmentalDataApiService apiService)
+        public SqlDataService()
         {
-            _api = apiService;
-
+            // 1) Copy your pre-populated DB into AppData (always overwrite so you pick
+            //    up new exports from your repo).
             var folder = FileSystem.AppDataDirectory;
-            var path   = Path.Combine(folder, FileName);
-            if (!File.Exists(path))
+            var dest   = Path.Combine(folder, FileName);
+            Debug.WriteLine($"[SqlDataService] Dest DB path: {dest}");
+
+            if (File.Exists(dest))
             {
-                Debug.WriteLine($"[SqlDataService] Copying blank DB to {path}");
-                using var src = FileSystem.OpenAppPackageFileAsync(Path.Combine("Data", FileName)).Result;
-                using var dst = File.Create(path);
-                src.CopyTo(dst);
-            }
-            else
-            {
-                Debug.WriteLine($"[SqlDataService] Using existing DB at {path}");
+                Debug.WriteLine($"[SqlDataService] Deleting existing DB");
+                File.Delete(dest);
             }
 
-            _db = new SQLiteAsyncConnection(path);
+            Debug.WriteLine($"[SqlDataService] Copying bundle DB → {dest}");
+            // NOTE: FileSystem.OpenAppPackageFileAsync will look in Resources/Raw
+            using var src  = FileSystem.OpenAppPackageFileAsync(FileName).Result;
+            using var outp = File.Create(dest);
+            src.CopyTo(outp);
+
+            // 2) Open SQLite
+            _db = new SQLiteAsyncConnection(dest);
+            Debug.WriteLine($"[SqlDataService] Opened SQLite DB");
+
+            // 3) Ensure tables exist (no-ops if schema matches)
             _db.CreateTableAsync<AirQualityRecord>().Wait();
             _db.CreateTableAsync<WeatherRecord>().Wait();
             _db.CreateTableAsync<WaterQualityRecord>().Wait();
+
+            // 4) Log how many rows shipped
+            var total = _db.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM AirQualityRecord").Result;
+            Debug.WriteLine($"[SqlDataService] Total rows in AirQualityRecord: {total}");
         }
 
-        // This is your public SeedAsync that AppShell is calling
-        public Task SeedAsync(DateTime from, DateTime to, string region)
-            => SeedRangeAsync(from, to, region);
-
-        // internal workhorse: fetch day‐by‐day
-        async Task SeedRangeAsync(DateTime from, DateTime to, string region)
+        // intermediate type for raw SQL
+        class RawRecord
         {
-            if (region == "All") region = "London";
-
-            var cursor = from.Date;
-            var end    = to.Date;
-            while (cursor <= end)
-            {
-                var start = cursor;
-                var finish = cursor.AddDays(1).AddTicks(-1);
-                Debug.WriteLine($"[SqlDataService] Fetching chunk {start:MM/dd}→{finish:MM/dd}");
-                await FetchAndInsertChunkAsync(start, finish, region);
-
-                cursor = cursor.AddDays(ChunkSizeDays);
-                await Task.Delay(200);  // small throttle
-            }
-        }
-
-        async Task FetchAndInsertChunkAsync(DateTime chunkStart, DateTime chunkEnd, string region)
-        {
-            try
-            {
-                var list = await _api.GetAirQualityAsync(chunkStart, chunkEnd, region);
-                if (list?.Count > 0)
-                {
-                    await _db.InsertAllAsync(list);
-                    Debug.WriteLine($"[SqlDataService] Chunk {chunkStart:MM/dd} OK");
-                }
-            }
-            catch (Refit.ApiException ae) when ((int)ae.StatusCode == 429)
-            {
-                Debug.WriteLine($"[SqlDataService] 429 on {chunkStart:MM/dd}, retrying");
-                await Task.Delay(1000);
-                await FetchAndInsertChunkAsync(chunkStart, chunkEnd, region);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"[SqlDataService] ⚠️ chunk {chunkStart:MM/dd} failed: {ex.GetType().Name}");
-            }
+            public string Timestamp { get; set; } = "";
+            public double? NO2     { get; set; }
+            public double? SO2     { get; set; }
+            public double? PM25    { get; set; }
+            public double? PM10    { get; set; }
         }
 
         public async Task<List<AirQualityRecord>> GetAirQualityAsync(
             DateTime from, DateTime to, string region)
         {
-            // make sure DB is seeded for that entire span
-            await SeedRangeAsync(from, to, region);
+            Debug.WriteLine($"[SqlDataService] Loading all raw rows");
+            // grab the TEXT timestamp + values
+            var raws = await _db.QueryAsync<RawRecord>(
+                "SELECT Timestamp, NO2, SO2, PM25, PM10 FROM AirQualityRecord");
 
             var toInclusive = to.Date.AddDays(1).AddTicks(-1);
-            return await _db.Table<AirQualityRecord>()
-                            .Where(r => r.Timestamp >= from && r.Timestamp <= toInclusive)
-                            .OrderBy(r => r.Timestamp)
-                            .ToListAsync();
+            var outList = new List<AirQualityRecord>(raws.Count);
+
+            foreach (var r in raws)
+            {
+                // try our strict ISO-8601 parse first
+                if (!DateTime.TryParseExact(
+                        r.Timestamp,
+                        "yyyy-MM-dd'T'HH:mm:ss'Z'",
+                        CultureInfo.InvariantCulture,
+                        DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal,
+                        out var dt)
+                    // fallback to a more forgiving parse if needed
+                    && !DateTime.TryParse(
+                        r.Timestamp,
+                        CultureInfo.InvariantCulture,
+                        DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal,
+                        out dt))
+                {
+                    Debug.WriteLine($"[SqlDataService] ⚠ could not parse «{r.Timestamp}»");
+                    continue;
+                }
+
+                if (dt < from || dt > toInclusive)
+                    continue;
+
+                outList.Add(new AirQualityRecord
+                {
+                    Timestamp = dt,
+                    NO2       = r.NO2  ?? 0,
+                    SO2       = r.SO2  ?? 0,
+                    PM25      = r.PM25 ?? 0,
+                    PM10      = r.PM10 ?? 0,
+                });
+            }
+
+            Debug.WriteLine($"[SqlDataService] Parsed+filtered rows: {outList.Count}");
+            return outList;
         }
 
+        // stub out the others to satisfy the interface
         public Task<List<WeatherRecord>> GetWeatherAsync(DateTime from, DateTime to, string region)
-        {
-            var toInclusive = to.Date.AddDays(1).AddTicks(-1);
-            return _db.Table<WeatherRecord>()
-                      .Where(r => r.Timestamp >= from && r.Timestamp <= toInclusive)
-                      .OrderBy(r => r.Timestamp)
-                      .ToListAsync();
-        }
-
+            => Task.FromResult(new List<WeatherRecord>());
         public Task<List<WaterQualityRecord>> GetWaterQualityAsync(DateTime from, DateTime to, string region)
-        {
-            var toInclusive = to.Date.AddDays(1).AddTicks(-1);
-            return _db.Table<WaterQualityRecord>()
-                      .Where(r => r.Timestamp >= from && r.Timestamp <= toInclusive)
-                      .OrderBy(r => r.Timestamp)
-                      .ToListAsync();
-        }
-
+            => Task.FromResult(new List<WaterQualityRecord>());
         public Task<List<WaterQualityRecord>> GetWaterQualityAsync(int hours, string region = "")
-        {
-            var cutoff = DateTime.UtcNow.AddHours(-hours);
-            return _db.Table<WaterQualityRecord>()
-                      .Where(r => r.Timestamp >= cutoff)
-                      .OrderByDescending(r => r.Timestamp)
-                      .Take(10)
-                      .ToListAsync();
-        }
+            => Task.FromResult(new List<WaterQualityRecord>());
     }
 }

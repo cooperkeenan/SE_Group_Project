@@ -1,11 +1,10 @@
-﻿using EnviroMonitorApp.Services;
-using EnviroMonitorApp.Services.Apis;
+﻿// MauiProgram.cs
+using EnviroMonitorApp.Services;
 using EnviroMonitorApp.ViewModels;
 using EnviroMonitorApp.Views;
 using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
-using Refit;
 using Microcharts.Maui;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 
@@ -43,40 +42,8 @@ namespace EnviroMonitorApp
             builder.Services.AddTransient<WaterQualityViewModel>();
             builder.Services.AddTransient<HistoricalDataViewModel>();
 
-            // ─── API key + logging handler ───────────────────
-            builder.Services.AddSingleton<ApiKeyProvider>();
-            builder.Services.AddTransient<HttpLoggingHandler>();
-
-            // ─── Refit API clients ───────────────────────────
-            builder.Services
-                   .AddRefitClient<IAirQualityApi>()
-                   .AddHttpMessageHandler<HttpLoggingHandler>()
-                   .ConfigureHttpClient((sp, c) =>
-                   {
-                       var kp = sp.GetRequiredService<ApiKeyProvider>();
-                       c.BaseAddress = new Uri("https://api.openaq.org/");
-                       c.DefaultRequestHeaders.Add("X-API-Key", kp.OpenAqKey);
-                   });
-
-            builder.Services
-                   .AddRefitClient<IWeatherApi>()
-                   .AddHttpMessageHandler<HttpLoggingHandler>()
-                   .ConfigureHttpClient(c =>
-                   {
-                       c.BaseAddress = new Uri("https://api.openweathermap.org/");
-                   });
-
-            builder.Services
-                   .AddRefitClient<IWaterQualityApi>()
-                   .AddHttpMessageHandler<HttpLoggingHandler>()
-                   .ConfigureHttpClient(c =>
-                   {
-                       c.BaseAddress = new Uri("https://environment.data.gov.uk/");
-                   });
-
             // ─── Core data services ──────────────────────────
-            builder.Services.AddSingleton<EnvironmentalDataApiService>(); // the “API‐only” service
-            builder.Services.AddSingleton<SqlDataService>();               // concrete SQL
+            // Only register the SQLite-backed provider—no API at runtime:
             builder.Services.AddSingleton<IEnvironmentalDataService, SqlDataService>();
 
             return builder.Build();

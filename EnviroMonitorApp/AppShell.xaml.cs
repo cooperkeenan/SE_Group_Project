@@ -1,44 +1,32 @@
-﻿// EnviroMonitorApp/AppShell.xaml.cs
-using System;
-using Microsoft.Maui.Controls;
-using EnviroMonitorApp.Services;
+﻿using Microsoft.Maui.Controls;
 using EnviroMonitorApp.Views;
+using EnviroMonitorApp.Services;
 
 namespace EnviroMonitorApp
 {
     public partial class AppShell : Shell
     {
-        readonly SqlDataService           _sql;    // need the concrete type
-        readonly IEnvironmentalDataService _api;   // and the interface
+        readonly IEnvironmentalDataService _dataService;
 
-        bool _hasSeeded;
-
-        public AppShell(
-            IEnvironmentalDataService apiSvc,
-            SqlDataService sqlSvc)
+        public AppShell(IEnvironmentalDataService dataService)
         {
             InitializeComponent();
 
-            _api = apiSvc;
-            _sql = sqlSvc;
+            _dataService = dataService;
 
+            // Register your routes
             Routing.RegisterRoute(nameof(WaterQualityPage),   typeof(WaterQualityPage));
             Routing.RegisterRoute(nameof(AirQualityPage),     typeof(AirQualityPage));
             Routing.RegisterRoute(nameof(WeatherPage),        typeof(WeatherPage));
             Routing.RegisterRoute(nameof(HistoricalDataPage), typeof(HistoricalDataPage));
         }
 
-        protected override async void OnAppearing()
+        // If you're not seeding or doing anything else at startup,
+        // you can remove this override entirely. Leaving it empty is fine:
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            if (_hasSeeded) return;
-            _hasSeeded = true;
-
-            var from = DateTime.UtcNow.AddDays(-30);
-            var to   = DateTime.UtcNow;
-            // now this will compile, because SeedAsync exists
-            await _sql.SeedAsync(from, to, "London");
+            // no more SeedAsync calls — we ship the pre-populated DB now
         }
     }
 }
