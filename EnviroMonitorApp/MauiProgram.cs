@@ -7,6 +7,8 @@ using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
 using Microcharts.Maui;
 using SkiaSharp.Views.Maui.Controls.Hosting;
+using EnviroMonitorApp.Services.ChartTransformers;
+
 
 namespace EnviroMonitorApp
 {
@@ -45,6 +47,7 @@ namespace EnviroMonitorApp
             // ─── Core data services ──────────────────────────
             // Only register the SQLite-backed provider—no API at runtime:
             builder.Services.AddSingleton<IEnvironmentalDataService, SqlDataService>();
+            builder.Services.AddSingleton<IChartTransformer, LogBinningTransformer>();
 
             return builder.Build();
         }
