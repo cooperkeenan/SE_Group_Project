@@ -1,14 +1,5 @@
 #!/usr/bin/env python3
-"""
-generate_enviro_db.py ― London daily‐average air‐quality ETL using OpenAQ v3
-──────────────────────────────────────────────────────────────────────────────
-* Discovers all nearby sensors for NO2, SO2, PM2.5, PM10
-* Pulls hourly values for a user‐supplied date range
-* Sleeps on 429 / 500 with exponential backoff
-* Averages each day’s readings (ignoring missing)
-* Writes/updates records in enviro.db3 (Timestamp at midnight UTC)
-* Exports the same daily averages to enviro.csv
-"""
+
 import os
 import sys
 import time
@@ -24,7 +15,7 @@ COORDS       = "51.5074,-0.1278"       # central London
 RADIUS_M     = 25_000                  # 25 km
 PARAM_IDS    = {5: "NO2", 7: "SO2", 2: "PM25", 1: "PM10"}
 PAGE_SIZE    = 500                     # /hours limit
-SLEEP_PAGE   = 1                       # seconds between pages
+SLEEP_PAGE   = 1                     ``  # seconds between pages
 MAX_RETRIES  = 5                       # for 429 & 500
 BACKOFF_BASE = 2                       # exponential backoff base
 
@@ -182,7 +173,7 @@ def persist_and_export(daily):
                 cols["PM25"], cols["PM10"]
             ])
 
-# ─────────────────────────── CLI ─────────────────────────────
+
 def main(sdate, edate):
     start_iso = f"{sdate}T00:00:00Z"
     end_iso   = f"{edate}T23:59:59Z"

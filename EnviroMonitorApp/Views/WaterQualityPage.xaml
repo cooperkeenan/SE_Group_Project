@@ -1,55 +1,33 @@
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:models="clr-namespace:EnviroMonitorApp.Models"
-             x:Class="EnviroMonitorApp.Views.WaterQualityPage"
-             Title="Water Quality">
+<ContentPage
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:models="clr-namespace:EnviroMonitorApp.Models"
+  xmlns:charts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+  x:Class="EnviroMonitorApp.Views.WaterQualityPage"
+  Title="Water Quality">
 
+  <VerticalStackLayout Padding="10" Spacing="10">
+
+    <!-- sensor picker -->
+    <Picker
+      ItemsSource="{Binding SensorTypes}"
+      SelectedItem="{Binding SelectedSensorType}"
+      Title="Select measure" />
+
+    <!-- chart -->
+    <charts:ChartView
+      Chart="{Binding Chart}"
+      HeightRequest="250"
+      HorizontalOptions="FillAndExpand" />
+
+    <!-- raw data list -->
     <CollectionView ItemsSource="{Binding WaterQuality}">
-        <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="models:WaterQualityRecord">
-                <Frame CornerRadius="12"
-                       BorderColor="LightGray"
-                       Padding="12"
-                       Margin="8">
-
-                    <VerticalStackLayout Spacing="4">
-                        <!-- timestamp -->
-                        <Label Text="{Binding Timestamp,
-                                              StringFormat='Updated {0:yyyy-MM-dd HH:mm}'}"
-                               FontAttributes="Bold"/>
-
-                        <!-- data rows -->
-                        <Grid ColumnDefinitions="Auto,*"
-                              RowDefinitions="Auto,Auto,Auto,Auto"
-                              RowSpacing="2">
-
-                            <Label Text="Nitrate:" FontAttributes="Bold"/>
-                            <Label Grid.Column="1"
-                                   Text="{Binding Nitrate,
-                                                  StringFormat='{}{0:F2} mg/L',
-                                                  FallbackValue='—'}"/>
-
-                            <Label Grid.Row="1" Text="pH:" FontAttributes="Bold"/>
-                            <Label Grid.Row="1" Grid.Column="1"
-                                   Text="{Binding PH,
-                                                  StringFormat='{}{0:F2}',
-                                                  FallbackValue='—'}"/>
-
-                            <Label Grid.Row="2" Text="Dissolved O₂:" FontAttributes="Bold"/>
-                            <Label Grid.Row="2" Grid.Column="1"
-                                   Text="{Binding DissolvedOxygen,
-                                                  StringFormat='{}{0:F2} mg/L',
-                                                  FallbackValue='—'}"/>
-
-                            <Label Grid.Row="3" Text="Temperature:" FontAttributes="Bold"/>
-                            <Label Grid.Row="3" Grid.Column="1"
-                                   Text="{Binding Temperature,
-                                                  StringFormat='{}{0:F1} °C',
-                                                  FallbackValue='—'}"/>
-                        </Grid>
-                    </VerticalStackLayout>
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
+      <CollectionView.ItemTemplate>
+        <DataTemplate x:DataType="models:WaterQualityRecord">
+          <!-- ... your existing Frame/DataTemplate ... -->
+        </DataTemplate>
+      </CollectionView.ItemTemplate>
     </CollectionView>
+
+  </VerticalStackLayout>
 </ContentPage>

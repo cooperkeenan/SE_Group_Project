@@ -232,5 +232,11 @@ namespace EnviroMonitorApp.Services
                          .Take(10)
                          .ToList();
         }
+        public Task<List<WaterQualityRecord>> GetHistoricalWaterQualityAsync(
+        DateTime from, DateTime to, string region)
+        {
+            var hours = (int)Math.Ceiling((to - from).TotalHours);
+            return GetWaterQualityAsync(hours, region);
+        }
     }
 }

@@ -21,29 +21,26 @@ namespace EnviroMonitorApp.ViewModels
 
         public HistoricalDataViewModel(IEnvironmentalDataService dataService)
         {
-            _dataService       = dataService;
-            LoadDataCommand    = new AsyncRelayCommand(LoadDataAsync);
+            _dataService    = dataService ?? throw new ArgumentNullException(nameof(dataService));
+            LoadDataCommand = new AsyncRelayCommand(LoadDataAsync);
 
-            ChartData          = new ObservableCollection<ChartEntry>();
-            RawData            = new ObservableCollection<AirQualityRecord>();
-
-            // re-raise Chart whenever the entries collection changes:
+            ChartData = new ObservableCollection<ChartEntry>();
             ChartData.CollectionChanged += (_, __) => OnPropertyChanged(nameof(Chart));
 
-            SensorTypes        = new[] { "Air", "Weather", "Water" };
+            // Only Air for now
+            SensorTypes        = new[] { "Air" };
             Regions            = new[] { "All", "London" };
-            SelectedSensorType = SensorTypes.First();
-            SelectedRegion     = Regions.First();
+            SelectedSensorType = "Air";
+            SelectedRegion     = "All";
         }
 
         public string[] SensorTypes { get; }
+        public string[] Regions     { get; }
 
         [ObservableProperty]
         private string selectedSensorType;
         partial void OnSelectedSensorTypeChanged(string oldValue, string newValue)
             => _ = LoadDataAsync();
-
-        public string[] Regions { get; }
 
         [ObservableProperty]
         private string selectedRegion;
@@ -63,21 +60,20 @@ namespace EnviroMonitorApp.ViewModels
         [ObservableProperty] private bool isBusy;
         [ObservableProperty] private bool noData;
 
-        public ObservableCollection<ChartEntry>       ChartData { get; }
-        public ObservableCollection<AirQualityRecord> RawData   { get; }
-        public ICommand                              LoadDataCommand { get; }
+        public ObservableCollection<ChartEntry> ChartData { get; }
+        public ICommand                         LoadDataCommand { get; }
 
         public Chart Chart
         {
             get
             {
                 var entries = ChartData.Any()
-                    ? (IList<ChartEntry>)ChartData
-                    : new[] { new ChartEntry(0f) { Label = "", ValueLabel = "" } };
+                    ? (IList<ChartEntry>)ChartData.ToList()
+                    : new List<ChartEntry> { new ChartEntry(0f) { Label = "", ValueLabel = "" } };
 
                 return new LineChart
                 {
-                    Entries       = entries.ToList(),
+                    Entries       = entries,
                     LineSize      = 3,
                     PointSize     = 6,
                     LineAreaAlpha = 50,
@@ -88,33 +84,40 @@ namespace EnviroMonitorApp.ViewModels
 
         private async Task LoadDataAsync()
         {
-            if (IsBusy) return;
+            Debug.WriteLine($"\n[HistoryVM] >>> Loading AIR data {StartDate:yyyy-MM-dd} → {EndDate:yyyy-MM-dd}, region={SelectedRegion}");
+            if (IsBusy)
+            {
+                Debug.WriteLine("[HistoryVM]   → Busy, skipping.");
+                return;
+            }
 
             try
             {
                 IsBusy   = true;
                 NoData   = false;
                 ChartData.Clear();
-                RawData.Clear();
+                Debug.WriteLine("[HistoryVM]   → Cleared ChartData.");
 
-                var regionParam = SelectedRegion == "All"
+                // Always query London when “All” or blank
+                var regionParam = string.IsNullOrWhiteSpace(SelectedRegion) || SelectedRegion == "All"
                     ? "London"
                     : SelectedRegion;
+                Debug.WriteLine($"[HistoryVM]   → regionParam = '{regionParam}'");
 
-                var records = await _dataService
-                    .GetAirQualityAsync(StartDate, EndDate, regionParam);
+                // fetch air data
+                var records = await _dataService.GetAirQualityAsync(StartDate.Date, EndDate.Date, regionParam);
+                Debug.WriteLine($"[HistoryVM]   ← Retrieved {records?.Count ?? 0} air records");
 
-                if (records == null || records.Count == 0)
+                if (records == null || !records.Any())
                 {
+                    Debug.WriteLine("[HistoryVM]   !!! No air data returned");
                     NoData = true;
                     return;
                 }
 
-                foreach (var r in records)
-                    RawData.Add(r);
-
+                // group by day if span >7, else hourly
                 var spanDays = (EndDate.Date - StartDate.Date).TotalDays;
-                var plotSet  = spanDays > 7
+                var plotSet = spanDays > 7
                     ? records
                         .GroupBy(r => r.Timestamp.Date)
                         .Select(g => new AirQualityRecord {
@@ -126,22 +129,17 @@ namespace EnviroMonitorApp.ViewModels
                         })
                         .OrderBy(x => x.Timestamp)
                         .ToList()
-                    : records.OrderBy(x => x.Timestamp).ToList();
+                    : records.OrderBy(r => r.Timestamp).ToList();
 
+                Debug.WriteLine($"[HistoryVM]   → Plotting {plotSet.Count} points");
                 foreach (var rec in plotSet)
                 {
-                    var val = SelectedSensorType switch
-                    {
-                        "Air"     => rec.NO2,
-                        "Weather" => 0,
-                        "Water"   => 0,
-                        _         => rec.NO2
-                    };
-
+                    var val = rec.NO2;
                     var label = spanDays > 7
                         ? rec.Timestamp.ToString("MM/dd", CultureInfo.InvariantCulture)
                         : rec.Timestamp.ToString("MM/dd HH:mm", CultureInfo.InvariantCulture);
 
+                    Debug.WriteLine($"      • {label} → {val:F1}");
                     ChartData.Add(new ChartEntry((float)val)
                     {
                         Label      = label,
@@ -149,14 +147,17 @@ namespace EnviroMonitorApp.ViewModels
                         Color      = SKColor.Parse("#FF6200EE")
                     });
                 }
+
+                Debug.WriteLine($"[HistoryVM]   → ChartData.Count = {ChartData.Count}");
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"❌ LoadDataAsync failed: {ex}");
+                Debug.WriteLine($"❌ [HistoryVM] Error loading air: {ex}");
             }
             finally
             {
                 IsBusy = false;
+                Debug.WriteLine("[HistoryVM] <<< Done loading air");
             }
         }
     }

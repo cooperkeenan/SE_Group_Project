@@ -17,5 +17,10 @@ namespace EnviroMonitorApp.Services
         // optional overload for “last N hours”
         Task<List<WaterQualityRecord>> 
             GetWaterQualityAsync(int hours, string region = "");
+        
+        Task<List<WaterQualityRecord>> GetHistoricalWaterQualityAsync(
+            DateTime from, DateTime to, string region);
+        
+        
     }
 }
