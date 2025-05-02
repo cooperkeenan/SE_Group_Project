@@ -1,5 +1,6 @@
 // ViewModels/HistoricalDataViewModel.cs
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
@@ -27,11 +28,11 @@ namespace EnviroMonitorApp.ViewModels
             ChartData = new ObservableCollection<ChartEntry>();
             ChartData.CollectionChanged += (_, __) => OnPropertyChanged(nameof(Chart));
 
-            // Only Air for now
-            SensorTypes        = new[] { "Air" };
+            // Support Air and Water for now
+            SensorTypes        = new[] { "Air", "Water" };
             Regions            = new[] { "All", "London" };
-            SelectedSensorType = "Air";
-            SelectedRegion     = "All";
+            SelectedSensorType = SensorTypes.First();
+            SelectedRegion     = Regions.First();
         }
 
         public string[] SensorTypes { get; }
@@ -67,8 +68,8 @@ namespace EnviroMonitorApp.ViewModels
         {
             get
             {
-                var entries = ChartData.Any()
-                    ? (IList<ChartEntry>)ChartData.ToList()
+                IList<ChartEntry> entries = ChartData.Any()
+                    ? ChartData.ToList()
                     : new List<ChartEntry> { new ChartEntry(0f) { Label = "", ValueLabel = "" } };
 
                 return new LineChart
@@ -84,7 +85,7 @@ namespace EnviroMonitorApp.ViewModels
 
         private async Task LoadDataAsync()
         {
-            Debug.WriteLine($"\n[HistoryVM] >>> Loading AIR data {StartDate:yyyy-MM-dd} → {EndDate:yyyy-MM-dd}, region={SelectedRegion}");
+            Debug.WriteLine($"\n[HistoryVM] >>> Enter LoadDataAsync (Sensor={SelectedSensorType}, Region={SelectedRegion}, Range={StartDate:yyyy-MM-dd}→{EndDate:yyyy-MM-dd})");
             if (IsBusy)
             {
                 Debug.WriteLine("[HistoryVM]   → Busy, skipping.");
@@ -98,66 +99,103 @@ namespace EnviroMonitorApp.ViewModels
                 ChartData.Clear();
                 Debug.WriteLine("[HistoryVM]   → Cleared ChartData.");
 
-                // Always query London when “All” or blank
-                var regionParam = string.IsNullOrWhiteSpace(SelectedRegion) || SelectedRegion == "All"
+                var regionParam = SelectedRegion == "All" || string.IsNullOrWhiteSpace(SelectedRegion)
                     ? "London"
                     : SelectedRegion;
-                Debug.WriteLine($"[HistoryVM]   → regionParam = '{regionParam}'");
+                Debug.WriteLine($"[HistoryVM]   → Effective regionParam = '{regionParam}'");
 
-                // fetch air data
-                var records = await _dataService.GetAirQualityAsync(StartDate.Date, EndDate.Date, regionParam);
-                Debug.WriteLine($"[HistoryVM]   ← Retrieved {records?.Count ?? 0} air records");
-
-                if (records == null || !records.Any())
+                switch (SelectedSensorType)
                 {
-                    Debug.WriteLine("[HistoryVM]   !!! No air data returned");
-                    NoData = true;
-                    return;
+                    case "Air":
+                        Debug.WriteLine("[HistoryVM]   → Branch: AIR");
+                        var air = await _dataService.GetAirQualityAsync(StartDate.Date, EndDate.Date, regionParam);
+                        Debug.WriteLine($"[HistoryVM]   ← Air records count = {air?.Count ?? 0}");
+
+                        if (air == null || air.Count == 0)
+                        {
+                            Debug.WriteLine("[HistoryVM]   !!! No air data");
+                            NoData = true;
+                            return;
+                        }
+
+                        var spanDays = (EndDate.Date - StartDate.Date).TotalDays;
+                        var airSet = spanDays > 7
+                            ? air.GroupBy(r => r.Timestamp.Date)
+                                 .Select(g => new AirQualityRecord
+                                 {
+                                     Timestamp = g.Key,
+                                     NO2       = g.Average(x => x.NO2),
+                                     SO2       = g.Average(x => x.SO2),
+                                     PM25      = g.Average(x => x.PM25),
+                                     PM10      = g.Average(x => x.PM10)
+                                 })
+                                 .OrderBy(r => r.Timestamp)
+                                 .ToList()
+                            : air.OrderBy(r => r.Timestamp).ToList();
+
+                        Debug.WriteLine($"[HistoryVM]   → Plotting {airSet.Count} air points");
+                        foreach (var rec in airSet)
+                        {
+                            var val = rec.NO2;
+                            var label = spanDays > 7
+                                ? rec.Timestamp.ToString("MM/dd", CultureInfo.InvariantCulture)
+                                : rec.Timestamp.ToString("MM/dd HH:mm", CultureInfo.InvariantCulture);
+
+                            Debug.WriteLine($"      • {label} = {val:F1}");
+                            ChartData.Add(new ChartEntry((float)val)
+                            {
+                                Label      = label,
+                                ValueLabel = val.ToString("F1", CultureInfo.InvariantCulture),
+                                Color      = SKColor.Parse("#FF6200EE")
+                            });
+                        }
+                        break;
+
+                    case "Water":
+                        Debug.WriteLine("[HistoryVM]   → Branch: WATER");
+                        var water = await _dataService.GetWaterQualityAsync(StartDate.Date, EndDate.Date, regionParam);
+                        Debug.WriteLine($"[HistoryVM]   ← Water records count = {water?.Count ?? 0}");
+
+                        if (water == null || water.Count == 0)
+                        {
+                            Debug.WriteLine("[HistoryVM]   !!! No water data");
+                            NoData = true;
+                            return;
+                        }
+
+                        var waterSet = water.OrderBy(r => r.Timestamp).ToList();
+                        Debug.WriteLine($"[HistoryVM]   → Plotting {waterSet.Count} water points");
+                        foreach (var rec in waterSet)
+                        {
+                            var val = rec.Nitrate ?? 0;
+                            var label = rec.Timestamp.ToString("MM/dd HH:mm", CultureInfo.InvariantCulture);
+
+                            Debug.WriteLine($"      • {label} = {val:F1}");
+                            ChartData.Add(new ChartEntry((float)val)
+                            {
+                                Label      = label,
+                                ValueLabel = val.ToString("F1", CultureInfo.InvariantCulture),
+                                Color      = SKColor.Parse("#FF6200EE")
+                            });
+                        }
+                        break;
+
+                    default:
+                        Debug.WriteLine($"[HistoryVM]   !!! Unhandled sensor '{SelectedSensorType}'");
+                        NoData = true;
+                        return;
                 }
 
-                // group by day if span >7, else hourly
-                var spanDays = (EndDate.Date - StartDate.Date).TotalDays;
-                var plotSet = spanDays > 7
-                    ? records
-                        .GroupBy(r => r.Timestamp.Date)
-                        .Select(g => new AirQualityRecord {
-                            Timestamp = g.Key,
-                            NO2       = g.Average(x => x.NO2),
-                            SO2       = g.Average(x => x.SO2),
-                            PM25      = g.Average(x => x.PM25),
-                            PM10      = g.Average(x => x.PM10)
-                        })
-                        .OrderBy(x => x.Timestamp)
-                        .ToList()
-                    : records.OrderBy(r => r.Timestamp).ToList();
-
-                Debug.WriteLine($"[HistoryVM]   → Plotting {plotSet.Count} points");
-                foreach (var rec in plotSet)
-                {
-                    var val = rec.NO2;
-                    var label = spanDays > 7
-                        ? rec.Timestamp.ToString("MM/dd", CultureInfo.InvariantCulture)
-                        : rec.Timestamp.ToString("MM/dd HH:mm", CultureInfo.InvariantCulture);
-
-                    Debug.WriteLine($"      • {label} → {val:F1}");
-                    ChartData.Add(new ChartEntry((float)val)
-                    {
-                        Label      = label,
-                        ValueLabel = val.ToString("F1", CultureInfo.InvariantCulture),
-                        Color      = SKColor.Parse("#FF6200EE")
-                    });
-                }
-
-                Debug.WriteLine($"[HistoryVM]   → ChartData.Count = {ChartData.Count}");
+                Debug.WriteLine($"[HistoryVM]   → Final ChartData.Count = {ChartData.Count}");
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"❌ [HistoryVM] Error loading air: {ex}");
+                Debug.WriteLine($"❌ [HistoryVM] Error in LoadDataAsync: {ex}");
             }
             finally
             {
                 IsBusy = false;
-                Debug.WriteLine("[HistoryVM] <<< Done loading air");
+                Debug.WriteLine("[HistoryVM] <<< Exit LoadDataAsync");
             }
         }
     }
