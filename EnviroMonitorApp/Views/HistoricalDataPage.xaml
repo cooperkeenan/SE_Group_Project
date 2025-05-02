@@ -7,14 +7,20 @@
   x:Class="EnviroMonitorApp.Views.HistoricalDataPage"
   Title="Historical Data">
 
-  <!-- **NO** <ContentPage.BindingContext> here! -->
-
   <VerticalStackLayout Spacing="12" Padding="16">
     <!-- Date filters -->
-    <HorizontalStackLayout Spacing="8">
-      <DatePicker Date="{Binding StartDate}" />
-      <DatePicker Date="{Binding EndDate}"   />
-    </HorizontalStackLayout>
+    <!-- Views/HistoricalDataPage.xaml -->
+      <HorizontalStackLayout Spacing="8">
+        <DatePicker
+          Date="{Binding StartDate}"
+          MinimumDate="2010-01-01"
+          MaximumDate="{Binding MaxDate}" />
+        <DatePicker
+          Date="{Binding EndDate}"
+          MinimumDate="2010-01-01"
+          MaximumDate="{Binding MaxDate}" />
+      </HorizontalStackLayout>
+
 
     <!-- Sensor & Region pickers -->
     <HorizontalStackLayout Spacing="8">

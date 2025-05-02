@@ -28,11 +28,14 @@ namespace EnviroMonitorApp.ViewModels
             ChartData = new ObservableCollection<ChartEntry>();
             ChartData.CollectionChanged += (_, __) => OnPropertyChanged(nameof(Chart));
 
-            // Support Air and Water for now
-            SensorTypes        = new[] { "Air", "Water" };
+            SensorTypes        = new[] { "Air", "Weather", "Water" };
             Regions            = new[] { "All", "London" };
             SelectedSensorType = SensorTypes.First();
             SelectedRegion     = Regions.First();
+
+            StartDate = new DateTime(2010, 1, 1);
+            EndDate   = DateTime.UtcNow.Date;
+            UpdateMaxDate();
         }
 
         public string[] SensorTypes { get; }
@@ -41,7 +44,10 @@ namespace EnviroMonitorApp.ViewModels
         [ObservableProperty]
         private string selectedSensorType;
         partial void OnSelectedSensorTypeChanged(string oldValue, string newValue)
-            => _ = LoadDataAsync();
+        {
+            UpdateMaxDate();
+            _ = LoadDataAsync();
+        }
 
         [ObservableProperty]
         private string selectedRegion;
@@ -49,17 +55,31 @@ namespace EnviroMonitorApp.ViewModels
             => _ = LoadDataAsync();
 
         [ObservableProperty]
-        private DateTime startDate = DateTime.UtcNow.AddDays(-7);
+        private DateTime startDate;
         partial void OnStartDateChanged(DateTime oldValue, DateTime newValue)
             => _ = LoadDataAsync();
 
         [ObservableProperty]
-        private DateTime endDate = DateTime.UtcNow;
+        private DateTime endDate;
         partial void OnEndDateChanged(DateTime oldValue, DateTime newValue)
             => _ = LoadDataAsync();
 
         [ObservableProperty] private bool isBusy;
         [ObservableProperty] private bool noData;
+
+        [ObservableProperty]
+        private DateTime maxDate;
+
+        private void UpdateMaxDate()
+        {
+            if (SelectedSensorType == "Weather")
+                MaxDate = new DateTime(2020, 12, 31);
+            else
+                MaxDate = DateTime.UtcNow.Date;
+
+            if (EndDate > MaxDate)   EndDate   = MaxDate;
+            if (StartDate > MaxDate) StartDate = MaxDate;
+        }
 
         public ObservableCollection<ChartEntry> ChartData { get; }
         public ICommand                         LoadDataCommand { get; }
@@ -68,9 +88,17 @@ namespace EnviroMonitorApp.ViewModels
         {
             get
             {
+                // force both branches to IList<ChartEntry>
                 IList<ChartEntry> entries = ChartData.Any()
-                    ? ChartData.ToList()
-                    : new List<ChartEntry> { new ChartEntry(0f) { Label = "", ValueLabel = "" } };
+                    ? (IList<ChartEntry>)ChartData
+                    : new List<ChartEntry>
+                    {
+                        new ChartEntry(0f)
+                        {
+                            Label      = "",
+                            ValueLabel = ""
+                        }
+                    };
 
                 return new LineChart
                 {
@@ -94,54 +122,63 @@ namespace EnviroMonitorApp.ViewModels
 
             try
             {
-                IsBusy   = true;
-                NoData   = false;
+                IsBusy = true;
+                NoData = false;
                 ChartData.Clear();
                 Debug.WriteLine("[HistoryVM]   → Cleared ChartData.");
 
-                var regionParam = SelectedRegion == "All" || string.IsNullOrWhiteSpace(SelectedRegion)
-                    ? "London"
-                    : SelectedRegion;
+                var regionParam = SelectedRegion == "All" ? "London" : SelectedRegion;
                 Debug.WriteLine($"[HistoryVM]   → Effective regionParam = '{regionParam}'");
 
                 switch (SelectedSensorType)
                 {
                     case "Air":
                         Debug.WriteLine("[HistoryVM]   → Branch: AIR");
-                        var air = await _dataService.GetAirQualityAsync(StartDate.Date, EndDate.Date, regionParam);
-                        Debug.WriteLine($"[HistoryVM]   ← Air records count = {air?.Count ?? 0}");
+                        var air = await _dataService.GetAirQualityAsync(StartDate, EndDate, regionParam);
+                        Debug.WriteLine($"[HistoryVM]   ← Air records count = {air?.Count ?? -1}");
+                        if (air == null || !air.Any()) { NoData = true; return; }
 
-                        if (air == null || air.Count == 0)
-                        {
-                            Debug.WriteLine("[HistoryVM]   !!! No air data");
-                            NoData = true;
-                            return;
-                        }
-
-                        var spanDays = (EndDate.Date - StartDate.Date).TotalDays;
-                        var airSet = spanDays > 7
+                        var airSpan = (EndDate.Date - StartDate.Date).TotalDays;
+                        var airSet = airSpan > 7
                             ? air.GroupBy(r => r.Timestamp.Date)
-                                 .Select(g => new AirQualityRecord
-                                 {
-                                     Timestamp = g.Key,
-                                     NO2       = g.Average(x => x.NO2),
-                                     SO2       = g.Average(x => x.SO2),
-                                     PM25      = g.Average(x => x.PM25),
-                                     PM10      = g.Average(x => x.PM10)
-                                 })
-                                 .OrderBy(r => r.Timestamp)
-                                 .ToList()
+                                  .Select(g => new AirQualityRecord {
+                                      Timestamp = g.Key,
+                                      NO2       = g.Average(x => x.NO2),
+                                      SO2       = g.Average(x => x.SO2),
+                                      PM25      = g.Average(x => x.PM25),
+                                      PM10      = g.Average(x => x.PM10)
+                                  })
+                                  .OrderBy(x => x.Timestamp)
+                                  .ToList()
                             : air.OrderBy(r => r.Timestamp).ToList();
 
-                        Debug.WriteLine($"[HistoryVM]   → Plotting {airSet.Count} air points");
                         foreach (var rec in airSet)
                         {
-                            var val = rec.NO2;
-                            var label = spanDays > 7
+                            var val   = rec.NO2;
+                            var label = airSpan > 7
                                 ? rec.Timestamp.ToString("MM/dd", CultureInfo.InvariantCulture)
                                 : rec.Timestamp.ToString("MM/dd HH:mm", CultureInfo.InvariantCulture);
 
-                            Debug.WriteLine($"      • {label} = {val:F1}");
+                            ChartData.Add(new ChartEntry((float)val)
+                            {
+                                Label      = label,
+                                ValueLabel = val.ToString("F1", CultureInfo.InvariantCulture),
+                                Color      = SKColor.Parse("#FF6200EE")
+                            });
+                        }
+                        break;
+
+                    case "Weather":
+                        Debug.WriteLine("[HistoryVM]   → Branch: WEATHER (Climate min temp)");
+                        var wx = await _dataService.GetWeatherAsync(StartDate, EndDate, regionParam);
+                        Debug.WriteLine($"[HistoryVM]   ← Weather records count = {wx?.Count ?? -1}");
+                        if (wx == null || !wx.Any()) { NoData = true; return; }
+
+                        foreach (var rec in wx)
+                        {
+                            var val   = rec.Temperature;
+                            var label = rec.Timestamp.ToString("MM/dd", CultureInfo.InvariantCulture);
+
                             ChartData.Add(new ChartEntry((float)val)
                             {
                                 Label      = label,
@@ -153,24 +190,15 @@ namespace EnviroMonitorApp.ViewModels
 
                     case "Water":
                         Debug.WriteLine("[HistoryVM]   → Branch: WATER");
-                        var water = await _dataService.GetWaterQualityAsync(StartDate.Date, EndDate.Date, regionParam);
-                        Debug.WriteLine($"[HistoryVM]   ← Water records count = {water?.Count ?? 0}");
+                        var water = await _dataService.GetWaterQualityAsync(StartDate, EndDate, regionParam);
+                        Debug.WriteLine($"[HistoryVM]   ← Water records count = {water?.Count ?? -1}");
+                        if (water == null || !water.Any()) { NoData = true; return; }
 
-                        if (water == null || water.Count == 0)
+                        foreach (var rec in water.OrderBy(r => r.Timestamp))
                         {
-                            Debug.WriteLine("[HistoryVM]   !!! No water data");
-                            NoData = true;
-                            return;
-                        }
+                            var val   = rec.Nitrate ?? 0;
+                            var label = rec.Timestamp.ToString("MM/dd", CultureInfo.InvariantCulture);
 
-                        var waterSet = water.OrderBy(r => r.Timestamp).ToList();
-                        Debug.WriteLine($"[HistoryVM]   → Plotting {waterSet.Count} water points");
-                        foreach (var rec in waterSet)
-                        {
-                            var val = rec.Nitrate ?? 0;
-                            var label = rec.Timestamp.ToString("MM/dd HH:mm", CultureInfo.InvariantCulture);
-
-                            Debug.WriteLine($"      • {label} = {val:F1}");
                             ChartData.Add(new ChartEntry((float)val)
                             {
                                 Label      = label,
@@ -181,7 +209,7 @@ namespace EnviroMonitorApp.ViewModels
                         break;
 
                     default:
-                        Debug.WriteLine($"[HistoryVM]   !!! Unhandled sensor '{SelectedSensorType}'");
+                        Debug.WriteLine($"[HistoryVM]   !!! Unknown sensor type '{SelectedSensorType}'");
                         NoData = true;
                         return;
                 }
@@ -190,7 +218,7 @@ namespace EnviroMonitorApp.ViewModels
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"❌ [HistoryVM] Error in LoadDataAsync: {ex}");
+                Debug.WriteLine($"❌ [HistoryVM] Exception: {ex}");
             }
             finally
             {
