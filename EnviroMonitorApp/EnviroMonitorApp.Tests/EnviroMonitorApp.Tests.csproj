@@ -10,6 +10,11 @@
     <ProjectReference Include="..\..\EnviroMonitorApp.Core\EnviroMonitorApp.Core.csproj" />
   </ItemGroup>
 
+  <!-- Only use the latest version of SQLitePCLRaw.bundle_e_sqlite3 (2.1.11) -->
+  <ItemGroup>
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.11" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.4" />

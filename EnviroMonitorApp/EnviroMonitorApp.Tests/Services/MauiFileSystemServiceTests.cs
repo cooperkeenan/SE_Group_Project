@@ -4,27 +4,34 @@ using EnviroMonitorApp.Services;
 using Moq;
 using Xunit;
 
-namespace EnviroMonitorApp.Tests.Services;
-
-public class MauiFileSystemServiceTests
+namespace EnviroMonitorApp.Tests.Services
 {
-    [Fact]
-    public async Task OpenAppPackageFileAsync_Reads_Embedded_DB()
+    public class MauiFileSystemServiceTests
     {
-        var tempRoot = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
-        Directory.CreateDirectory(tempRoot);
-        var dummyPath = Path.Combine(tempRoot, "dummy.txt");
-        await File.WriteAllTextAsync(dummyPath, "hello");
+        [Fact]
+        public async Task OpenAppPackageFileAsync_Reads_Embedded_DB()
+        {
+            // Create a temporary folder and file for testing
+            var tempRoot = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+            Directory.CreateDirectory(tempRoot);
+            var dummyPath = Path.Combine(tempRoot, "dummy.txt");
+            await File.WriteAllTextAsync(dummyPath, "hello");
 
-        // Mocking IFileSystemService
-        var fs = new Mock<IFileSystemService>();
-        fs.Setup(f => f.AppDataDirectory).Returns(tempRoot); // mocking read-only property
+            // Mocking IFileSystemService
+            var fs = new Mock<IFileSystemService>();
+            fs.Setup(f => f.AppDataDirectory).Returns(tempRoot); // Mock the AppDataDirectory property
+            fs.Setup(f => f.OpenAppPackageFileAsync(It.IsAny<string>()))
+                .ReturnsAsync(() => File.OpenRead(dummyPath));  // Mock OpenAppPackageFileAsync to return the stream of the dummy file
 
-        await using var stream = await fs.Object.OpenAppPackageFileAsync("dummy.txt");
+            // Act: Open the file using the mock service
+            await using var stream = await fs.Object.OpenAppPackageFileAsync("dummy.txt");
 
-        Assert.True(stream.CanRead);
-        Assert.Equal(5, stream.Length);
+            // Assert: Check that the stream is readable and has the expected length
+            Assert.True(stream.CanRead);
+            Assert.Equal(5, stream.Length);
 
-        Directory.Delete(tempRoot, true);
+            // Clean up: Delete the temporary directory and file
+            Directory.Delete(tempRoot, true);
+        }
     }
 }

@@ -1,25 +1,22 @@
-using Microsoft.Extensions.Configuration;
-using System.Collections.Generic;
-
-
 namespace EnviroMonitorApp.Services
 {
     public class ApiKeyProvider
     {
-        private readonly IConfiguration _configuration;
+        // These are the real keys or default ones for testing
+        private string _openAqKey = "sample-openaq-key";
+        private string _openWeatherMapKey = "sample-openweathermap-key";
 
-        // Constructor where the IConfiguration is injected
-        public ApiKeyProvider(IConfiguration configuration)
+        // Constructor that can be used for testing (can pass in keys directly)
+        public ApiKeyProvider(string openAqKey = null, string openWeatherMapKey = null)
         {
-            _configuration = configuration;
+            if (!string.IsNullOrEmpty(openAqKey))
+                _openAqKey = openAqKey;
+            
+            if (!string.IsNullOrEmpty(openWeatherMapKey))
+                _openWeatherMapKey = openWeatherMapKey;
         }
 
-        // Example key retrieval using IConfiguration
-        public string OpenAqKey => _configuration["ApiKeys:OpenAq"];
-        public string OpenWeatherMap => _configuration["ApiKeys:OpenWeatherMap"];
-
-        // Indexer to access API keys
-        public string this[string key] => _configuration[$"ApiKeys:{key}"];
+        public string OpenAqKey => _openAqKey;
+        public string OpenWeatherMap => _openWeatherMapKey;
     }
 }
-

@@ -34,7 +34,7 @@ namespace EnviroMonitorApp.Tests.Services
             var result = await service.GetWeatherAsync(DateTime.UtcNow.AddDays(-1), DateTime.UtcNow, "London");
 
             // Assert: Verify the result
-            Assert.Equal(20.1, result[0].Temperature); 
+            Assert.Equal(20.1, result[0].Temperature);  // Access the first WeatherRecord's Temperature
             Assert.Equal(70, result[0].Humidity);  
         }
     }
