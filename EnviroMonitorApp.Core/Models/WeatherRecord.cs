@@ -1,4 +1,5 @@
 // EnviroMonitorApp/Models/WeatherRecord.cs
+using EnviroMonitorApp.Models;
 using System;
 
 namespace EnviroMonitorApp.Models

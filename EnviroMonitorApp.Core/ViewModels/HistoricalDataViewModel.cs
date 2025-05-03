@@ -13,7 +13,6 @@ using SkiaSharp;
 using EnviroMonitorApp.Models;
 using EnviroMonitorApp.Services;
 using EnviroMonitorApp.Services.ChartTransformers;
-using EnviroMonitorApp.Core.ViewModels;
 
 
 namespace EnviroMonitorApp.ViewModels
@@ -134,7 +133,8 @@ namespace EnviroMonitorApp.ViewModels
 
             Debug.WriteLine($"[HistoryVM] Loading {SelectedSensorType}.{SelectedMetric} from {StartDate:yyyy-MM-dd} to {EndDate:yyyy-MM-dd}");
 
-            IEnumerable<(DateTime timestamp, double value)> raw;
+            // Change raw to use nullable double (double?)
+            IEnumerable<(DateTime timestamp, double?)> raw;
             string regionParam = "London";
 
             if (SelectedSensorType == "Air")
@@ -143,10 +143,10 @@ namespace EnviroMonitorApp.ViewModels
                 raw = air.Select(r => (r.Timestamp,
                     SelectedMetric switch
                     {
-                        "NO₂"   => r.NO2,
-                        "PM₂.₅" => r.PM25,
-                        "PM₁₀"  => r.PM10,
-                        _       => 0
+                        "NO₂"   => r.NO2 as double?,    // Explicitly cast to nullable double
+                        "PM₂.₅" => r.PM25 as double?,   
+                        "PM₁₀"  => r.PM10 as double?,  
+                        _       => null
                     }));
             }
             else if (SelectedSensorType == "Weather")
@@ -155,16 +155,16 @@ namespace EnviroMonitorApp.ViewModels
                 raw = wx.Select(r => (r.Timestamp,
                     SelectedMetric switch
                     {
-                        "CloudCover"       => r.CloudCover,
-                        "Sunshine"         => r.Sunshine,
-                        "GlobalRadiation"  => r.GlobalRadiation,
-                        "MaxTemp"          => r.MaxTemp,
-                        "MeanTemp"         => r.MeanTemp,
-                        "MinTemp"          => r.MinTemp,
-                        "Precipitation"    => r.Precipitation,
-                        "Pressure"         => r.Pressure,
-                        "SnowDepth"        => r.SnowDepth,
-                        _                  => 0
+                        "CloudCover"       => r.CloudCover as double?,  // Explicitly cast to nullable double
+                        "Sunshine"         => r.Sunshine as double?,
+                        "GlobalRadiation"  => r.GlobalRadiation as double?,
+                        "MaxTemp"          => r.MaxTemp as double?,
+                        "MeanTemp"         => r.MeanTemp as double?,
+                        "MinTemp"          => r.MinTemp as double?,
+                        "Precipitation"    => r.Precipitation as double?,
+                        "Pressure"         => r.Pressure as double?,
+                        "SnowDepth"        => r.SnowDepth as double?,
+                        _                  => null
                     }));
             }
             else // Water
@@ -173,15 +173,18 @@ namespace EnviroMonitorApp.ViewModels
                 raw = wq.Select(r => (r.Timestamp,
                     SelectedMetric switch
                     {
-                        "Nitrate"          => r.Nitrate  ?? 0,
-                        "PH"               => r.PH       ?? 0,
-                        "DissolvedOxygen"  => r.DissolvedOxygen ?? 0,
-                        "Temperature"      => r.Temperature     ?? 0,
-                        _                  => 0
+                        "Nitrate"          => r.Nitrate as double?,  // Explicitly cast to nullable double
+                        "PH"               => r.PH as double?,
+                        "DissolvedOxygen"  => r.DissolvedOxygen as double?,
+                        "Temperature"      => r.Temperature as double?,
+                        _                  => null
                     }));
             }
 
-            var entries = _transformer.Transform(raw, StartDate, EndDate);
+            // Transform the data using the chart transformer
+            var entries = _transformer.Transform(raw.Cast<(DateTime, double)>(), StartDate, EndDate); // Explicit cast to non-nullable double
+
+            // Check if entries are empty
             if (entries.Count == 0)
             {
                 NoData = true;
@@ -193,5 +196,9 @@ namespace EnviroMonitorApp.ViewModels
 
             IsBusy = false;
         }
+
+
+
+
     }
 }

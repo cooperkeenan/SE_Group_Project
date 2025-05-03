@@ -8,5 +8,6 @@ namespace EnviroMonitorApp.Models
         public double? PH               { get; set; }
         public double? DissolvedOxygen  { get; set; } // mg/L
         public double? Temperature      { get; set; } // °C
+
     }
 }

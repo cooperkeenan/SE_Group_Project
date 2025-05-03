@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>EnviroMonitorApp</RootNamespace> 
 
     <!-- modern C# conveniences -->
     <ImplicitUsings>enable</ImplicitUsings>
@@ -16,10 +17,12 @@
 
   <!-- NuGet packages that *Core* really uses -->
   <ItemGroup>
-    <PackageReference Include="Microcharts"           Version="0.9.5.9"   />
-    <PackageReference Include="SkiaSharp"             Version="2.80.2"    />
-    <PackageReference Include="Refit"                 Version="7.0.0"     />
-    <PackageReference Include="sqlite-net-pcl"        Version="1.8.116"   />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
+    <PackageReference Include="Microcharts" Version="0.9.5.9" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="SkiaSharp" Version="2.80.2" />
+    <PackageReference Include="Refit" Version="7.0.0" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="Microsoft.Maui.Essentials" Version="8.0.100" />
   </ItemGroup>
 
@@ -29,8 +32,7 @@
     <Compile Include="Models\**\*.cs" />
 
     <!-- all *non-API* services -->
-    <Compile Include="Services\**\*.cs"
-             Exclude="Services\Apis\**\*.cs" />
+    <Compile Include="Services\**\*.cs" Exclude="Services\Apis\**\*.cs" />
 
     <!-- Refit API interfaces & DTOs -->
     <Compile Include="Services\Apis\**\*.cs" />
@@ -38,5 +40,13 @@
     <!-- chart transformers -->
     <Compile Include="ChartTransformers\**\*.cs" />
   </ItemGroup>
+
+  <ItemGroup>
+    <!-- if the folder is inside the project root, this is enough -->
+    <Compile Include="Converters/InverseBoolConverter.cs" />
+    <Compile Include="ViewModels/HistoricalDataViewModel.cs" />
+    <Compile Include="Stubs/IValueConverter.cs" />          
+  </ItemGroup>
+
 
 </Project>

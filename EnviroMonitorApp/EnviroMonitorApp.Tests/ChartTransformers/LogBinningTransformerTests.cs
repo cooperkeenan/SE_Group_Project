@@ -24,7 +24,7 @@ public class LogBinningTransformerTests
         var entries = sut.Transform(raw, start, end);
 
         // assert – never draw more labels than configured
-        Assert.True(entries.Count <= sut.MaxLabels);
+        Assert.True(result.Count < transformer.MaxLabels, $"Failed because result contains {result.Count} labels.");
         Assert.All(entries, e => Assert.IsType<ChartEntry>(e));
     }
 }
