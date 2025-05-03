@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Maui.Storage;
 using SQLite;
@@ -18,7 +19,7 @@ namespace EnviroMonitorApp.Services
 
         public SqlDataService()
         {
-            // 1) Copy bundle DB → AppData
+            // Copy bundled DB (with pre‐populated tables) into AppData
             var folder = FileSystem.AppDataDirectory;
             var dest   = Path.Combine(folder, FileName);
             Debug.WriteLine($"[SqlDataService] Dest DB path: {dest}");
@@ -34,23 +35,26 @@ namespace EnviroMonitorApp.Services
             using var outp = File.Create(dest);
             src.CopyTo(outp);
 
-            // 2) Open SQLite
+            // Open the connection
             _db = new SQLiteAsyncConnection(dest);
-            Debug.WriteLine($"[SqlDataService] Opened SQLite DB at {dest}");
+            Debug.WriteLine($"[SqlDataService] Opened SQLite DB");
 
-            // 3) Ensure tables exist
+            // Ensure our three record tables exist
             _db.CreateTableAsync<AirQualityRecord>().Wait();
             _db.CreateTableAsync<WeatherRecord>().Wait();
             _db.CreateTableAsync<WaterQualityRecord>().Wait();
 
-            // 4) Log row counts
+            // Log counts
             var totalAir   = _db.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM AirQualityRecord").Result;
-            var totalWater = _db.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM WaterQualityRecord").Result;
-            Debug.WriteLine($"[SqlDataService] AirQualityRecord rows: {totalAir}");
-            Debug.WriteLine($"[SqlDataService] WaterQualityRecord rows: {totalWater}");
+            var totalWea   = _db.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM WeatherRecord").Result;
+            var totalWatr  = _db.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM WaterQualityRecord").Result;
+            Debug.WriteLine($"[SqlDataService] AirQuality rows: {totalAir}");
+            Debug.WriteLine($"[SqlDataService] WeatherRecord rows: {totalWea}");
+            Debug.WriteLine($"[SqlDataService] WaterQuality rows: {totalWatr}");
         }
 
-        // ──────────── Helper DTOs ──────────────────────────────
+        // ──────────── Raw DTOs for queries ────────────
+
         private class RawAir
         {
             public string Timestamp { get; set; } = "";
@@ -62,29 +66,38 @@ namespace EnviroMonitorApp.Services
 
         private class RawClimate
         {
-            public string Date     { get; set; } = "";
-            public double? MinTemp { get; set; }
+            public string Date              { get; set; } = "";
+            public double? CloudCover       { get; set; }
+            public double? Sunshine         { get; set; }
+            public double? GlobalRadiation  { get; set; }
+            public double? MaxTemp          { get; set; }
+            public double? MeanTemp         { get; set; }
+            public double? MinTemp          { get; set; }
+            public double? Precipitation    { get; set; }
+            public double? Pressure         { get; set; }
+            public double? SnowDepth        { get; set; }
         }
 
         private class RawWater
         {
-            public string Timestamp      { get; set; } = "";
-            public double? Nitrate       { get; set; }
-            public double? PH            { get; set; }
-            public double? DissolvedOxygen { get; set; }
-            public double? Temperature   { get; set; }
+            public string Timestamp         { get; set; } = "";
+            public double? Nitrate          { get; set; }
+            public double? PH               { get; set; }
+            public double? DissolvedOxygen  { get; set; }
+            public double? Temperature      { get; set; }
         }
 
-        // ──────────── Air ─────────────────────────────────────
+        // ──────────── AIR ─────────────────────────
+
         public async Task<List<AirQualityRecord>> GetAirQualityAsync(
             DateTime from, DateTime to, string region)
         {
             Debug.WriteLine("[SqlDataService] Loading AirQualityRecord rows");
             var raws = await _db.QueryAsync<RawAir>(
-                "SELECT Timestamp, NO2, SO2, PM25, PM10 FROM AirQualityRecord");
+                @"SELECT Timestamp, NO2, SO2, PM25, PM10 FROM AirQualityRecord");
 
             var toInclusive = to.Date.AddDays(1).AddTicks(-1);
-            var outList = new List<AirQualityRecord>();
+            var list = new List<AirQualityRecord>();
 
             foreach (var r in raws)
             {
@@ -107,7 +120,7 @@ namespace EnviroMonitorApp.Services
                 if (dt < from || dt > toInclusive)
                     continue;
 
-                outList.Add(new AirQualityRecord
+                list.Add(new AirQualityRecord
                 {
                     Timestamp = dt,
                     NO2       = r.NO2  ?? 0,
@@ -117,34 +130,43 @@ namespace EnviroMonitorApp.Services
                 });
             }
 
-            Debug.WriteLine($"[SqlDataService] Parsed+filtered Air rows: {outList.Count}");
-            return outList;
+            Debug.WriteLine($"[SqlDataService] Parsed+filtered Air rows: {list.Count}");
+            return list;
         }
 
-        // ──────────── Weather ─────────────────────────────────
+        // ──────────── WEATHER (historical CSV) ─────────────────────────
+
         public async Task<List<WeatherRecord>> GetWeatherAsync(
             DateTime from, DateTime to, string region)
         {
             Debug.WriteLine("[SqlDataService] Loading ClimateRecord rows for weather");
 
-            // Pass only the date portion
-            var fromDateOnly = from.ToString("yyyy-MM-dd");
-            var toDateOnly   = to  .ToString("yyyy-MM-dd");
+            // we'll compare only the date portion (YYYY-MM-DD)
+            var fromDate = from.ToString("yyyy-MM-dd");
+            var toDate   = to  .ToString("yyyy-MM-dd");
 
             const string sql = @"
-            SELECT Date AS Date, MinTemp
+                SELECT
+                  Date AS Date,
+                  CloudCover,
+                  Sunshine,
+                  GlobalRadiation,
+                  MaxTemp,
+                  MeanTemp,
+                  MinTemp,
+                  Precipitation,
+                  Pressure,
+                  SnowDepth
                 FROM ClimateRecord
-            WHERE Date >= ? AND Date <= ?
-            ORDER BY Date
+                WHERE Date >= ? AND Date <= ?
+                ORDER BY Date
             ";
 
-            // Now we compare "YYYY-MM-DD" >= "2010-01-01"
-            var raws = await _db.QueryAsync<RawClimate>(sql, fromDateOnly, toDateOnly);
+            var raws = await _db.QueryAsync<RawClimate>(sql, fromDate, toDate);
             var list = new List<WeatherRecord>();
 
             foreach (var r in raws)
             {
-                // parse the date-only string (UTC midnight)
                 if (!DateTime.TryParseExact(
                         r.Date,
                         "yyyy-MM-dd",
@@ -156,11 +178,18 @@ namespace EnviroMonitorApp.Services
                     continue;
                 }
 
-                list.Add(new WeatherRecord {
-                    Timestamp   = dt,
-                    Temperature = r.MinTemp ?? 0,
-                    Humidity    = 0,
-                    WindSpeed   = 0
+                list.Add(new WeatherRecord
+                {
+                    Timestamp       = dt,
+                    CloudCover      = r.CloudCover       ?? 0,
+                    Sunshine        = r.Sunshine         ?? 0,
+                    GlobalRadiation = r.GlobalRadiation  ?? 0,
+                    MaxTemp         = r.MaxTemp          ?? 0,
+                    MeanTemp        = r.MeanTemp         ?? 0,
+                    MinTemp         = r.MinTemp          ?? 0,
+                    Precipitation   = r.Precipitation    ?? 0,
+                    Pressure        = r.Pressure         ?? 0,
+                    SnowDepth       = r.SnowDepth        ?? 0
                 });
             }
 
@@ -168,24 +197,25 @@ namespace EnviroMonitorApp.Services
             return list;
         }
 
+        // ──────────── WATER ─────────────────────────
 
-        // ──────────── Water ───────────────────────────────────
         public async Task<List<WaterQualityRecord>> GetWaterQualityAsync(
             DateTime from, DateTime to, string region)
         {
             Debug.WriteLine("[SqlDataService] Loading WaterQualityRecord rows");
 
-            var fromIso = from.ToString("yyyy-MM-dd") + "T00:00:00Z";
-            var toIso   = to  .ToString("yyyy-MM-dd") + "T23:59:59Z";
+            var fromDate = from.ToString("yyyy-MM-dd");
+            var toDate   = to  .ToString("yyyy-MM-dd");
 
-            var sql = @"
+            const string sql = @"
                 SELECT Timestamp, Nitrate, PH, DissolvedOxygen, Temperature
                   FROM WaterQualityRecord
                  WHERE Timestamp >= ? AND Timestamp <= ?
-                 ORDER BY Timestamp";
+                 ORDER BY Timestamp
+            ";
 
-            var raws = await _db.QueryAsync<RawWater>(sql, fromIso, toIso);
-            var outList = new List<WaterQualityRecord>();
+            var raws = await _db.QueryAsync<RawWater>(sql, fromDate, toDate);
+            var list = new List<WaterQualityRecord>();
 
             foreach (var r in raws)
             {
@@ -200,7 +230,7 @@ namespace EnviroMonitorApp.Services
                     continue;
                 }
 
-                outList.Add(new WaterQualityRecord
+                list.Add(new WaterQualityRecord
                 {
                     Timestamp       = dt,
                     Nitrate         = r.Nitrate,
@@ -210,15 +240,15 @@ namespace EnviroMonitorApp.Services
                 });
             }
 
-            Debug.WriteLine($"[SqlDataService] Parsed water rows: {outList.Count}");
-            return outList;
+            Debug.WriteLine($"[SqlDataService] Parsed+filtered Water rows: {list.Count}");
+            return list;
         }
 
-        // optional stub for “last N hours”
+        // optional API‐style overload (unused in History VM)
         public Task<List<WaterQualityRecord>> GetWaterQualityAsync(int hours, string region = "")
             => Task.FromResult(new List<WaterQualityRecord>());
 
-        // satisfy interface
+        // for the interface
         public Task<List<WaterQualityRecord>> GetHistoricalWaterQualityAsync(
             DateTime from, DateTime to, string region)
             => GetWaterQualityAsync(from, to, region);

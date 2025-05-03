@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text.Json;
 using System.Threading.Tasks;
 using EnviroMonitorApp.Models;
 using EnviroMonitorApp.Services.Apis;
@@ -152,12 +151,24 @@ namespace EnviroMonitorApp.Services
                 .Where(item => item != null)
                 .Select(r => new WeatherRecord
                 {
-                    Timestamp   = DateTimeOffset
-                                    .FromUnixTimeSeconds(r.Dt)
-                                    .UtcDateTime,
-                    Temperature = r.Main.Temp,
-                    Humidity    = r.Main.Humidity,
-                    WindSpeed   = r.Wind.Speed
+                    // forecast fields
+                    Timestamp       = DateTimeOffset
+                                        .FromUnixTimeSeconds(r.Dt)
+                                        .UtcDateTime,
+                    Temperature     = r.Main.Temp,
+                    Humidity        = r.Main.Humidity,
+                    WindSpeed       = r.Wind.Speed,
+
+                    // historical/C SV‐backfill fields defaulted
+                    CloudCover      = 0,
+                    Sunshine        = 0,
+                    GlobalRadiation = 0,
+                    MaxTemp         = 0,
+                    MeanTemp        = 0,
+                    MinTemp         = 0,
+                    Precipitation   = 0,
+                    Pressure        = 0,
+                    SnowDepth       = 0
                 })
                 .ToList();
 
@@ -232,8 +243,9 @@ namespace EnviroMonitorApp.Services
                          .Take(10)
                          .ToList();
         }
+
         public Task<List<WaterQualityRecord>> GetHistoricalWaterQualityAsync(
-        DateTime from, DateTime to, string region)
+            DateTime from, DateTime to, string region)
         {
             var hours = (int)Math.Ceiling((to - from).TotalHours);
             return GetWaterQualityAsync(hours, region);

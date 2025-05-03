@@ -1,10 +1,14 @@
+// ViewModels/WeatherViewModel.cs
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microcharts;
+using SkiaSharp;
 using EnviroMonitorApp.Models;
 using EnviroMonitorApp.Services;
 
@@ -16,55 +20,59 @@ namespace EnviroMonitorApp.ViewModels
 
         public WeatherViewModel(IEnvironmentalDataService dataService)
         {
-            _dataService = dataService;
+            _dataService    = dataService ?? throw new ArgumentNullException(nameof(dataService));
             LoadDataCommand = new AsyncRelayCommand(LoadDataAsync);
+
             ChartData = new ObservableCollection<ChartEntry>();
+            SensorTypes = new[] { "Temperature", "Humidity", "WindSpeed" };
+            SelectedSensorType = SensorTypes.First();
         }
 
-        [ObservableProperty]
-        DateTime startDate = DateTime.UtcNow.AddDays(-7);
+        public string[] SensorTypes { get; }
+        [ObservableProperty] private string selectedSensorType;
 
-        [ObservableProperty]
-        DateTime endDate = DateTime.UtcNow;
+        [ObservableProperty] private DateTime startDate = DateTime.UtcNow.AddDays(-7);
+        [ObservableProperty] private DateTime endDate   = DateTime.UtcNow;
 
-        [ObservableProperty]
-        string selectedRegion = string.Empty;
-
-        [ObservableProperty]
-        bool isBusy;
+        [ObservableProperty] private bool isBusy;
 
         public ObservableCollection<ChartEntry> ChartData { get; }
-        public ICommand LoadDataCommand { get; }
+        public ICommand                         LoadDataCommand { get; }
 
-        async Task LoadDataAsync()
+        private async Task LoadDataAsync()
         {
             if (IsBusy) return;
-            try
-            {
-                IsBusy = true;
-                ChartData.Clear();
+            IsBusy = true;
+            ChartData.Clear();
 
-                // ← passing from/to/region:
-                var records = await _dataService
-                    .GetWeatherAsync(StartDate, EndDate, SelectedRegion);
+            Debug.WriteLine($"[WeatherVM] Fetching {SelectedSensorType} from {StartDate:O} to {EndDate:O}");
 
-                foreach (var rec in records)
-                {
-                    ChartData.Add(new ChartEntry((float)rec.Temperature)
-                    {
-                        Label      = rec.Timestamp.ToString("MM/dd"),
-                        ValueLabel = rec.Temperature.ToString("F1")
-                    });
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Weather load failed: {ex}");
-            }
-            finally
+            var records = await _dataService.GetWeatherAsync(StartDate, EndDate, "");
+            if (records == null || !records.Any())
             {
                 IsBusy = false;
+                return;
             }
+
+            foreach (var rec in records.OrderBy(r => r.Timestamp))
+            {
+                double val = SelectedSensorType switch
+                {
+                    "Temperature" => rec.Temperature,
+                    "Humidity"    => rec.Humidity,
+                    "WindSpeed"   => rec.WindSpeed,
+                    _             => 0
+                };
+
+                ChartData.Add(new ChartEntry((float)val)
+                {
+                    Label      = rec.Timestamp.ToString("MM/dd HH:mm"),
+                    ValueLabel = val.ToString("F1"),
+                    Color      = SKColor.Parse("#FF6200EE")
+                });
+            }
+
+            IsBusy = false;
         }
     }
 }

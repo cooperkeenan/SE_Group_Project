@@ -27,9 +27,11 @@
       <Picker Title="Sensor"
               ItemsSource="{Binding SensorTypes}"
               SelectedItem="{Binding SelectedSensorType}" />
-      <Picker Title="Region"
-              ItemsSource="{Binding Regions}"
-              SelectedItem="{Binding SelectedRegion}" />
+
+      <!-- NEW: metrics dropdown -->
+      <Picker Title="Metric"
+              ItemsSource="{Binding MetricTypes}"
+              SelectedItem="{Binding SelectedMetric}" />
     </HorizontalStackLayout>
 
     <!-- Load button -->
