@@ -1,24 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <!-- same TF as your Core library -->
     <TargetFramework>net8.0</TargetFramework>
-    <IsTestProject>true</IsTestProject>
-    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <!-- reference the Core library we just fixed -->
   <ItemGroup>
-    <!-- xUnit test framework -->
-    <PackageReference Include="xunit" Version="2.5.3" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-    <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <ProjectReference Include="..\..\EnviroMonitorApp.Core\EnviroMonitorApp.Core.csproj" />
   </ItemGroup>
 
+  <!-- xUnit + test runner + Essentials for FileSystem.AppDataDirectory -->
   <ItemGroup>
-    <!-- point at your Core project so you can test its public APIs -->
-    <ProjectReference Include="..\EnviroMonitorApp.Core\EnviroMonitorApp.Core.csproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk"        Version="17.8.0"  />
+    <PackageReference Include="xunit"                         Version="2.5.0"   />
+    <PackageReference Include="xunit.runner.visualstudio"     Version="2.5.0"   />
+    <PackageReference Include="Microsoft.Maui.Essentials"     Version="8.0.100" />
   </ItemGroup>
 
 </Project>
