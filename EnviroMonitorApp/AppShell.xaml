@@ -2,21 +2,14 @@
 <Shell
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:views="clr-namespace:EnviroMonitorApp.Views"   
+    xmlns:views="clr-namespace:EnviroMonitorApp.Views"
     x:Class="EnviroMonitorApp.AppShell">
 
-
-    <TabBar>
-        <ShellContent Title="Air"
-                      ContentTemplate="{DataTemplate views:AirQualityPage}" />
-
-        <ShellContent Title="Weather"
-                      ContentTemplate="{DataTemplate views:WeatherPage}" />
-
-        <ShellContent Title="Water" ContentTemplate="{DataTemplate views:WaterQualityPage}" />
-
-        <ShellContent Title="History" Icon="history.png" ContentTemplate="{DataTemplate views:HistoricalDataPage}" />
-
-    </TabBar>
+  <!-- only one menu item -->
+  <ShellItem Title="History">
+    <ShellContent
+      Title="Historical Data"
+      ContentTemplate="{DataTemplate views:HistoricalDataPage}" />
+  </ShellItem>
 
 </Shell>
