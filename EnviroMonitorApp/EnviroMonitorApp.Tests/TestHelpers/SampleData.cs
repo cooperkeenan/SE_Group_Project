@@ -1,7 +1,6 @@
-// EnviroMonitorApp.Tests/TestHelpers/SampleData.cs
 using System;
 using System.Collections.Generic;
-using EnviroMonitorApp.Models;  
+using EnviroMonitorApp.Models;
 
 namespace EnviroMonitorApp.Tests.TestHelpers;
 
@@ -48,13 +47,14 @@ public static class SampleData
     //  ──── Air Quality ────
     // ─────────────────────────────────────────────
     public static readonly AirQualityRecord GoodAir = new()
-    {
-        Timestamp   = new DateTime(2025, 05, 01, 12, 00, 00, DateTimeKind.Utc),
-        Pm25        = 8.1,
-        Pm10        = 12.4,
-        No2         = 5.6,
-        Category    = "Good"
-    };
+        {
+            Timestamp = new DateTime(2025, 05, 01, 12, 00, 00, DateTimeKind.Utc),
+            NO2 = 5.6, // Use NO2 correctly
+            SO2 = 1.2,
+            PM25 = 8.1,
+            PM10 = 12.4,
+            Category = "Good"
+        };
 
     public const string GoodAirJson =
         """
@@ -72,17 +72,19 @@ public static class SampleData
     public static readonly WaterQualityRecord SampleWater = new()
     {
         Timestamp     = new DateTime(2025, 05, 01, 12, 00, 00, DateTimeKind.Utc),
+        Nitrate       = 10.5,  // Example property
         PH            = 7.2,
-        DissolvedO2   = 9.8,
-        Turbidity     = 0.5
+        DissolvedOxygen = 9.8,
+        Temperature   = 22.5  // Added temperature example
     };
 
     public const string SampleWaterJson =
         """
         {
+          "nitrate": 10.5,
           "ph": 7.2,
           "dissolved_o2": 9.8,
-          "turbidity": 0.5
+          "temperature": 22.5
         }
         """;
 

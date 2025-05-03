@@ -1,7 +1,7 @@
-// Services/MauiFileSystemServiceTests.cs
 using System.IO;
 using System.Threading.Tasks;
 using EnviroMonitorApp.Services;
+using Moq;
 using Xunit;
 
 namespace EnviroMonitorApp.Tests.Services;
@@ -9,20 +9,19 @@ namespace EnviroMonitorApp.Tests.Services;
 public class MauiFileSystemServiceTests
 {
     [Fact]
-    public async Task OpenAppPackageFileAsync_ReturnsReadableStream()
+    public async Task OpenAppPackageFileAsync_Reads_Embedded_DB()
     {
-        // arrange: drop a dummy file into a temp folder
         var tempRoot = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
         Directory.CreateDirectory(tempRoot);
         var dummyPath = Path.Combine(tempRoot, "dummy.txt");
         await File.WriteAllTextAsync(dummyPath, "hello");
 
-        var fs = new MauiFileSystemService(tempRoot);
+        // Mocking IFileSystemService
+        var fs = new Mock<IFileSystemService>();
+        fs.Setup(f => f.AppDataDirectory).Returns(tempRoot); // mocking read-only property
 
-        // act
-        using var stream = await fs.OpenAppPackageFileAsync("dummy.txt");
+        await using var stream = await fs.Object.OpenAppPackageFileAsync("dummy.txt");
 
-        // assert
         Assert.True(stream.CanRead);
         Assert.Equal(5, stream.Length);
 

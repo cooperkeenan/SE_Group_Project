@@ -1,39 +1,42 @@
-// ViewModels/HistoricalDataViewModelTests.cs
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using EnviroMonitorApp.ViewModels;
-using EnviroMonitorApp.Models;                 // WeatherRecord, etc.
-using EnviroMonitorApp.Services;              // IEnvironmentalDataService
 using Moq;
 using Xunit;
+using EnviroMonitorApp.Models;       // Ensure your models are included
+using EnviroMonitorApp.ViewModels;   // For HistoricalDataViewModel
+using EnviroMonitorApp.Services;     // For IEnvironmentalDataService
+using EnviroMonitorApp.Services.ChartTransformers; 
 
-namespace EnviroMonitorApp.Tests.ViewModels;
-
-public class HistoricalDataViewModelTests
+namespace EnviroMonitorApp.Tests.ViewModels
 {
-    private readonly Mock<IEnvironmentalDataService> _data = new();
-    private readonly HistoricalDataViewModel _vm;
-
-    public HistoricalDataViewModelTests()
+    public class HistoricalDataViewModelTests
     {
-        _data.Setup(d => d.GetHistoricalAsync(It.IsAny<DateTime>(), It.IsAny<DateTime>()))
-             .ReturnsAsync(new List<WeatherRecord>
-             {
-                 new() { Date = DateOnly.FromDateTime(DateTime.Today), Temperature = 12 }
-             });
+        private readonly Mock<IEnvironmentalDataService> _svc = new();
+        private readonly HistoricalDataViewModel _vm;
 
-        _vm = new HistoricalDataViewModel(_data.Object);
-    }
+        public HistoricalDataViewModelTests()
+        {
+            // Setup mock data service to return a weather record
+            _svc.Setup(s => s.GetWeatherAsync(It.IsAny<DateTime>(),
+                                              It.IsAny<DateTime>(),
+                                              It.IsAny<string>()))
+                .ReturnsAsync(new List<WeatherRecord>
+                {
+                    new() { Timestamp = DateTime.UtcNow, MeanTemp = 12 }
+                });
 
-    [Fact]
-    public async Task LoadCommand_ShouldPopulateCollection()
-    {
-        await _vm.LoadCommand.ExecuteAsync(null);
+            _vm = new HistoricalDataViewModel(_svc.Object, new LogBinningTransformer());
+            _vm.SelectedSensorType = "Weather";
+            _vm.SelectedMetric = "MeanTemp";
+        }
 
-        Assert.Single(_vm.Records);
-        Assert.Equal(12, _vm.Records.First().Temperature);
-        Assert.False(_vm.IsBusy);
+        [Fact]
+        public async Task LoadDataCommand_Fills_ChartData()
+        {
+            // Execute the command to load data
+            _vm.LoadDataCommand.Execute(null);
+
+            // Assert that ChartData contains one item and NoData is false
+            Assert.Single(_vm.ChartData);
+            Assert.False(_vm.NoData);
+        }
     }
 }

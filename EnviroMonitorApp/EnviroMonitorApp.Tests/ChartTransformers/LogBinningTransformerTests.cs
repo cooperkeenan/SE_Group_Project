@@ -1,4 +1,7 @@
-using EnviroMonitorApp.Core.ChartTransformers;
+using System;
+using System.Linq;
+using EnviroMonitorApp.Services.ChartTransformers;
+using Microcharts;
 using Xunit;
 
 namespace EnviroMonitorApp.Tests.ChartTransformers;
@@ -6,16 +9,22 @@ namespace EnviroMonitorApp.Tests.ChartTransformers;
 public class LogBinningTransformerTests
 {
     [Fact]
-    public void Transform_ShouldBucketIntoLogBins()
+    public void Transform_Compresses_Long_Span_Into_Fewer_Than_MaxLabels()
     {
-        var transformer = new LogBinningTransformer(binSize: 10);
-        var input = new[] { 1d, 5, 11, 90, 99, 101 };
+        // arrange – 365 points, one per day
+        var raw = Enumerable.Range(0, 365)
+                            .Select(i => (DateTime.UtcNow.AddDays(-i), value: 1d))
+                            .ToArray();
 
-        var bins = transformer.Transform(input);
+        var sut   = new LogBinningTransformer();
+        var start = DateTime.UtcNow.AddYears(-1);
+        var end   = DateTime.UtcNow;
 
-        Assert.Equal(3, bins.Count);
-        Assert.Equal((1, 5),    bins[0]);
-        Assert.Equal((11, 99),  bins[1]);
-        Assert.Equal((101,101), bins[2]);
+        // act
+        var entries = sut.Transform(raw, start, end);
+
+        // assert – never draw more labels than configured
+        Assert.True(entries.Count <= sut.MaxLabels);
+        Assert.All(entries, e => Assert.IsType<ChartEntry>(e));
     }
 }

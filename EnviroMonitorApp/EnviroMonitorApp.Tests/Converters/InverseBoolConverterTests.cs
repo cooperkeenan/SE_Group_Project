@@ -1,4 +1,4 @@
-using EnviroMonitorApp.Converters;     // folder now single-level
+using EnviroMonitorApp.Converters;
 using Xunit;
 
 namespace EnviroMonitorApp.Tests.Converters;
@@ -10,6 +10,9 @@ public class InverseBoolConverterTests
     [Theory]
     [InlineData(true,  false)]
     [InlineData(false, true)]
-    public void Convert_ShouldInvertBoolean(bool input, bool expected)
-        => Assert.Equal(expected, (bool)_sut.Convert(input, null, null, null));
+    public void Convert_Flips_Boolean(bool input, bool expected)
+    {
+        var result = (bool)_sut.Convert(input, null!, null!, null!);
+        Assert.Equal(expected, result);
+    }
 }
