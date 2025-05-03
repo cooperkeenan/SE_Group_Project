@@ -13,6 +13,8 @@ using SkiaSharp;
 using EnviroMonitorApp.Models;
 using EnviroMonitorApp.Services;
 using EnviroMonitorApp.Services.ChartTransformers;
+using EnviroMonitorApp.Core.ViewModels;
+
 
 namespace EnviroMonitorApp.ViewModels
 {
