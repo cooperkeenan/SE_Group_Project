@@ -1,9 +1,11 @@
+// EnviroMonitorApp.Tests/Services/EnvironmentalDataApiServiceTests.cs
 using Moq;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using EnviroMonitorApp.Models;         // DTO & record types live here
 using EnviroMonitorApp.Services;
-using EnviroMonitorApp.Models;
-using EnviroMonitorApp.Services.Apis; 
+using EnviroMonitorApp.Services.Apis;
 using Xunit;
 
 namespace EnviroMonitorApp.Tests.Services
@@ -13,32 +15,58 @@ namespace EnviroMonitorApp.Tests.Services
         [Fact]
         public async Task GetWeatherAsync_Returns_Model_From_Api()
         {
-            // Arrange: Use the actual ApiKeyProvider constructor with keys
-            var apiKeyProvider = new ApiKeyProvider("mock_open_aq_key", "mock_open_weather_map_key");
-
-            // Mock the other dependencies
-            var mockAirQualityApi = new Mock<IAirQualityApi>();
+            // Arrange: mock the HTTP API
             var mockWeatherApi = new Mock<IWeatherApi>();
-            mockWeatherApi.Setup(a => a.GetWeatherAsync(It.IsAny<DateTime>(), It.IsAny<DateTime>(), It.IsAny<string>()))
-                        .ReturnsAsync(new WeatherRecord { Temperature = 20.1, Humidity = 70 });
+            mockWeatherApi
+                .Setup(api => api.GetForecast(
+                    It.IsAny<double>(),
+                    It.IsAny<double>(),
+                    It.IsAny<string>(),
+                    It.IsAny<string>()))
+                .ReturnsAsync(new OpenWeatherForecastResponse
+                {
+                    List = new List<OpenWeatherForecastResponse.ListItem>
+                    {
+                        new OpenWeatherForecastResponse.ListItem
+                        {
+                            Dt = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
+                            Main = new OpenWeatherForecastResponse.MainInfo
+                            {
+                                Temp = 20.1,
+                                Humidity = 70
+                            },
+                            Wind = new OpenWeatherForecastResponse.WindInfo
+                            {
+                                Speed = 5.5
+                            }
+                        }
+                    }
+                });
 
-            var mockWaterQualityApi = new Mock<IWaterQualityApi>();
+            var mockAirApi   = new Mock<IAirQualityApi>();
+            var mockWaterApi = new Mock<IWaterQualityApi>();
+            var keys         = new ApiKeyProvider("dummy-aq-key", "dummy-wx-key");
 
-            // Instantiate the service with the real ApiKeyProvider
-            var service = new EnvironmentalDataApiService(
-                mockAirQualityApi.Object,
+            var svc = new EnvironmentalDataApiService(
+                mockAirApi.Object,
                 mockWeatherApi.Object,
-                mockWaterQualityApi.Object,
-                apiKeyProvider // Pass it directly to the service
+                mockWaterApi.Object,
+                keys
             );
 
-            // Act: Call the method
-            var result = await service.GetWeatherAsync(DateTime.UtcNow.AddDays(-1), DateTime.UtcNow, "London");
+            // Act
+            var result = await svc.GetWeatherAsync(
+                DateTime.UtcNow.AddHours(-1),
+                DateTime.UtcNow,
+                "London"
+            );
 
-            // Assert: Verify the result
-            Assert.Equal(20.1, result[0].Temperature);  // Access the first WeatherRecord's Temperature
-            Assert.Equal(70, result[0].Humidity);  
+            // Assert
+            Assert.Single(result);
+            var wr = result[0];
+            Assert.Equal(20.1, wr.Temperature);
+            Assert.Equal(70, wr.Humidity);
+            Assert.Equal(5.5, wr.WindSpeed);
         }
     }
-
 }

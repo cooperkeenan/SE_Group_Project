@@ -1,43 +1,49 @@
 using Moq;
-using Xunit;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.Input;
 using EnviroMonitorApp.Models;
-using EnviroMonitorApp.ViewModels;
 using EnviroMonitorApp.Services;
 using EnviroMonitorApp.Services.ChartTransformers;
+using EnviroMonitorApp.ViewModels;
+using Xunit;
 
 namespace EnviroMonitorApp.Tests.ViewModels
 {
     public class HistoricalDataViewModelTests
     {
+        private readonly Mock<IEnvironmentalDataService> _svc = new();
+        private readonly HistoricalDataViewModel _vm;
+
+        public HistoricalDataViewModelTests()
+        {
+            _svc.Setup(s => s.GetWeatherAsync(
+                        It.IsAny<DateTime>(),
+                        It.IsAny<DateTime>(),
+                        It.IsAny<string>()))
+                .ReturnsAsync(new List<WeatherRecord>
+                {
+                    new() { Timestamp = DateTime.UtcNow, MeanTemp = 12 }
+                });
+
+            _vm = new HistoricalDataViewModel(_svc.Object, new LogBinningTransformer());
+            _vm.SelectedSensorType = "Weather";
+            _vm.SelectedMetric     = "MeanTemp";
+        }
+
         [Fact]
         public async Task LoadDataCommand_Fills_ChartData()
         {
-            // Arrange: a fake service that returns one WeatherRecord
-            var svcMock = new Mock<IEnvironmentalDataService>();
-            svcMock
-              .Setup(s => s.GetWeatherAsync(
-                  It.IsAny<DateTime>(),
-                  It.IsAny<DateTime>(),
-                  It.IsAny<string>()))
-              .ReturnsAsync(new List<WeatherRecord>
-              {
-                  new() { Timestamp = DateTime.UtcNow, MeanTemp = 12 }
-              });
+            // Cast to AsyncRelayCommand so we can await ExecuteAsync
+            var cmd = (AsyncRelayCommand)_vm.LoadDataCommand;
 
-            // Build the VM, pick Weather → MeanTemp
-            var vm = new HistoricalDataViewModel(svcMock.Object, new LogBinningTransformer());
-            vm.SelectedSensorType = "Weather";
-            vm.SelectedMetric     = "MeanTemp";
+            // Act
+            await cmd.ExecuteAsync(null);
 
-            // Act: run the AsyncRelayCommand
-            await vm.LoadDataCommand.ExecuteAsync(null);
-
-            // Assert: one entry, and NoData==false
-            Assert.Single(vm.ChartData);
-            Assert.False(vm.NoData);
+            // Assert
+            Assert.Single(_vm.ChartData);
+            Assert.False(_vm.NoData);
         }
     }
 }
