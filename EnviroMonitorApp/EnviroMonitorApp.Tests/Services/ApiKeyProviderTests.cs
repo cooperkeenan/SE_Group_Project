@@ -8,8 +8,8 @@ public class ApiKeyProviderTests
     [Fact]
     public void Test_OpenAqKey_Returns_Valid_Key()
     {
-        // Arrange: Use the constructor that doesn't require IConfiguration and pass sample key
-        var apiKeyProvider = new ApiKeyProvider("sample-openaq-key");
+        // Arrange: Use the constructor that accepts the key as a parameter
+        var apiKeyProvider = new ApiKeyProvider("sample-openaq-key", "sample-openweathermap-key");
 
         // Act: Retrieve the key
         var key = apiKeyProvider.OpenAqKey;
@@ -21,8 +21,8 @@ public class ApiKeyProviderTests
     [Fact]
     public void Test_OpenWeatherMapKey_Returns_Valid_Key()
     {
-        // Arrange: Use the constructor that doesn't require IConfiguration and pass sample key
-        var apiKeyProvider = new ApiKeyProvider(openWeatherMapKey: "sample-openweathermap-key");
+        // Arrange: Use the constructor that accepts the key as a parameter
+        var apiKeyProvider = new ApiKeyProvider("sample-openaq-key", "sample-openweathermap-key");
 
         // Act: Retrieve the key
         var key = apiKeyProvider.OpenWeatherMap;

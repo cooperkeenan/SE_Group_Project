@@ -13,21 +13,23 @@ namespace EnviroMonitorApp.Tests.Services
         [Fact]
         public async Task GetWeatherAsync_Returns_Model_From_Api()
         {
-            // Arrange: Mock WeatherApi
+            // Arrange: Use the actual ApiKeyProvider constructor with keys
+            var apiKeyProvider = new ApiKeyProvider("mock_open_aq_key", "mock_open_weather_map_key");
+
+            // Mock the other dependencies
+            var mockAirQualityApi = new Mock<IAirQualityApi>();
             var mockWeatherApi = new Mock<IWeatherApi>();
             mockWeatherApi.Setup(a => a.GetWeatherAsync(It.IsAny<DateTime>(), It.IsAny<DateTime>(), It.IsAny<string>()))
-                          .ReturnsAsync(new WeatherRecord { Temperature = 20.1, Humidity = 70 });
+                        .ReturnsAsync(new WeatherRecord { Temperature = 20.1, Humidity = 70 });
 
-            var mockAirQualityApi = new Mock<IAirQualityApi>();
             var mockWaterQualityApi = new Mock<IWaterQualityApi>();
-            var mockApiKeyProvider = new Mock<ApiKeyProvider>();
 
-            // Instantiate the service with required parameters
+            // Instantiate the service with the real ApiKeyProvider
             var service = new EnvironmentalDataApiService(
                 mockAirQualityApi.Object,
                 mockWeatherApi.Object,
                 mockWaterQualityApi.Object,
-                mockApiKeyProvider.Object
+                apiKeyProvider // Pass it directly to the service
             );
 
             // Act: Call the method
@@ -38,4 +40,5 @@ namespace EnviroMonitorApp.Tests.Services
             Assert.Equal(70, result[0].Humidity);  
         }
     }
+
 }
