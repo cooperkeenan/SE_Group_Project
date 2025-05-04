@@ -1,0 +1,360 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitorApp.Services.Apis.IWeatherApi
+  commentId: T:EnviroMonitorApp.Services.Apis.IWeatherApi
+  id: IWeatherApi
+  parent: EnviroMonitorApp.Services.Apis
+  children:
+  - EnviroMonitorApp.Services.Apis.IWeatherApi.GetForecast(System.Double,System.Double,System.String,System.String)
+  - EnviroMonitorApp.Services.Apis.IWeatherApi.GetWeatherAsync(System.DateTime,System.DateTime,System.String)
+  langs:
+  - csharp
+  - vb
+  name: IWeatherApi
+  nameWithType: IWeatherApi
+  fullName: EnviroMonitorApp.Services.Apis.IWeatherApi
+  type: Interface
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: IWeatherApi
+    path: ../EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs
+    startLine: 9
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services.Apis
+  summary: Refit interface for OpenWeather’s forecast endpoint
+  example: []
+  syntax:
+    content: public interface IWeatherApi
+    content.vb: Public Interface IWeatherApi
+- uid: EnviroMonitorApp.Services.Apis.IWeatherApi.GetForecast(System.Double,System.Double,System.String,System.String)
+  commentId: M:EnviroMonitorApp.Services.Apis.IWeatherApi.GetForecast(System.Double,System.Double,System.String,System.String)
+  id: GetForecast(System.Double,System.Double,System.String,System.String)
+  parent: EnviroMonitorApp.Services.Apis.IWeatherApi
+  langs:
+  - csharp
+  - vb
+  name: GetForecast(double, double, string, string)
+  nameWithType: IWeatherApi.GetForecast(double, double, string, string)
+  fullName: EnviroMonitorApp.Services.Apis.IWeatherApi.GetForecast(double, double, string, string)
+  type: Method
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: GetForecast
+    path: ../EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs
+    startLine: 11
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services.Apis
+  syntax:
+    content: >-
+      [Get("/data/2.5/forecast")]
+
+      Task<OpenWeatherForecastResponse> GetForecast(double lat, double lon, string apiKey, string units)
+    parameters:
+    - id: lat
+      type: System.Double
+      attributes:
+      - type: Refit.AliasAsAttribute
+        ctor: Refit.AliasAsAttribute.#ctor(System.String)
+        arguments:
+        - type: System.String
+          value: lat
+    - id: lon
+      type: System.Double
+      attributes:
+      - type: Refit.AliasAsAttribute
+        ctor: Refit.AliasAsAttribute.#ctor(System.String)
+        arguments:
+        - type: System.String
+          value: lon
+    - id: apiKey
+      type: System.String
+      attributes:
+      - type: Refit.AliasAsAttribute
+        ctor: Refit.AliasAsAttribute.#ctor(System.String)
+        arguments:
+        - type: System.String
+          value: appid
+    - id: units
+      type: System.String
+      attributes:
+      - type: Refit.AliasAsAttribute
+        ctor: Refit.AliasAsAttribute.#ctor(System.String)
+        arguments:
+        - type: System.String
+          value: units
+    return:
+      type: System.Threading.Tasks.Task{EnviroMonitorApp.Models.OpenWeatherForecastResponse}
+    content.vb: >-
+      <Get("/data/2.5/forecast")>
+
+      Function GetForecast(lat As Double, lon As Double, apiKey As String, units As String) As Task(Of OpenWeatherForecastResponse)
+  overload: EnviroMonitorApp.Services.Apis.IWeatherApi.GetForecast*
+  attributes:
+  - type: Refit.GetAttribute
+    ctor: Refit.GetAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: /data/2.5/forecast
+  nameWithType.vb: IWeatherApi.GetForecast(Double, Double, String, String)
+  fullName.vb: EnviroMonitorApp.Services.Apis.IWeatherApi.GetForecast(Double, Double, String, String)
+  name.vb: GetForecast(Double, Double, String, String)
+- uid: EnviroMonitorApp.Services.Apis.IWeatherApi.GetWeatherAsync(System.DateTime,System.DateTime,System.String)
+  commentId: M:EnviroMonitorApp.Services.Apis.IWeatherApi.GetWeatherAsync(System.DateTime,System.DateTime,System.String)
+  id: GetWeatherAsync(System.DateTime,System.DateTime,System.String)
+  parent: EnviroMonitorApp.Services.Apis.IWeatherApi
+  langs:
+  - csharp
+  - vb
+  name: GetWeatherAsync(DateTime, DateTime, string)
+  nameWithType: IWeatherApi.GetWeatherAsync(DateTime, DateTime, string)
+  fullName: EnviroMonitorApp.Services.Apis.IWeatherApi.GetWeatherAsync(System.DateTime, System.DateTime, string)
+  type: Method
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: GetWeatherAsync
+    path: ../EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs
+    startLine: 19
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services.Apis
+  syntax:
+    content: Task<WeatherRecord> GetWeatherAsync(DateTime startDate, DateTime endDate, string region)
+    parameters:
+    - id: startDate
+      type: System.DateTime
+    - id: endDate
+      type: System.DateTime
+    - id: region
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{EnviroMonitorApp.Models.WeatherRecord}
+    content.vb: Function GetWeatherAsync(startDate As Date, endDate As Date, region As String) As Task(Of WeatherRecord)
+  overload: EnviroMonitorApp.Services.Apis.IWeatherApi.GetWeatherAsync*
+  nameWithType.vb: IWeatherApi.GetWeatherAsync(Date, Date, String)
+  fullName.vb: EnviroMonitorApp.Services.Apis.IWeatherApi.GetWeatherAsync(Date, Date, String)
+  name.vb: GetWeatherAsync(Date, Date, String)
+references:
+- uid: EnviroMonitorApp.Services.Apis
+  commentId: N:EnviroMonitorApp.Services.Apis
+  href: EnviroMonitorApp.html
+  name: EnviroMonitorApp.Services.Apis
+  nameWithType: EnviroMonitorApp.Services.Apis
+  fullName: EnviroMonitorApp.Services.Apis
+  spec.csharp:
+  - uid: EnviroMonitorApp
+    name: EnviroMonitorApp
+    href: EnviroMonitorApp.html
+  - name: .
+  - uid: EnviroMonitorApp.Services
+    name: Services
+    href: EnviroMonitorApp.Services.html
+  - name: .
+  - uid: EnviroMonitorApp.Services.Apis
+    name: Apis
+    href: EnviroMonitorApp.Services.Apis.html
+  spec.vb:
+  - uid: EnviroMonitorApp
+    name: EnviroMonitorApp
+    href: EnviroMonitorApp.html
+  - name: .
+  - uid: EnviroMonitorApp.Services
+    name: Services
+    href: EnviroMonitorApp.Services.html
+  - name: .
+  - uid: EnviroMonitorApp.Services.Apis
+    name: Apis
+    href: EnviroMonitorApp.Services.Apis.html
+- uid: EnviroMonitorApp.Services.Apis.IWeatherApi.GetForecast*
+  commentId: Overload:EnviroMonitorApp.Services.Apis.IWeatherApi.GetForecast
+  href: EnviroMonitorApp.Services.Apis.IWeatherApi.html#EnviroMonitorApp_Services_Apis_IWeatherApi_GetForecast_System_Double_System_Double_System_String_System_String_
+  name: GetForecast
+  nameWithType: IWeatherApi.GetForecast
+  fullName: EnviroMonitorApp.Services.Apis.IWeatherApi.GetForecast
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{EnviroMonitorApp.Models.OpenWeatherForecastResponse}
+  commentId: T:System.Threading.Tasks.Task{EnviroMonitorApp.Models.OpenWeatherForecastResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<OpenWeatherForecastResponse>
+  nameWithType: Task<OpenWeatherForecastResponse>
+  fullName: System.Threading.Tasks.Task<EnviroMonitorApp.Models.OpenWeatherForecastResponse>
+  nameWithType.vb: Task(Of OpenWeatherForecastResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of EnviroMonitorApp.Models.OpenWeatherForecastResponse)
+  name.vb: Task(Of OpenWeatherForecastResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: EnviroMonitorApp.Models.OpenWeatherForecastResponse
+    name: OpenWeatherForecastResponse
+    href: EnviroMonitorApp.Models.OpenWeatherForecastResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: EnviroMonitorApp.Models.OpenWeatherForecastResponse
+    name: OpenWeatherForecastResponse
+    href: EnviroMonitorApp.Models.OpenWeatherForecastResponse.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: EnviroMonitorApp.Services.Apis.IWeatherApi.GetWeatherAsync*
+  commentId: Overload:EnviroMonitorApp.Services.Apis.IWeatherApi.GetWeatherAsync
+  href: EnviroMonitorApp.Services.Apis.IWeatherApi.html#EnviroMonitorApp_Services_Apis_IWeatherApi_GetWeatherAsync_System_DateTime_System_DateTime_System_String_
+  name: GetWeatherAsync
+  nameWithType: IWeatherApi.GetWeatherAsync
+  fullName: EnviroMonitorApp.Services.Apis.IWeatherApi.GetWeatherAsync
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: System.Threading.Tasks.Task{EnviroMonitorApp.Models.WeatherRecord}
+  commentId: T:System.Threading.Tasks.Task{EnviroMonitorApp.Models.WeatherRecord}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<WeatherRecord>
+  nameWithType: Task<WeatherRecord>
+  fullName: System.Threading.Tasks.Task<EnviroMonitorApp.Models.WeatherRecord>
+  nameWithType.vb: Task(Of WeatherRecord)
+  fullName.vb: System.Threading.Tasks.Task(Of EnviroMonitorApp.Models.WeatherRecord)
+  name.vb: Task(Of WeatherRecord)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: EnviroMonitorApp.Models.WeatherRecord
+    name: WeatherRecord
+    href: EnviroMonitorApp.Models.WeatherRecord.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: EnviroMonitorApp.Models.WeatherRecord
+    name: WeatherRecord
+    href: EnviroMonitorApp.Models.WeatherRecord.html
+  - name: )

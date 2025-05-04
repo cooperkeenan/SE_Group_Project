@@ -182,8 +182,8 @@ namespace EnviroMonitorApp.ViewModels
             }
 
             // Transform the data using the chart transformer
-            var entries = _transformer.Transform(raw.Cast<(DateTime, double)>(), StartDate, EndDate); // Explicit cast to non-nullable double
-
+            var clean   = raw.Where(t => t.Item2.HasValue).Select(t => (t.timestamp, t.Item2!.Value));
+            var entries = _transformer.Transform(clean, StartDate, EndDate);
             // Check if entries are empty
             if (entries.Count == 0)
             {

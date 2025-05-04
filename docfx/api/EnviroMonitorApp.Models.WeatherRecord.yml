@@ -1,0 +1,788 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitorApp.Models.WeatherRecord
+  commentId: T:EnviroMonitorApp.Models.WeatherRecord
+  id: WeatherRecord
+  parent: EnviroMonitorApp.Models
+  children:
+  - EnviroMonitorApp.Models.WeatherRecord.CloudCover
+  - EnviroMonitorApp.Models.WeatherRecord.GlobalRadiation
+  - EnviroMonitorApp.Models.WeatherRecord.Humidity
+  - EnviroMonitorApp.Models.WeatherRecord.MaxTemp
+  - EnviroMonitorApp.Models.WeatherRecord.MeanTemp
+  - EnviroMonitorApp.Models.WeatherRecord.MinTemp
+  - EnviroMonitorApp.Models.WeatherRecord.Precipitation
+  - EnviroMonitorApp.Models.WeatherRecord.Pressure
+  - EnviroMonitorApp.Models.WeatherRecord.SnowDepth
+  - EnviroMonitorApp.Models.WeatherRecord.Sunshine
+  - EnviroMonitorApp.Models.WeatherRecord.Temperature
+  - EnviroMonitorApp.Models.WeatherRecord.Timestamp
+  - EnviroMonitorApp.Models.WeatherRecord.WindSpeed
+  langs:
+  - csharp
+  - vb
+  name: WeatherRecord
+  nameWithType: WeatherRecord
+  fullName: EnviroMonitorApp.Models.WeatherRecord
+  type: Class
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: WeatherRecord
+    path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
+    startLine: 6
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  syntax:
+    content: public class WeatherRecord
+    content.vb: Public Class WeatherRecord
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: EnviroMonitorApp.Models.WeatherRecord.Timestamp
+  commentId: P:EnviroMonitorApp.Models.WeatherRecord.Timestamp
+  id: Timestamp
+  parent: EnviroMonitorApp.Models.WeatherRecord
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: WeatherRecord.Timestamp
+  fullName: EnviroMonitorApp.Models.WeatherRecord.Timestamp
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Timestamp
+    path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
+    startLine: 8
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  syntax:
+    content: public DateTime Timestamp { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property Timestamp As Date
+  overload: EnviroMonitorApp.Models.WeatherRecord.Timestamp*
+- uid: EnviroMonitorApp.Models.WeatherRecord.Temperature
+  commentId: P:EnviroMonitorApp.Models.WeatherRecord.Temperature
+  id: Temperature
+  parent: EnviroMonitorApp.Models.WeatherRecord
+  langs:
+  - csharp
+  - vb
+  name: Temperature
+  nameWithType: WeatherRecord.Temperature
+  fullName: EnviroMonitorApp.Models.WeatherRecord.Temperature
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Temperature
+    path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
+    startLine: 11
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  syntax:
+    content: public double Temperature { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Temperature As Double
+  overload: EnviroMonitorApp.Models.WeatherRecord.Temperature*
+- uid: EnviroMonitorApp.Models.WeatherRecord.Humidity
+  commentId: P:EnviroMonitorApp.Models.WeatherRecord.Humidity
+  id: Humidity
+  parent: EnviroMonitorApp.Models.WeatherRecord
+  langs:
+  - csharp
+  - vb
+  name: Humidity
+  nameWithType: WeatherRecord.Humidity
+  fullName: EnviroMonitorApp.Models.WeatherRecord.Humidity
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Humidity
+    path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
+    startLine: 12
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  syntax:
+    content: public double Humidity { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Humidity As Double
+  overload: EnviroMonitorApp.Models.WeatherRecord.Humidity*
+- uid: EnviroMonitorApp.Models.WeatherRecord.WindSpeed
+  commentId: P:EnviroMonitorApp.Models.WeatherRecord.WindSpeed
+  id: WindSpeed
+  parent: EnviroMonitorApp.Models.WeatherRecord
+  langs:
+  - csharp
+  - vb
+  name: WindSpeed
+  nameWithType: WeatherRecord.WindSpeed
+  fullName: EnviroMonitorApp.Models.WeatherRecord.WindSpeed
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: WindSpeed
+    path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
+    startLine: 13
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  syntax:
+    content: public double WindSpeed { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property WindSpeed As Double
+  overload: EnviroMonitorApp.Models.WeatherRecord.WindSpeed*
+- uid: EnviroMonitorApp.Models.WeatherRecord.CloudCover
+  commentId: P:EnviroMonitorApp.Models.WeatherRecord.CloudCover
+  id: CloudCover
+  parent: EnviroMonitorApp.Models.WeatherRecord
+  langs:
+  - csharp
+  - vb
+  name: CloudCover
+  nameWithType: WeatherRecord.CloudCover
+  fullName: EnviroMonitorApp.Models.WeatherRecord.CloudCover
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: CloudCover
+    path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
+    startLine: 16
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  syntax:
+    content: public double CloudCover { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property CloudCover As Double
+  overload: EnviroMonitorApp.Models.WeatherRecord.CloudCover*
+- uid: EnviroMonitorApp.Models.WeatherRecord.Sunshine
+  commentId: P:EnviroMonitorApp.Models.WeatherRecord.Sunshine
+  id: Sunshine
+  parent: EnviroMonitorApp.Models.WeatherRecord
+  langs:
+  - csharp
+  - vb
+  name: Sunshine
+  nameWithType: WeatherRecord.Sunshine
+  fullName: EnviroMonitorApp.Models.WeatherRecord.Sunshine
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Sunshine
+    path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
+    startLine: 17
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  syntax:
+    content: public double Sunshine { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Sunshine As Double
+  overload: EnviroMonitorApp.Models.WeatherRecord.Sunshine*
+- uid: EnviroMonitorApp.Models.WeatherRecord.GlobalRadiation
+  commentId: P:EnviroMonitorApp.Models.WeatherRecord.GlobalRadiation
+  id: GlobalRadiation
+  parent: EnviroMonitorApp.Models.WeatherRecord
+  langs:
+  - csharp
+  - vb
+  name: GlobalRadiation
+  nameWithType: WeatherRecord.GlobalRadiation
+  fullName: EnviroMonitorApp.Models.WeatherRecord.GlobalRadiation
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: GlobalRadiation
+    path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
+    startLine: 18
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  syntax:
+    content: public double GlobalRadiation { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property GlobalRadiation As Double
+  overload: EnviroMonitorApp.Models.WeatherRecord.GlobalRadiation*
+- uid: EnviroMonitorApp.Models.WeatherRecord.MaxTemp
+  commentId: P:EnviroMonitorApp.Models.WeatherRecord.MaxTemp
+  id: MaxTemp
+  parent: EnviroMonitorApp.Models.WeatherRecord
+  langs:
+  - csharp
+  - vb
+  name: MaxTemp
+  nameWithType: WeatherRecord.MaxTemp
+  fullName: EnviroMonitorApp.Models.WeatherRecord.MaxTemp
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: MaxTemp
+    path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
+    startLine: 19
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  syntax:
+    content: public double MaxTemp { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property MaxTemp As Double
+  overload: EnviroMonitorApp.Models.WeatherRecord.MaxTemp*
+- uid: EnviroMonitorApp.Models.WeatherRecord.MeanTemp
+  commentId: P:EnviroMonitorApp.Models.WeatherRecord.MeanTemp
+  id: MeanTemp
+  parent: EnviroMonitorApp.Models.WeatherRecord
+  langs:
+  - csharp
+  - vb
+  name: MeanTemp
+  nameWithType: WeatherRecord.MeanTemp
+  fullName: EnviroMonitorApp.Models.WeatherRecord.MeanTemp
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: MeanTemp
+    path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
+    startLine: 20
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  syntax:
+    content: public double MeanTemp { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property MeanTemp As Double
+  overload: EnviroMonitorApp.Models.WeatherRecord.MeanTemp*
+- uid: EnviroMonitorApp.Models.WeatherRecord.MinTemp
+  commentId: P:EnviroMonitorApp.Models.WeatherRecord.MinTemp
+  id: MinTemp
+  parent: EnviroMonitorApp.Models.WeatherRecord
+  langs:
+  - csharp
+  - vb
+  name: MinTemp
+  nameWithType: WeatherRecord.MinTemp
+  fullName: EnviroMonitorApp.Models.WeatherRecord.MinTemp
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: MinTemp
+    path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
+    startLine: 21
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  syntax:
+    content: public double MinTemp { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property MinTemp As Double
+  overload: EnviroMonitorApp.Models.WeatherRecord.MinTemp*
+- uid: EnviroMonitorApp.Models.WeatherRecord.Precipitation
+  commentId: P:EnviroMonitorApp.Models.WeatherRecord.Precipitation
+  id: Precipitation
+  parent: EnviroMonitorApp.Models.WeatherRecord
+  langs:
+  - csharp
+  - vb
+  name: Precipitation
+  nameWithType: WeatherRecord.Precipitation
+  fullName: EnviroMonitorApp.Models.WeatherRecord.Precipitation
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Precipitation
+    path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
+    startLine: 22
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  syntax:
+    content: public double Precipitation { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Precipitation As Double
+  overload: EnviroMonitorApp.Models.WeatherRecord.Precipitation*
+- uid: EnviroMonitorApp.Models.WeatherRecord.Pressure
+  commentId: P:EnviroMonitorApp.Models.WeatherRecord.Pressure
+  id: Pressure
+  parent: EnviroMonitorApp.Models.WeatherRecord
+  langs:
+  - csharp
+  - vb
+  name: Pressure
+  nameWithType: WeatherRecord.Pressure
+  fullName: EnviroMonitorApp.Models.WeatherRecord.Pressure
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Pressure
+    path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
+    startLine: 23
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  syntax:
+    content: public double Pressure { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Pressure As Double
+  overload: EnviroMonitorApp.Models.WeatherRecord.Pressure*
+- uid: EnviroMonitorApp.Models.WeatherRecord.SnowDepth
+  commentId: P:EnviroMonitorApp.Models.WeatherRecord.SnowDepth
+  id: SnowDepth
+  parent: EnviroMonitorApp.Models.WeatherRecord
+  langs:
+  - csharp
+  - vb
+  name: SnowDepth
+  nameWithType: WeatherRecord.SnowDepth
+  fullName: EnviroMonitorApp.Models.WeatherRecord.SnowDepth
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: SnowDepth
+    path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
+    startLine: 24
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  syntax:
+    content: public double SnowDepth { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property SnowDepth As Double
+  overload: EnviroMonitorApp.Models.WeatherRecord.SnowDepth*
+references:
+- uid: EnviroMonitorApp.Models
+  commentId: N:EnviroMonitorApp.Models
+  href: EnviroMonitorApp.html
+  name: EnviroMonitorApp.Models
+  nameWithType: EnviroMonitorApp.Models
+  fullName: EnviroMonitorApp.Models
+  spec.csharp:
+  - uid: EnviroMonitorApp
+    name: EnviroMonitorApp
+    href: EnviroMonitorApp.html
+  - name: .
+  - uid: EnviroMonitorApp.Models
+    name: Models
+    href: EnviroMonitorApp.Models.html
+  spec.vb:
+  - uid: EnviroMonitorApp
+    name: EnviroMonitorApp
+    href: EnviroMonitorApp.html
+  - name: .
+  - uid: EnviroMonitorApp.Models
+    name: Models
+    href: EnviroMonitorApp.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: EnviroMonitorApp.Models.WeatherRecord.Timestamp*
+  commentId: Overload:EnviroMonitorApp.Models.WeatherRecord.Timestamp
+  href: EnviroMonitorApp.Models.WeatherRecord.html#EnviroMonitorApp_Models_WeatherRecord_Timestamp
+  name: Timestamp
+  nameWithType: WeatherRecord.Timestamp
+  fullName: EnviroMonitorApp.Models.WeatherRecord.Timestamp
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: EnviroMonitorApp.Models.WeatherRecord.Temperature*
+  commentId: Overload:EnviroMonitorApp.Models.WeatherRecord.Temperature
+  href: EnviroMonitorApp.Models.WeatherRecord.html#EnviroMonitorApp_Models_WeatherRecord_Temperature
+  name: Temperature
+  nameWithType: WeatherRecord.Temperature
+  fullName: EnviroMonitorApp.Models.WeatherRecord.Temperature
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: EnviroMonitorApp.Models.WeatherRecord.Humidity*
+  commentId: Overload:EnviroMonitorApp.Models.WeatherRecord.Humidity
+  href: EnviroMonitorApp.Models.WeatherRecord.html#EnviroMonitorApp_Models_WeatherRecord_Humidity
+  name: Humidity
+  nameWithType: WeatherRecord.Humidity
+  fullName: EnviroMonitorApp.Models.WeatherRecord.Humidity
+- uid: EnviroMonitorApp.Models.WeatherRecord.WindSpeed*
+  commentId: Overload:EnviroMonitorApp.Models.WeatherRecord.WindSpeed
+  href: EnviroMonitorApp.Models.WeatherRecord.html#EnviroMonitorApp_Models_WeatherRecord_WindSpeed
+  name: WindSpeed
+  nameWithType: WeatherRecord.WindSpeed
+  fullName: EnviroMonitorApp.Models.WeatherRecord.WindSpeed
+- uid: EnviroMonitorApp.Models.WeatherRecord.CloudCover*
+  commentId: Overload:EnviroMonitorApp.Models.WeatherRecord.CloudCover
+  href: EnviroMonitorApp.Models.WeatherRecord.html#EnviroMonitorApp_Models_WeatherRecord_CloudCover
+  name: CloudCover
+  nameWithType: WeatherRecord.CloudCover
+  fullName: EnviroMonitorApp.Models.WeatherRecord.CloudCover
+- uid: EnviroMonitorApp.Models.WeatherRecord.Sunshine*
+  commentId: Overload:EnviroMonitorApp.Models.WeatherRecord.Sunshine
+  href: EnviroMonitorApp.Models.WeatherRecord.html#EnviroMonitorApp_Models_WeatherRecord_Sunshine
+  name: Sunshine
+  nameWithType: WeatherRecord.Sunshine
+  fullName: EnviroMonitorApp.Models.WeatherRecord.Sunshine
+- uid: EnviroMonitorApp.Models.WeatherRecord.GlobalRadiation*
+  commentId: Overload:EnviroMonitorApp.Models.WeatherRecord.GlobalRadiation
+  href: EnviroMonitorApp.Models.WeatherRecord.html#EnviroMonitorApp_Models_WeatherRecord_GlobalRadiation
+  name: GlobalRadiation
+  nameWithType: WeatherRecord.GlobalRadiation
+  fullName: EnviroMonitorApp.Models.WeatherRecord.GlobalRadiation
+- uid: EnviroMonitorApp.Models.WeatherRecord.MaxTemp*
+  commentId: Overload:EnviroMonitorApp.Models.WeatherRecord.MaxTemp
+  href: EnviroMonitorApp.Models.WeatherRecord.html#EnviroMonitorApp_Models_WeatherRecord_MaxTemp
+  name: MaxTemp
+  nameWithType: WeatherRecord.MaxTemp
+  fullName: EnviroMonitorApp.Models.WeatherRecord.MaxTemp
+- uid: EnviroMonitorApp.Models.WeatherRecord.MeanTemp*
+  commentId: Overload:EnviroMonitorApp.Models.WeatherRecord.MeanTemp
+  href: EnviroMonitorApp.Models.WeatherRecord.html#EnviroMonitorApp_Models_WeatherRecord_MeanTemp
+  name: MeanTemp
+  nameWithType: WeatherRecord.MeanTemp
+  fullName: EnviroMonitorApp.Models.WeatherRecord.MeanTemp
+- uid: EnviroMonitorApp.Models.WeatherRecord.MinTemp*
+  commentId: Overload:EnviroMonitorApp.Models.WeatherRecord.MinTemp
+  href: EnviroMonitorApp.Models.WeatherRecord.html#EnviroMonitorApp_Models_WeatherRecord_MinTemp
+  name: MinTemp
+  nameWithType: WeatherRecord.MinTemp
+  fullName: EnviroMonitorApp.Models.WeatherRecord.MinTemp
+- uid: EnviroMonitorApp.Models.WeatherRecord.Precipitation*
+  commentId: Overload:EnviroMonitorApp.Models.WeatherRecord.Precipitation
+  href: EnviroMonitorApp.Models.WeatherRecord.html#EnviroMonitorApp_Models_WeatherRecord_Precipitation
+  name: Precipitation
+  nameWithType: WeatherRecord.Precipitation
+  fullName: EnviroMonitorApp.Models.WeatherRecord.Precipitation
+- uid: EnviroMonitorApp.Models.WeatherRecord.Pressure*
+  commentId: Overload:EnviroMonitorApp.Models.WeatherRecord.Pressure
+  href: EnviroMonitorApp.Models.WeatherRecord.html#EnviroMonitorApp_Models_WeatherRecord_Pressure
+  name: Pressure
+  nameWithType: WeatherRecord.Pressure
+  fullName: EnviroMonitorApp.Models.WeatherRecord.Pressure
+- uid: EnviroMonitorApp.Models.WeatherRecord.SnowDepth*
+  commentId: Overload:EnviroMonitorApp.Models.WeatherRecord.SnowDepth
+  href: EnviroMonitorApp.Models.WeatherRecord.html#EnviroMonitorApp_Models_WeatherRecord_SnowDepth
+  name: SnowDepth
+  nameWithType: WeatherRecord.SnowDepth
+  fullName: EnviroMonitorApp.Models.WeatherRecord.SnowDepth

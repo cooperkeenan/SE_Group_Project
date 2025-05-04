@@ -13,6 +13,9 @@
 
     <!-- lets you call FileSystem.AppDataDirectory etc.  -->
     <UseMauiEssentials>true</UseMauiEssentials>
+
+    <!--  DocFX documentation -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <!-- NuGet packages that *Core* really uses -->
