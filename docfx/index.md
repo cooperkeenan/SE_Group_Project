@@ -16,7 +16,7 @@ EnviroMonitorApp is an application for monitoring and analyzing environmental da
 
 ## Getting Started
 
-To use this library in your project, add a reference to EnviroMonitorApp.Core in your project file.
+To use this library, add a reference to EnviroMonitorApp.Core in your project file.
 
 ```csharp
 // Example: Retrieving environmental data
