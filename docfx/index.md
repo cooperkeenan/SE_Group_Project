@@ -12,7 +12,7 @@ EnviroMonitorApp is an application for monitoring and analyzing environmental da
 
 ## Documentation Sections
 
-- [API Documentation](api/index.html) - Technical documentation of classes and methods
+- [API Documentation](~/api/index.html) - Technical documentation of classes and methods
 
 ## Getting Started
 
