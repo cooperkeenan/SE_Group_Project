@@ -1,0 +1,39 @@
+[2025-05-04T20:01:08] === DocFX generation started ===
+[2025-05-04T20:01:08] Using docfx.json: /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx/docfx.json
+[2025-05-04T20:01:08] Removing old output at /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docs/api-docs
+[2025-05-04T20:01:08] Fresh output folder created
+[2025-05-04T20:01:08] DocFX found at /Users/cooperkeenan/.dotnet/tools/docfx
+[2025-05-04T20:01:08] Running: docfx metadata /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx/docfx.json
+[38;5;15mNo files are found with glob pattern EnviroMonitorApp.Core/EnviroMonitorApp.Core.csproj,EnviroMonitorApp/EnviroMonitorApp.csproj, excluding <none>, under directory "/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx"[0m
+[38;5;11mwarning: No .NET API project detected.[0m
+[38;5;15mCreating output...[0m
+[38;5;11mwarning: No .NET API detected for .[0m
+
+
+[38;5;11mBuild succeeded with warning.[0m
+
+[38;5;11m    2 warning(s)[0m
+[38;5;15m    0 error(s)[0m
+
+[2025-05-04T20:01:08] Metadata generation succeeded
+[2025-05-04T20:01:08] Running: docfx build /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx/docfx.json
+[38;5;15mSearching built-in plugins in directory /Users/cooperkeenan/.dotnet/tools/.store/docfx/2.78.3/docfx/2.78.3/tools/net8.0/any/...[0m
+[38;5;15mPost processor ExtractSearchIndex loaded.[0m
+[38;5;15mNo files are found with glob pattern api/**.yml, excluding <none>, under directory "/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx"[0m
+[38;5;15m7 plug-in(s) loaded.[0m
+[38;5;15mExtractSearchIndex: UseMetadata = False, UseMetadataTitle = True[0m
+[38;5;15mBuilding 1 file(s) in ConceptualDocumentProcessor(BuildConceptualDocument=>ValidateConceptualDocumentMetadata)...[0m
+[38;5;15mApplying templates to 1 model(s)...[0m
+[38;5;15mXRef map exported.[0m
+[38;5;15mExtracting index data from 1 html files[0m
+
+
+[38;5;2mBuild succeeded.[0m
+
+[38;5;15m    0 warning(s)[0m
+[38;5;15m    0 error(s)[0m
+
+[2025-05-04T20:01:09] Build succeeded
+[2025-05-04T20:01:09] === DocFX generation complete ===
+[2025-05-04T20:01:09] Local docs ready at: /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docs/api-docs/index.html
+[2025-05-04T20:01:09] Public preview at: https://rawcdn.githack.com/cooperkeenan/SE_Group_Project/UnitTests/HistoricalData/docs/api-docs/index.html

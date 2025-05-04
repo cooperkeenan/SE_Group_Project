@@ -1,26 +1,30 @@
 {
-  "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
+  "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/v2/docfx.schema.json",
+
   "metadata": [
     {
+
       "src": [
         {
-          "files": [ "EnviroMonitorApp.Core/EnviroMonitorApp.Core.csproj" ],
-          "cwd": "../"       
-        },
-        {
-          "files": [ "EnviroMonitorApp/EnviroMonitorApp.csproj" ],
-          "cwd": "../"
+          "cwd": "..",
+          "files": [
+            "EnviroMonitorApp.Core/EnviroMonitorApp.Core.csproj",
+            "EnviroMonitorApp/EnviroMonitorApp.csproj"
+          ]
         }
-      ],
-      "dest": "api"
+      ]
+
     }
   ],
+
   "build": {
+
     "content": [
-      {
-        "files": [ "**/*.yml", "*.md" ]
-      }
+      { "files": [ "api/**.yml" ] },
+
+      { "files": [ "*.md" ] }
     ],
+
     "dest": "../docs/api-docs",
     "template": [ "default", "modern" ],
     "globalMetadata": {
