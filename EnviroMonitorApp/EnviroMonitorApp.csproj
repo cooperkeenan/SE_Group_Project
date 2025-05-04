@@ -2,27 +2,37 @@
 
   <PropertyGroup>
     <!-- Multi-target for Android, iOS, Catalyst (and Windows when on Windows) -->
-    <TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+    <TargetFrameworks>net8.0-android</TargetFrameworks>
     <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">
       $(TargetFrameworks);net8.0-windows10.0.19041.0
-    <Nullable>enable</Nullable>
-    <ApplicationId>com.yourcompany.enviroMonitorApp</ApplicationId> <!-- Add your bundle ID -->
-    <IsPackable>false</IsPackable>
     </TargetFrameworks>
-
+    
+    <Nullable>enable</Nullable>
     <OutputType>Exe</OutputType>
     <RootNamespace>EnviroMonitorApp</RootNamespace>
-
-    <!-- MAUI app -->
     <UseMaui>true</UseMaui>
     <SingleProject>true</SingleProject>
-
-    <!-- C# 11 conveniences -->
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-
+    
+    <!-- Bundle identifier explicitly set for all platforms -->
+    <ApplicationId>com.napier.enviromonitorapp</ApplicationId>
+    <ApplicationIdGuid>1d7d13ef-f4ef-4dbe-8ca2-17de24e7fd5b</ApplicationIdGuid>
+    
+    <!-- iOS specific -->
+    <ApplicationTitle>EnviroMonitorApp</ApplicationTitle>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <ApplicationVersion>1</ApplicationVersion>
+    
+    <!-- iOS & Catalyst specific -->
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+    
+    <!-- Android specific -->
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+    
     <!-- suppress .NET 8 implicit-package warning -->
     <SkipValidateMauiImplicitPackageReferences>true</SkipValidateMauiImplicitPackageReferences>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <!-- 1) pull in your shared logic from Core -->
@@ -32,9 +42,14 @@
 
   <!-- 2) exclude any of the old models/services/transformers you moved into Core -->
   <ItemGroup>
-    <Compile Remove="Models\**\*.cs" />
-    <Compile Remove="Services\**\*.cs" />
-    <Compile Remove="ChartTransformers\**\*.cs" />
+    <Compile Remove="**\*Tests.cs" />
+    <Compile Remove="**\*Test.cs" />
+    <Compile Remove="**\*.Tests\**\*.cs" />
+    <Compile Remove="EnviroMonitorApp.Tests\**\*.cs" />
+    <None Include="**\*Tests.cs" />
+    <None Include="**\*Test.cs" />
+    <None Include="**\*.Tests\**\*.cs" />
+    <None Include="EnviroMonitorApp.Tests\**\*.cs" />
   </ItemGroup>
 
   <!-- 3) UI-only NuGet packages -->
