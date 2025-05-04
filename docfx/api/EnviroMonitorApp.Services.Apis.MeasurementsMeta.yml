@@ -1,0 +1,565 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitorApp.Services.Apis.MeasurementsMeta
+  commentId: T:EnviroMonitorApp.Services.Apis.MeasurementsMeta
+  id: MeasurementsMeta
+  parent: EnviroMonitorApp.Services.Apis
+  children:
+  - EnviroMonitorApp.Services.Apis.MeasurementsMeta.Found
+  - EnviroMonitorApp.Services.Apis.MeasurementsMeta.Limit
+  - EnviroMonitorApp.Services.Apis.MeasurementsMeta.Name
+  - EnviroMonitorApp.Services.Apis.MeasurementsMeta.Page
+  - EnviroMonitorApp.Services.Apis.MeasurementsMeta.Website
+  langs:
+  - csharp
+  - vb
+  name: MeasurementsMeta
+  nameWithType: MeasurementsMeta
+  fullName: EnviroMonitorApp.Services.Apis.MeasurementsMeta
+  type: Class
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: MeasurementsMeta
+    path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
+    startLine: 15
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services.Apis
+  syntax:
+    content: public class MeasurementsMeta
+    content.vb: Public Class MeasurementsMeta
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Name
+  commentId: P:EnviroMonitorApp.Services.Apis.MeasurementsMeta.Name
+  id: Name
+  parent: EnviroMonitorApp.Services.Apis.MeasurementsMeta
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: MeasurementsMeta.Name
+  fullName: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Name
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Name
+    path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
+    startLine: 17
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services.Apis
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Name*
+- uid: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Website
+  commentId: P:EnviroMonitorApp.Services.Apis.MeasurementsMeta.Website
+  id: Website
+  parent: EnviroMonitorApp.Services.Apis.MeasurementsMeta
+  langs:
+  - csharp
+  - vb
+  name: Website
+  nameWithType: MeasurementsMeta.Website
+  fullName: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Website
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Website
+    path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
+    startLine: 18
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services.Apis
+  syntax:
+    content: public string Website { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Website As String
+  overload: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Website*
+- uid: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Page
+  commentId: P:EnviroMonitorApp.Services.Apis.MeasurementsMeta.Page
+  id: Page
+  parent: EnviroMonitorApp.Services.Apis.MeasurementsMeta
+  langs:
+  - csharp
+  - vb
+  name: Page
+  nameWithType: MeasurementsMeta.Page
+  fullName: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Page
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Page
+    path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
+    startLine: 19
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services.Apis
+  syntax:
+    content: public int Page { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Page As Integer
+  overload: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Page*
+- uid: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Limit
+  commentId: P:EnviroMonitorApp.Services.Apis.MeasurementsMeta.Limit
+  id: Limit
+  parent: EnviroMonitorApp.Services.Apis.MeasurementsMeta
+  langs:
+  - csharp
+  - vb
+  name: Limit
+  nameWithType: MeasurementsMeta.Limit
+  fullName: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Limit
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Limit
+    path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
+    startLine: 20
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services.Apis
+  syntax:
+    content: public int Limit { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Limit As Integer
+  overload: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Limit*
+- uid: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Found
+  commentId: P:EnviroMonitorApp.Services.Apis.MeasurementsMeta.Found
+  id: Found
+  parent: EnviroMonitorApp.Services.Apis.MeasurementsMeta
+  langs:
+  - csharp
+  - vb
+  name: Found
+  nameWithType: MeasurementsMeta.Found
+  fullName: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Found
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
+      branch: UnitTests/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Found
+    path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
+    startLine: 23
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services.Apis
+  syntax:
+    content: >-
+      [AliasAs("found")]
+
+      public JsonElement Found { get; set; }
+    parameters: []
+    return:
+      type: System.Text.Json.JsonElement
+    content.vb: >-
+      <AliasAs("found")>
+
+      Public Property Found As JsonElement
+  overload: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Found*
+  attributes:
+  - type: Refit.AliasAsAttribute
+    ctor: Refit.AliasAsAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: found
+references:
+- uid: EnviroMonitorApp.Services.Apis
+  commentId: N:EnviroMonitorApp.Services.Apis
+  href: EnviroMonitorApp.html
+  name: EnviroMonitorApp.Services.Apis
+  nameWithType: EnviroMonitorApp.Services.Apis
+  fullName: EnviroMonitorApp.Services.Apis
+  spec.csharp:
+  - uid: EnviroMonitorApp
+    name: EnviroMonitorApp
+    href: EnviroMonitorApp.html
+  - name: .
+  - uid: EnviroMonitorApp.Services
+    name: Services
+    href: EnviroMonitorApp.Services.html
+  - name: .
+  - uid: EnviroMonitorApp.Services.Apis
+    name: Apis
+    href: EnviroMonitorApp.Services.Apis.html
+  spec.vb:
+  - uid: EnviroMonitorApp
+    name: EnviroMonitorApp
+    href: EnviroMonitorApp.html
+  - name: .
+  - uid: EnviroMonitorApp.Services
+    name: Services
+    href: EnviroMonitorApp.Services.html
+  - name: .
+  - uid: EnviroMonitorApp.Services.Apis
+    name: Apis
+    href: EnviroMonitorApp.Services.Apis.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Name*
+  commentId: Overload:EnviroMonitorApp.Services.Apis.MeasurementsMeta.Name
+  href: EnviroMonitorApp.Services.Apis.MeasurementsMeta.html#EnviroMonitorApp_Services_Apis_MeasurementsMeta_Name
+  name: Name
+  nameWithType: MeasurementsMeta.Name
+  fullName: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Website*
+  commentId: Overload:EnviroMonitorApp.Services.Apis.MeasurementsMeta.Website
+  href: EnviroMonitorApp.Services.Apis.MeasurementsMeta.html#EnviroMonitorApp_Services_Apis_MeasurementsMeta_Website
+  name: Website
+  nameWithType: MeasurementsMeta.Website
+  fullName: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Website
+- uid: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Page*
+  commentId: Overload:EnviroMonitorApp.Services.Apis.MeasurementsMeta.Page
+  href: EnviroMonitorApp.Services.Apis.MeasurementsMeta.html#EnviroMonitorApp_Services_Apis_MeasurementsMeta_Page
+  name: Page
+  nameWithType: MeasurementsMeta.Page
+  fullName: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Page
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Limit*
+  commentId: Overload:EnviroMonitorApp.Services.Apis.MeasurementsMeta.Limit
+  href: EnviroMonitorApp.Services.Apis.MeasurementsMeta.html#EnviroMonitorApp_Services_Apis_MeasurementsMeta_Limit
+  name: Limit
+  nameWithType: MeasurementsMeta.Limit
+  fullName: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Limit
+- uid: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Found*
+  commentId: Overload:EnviroMonitorApp.Services.Apis.MeasurementsMeta.Found
+  href: EnviroMonitorApp.Services.Apis.MeasurementsMeta.html#EnviroMonitorApp_Services_Apis_MeasurementsMeta_Found
+  name: Found
+  nameWithType: MeasurementsMeta.Found
+  fullName: EnviroMonitorApp.Services.Apis.MeasurementsMeta.Found
+- uid: System.Text.Json.JsonElement
+  commentId: T:System.Text.Json.JsonElement
+  parent: System.Text.Json
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.jsonelement
+  name: JsonElement
+  nameWithType: JsonElement
+  fullName: System.Text.Json.JsonElement
+- uid: System.Text.Json
+  commentId: N:System.Text.Json
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text.Json
+  nameWithType: System.Text.Json
+  fullName: System.Text.Json
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.Json
+    name: Json
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.Json
+    name: Json
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json

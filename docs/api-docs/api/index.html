@@ -15,7 +15,7 @@
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
     
     
     
@@ -57,20 +57,33 @@
         </div>
       </header>
       <div role="main" class="container body-content hide-when-search">
-        <div class="article row grid">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="api-documentation">API Documentation</h1>
 
 <p>This section contains the API documentation for the EnviroMonitorApp.Core library.</p>
-<h2 id="namespaces">Namespaces</h2>
+<h2 id="key-namespaces">Key Namespaces</h2>
 <ul>
-<li>EnviroMonitorApp.Models - Data models for environmental data</li>
-<li>EnviroMonitorApp.Services - Services for data retrieval and processing</li>
-<li>EnviroMonitorApp.Services.Apis - API client interfaces</li>
-<li>EnviroMonitorApp.Services.ChartTransformers - Data transformation for charts</li>
-<li>EnviroMonitorApp.Converters - Value converters</li>
-<li>EnviroMonitorApp.ViewModels - View models for UI binding</li>
+<li><strong>EnviroMonitorApp.Models</strong> - Data models for environmental records</li>
+<li><strong>EnviroMonitorApp.Services</strong> - Services for data retrieval and processing</li>
+<li><strong>EnviroMonitorApp.Services.Apis</strong> - API client interfaces</li>
+<li><strong>EnviroMonitorApp.Services.ChartTransformers</strong> - Data transformation for charts</li>
+<li><strong>EnviroMonitorApp.Converters</strong> - Value converters</li>
+<li><strong>EnviroMonitorApp.ViewModels</strong> - View models for UI binding</li>
+</ul>
+<h2 id="core-services">Core Services</h2>
+<ul>
+<li><strong>EnvironmentalDataApiService</strong> - Main service for retrieving environmental data</li>
+<li><strong>SqlDataService</strong> - Service for storing and retrieving data from SQLite database</li>
+<li><strong>ChartTransformers</strong> - Services for transforming data for chart visualization</li>
 </ul>
 
 </article>

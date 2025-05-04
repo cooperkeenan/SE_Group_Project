@@ -62,16 +62,32 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="enviromonitorapp-documentation">EnviroMonitorApp Documentation</h1>
 
-<p>Welcome to the EnviroMonitorApp API documentation. This site contains documentation generated from the C# source code.</p>
-<h2 id="api-documentation">API Documentation</h2>
-<p>The <a href="api/index.html">API Documentation</a> provides details about the classes and methods in the EnviroMonitorApp.Core library.</p>
-<h2 id="features">Features</h2>
+<p>Welcome to the EnviroMonitorApp API documentation. This site provides detailed information about the classes and methods in the EnviroMonitorApp codebase.</p>
+<h2 id="project-overview">Project Overview</h2>
+<p>EnviroMonitorApp is an application for monitoring and analyzing environmental data including:</p>
 <ul>
-<li>Environmental data monitoring</li>
-<li>Air quality tracking</li>
-<li>Weather data visualization</li>
-<li>Water quality analysis</li>
+<li>Air quality measurements</li>
+<li>Weather conditions</li>
+<li>Water quality metrics</li>
 </ul>
+<h2 id="documentation-sections">Documentation Sections</h2>
+<ul>
+<li><a href="api/index.html">API Documentation</a> - Technical documentation of classes and methods</li>
+</ul>
+<h2 id="getting-started">Getting Started</h2>
+<p>To use this library in your project, add a reference to EnviroMonitorApp.Core in your project file.</p>
+<pre><code class="lang-csharp">// Example: Retrieving environmental data
+var dataService = new EnvironmentalDataApiService(
+    airApi, 
+    weatherApi, 
+    waterApi, 
+    apiKeys);
+
+var weatherData = await dataService.GetWeatherAsync(
+    DateTime.Now.AddDays(-7), 
+    DateTime.Now, 
+    &quot;London&quot;);
+</code></pre>
 
 </article>
           </div>

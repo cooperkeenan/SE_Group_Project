@@ -4,9 +4,9 @@
       "src": [
         {
           "files": [
-            "../EnviroMonitorApp.Core/EnviroMonitorApp.Core.csproj"
+            "EnviroMonitorApp.Core/EnviroMonitorApp.Core.csproj"
           ],
-          "src": "../",
+          "src": "..",
           "exclude": [
             "**/obj/**",
             "**/bin/**",
@@ -41,6 +41,17 @@
         ]
       }
     ],
+    "overwrite": [
+      {
+        "files": [
+          "apidoc/**.md"
+        ],
+        "exclude": [
+          "obj/**",
+          "_site/**"
+        ]
+      }
+    ],
     "dest": "_site",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
@@ -49,6 +60,9 @@
     ],
     "postProcessors": [],
     "markdownEngineName": "markdig",
-    "noLangKeyword": false
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": false
   }
 }
