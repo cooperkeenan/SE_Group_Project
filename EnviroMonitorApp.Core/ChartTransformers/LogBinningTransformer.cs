@@ -1,4 +1,3 @@
-// EnviroMonitorApp/Services/ChartTransformers/LogBinningTransformer.cs
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -8,11 +7,12 @@ using SkiaSharp;
 
 namespace EnviroMonitorApp.Services.ChartTransformers
 {
+    /// <summary>
+    /// Approximate max number of X‐axis labels to draw.
+    /// Bins points by day/week/month and log‐scales Y.
+    /// </summary>
     public class LogBinningTransformer : IChartTransformer
     {
-        /// <summary>
-        /// Approximate maximum number of X‐axis labels to draw.
-        /// </summary>
         public int MaxLabels { get; set; } = 12;
 
         public IList<ChartEntry> Transform(
@@ -20,19 +20,17 @@ namespace EnviroMonitorApp.Services.ChartTransformers
             DateTime start,
             DateTime end)
         {
-            // 1️⃣ Determine span
+            // 1️⃣ span in days
             var spanDays = (end.Date - start.Date).TotalDays;
 
-            // 2️⃣ Bin the raw points based on span
+            // 2️⃣ bin by span
             IEnumerable<(DateTime timestamp, double value)> binned;
             if (spanDays <= 30)
             {
-                // no binning
                 binned = raw.OrderBy(x => x.timestamp);
             }
             else if (spanDays <= 90)
             {
-                // daily average
                 binned = raw
                     .GroupBy(x => x.timestamp.Date)
                     .Select(g => (
@@ -42,7 +40,6 @@ namespace EnviroMonitorApp.Services.ChartTransformers
             }
             else if (spanDays <= 365)
             {
-                // weekly average (group by ISO week number)
                 binned = raw
                     .GroupBy(x => CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(
                         x.timestamp,
@@ -50,7 +47,6 @@ namespace EnviroMonitorApp.Services.ChartTransformers
                         DayOfWeek.Monday))
                     .Select(g =>
                     {
-                        // pick the earliest date in the week as label
                         var weekStart = g.Min(x => x.timestamp).Date;
                         return (timestamp: weekStart,
                                 value:     g.Average(x => x.value));
@@ -59,7 +55,6 @@ namespace EnviroMonitorApp.Services.ChartTransformers
             }
             else
             {
-                // monthly average
                 binned = raw
                     .GroupBy(x => new DateTime(x.timestamp.Year, x.timestamp.Month, 1))
                     .Select(g => (
@@ -72,10 +67,10 @@ namespace EnviroMonitorApp.Services.ChartTransformers
             if (list.Count == 0)
                 return Array.Empty<ChartEntry>();
 
-            // 3️⃣ Compute label step so we only show ~MaxLabels labels
+            // 3️⃣ compute label step
             int step = Math.Max(1, list.Count / MaxLabels);
 
-            // 4️⃣ Build entries, log‐transforming Y but showing real value in the label
+            // 4️⃣ build entries with log‐scaled Y but real labels
             var entries = new List<ChartEntry>(list.Count);
             for (int i = 0; i < list.Count; i++)
             {
@@ -84,9 +79,7 @@ namespace EnviroMonitorApp.Services.ChartTransformers
 
                 entries.Add(new ChartEntry(y)
                 {
-                    // display the real average, not the log
                     ValueLabel = value.ToString("F1", CultureInfo.InvariantCulture),
-                    // only show every Nth X-label
                     Label      = (i % step == 0)
                                  ? timestamp.ToString(
                                      spanDays > 90 ? "MM/yy" : "MM/dd",
