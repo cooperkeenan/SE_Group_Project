@@ -8,4 +8,6 @@ obj/
 .env
 .DS_Store
 
-senv/ 
+senv/ *.sh
+
+*.sh
