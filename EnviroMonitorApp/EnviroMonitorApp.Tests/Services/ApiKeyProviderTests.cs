@@ -1,33 +1,77 @@
-using Moq;
-using Microsoft.Extensions.Configuration;
-using EnviroMonitorApp.Services;
 using Xunit;
+using EnviroMonitorApp.Services;
 
-public class ApiKeyProviderTests
+namespace EnviroMonitorApp.Tests.Services
 {
-    [Fact]
-    public void Test_OpenAqKey_Returns_Valid_Key()
+    public class ApiKeyProviderTests
     {
-        // Arrange: Use the constructor that accepts the key as a parameter
-        var apiKeyProvider = new ApiKeyProvider("sample-openaq-key", "sample-openweathermap-key");
-
-        // Act: Retrieve the key
-        var key = apiKeyProvider.OpenAqKey;
-
-        // Assert: Ensure the correct sample key is returned
-        Assert.Equal("sample-openaq-key", key);
-    }
-
-    [Fact]
-    public void Test_OpenWeatherMapKey_Returns_Valid_Key()
-    {
-        // Arrange: Use the constructor that accepts the key as a parameter
-        var apiKeyProvider = new ApiKeyProvider("sample-openaq-key", "sample-openweathermap-key");
-
-        // Act: Retrieve the key
-        var key = apiKeyProvider.OpenWeatherMap;
-
-        // Assert: Ensure the correct sample key is returned
-        Assert.Equal("sample-openweathermap-key", key);
+        [Fact]
+        public void Constructor_WithoutParameters_UsesDefaultKeys()
+        {
+            // Arrange & Act
+            var provider = new ApiKeyProvider();
+            
+            // Assert
+            Assert.Equal("sample-openaq-key", provider.OpenAqKey);
+            Assert.Equal("sample-openweathermap-key", provider.OpenWeatherMap);
+        }
+        
+        [Fact]
+        public void Constructor_WithParameters_SetsCustomKeys()
+        {
+            // Arrange
+            var customAqKey = "custom-openaq-key";
+            var customWeatherKey = "custom-weathermap-key";
+            
+            // Act
+            var provider = new ApiKeyProvider(customAqKey, customWeatherKey);
+            
+            // Assert
+            Assert.Equal(customAqKey, provider.OpenAqKey);
+            Assert.Equal(customWeatherKey, provider.OpenWeatherMap);
+        }
+        
+        [Fact]
+        public void Constructor_WithNullAqKey_UsesDefaultAqKey()
+        {
+            // Arrange
+            var customWeatherKey = "custom-weathermap-key";
+            
+            // Act
+            var provider = new ApiKeyProvider(null, customWeatherKey);
+            
+            // Assert
+            Assert.Equal("sample-openaq-key", provider.OpenAqKey);
+            Assert.Equal(customWeatherKey, provider.OpenWeatherMap);
+        }
+        
+        [Fact]
+        public void Constructor_WithNullWeatherKey_UsesDefaultWeatherKey()
+        {
+            // Arrange
+            var customAqKey = "custom-openaq-key";
+            
+            // Act
+            var provider = new ApiKeyProvider(customAqKey, null);
+            
+            // Assert
+            Assert.Equal(customAqKey, provider.OpenAqKey);
+            Assert.Equal("sample-openweathermap-key", provider.OpenWeatherMap);
+        }
+        
+        [Fact]
+        public void Constructor_WithEmptyKeys_UsesDefaultKeys()
+        {
+            // Arrange
+            var emptyAqKey = string.Empty;
+            var emptyWeatherKey = string.Empty;
+            
+            // Act
+            var provider = new ApiKeyProvider(emptyAqKey, emptyWeatherKey);
+            
+            // Assert
+            Assert.Equal("sample-openaq-key", provider.OpenAqKey);
+            Assert.Equal("sample-openweathermap-key", provider.OpenWeatherMap);
+        }
     }
 }

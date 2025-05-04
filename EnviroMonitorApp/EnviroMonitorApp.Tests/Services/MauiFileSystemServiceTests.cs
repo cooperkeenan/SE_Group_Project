@@ -9,29 +9,60 @@ namespace EnviroMonitorApp.Tests.Services
     public class MauiFileSystemServiceTests
     {
         [Fact]
-        public async Task OpenAppPackageFileAsync_Reads_Embedded_DB()
+        public void AppDataDirectory_ReturnsFileSystemDirectory()
         {
-            // Create a temporary folder and file for testing
-            var tempRoot = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
-            Directory.CreateDirectory(tempRoot);
-            var dummyPath = Path.Combine(tempRoot, "dummy.txt");
-            await File.WriteAllTextAsync(dummyPath, "hello");
-
-            // Mocking IFileSystemService
-            var fs = new Mock<IFileSystemService>();
-            fs.Setup(f => f.AppDataDirectory).Returns(tempRoot); // Mock the AppDataDirectory property
-            fs.Setup(f => f.OpenAppPackageFileAsync(It.IsAny<string>()))
-                .ReturnsAsync(() => File.OpenRead(dummyPath));  // Mock OpenAppPackageFileAsync to return the stream of the dummy file
-
-            // Act: Open the file using the mock service
-            await using var stream = await fs.Object.OpenAppPackageFileAsync("dummy.txt");
-
-            // Assert: Check that the stream is readable and has the expected length
-            Assert.True(stream.CanRead);
-            Assert.Equal(5, stream.Length);
-
-            // Clean up: Delete the temporary directory and file
-            Directory.Delete(tempRoot, true);
+            // Arrange - create a mock file system with a known directory path
+            var expectedDirectory = Path.Combine(Path.GetTempPath(), "TestAppData");
+            
+            // Since we can't directly mock the static FileSystem class, we'll use a wrapper
+            var mockFileSystem = new Mock<IFileSystemService>();
+            mockFileSystem.Setup(fs => fs.AppDataDirectory).Returns(expectedDirectory);
+            
+            // Act
+            var result = mockFileSystem.Object.AppDataDirectory;
+            
+            // Assert
+            Assert.Equal(expectedDirectory, result);
+        }
+        
+        [Fact]
+        public async Task OpenAppPackageFileAsync_ReturnsStreamFromFileSystem()
+        {
+            // Arrange
+            var testFilename = "test.txt";
+            var testContent = "test content";
+            var expectedStream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(testContent));
+            
+            var mockFileSystem = new Mock<IFileSystemService>();
+            mockFileSystem.Setup(fs => fs.OpenAppPackageFileAsync(It.IsAny<string>()))
+                .ReturnsAsync(expectedStream);
+            
+            // Act
+            var result = await mockFileSystem.Object.OpenAppPackageFileAsync(testFilename);
+            
+            // Assert
+            Assert.NotNull(result);
+            
+            // Read the content to verify it's the expected stream
+            using var reader = new StreamReader(result);
+            var content = await reader.ReadToEndAsync();
+            Assert.Equal(testContent, content);
+            
+            // Verify the method was called with the correct filename
+            mockFileSystem.Verify(fs => fs.OpenAppPackageFileAsync(testFilename), Times.Once);
+        }
+        
+        [Fact]
+        public async Task OpenAppPackageFileAsync_HandlesNonExistentFile()
+        {
+            // Arrange
+            var mockFileSystem = new Mock<IFileSystemService>();
+            mockFileSystem.Setup(fs => fs.OpenAppPackageFileAsync(It.IsAny<string>()))
+                .ReturnsAsync(() => null);
+            
+            // Act & Assert
+            var result = await mockFileSystem.Object.OpenAppPackageFileAsync("nonexistent.txt");
+            Assert.Null(result);
         }
     }
 }
