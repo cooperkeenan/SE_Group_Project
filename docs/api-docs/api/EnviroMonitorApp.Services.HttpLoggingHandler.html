@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class HttpLoggingHandler ">
     
-    <meta name="description" content="Dumps every request/response to Debug so you can watch JSON (or errors) in logcat / VS output.">
+    <meta name="description" content="HTTP message handler that logs all requests and responses to the debug output. Useful for debugging API calls by showing full request/response details in the console.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -71,8 +71,8 @@
 
 
   <h1 id="EnviroMonitorApp_Services_HttpLoggingHandler" data-uid="EnviroMonitorApp.Services.HttpLoggingHandler" class="text-break">Class HttpLoggingHandler</h1>
-  <div class="markdown level0 summary"><p>Dumps every request/response to Debug so you can
-watch JSON (or errors) in logcat / VS output.</p>
+  <div class="markdown level0 summary"><p>HTTP message handler that logs all requests and responses to the debug output.
+Useful for debugging API calls by showing full request/response details in the console.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -135,11 +135,12 @@ watch JSON (or errors) in logcat / VS output.</p>
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_HttpLoggingHandler_SendAsync_System_Net_Http_HttpRequestMessage_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.HttpLoggingHandler.SendAsync(System.Net.Http.HttpRequestMessage%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/HttpLoggingHandler.cs/#L14">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/HttpLoggingHandler.cs/#L21">View Source</a>
   </span>
   <a id="EnviroMonitorApp_Services_HttpLoggingHandler_SendAsync_" data-uid="EnviroMonitorApp.Services.HttpLoggingHandler.SendAsync*"></a>
   <h4 id="EnviroMonitorApp_Services_HttpLoggingHandler_SendAsync_System_Net_Http_HttpRequestMessage_System_Threading_CancellationToken_" data-uid="EnviroMonitorApp.Services.HttpLoggingHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">SendAsync(HttpRequestMessage, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Sends an HTTP request to the inner handler to send to the server as an asynchronous operation.</p>
+  <div class="markdown level1 summary"><p>Intercepts HTTP requests, logs them, and then forwards them to the inner handler.
+After receiving a response, logs it and returns it to the caller.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -159,13 +160,14 @@ watch JSON (or errors) in logcat / VS output.</p>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></td>
         <td><span class="parametername">request</span></td>
-        <td><p>The HTTP request message to send to the server.</p>
+        <td><p>The HTTP request message to send.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">ct</span></td>
-        <td></td>
+        <td><p>Cancellation token to cancel the operation.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -180,29 +182,13 @@ watch JSON (or errors) in logcat / VS output.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>&gt;</td>
-        <td><p>The task object representing the asynchronous operation.</p>
+        <td><p>The HTTP response message from the inner handler.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.delegatinghandler.sendasync">DelegatingHandler.SendAsync(HttpRequestMessage, CancellationToken)</a></div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p>The <code class="paramref">request</code> was <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>

@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class HistoricalDataViewModel ">
     
-    <meta name="description" content="A base class for objects of which the properties must be observable.">
+    <meta name="description" content="ViewModel for the Historical Data page, providing data and commands for visualizing historical environmental measurements.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -71,7 +71,8 @@
 
 
   <h1 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel" class="text-break">Class HistoricalDataViewModel</h1>
-  <div class="markdown level0 summary"><p>A base class for objects of which the properties must be observable.</p>
+  <div class="markdown level0 summary"><p>ViewModel for the Historical Data page, providing data and commands
+for visualizing historical environmental measurements.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -170,11 +171,12 @@
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_ViewModels_HistoricalDataViewModel__ctor_EnviroMonitorApp_Services_IEnvironmentalDataService_EnviroMonitorApp_Services_ChartTransformers_IChartTransformer_.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.ViewModels.HistoricalDataViewModel.%23ctor(EnviroMonitorApp.Services.IEnvironmentalDataService%2CEnviroMonitorApp.Services.ChartTransformers.IChartTransformer)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs/#L25">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs/#L34">View Source</a>
   </span>
   <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel__ctor_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.#ctor*"></a>
   <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel__ctor_EnviroMonitorApp_Services_IEnvironmentalDataService_EnviroMonitorApp_Services_ChartTransformers_IChartTransformer_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.#ctor(EnviroMonitorApp.Services.IEnvironmentalDataService,EnviroMonitorApp.Services.ChartTransformers.IChartTransformer)">HistoricalDataViewModel(IEnvironmentalDataService, IChartTransformer)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the HistoricalDataViewModel class.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -193,12 +195,14 @@
       <tr>
         <td><a class="xref" href="EnviroMonitorApp.Services.IEnvironmentalDataService.html">IEnvironmentalDataService</a></td>
         <td><span class="parametername">dataService</span></td>
-        <td></td>
+        <td><p>Service for retrieving environmental data.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="EnviroMonitorApp.Services.ChartTransformers.IChartTransformer.html">IChartTransformer</a></td>
         <td><span class="parametername">transformer</span></td>
-        <td></td>
+        <td><p>Transformer for converting data into chart entries.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -209,11 +213,12 @@
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_ViewModels_HistoricalDataViewModel_Chart.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.ViewModels.HistoricalDataViewModel.Chart%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs/#L81">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs/#L145">View Source</a>
   </span>
   <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_Chart_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.Chart*"></a>
   <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_Chart" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.Chart">Chart</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets a chart object configured with the current chart data.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -239,11 +244,12 @@
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_ViewModels_HistoricalDataViewModel_ChartData.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.ViewModels.HistoricalDataViewModel.ChartData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs/#L78">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs/#L135">View Source</a>
   </span>
   <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_ChartData_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.ChartData*"></a>
   <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_ChartData" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.ChartData">ChartData</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the collection of chart entries for visualization.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -268,7 +274,8 @@
 
   <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_EndDate_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.EndDate*"></a>
   <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_EndDate" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.EndDate">EndDate</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets the end date for data retrieval.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -293,7 +300,8 @@
 
   <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_IsBusy_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.IsBusy*"></a>
   <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_IsBusy" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.IsBusy">IsBusy</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether data is currently being loaded.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -319,11 +327,12 @@
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_ViewModels_HistoricalDataViewModel_LoadDataCommand.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.ViewModels.HistoricalDataViewModel.LoadDataCommand%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs/#L79">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs/#L140">View Source</a>
   </span>
   <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_LoadDataCommand_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.LoadDataCommand*"></a>
   <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_LoadDataCommand" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.LoadDataCommand">LoadDataCommand</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the command to load data based on current selections.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -348,7 +357,8 @@
 
   <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_MaxDate_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.MaxDate*"></a>
   <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_MaxDate" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.MaxDate">MaxDate</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets the maximum allowed end date based on the selected sensor type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -373,7 +383,8 @@
 
   <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_MetricTypes_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.MetricTypes*"></a>
   <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_MetricTypes" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.MetricTypes">MetricTypes</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets the available metric types for the current sensor type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -398,7 +409,8 @@
 
   <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_NoData_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.NoData*"></a>
   <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_NoData" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.NoData">NoData</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether no data is available for the current selection.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -423,7 +435,8 @@
 
   <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_SelectedMetric_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.SelectedMetric*"></a>
   <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_SelectedMetric" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.SelectedMetric">SelectedMetric</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets the currently selected metric.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -448,7 +461,8 @@
 
   <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_SelectedSensorType_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.SelectedSensorType*"></a>
   <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_SelectedSensorType" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.SelectedSensorType">SelectedSensorType</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets the currently selected sensor type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -474,11 +488,12 @@
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_ViewModels_HistoricalDataViewModel_SensorTypes.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.ViewModels.HistoricalDataViewModel.SensorTypes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs/#L45">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs/#L57">View Source</a>
   </span>
   <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_SensorTypes_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.SensorTypes*"></a>
   <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_SensorTypes" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.SensorTypes">SensorTypes</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the available sensor types (Air, Weather, Water).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -503,7 +518,8 @@
 
   <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_StartDate_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.StartDate*"></a>
   <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_StartDate" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.StartDate">StartDate</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets the start date for data retrieval.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">

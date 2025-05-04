@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class LogBinningTransformer ">
     
-    <meta name="description" content="Approximate max number of X‐axis labels to draw. Bins points by day/week/month and log‐scales Y.">
+    <meta name="description" content="Chart transformer that bins points by day/week/month based on date range, applying logarithmic scaling to the Y-axis values. Limits the number of X-axis labels to improve readability.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -71,8 +71,9 @@
 
 
   <h1 id="EnviroMonitorApp_Services_ChartTransformers_LogBinningTransformer" data-uid="EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer" class="text-break">Class LogBinningTransformer</h1>
-  <div class="markdown level0 summary"><p>Approximate max number of X‐axis labels to draw.
-Bins points by day/week/month and log‐scales Y.</p>
+  <div class="markdown level0 summary"><p>Chart transformer that bins points by day/week/month based on date range,
+applying logarithmic scaling to the Y-axis values.
+Limits the number of X-axis labels to improve readability.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -121,11 +122,12 @@ Bins points by day/week/month and log‐scales Y.</p>
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_ChartTransformers_LogBinningTransformer_MaxLabels.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer.MaxLabels%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/ChartTransformers/LogBinningTransformer.cs/#L16">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/ChartTransformers/LogBinningTransformer.cs/#L20">View Source</a>
   </span>
   <a id="EnviroMonitorApp_Services_ChartTransformers_LogBinningTransformer_MaxLabels_" data-uid="EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer.MaxLabels*"></a>
   <h4 id="EnviroMonitorApp_Services_ChartTransformers_LogBinningTransformer_MaxLabels" data-uid="EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer.MaxLabels">MaxLabels</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Maximum number of X-axis labels to display on the chart.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -153,11 +155,13 @@ Bins points by day/week/month and log‐scales Y.</p>
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_ChartTransformers_LogBinningTransformer_Transform_System_Collections_Generic_IEnumerable_System_ValueTuple_System_DateTime_System_Double___System_DateTime_System_DateTime_.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer.Transform(System.Collections.Generic.IEnumerable%7BSystem.ValueTuple%7BSystem.DateTime%2CSystem.Double%7D%7D%2CSystem.DateTime%2CSystem.DateTime)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/ChartTransformers/LogBinningTransformer.cs/#L18">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/ChartTransformers/LogBinningTransformer.cs/#L30">View Source</a>
   </span>
   <a id="EnviroMonitorApp_Services_ChartTransformers_LogBinningTransformer_Transform_" data-uid="EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer.Transform*"></a>
   <h4 id="EnviroMonitorApp_Services_ChartTransformers_LogBinningTransformer_Transform_System_Collections_Generic_IEnumerable_System_ValueTuple_System_DateTime_System_Double___System_DateTime_System_DateTime_" data-uid="EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer.Transform(System.Collections.Generic.IEnumerable{System.ValueTuple{System.DateTime,System.Double}},System.DateTime,System.DateTime)">Transform(IEnumerable&lt;(DateTime timestamp, double value)&gt;, DateTime, DateTime)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Transforms raw timestamped data into chart entries with logarithmic Y-axis scaling
+and appropriate time-based binning based on the date range.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -176,19 +180,19 @@ Bins points by day/week/month and log‐scales Y.</p>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.datetime,system.double-.timestamp">timestamp</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.datetime,system.double-.value">value</a>)&gt;</td>
         <td><span class="parametername">raw</span></td>
-        <td><p>A sequence of (timestamp, value) pairs.</p>
+        <td><p>Raw timestamped data points to transform.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
         <td><span class="parametername">start</span></td>
-        <td><p>Chart start date.</p>
+        <td><p>Start date of the chart range.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
         <td><span class="parametername">end</span></td>
-        <td><p>Chart end date.</p>
+        <td><p>End date of the chart range.</p>
 </td>
       </tr>
     </tbody>
@@ -204,7 +208,7 @@ Bins points by day/week/month and log‐scales Y.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<span class="xref">ChartEntry</span>&gt;</td>
-        <td><p>Ready-to-plot ChartEntry list.</p>
+        <td><p>A list of chart entries ready for visualization.</p>
 </td>
       </tr>
     </tbody>
@@ -225,7 +229,7 @@ Bins points by day/week/month and log‐scales Y.</p>
                     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_ChartTransformers_LogBinningTransformer.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/ChartTransformers/LogBinningTransformer.cs/#L14" class="contribution-link">View Source</a>
+                    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/ChartTransformers/LogBinningTransformer.cs/#L15" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

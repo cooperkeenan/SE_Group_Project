@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Interface IWaterQualityApi ">
     
-    
+    <meta name="description" content="Interface for accessing water quality data from external APIs. Provides methods to retrieve latest readings and historical data within specified timeframes.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -71,7 +71,9 @@
 
 
   <h1 id="EnviroMonitorApp_Services_Apis_IWaterQualityApi" data-uid="EnviroMonitorApp.Services.Apis.IWaterQualityApi" class="text-break">Interface IWaterQualityApi</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Interface for accessing water quality data from external APIs.
+Provides methods to retrieve latest readings and historical data within specified timeframes.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="EnviroMonitorApp.html">EnviroMonitorApp</a>.<a class="xref" href="EnviroMonitorApp.Services.html">Services</a>.<a class="xref" href="EnviroMonitorApp.Services.Apis.html">Apis</a></h6>
   <h6><strong>Assembly</strong>: EnviroMonitorApp.Core.dll</h6>
@@ -86,11 +88,12 @@
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_Apis_IWaterQualityApi_GetLatest_System_Boolean_System_String_.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetLatest(System.Boolean%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs/#L20">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs/#L46">View Source</a>
   </span>
   <a id="EnviroMonitorApp_Services_Apis_IWaterQualityApi_GetLatest_" data-uid="EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetLatest*"></a>
   <h4 id="EnviroMonitorApp_Services_Apis_IWaterQualityApi_GetLatest_System_Boolean_System_String_" data-uid="EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetLatest(System.Boolean,System.String)">GetLatest(bool, string)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the latest water quality readings for a specific measurement parameter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -110,12 +113,14 @@ Task&lt;WaterQualityResponse&gt; GetLatest(bool latest, string measureUrl)</code
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">latest</span></td>
-        <td></td>
+        <td><p>Flag to indicate whether to retrieve only the latest reading</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">measureUrl</span></td>
-        <td></td>
+        <td><p>URL identifying the specific water quality measure to retrieve</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -130,7 +135,8 @@ Task&lt;WaterQualityResponse&gt; GetLatest(bool latest, string measureUrl)</code
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="EnviroMonitorApp.Services.Apis.WaterQualityResponse.html">WaterQualityResponse</a>&gt;</td>
-        <td></td>
+        <td><p>A response containing the latest water quality readings</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -139,11 +145,12 @@ Task&lt;WaterQualityResponse&gt; GetLatest(bool latest, string measureUrl)</code
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_Apis_IWaterQualityApi_GetRange_System_String_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetRange(System.String%2CSystem.String%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs/#L27">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs/#L59">View Source</a>
   </span>
   <a id="EnviroMonitorApp_Services_Apis_IWaterQualityApi_GetRange_" data-uid="EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetRange*"></a>
   <h4 id="EnviroMonitorApp_Services_Apis_IWaterQualityApi_GetRange_System_String_System_String_System_Int32_" data-uid="EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetRange(System.String,System.String,System.Int32)">GetRange(string, string, int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets water quality readings within a specified time range for a particular measurement parameter.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -163,17 +170,20 @@ Task&lt;WaterQualityResponse&gt; GetRange(string measureUrl, string sinceUtc, in
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">measureUrl</span></td>
-        <td></td>
+        <td><p>URL identifying the specific water quality measure to retrieve</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">sinceUtc</span></td>
-        <td></td>
+        <td><p>Start date and time in UTC format</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">limit</span></td>
-        <td></td>
+        <td><p>Maximum number of readings to return (default: 96)</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -188,7 +198,8 @@ Task&lt;WaterQualityResponse&gt; GetRange(string measureUrl, string sinceUtc, in
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="EnviroMonitorApp.Services.Apis.WaterQualityResponse.html">WaterQualityResponse</a>&gt;</td>
-        <td></td>
+        <td><p>A response containing water quality readings within the specified time range</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -204,7 +215,7 @@ Task&lt;WaterQualityResponse&gt; GetRange(string measureUrl, string sinceUtc, in
                     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_Apis_IWaterQualityApi.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.Apis.IWaterQualityApi%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs/#L18" class="contribution-link">View Source</a>
+                    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs/#L38" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
