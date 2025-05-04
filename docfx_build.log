@@ -1,10 +1,11 @@
-[2025-05-04T20:03:43] === DocFX generation started ===
-[2025-05-04T20:03:43] Using docfx.json: /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx/docfx.json
-[2025-05-04T20:03:43] Removing old output at /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docs/api-docs
-[2025-05-04T20:03:43] Fresh output folder created
-[2025-05-04T20:03:43] DocFX found at /Users/cooperkeenan/.dotnet/tools/docfx
-[2025-05-04T20:03:43] Running: docfx metadata /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx/docfx.json
-[38;5;15mNo files are found with glob pattern EnviroMonitorApp.Core/**.csproj, excluding **/obj/**,**/bin/**,_site/**, under directory "/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx"[0m
+[2025-05-04T20:12:02] === DocFX generation started ===
+[2025-05-04T20:12:02] Using docfx.json: /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx/docfx.json
+[2025-05-04T20:12:02] Removing old output at /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docs/api-docs
+[2025-05-04T20:12:02] Fresh output folder created
+[2025-05-04T20:12:02] DocFX found at /Users/cooperkeenan/.dotnet/tools/docfx
+[2025-05-04T20:12:02] Running: docfx metadata /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx/docfx.json
+[38;5;15mNo files are found with glob pattern ../EnviroMonitorApp.Core/EnviroMonitorApp.Core.csproj, excluding **/obj/**,**/bin/**,_site/**, under directory "/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/"[0m
+[38;5;11mwarning: NOTE that `../` is currently not supported in glob pattern, please use `../` in `src` option instead.[0m
 [38;5;11mwarning: No .NET API project detected.[0m
 [38;5;15mCreating output...[0m
 [38;5;11mwarning: No .NET API detected for .[0m
@@ -12,21 +13,19 @@
 
 [38;5;11mBuild succeeded with warning.[0m
 
-[38;5;11m    2 warning(s)[0m
+[38;5;11m    3 warning(s)[0m
 [38;5;15m    0 error(s)[0m
 
-[2025-05-04T20:03:43] Metadata generation succeeded
-[2025-05-04T20:03:43] Running: docfx build /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx/docfx.json
+[2025-05-04T20:12:02] Metadata generation succeeded
+[2025-05-04T20:12:02] Running: docfx build /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx/docfx.json
 [38;5;15mSearching built-in plugins in directory /Users/cooperkeenan/.dotnet/tools/.store/docfx/2.78.3/docfx/2.78.3/tools/net8.0/any/...[0m
-[38;5;15mNo files are found with glob pattern api/**.yml,api/index.md, excluding <none>, under directory "/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx"[0m
-[38;5;15mNo files are found with glob pattern apidoc/**.md, excluding obj/**,_site/**, under directory "/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx"[0m
 [38;5;15mNo files are found with glob pattern images/**, excluding <none>, under directory "/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx"[0m
 [38;5;15m7 plug-in(s) loaded.[0m
-[38;5;15mBuilding 1 file(s) in ConceptualDocumentProcessor(BuildConceptualDocument=>ValidateConceptualDocumentMetadata)...[0m
 [38;5;15mBuilding 1 file(s) in TocDocumentProcessor(BuildTocDocument)...[0m
-[38;5;11m/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx/toc.yml: warning: Unable to find either toc.yml or toc.md inside y/. Make sure the file is included in config file docfx.json![0m
+[38;5;15mBuilding 2 file(s) in ConceptualDocumentProcessor(BuildConceptualDocument=>ValidateConceptualDocumentMetadata)...[0m
 [38;5;11m/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx/toc.yml: warning: Unable to find either toc.yml or toc.md inside api/. Make sure the file is included in config file docfx.json![0m
-[38;5;15mApplying templates to 2 model(s)...[0m
+[38;5;11m/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx/index.md(7,1): warning InvalidFileLink: Invalid file link:(~/api/index.html).[0m
+[38;5;15mApplying templates to 3 model(s)...[0m
 [38;5;15mXRef map exported.[0m
 
 
@@ -35,8 +34,8 @@
 [38;5;11m    2 warning(s)[0m
 [38;5;15m    0 error(s)[0m
 
-[2025-05-04T20:03:44] Build succeeded
-[2025-05-04T20:03:44] Copying site from /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx/_site → /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docs/api-docs
-[2025-05-04T20:03:44] === DocFX generation complete ===
-[2025-05-04T20:03:44] Local docs ready at: /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docs/api-docs/index.html
-[2025-05-04T20:03:44] Public preview at: https://rawcdn.githack.com/cooperkeenan/SE_Group_Project/UnitTests/HistoricalData/docs/api-docs/index.html
+[2025-05-04T20:12:03] Build succeeded
+[2025-05-04T20:12:03] Copying site from /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx/_site → /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docs/api-docs
+[2025-05-04T20:12:03] === DocFX generation complete ===
+[2025-05-04T20:12:03] Local docs ready at: /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docs/api-docs/index.html
+[2025-05-04T20:12:03] Public preview at: https://rawcdn.githack.com/cooperkeenan/SE_Group_Project/UnitTests/HistoricalData/docs/api-docs/index.html

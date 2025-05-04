@@ -1,11 +1,14 @@
----
-_layout: landing
----
+# EnviroMonitorApp Documentation
 
-# This is the **HOMEPAGE**.
+Welcome to the EnviroMonitorApp API documentation. This site contains documentation generated from the C# source code.
 
-Refer to [Markdown](http://daringfireball.net/projects/markdown/) for how to write markdown files.
+## API Documentation
 
-## Quick Start Notes:
+The [API Documentation](api/index.html) provides details about the classes and methods in the EnviroMonitorApp.Core library.
 
-1. Add images to the *images* folder if the file is referencing an image.
+## Features
+
+- Environmental data monitoring
+- Air quality tracking
+- Weather data visualization
+- Water quality analysis
