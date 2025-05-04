@@ -17,11 +17,20 @@ using EnviroMonitorApp.Services.ChartTransformers;
 
 namespace EnviroMonitorApp.ViewModels
 {
+    /// <summary>
+    /// ViewModel for the Historical Data page, providing data and commands
+    /// for visualizing historical environmental measurements.
+    /// </summary>
     public partial class HistoricalDataViewModel : ObservableObject
     {
         readonly IEnvironmentalDataService _dataService;
         readonly IChartTransformer         _transformer;
 
+        /// <summary>
+        /// Initializes a new instance of the HistoricalDataViewModel class.
+        /// </summary>
+        /// <param name="dataService">Service for retrieving environmental data.</param>
+        /// <param name="transformer">Transformer for converting data into chart entries.</param>
         public HistoricalDataViewModel(
             IEnvironmentalDataService dataService,
             IChartTransformer         transformer)
@@ -42,10 +51,20 @@ namespace EnviroMonitorApp.ViewModels
             UpdateMaxDate();
         }
 
+        /// <summary>
+        /// Gets the available sensor types (Air, Weather, Water).
+        /// </summary>
         public string[] SensorTypes { get; }
 
+        /// <summary>
+        /// Gets or sets the currently selected sensor type.
+        /// </summary>
         [ObservableProperty]
         private string selectedSensorType;
+        
+        /// <summary>
+        /// Handles changes to the selected sensor type by updating metrics and reloading data.
+        /// </summary>
         partial void OnSelectedSensorTypeChanged(string oldValue, string newValue)
         {
             UpdateMetricTypes();
@@ -53,31 +72,76 @@ namespace EnviroMonitorApp.ViewModels
             _ = LoadDataAsync();
         }
 
+        /// <summary>
+        /// Gets or sets the available metric types for the current sensor type.
+        /// </summary>
         [ObservableProperty]
         private string[] metricTypes;
 
+        /// <summary>
+        /// Gets or sets the currently selected metric.
+        /// </summary>
         [ObservableProperty]
         private string selectedMetric;
+        
+        /// <summary>
+        /// Handles changes to the selected metric by reloading data.
+        /// </summary>
         partial void OnSelectedMetricChanged(string oldValue, string newValue)
             => _ = LoadDataAsync();
 
+        /// <summary>
+        /// Gets or sets the start date for data retrieval.
+        /// </summary>
         [ObservableProperty]
         private DateTime startDate;
+        
+        /// <summary>
+        /// Handles changes to the start date by reloading data.
+        /// </summary>
         partial void OnStartDateChanged(DateTime oldValue, DateTime newValue)
             => _ = LoadDataAsync();
 
+        /// <summary>
+        /// Gets or sets the end date for data retrieval.
+        /// </summary>
         [ObservableProperty]
         private DateTime endDate;
+        
+        /// <summary>
+        /// Handles changes to the end date by reloading data.
+        /// </summary>
         partial void OnEndDateChanged(DateTime oldValue, DateTime newValue)
             => _ = LoadDataAsync();
 
+        /// <summary>
+        /// Gets or sets a value indicating whether data is currently being loaded.
+        /// </summary>
         [ObservableProperty] private bool isBusy;
+        
+        /// <summary>
+        /// Gets or sets a value indicating whether no data is available for the current selection.
+        /// </summary>
         [ObservableProperty] private bool noData;
+        
+        /// <summary>
+        /// Gets or sets the maximum allowed end date based on the selected sensor type.
+        /// </summary>
         [ObservableProperty] private DateTime maxDate;
 
+        /// <summary>
+        /// Gets the collection of chart entries for visualization.
+        /// </summary>
         public ObservableCollection<ChartEntry> ChartData { get; }
-        public ICommand                         LoadDataCommand { get; }
+        
+        /// <summary>
+        /// Gets the command to load data based on current selections.
+        /// </summary>
+        public ICommand LoadDataCommand { get; }
 
+        /// <summary>
+        /// Gets a chart object configured with the current chart data.
+        /// </summary>
         public Chart Chart
             => new LineChart
             {
@@ -90,6 +154,9 @@ namespace EnviroMonitorApp.ViewModels
                 LabelTextSize = 14
             };
 
+        /// <summary>
+        /// Updates the available metric types based on the currently selected sensor type.
+        /// </summary>
         void UpdateMetricTypes()
         {
             switch (SelectedSensorType)
@@ -115,6 +182,9 @@ namespace EnviroMonitorApp.ViewModels
             SelectedMetric = MetricTypes.FirstOrDefault();
         }
 
+        /// <summary>
+        /// Updates the maximum allowed end date based on the currently selected sensor type.
+        /// </summary>
         void UpdateMaxDate()
         {
             MaxDate = SelectedSensorType == "Weather"
@@ -125,6 +195,9 @@ namespace EnviroMonitorApp.ViewModels
             if (StartDate > MaxDate) StartDate = MaxDate;
         }
 
+        /// <summary>
+        /// Asynchronously loads data based on the current selections and updates the chart.
+        /// </summary>
         private async Task LoadDataAsync()
         {
             if (IsBusy) return;
@@ -196,9 +269,5 @@ namespace EnviroMonitorApp.ViewModels
 
             IsBusy = false;
         }
-
-
-
-
     }
 }

@@ -27,6 +27,13 @@ namespace EnviroMonitorApp.Services
         private static DateTime _wxStamp   = DateTime.MinValue;
         private static List<WeatherRecord>?   _wxCache;
 
+        /// <summary>
+        /// Initializes a new instance of the EnvironmentalDataApiService class.
+        /// </summary>
+        /// <param name="airApi">The air quality API service.</param>
+        /// <param name="weatherApi">The weather API service.</param>
+        /// <param name="waterApi">The water quality API service.</param>
+        /// <param name="keys">The API key provider for external services.</param>
         public EnvironmentalDataApiService(
             IAirQualityApi   airApi,
             IWeatherApi      weatherApi,
@@ -39,9 +46,13 @@ namespace EnviroMonitorApp.Services
             _keys       = keys;
         }
 
-        // ───────────────────────────────────────────────────────────────────
-        // 1) AIR: sensors/{id}/measurements → AirQualityRecord (paginated)
-        // ───────────────────────────────────────────────────────────────────
+        /// <summary>
+        /// Retrieves air quality data for a specified time period and region.
+        /// </summary>
+        /// <param name="from">Start date and time.</param>
+        /// <param name="to">End date and time.</param>
+        /// <param name="region">Geographic region identifier (e.g., "London").</param>
+        /// <returns>A list of air quality records for the specified period and region.</returns>
         public async Task<List<AirQualityRecord>> GetAirQualityAsync(
             DateTime from, DateTime to, string region)
         {
@@ -127,9 +138,13 @@ namespace EnviroMonitorApp.Services
             return records;
         }
 
-        // ───────────────────────────────────────────────────────────────────
-        // 2) WEATHER: 3-hour forecast → WeatherRecord (no paging)
-        // ───────────────────────────────────────────────────────────────────
+        /// <summary>
+        /// Retrieves weather data for a specified time period and region.
+        /// </summary>
+        /// <param name="from">Start date and time.</param>
+        /// <param name="to">End date and time.</param>
+        /// <param name="region">Geographic region identifier (e.g., "London").</param>
+        /// <returns>A list of weather records for the specified period and region.</returns>
         public async Task<List<WeatherRecord>> GetWeatherAsync(
             DateTime from, DateTime to, string region)
         {
@@ -160,7 +175,7 @@ namespace EnviroMonitorApp.Services
                     Humidity        = r.Main.Humidity,
                     WindSpeed       = r.Wind.Speed,
 
-                    // historical/C SV‐backfill fields defaulted
+                    // historical/CSV‐backfill fields defaulted
                     CloudCover      = 0,
                     Sunshine        = 0,
                     GlobalRadiation = 0,
@@ -180,9 +195,7 @@ namespace EnviroMonitorApp.Services
                 .ToList();
         }
 
-        // ───────────────────────────────────────────────────────────────────
-        // 3) WATER: UK Hydrology sub-daily → WaterQualityRecord
-        // ───────────────────────────────────────────────────────────────────
+        // Dictionary mapping parameter names to their measurement URLs
         private static readonly Dictionary<string,string> _measureMap = new()
         {
             ["nitrate"] = "https://environment.data.gov.uk/hydrology/id/measures/E05962A-nitrate-i-subdaily-mgL",
@@ -191,6 +204,13 @@ namespace EnviroMonitorApp.Services
             ["temp"]    = "https://environment.data.gov.uk/hydrology/id/measures/E05962A-temp-i-subdaily-C"
         };
 
+        /// <summary>
+        /// Retrieves water quality data for a specified time period and region.
+        /// </summary>
+        /// <param name="from">Start date and time.</param>
+        /// <param name="to">End date and time.</param>
+        /// <param name="region">Geographic region identifier.</param>
+        /// <returns>A list of water quality records for the specified period and region.</returns>
         public async Task<List<WaterQualityRecord>> GetWaterQualityAsync(
             DateTime from, DateTime to, string region)
         {
@@ -201,6 +221,12 @@ namespace EnviroMonitorApp.Services
                 .ToList();
         }
 
+        /// <summary>
+        /// Retrieves water quality data for a specified number of hours up to the present.
+        /// </summary>
+        /// <param name="hours">Number of hours of data to retrieve.</param>
+        /// <param name="region">Geographic region identifier.</param>
+        /// <returns>A list of water quality records for the specified duration.</returns>
         public async Task<List<WaterQualityRecord>> GetWaterQualityAsync(
             int hours, string region = "")
         {
@@ -245,6 +271,13 @@ namespace EnviroMonitorApp.Services
                          .ToList();
         }
 
+        /// <summary>
+        /// Retrieves historical water quality data for a specified time period and region.
+        /// </summary>
+        /// <param name="from">Start date and time.</param>
+        /// <param name="to">End date and time.</param>
+        /// <param name="region">Geographic region identifier.</param>
+        /// <returns>A list of historical water quality records for the specified period and region.</returns>
         public Task<List<WaterQualityRecord>> GetHistoricalWaterQualityAsync(
             DateTime from, DateTime to, string region)
         {

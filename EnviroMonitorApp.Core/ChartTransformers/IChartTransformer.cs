@@ -10,6 +10,9 @@ namespace EnviroMonitorApp.Services.ChartTransformers
     /// </summary>
     public interface IChartTransformer
     {
+        /// <summary>
+        /// Transforms raw timestamped data into chart entries suitable for visualization.
+        /// </summary>
         /// <param name="raw">A sequence of (timestamp, value) pairs.</param>
         /// <param name="start">Chart start date.</param>
         /// <param name="end">Chart end date.</param>

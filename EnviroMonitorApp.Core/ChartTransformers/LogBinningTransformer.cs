@@ -8,29 +8,43 @@ using SkiaSharp;
 namespace EnviroMonitorApp.Services.ChartTransformers
 {
     /// <summary>
-    /// Approximate max number of X‐axis labels to draw.
-    /// Bins points by day/week/month and log‐scales Y.
+    /// Chart transformer that bins points by day/week/month based on date range,
+    /// applying logarithmic scaling to the Y-axis values.
+    /// Limits the number of X-axis labels to improve readability.
     /// </summary>
     public class LogBinningTransformer : IChartTransformer
     {
+        /// <summary>
+        /// Maximum number of X-axis labels to display on the chart.
+        /// </summary>
         public int MaxLabels { get; set; } = 12;
 
+        /// <summary>
+        /// Transforms raw timestamped data into chart entries with logarithmic Y-axis scaling
+        /// and appropriate time-based binning based on the date range.
+        /// </summary>
+        /// <param name="raw">Raw timestamped data points to transform.</param>
+        /// <param name="start">Start date of the chart range.</param>
+        /// <param name="end">End date of the chart range.</param>
+        /// <returns>A list of chart entries ready for visualization.</returns>
         public IList<ChartEntry> Transform(
             IEnumerable<(DateTime timestamp, double value)> raw,
             DateTime start,
             DateTime end)
         {
-            // 1️⃣ span in days
+            // 1️⃣ Calculate span in days between start and end dates
             var spanDays = (end.Date - start.Date).TotalDays;
 
-            // 2️⃣ bin by span
+            // 2️⃣ Bin data points based on the time span
             IEnumerable<(DateTime timestamp, double value)> binned;
             if (spanDays <= 30)
             {
+                // For short spans (≤30 days), use raw data points with no binning
                 binned = raw.OrderBy(x => x.timestamp);
             }
             else if (spanDays <= 90)
             {
+                // For medium spans (31-90 days), bin by day
                 binned = raw
                     .GroupBy(x => x.timestamp.Date)
                     .Select(g => (
@@ -40,6 +54,7 @@ namespace EnviroMonitorApp.Services.ChartTransformers
             }
             else if (spanDays <= 365)
             {
+                // For large spans (91-365 days), bin by week
                 binned = raw
                     .GroupBy(x => CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(
                         x.timestamp,
@@ -55,6 +70,7 @@ namespace EnviroMonitorApp.Services.ChartTransformers
             }
             else
             {
+                // For very large spans (>365 days), bin by month
                 binned = raw
                     .GroupBy(x => new DateTime(x.timestamp.Year, x.timestamp.Month, 1))
                     .Select(g => (
@@ -67,10 +83,10 @@ namespace EnviroMonitorApp.Services.ChartTransformers
             if (list.Count == 0)
                 return Array.Empty<ChartEntry>();
 
-            // 3️⃣ compute label step
+            // 3️⃣ Compute label step to avoid overcrowding
             int step = Math.Max(1, list.Count / MaxLabels);
 
-            // 4️⃣ build entries with log‐scaled Y but real labels
+            // 4️⃣ Build entries with log‐scaled Y values but real labels
             var entries = new List<ChartEntry>(list.Count);
             for (int i = 0; i < list.Count; i++)
             {

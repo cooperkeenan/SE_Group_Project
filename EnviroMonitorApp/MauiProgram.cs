@@ -11,8 +11,16 @@ using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace EnviroMonitorApp
 {
+    /// <summary>
+    /// Main entry point for the MAUI application.
+    /// Configures services, dependency injection, and application defaults.
+    /// </summary>
     public static class MauiProgram
     {
+        /// <summary>
+        /// Creates and configures the MAUI application instance.
+        /// </summary>
+        /// <returns>A configured MAUI application instance.</returns>
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
@@ -23,19 +31,18 @@ namespace EnviroMonitorApp
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-
                 });
 
-            // ─── Data & API services ───────────────────────────────────────
+            // Register data & API services
             builder.Services.AddSingleton<IEnvironmentalDataService, SqlDataService>();
 
-            // ─── Chart transformer ─────────────────────────────────────────
+            // Register chart transformer
             builder.Services.AddSingleton<IChartTransformer, LogBinningTransformer>();
 
-            // ─── ViewModels ────────────────────────────────────────────────
+            // Register ViewModels
             builder.Services.AddSingleton<HistoricalDataViewModel>();
 
-            // ─── Pages ─────────────────────────────────────────────────────
+            // Register Pages
             builder.Services.AddSingleton<HistoricalDataPage>();
             builder.Services.AddSingleton<AppShell>();
 

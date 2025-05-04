@@ -52,5 +52,4 @@
     <Compile Include="Stubs/IValueConverter.cs" />          
   </ItemGroup>
 
-
 </Project>
