@@ -18,14 +18,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Meta
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 13
+    startLine: 27
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Metadata information about the API response, including pagination details.
+  example: []
   syntax:
     content: public class Meta
     content.vb: Public Class Meta
@@ -53,14 +55,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Page
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 15
+    startLine: 32
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Current page number in paginated results.
+  example: []
   syntax:
     content: public int Page { get; set; }
     parameters: []
@@ -82,14 +86,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Limit
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 16
+    startLine: 37
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Maximum number of items per page.
+  example: []
   syntax:
     content: public int Limit { get; set; }
     parameters: []
@@ -111,14 +117,19 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Found
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 17
+    startLine: 43
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: >-
+    Total number of items found. 
+
+    Uses JsonElement to handle both numeric values and string representations like "&gt;100".
+  example: []
   syntax:
     content: public JsonElement Found { get; set; }
     parameters: []

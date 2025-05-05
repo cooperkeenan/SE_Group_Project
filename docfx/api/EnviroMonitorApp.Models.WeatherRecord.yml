@@ -28,7 +28,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: WeatherRecord
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
@@ -68,7 +68,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Timestamp
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
@@ -99,7 +99,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Temperature
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
@@ -133,7 +133,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Humidity
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
@@ -167,7 +167,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: WindSpeed
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
@@ -201,7 +201,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: CloudCover
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
@@ -235,7 +235,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Sunshine
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
@@ -269,7 +269,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GlobalRadiation
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
@@ -303,7 +303,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: MaxTemp
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
@@ -337,7 +337,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: MeanTemp
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
@@ -371,7 +371,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: MinTemp
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
@@ -405,7 +405,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Precipitation
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
@@ -439,7 +439,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Pressure
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
@@ -473,7 +473,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Models/WeatherRecord.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: SnowDepth
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs

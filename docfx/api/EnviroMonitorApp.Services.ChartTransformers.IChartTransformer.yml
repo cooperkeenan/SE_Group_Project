@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/ChartTransformers/IChartTransformer.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: IChartTransformer
     path: ../EnviroMonitorApp.Core/ChartTransformers/IChartTransformer.cs
@@ -46,7 +46,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/ChartTransformers/IChartTransformer.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Transform
     path: ../EnviroMonitorApp.Core/ChartTransformers/IChartTransformer.cs

@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: IAirQualityApi
     path: ../EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs
@@ -50,7 +50,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetLocations
     path: ../EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs
@@ -142,7 +142,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetLocationLatest
     path: ../EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs
@@ -192,7 +192,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetSensorMeasurementsAsync
     path: ../EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs

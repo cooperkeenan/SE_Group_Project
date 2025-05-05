@@ -17,15 +17,18 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: MeasurementsResponse
     path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-    startLine: 9
+    startLine: 10
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
-  summary: Response wrapper for /v3/sensors/{id}/measurements
+  summary: >-
+    Response wrapper for /v3/sensors/{id}/measurements API endpoint.
+
+    Contains historical measurement data for a specific sensor.
   example: []
   syntax:
     content: public class MeasurementsResponse
@@ -54,14 +57,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Meta
     path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-    startLine: 11
+    startLine: 15
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Metadata about the response, including API provider information and pagination details.
+  example: []
   syntax:
     content: public MeasurementsMeta Meta { get; set; }
     parameters: []
@@ -83,14 +88,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Results
     path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-    startLine: 12
+    startLine: 20
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Array of measurement records returned by the API.
+  example: []
   syntax:
     content: public Measurement[] Results { get; set; }
     parameters: []

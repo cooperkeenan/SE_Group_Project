@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Stubs/IValueConverter.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: IValueConverter
     path: ../EnviroMonitorApp.Core/Stubs/IValueConverter.cs
@@ -42,7 +42,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Stubs/IValueConverter.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Convert
     path: ../EnviroMonitorApp.Core/Stubs/IValueConverter.cs
@@ -82,7 +82,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Stubs/IValueConverter.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: ConvertBack
     path: ../EnviroMonitorApp.Core/Stubs/IValueConverter.cs

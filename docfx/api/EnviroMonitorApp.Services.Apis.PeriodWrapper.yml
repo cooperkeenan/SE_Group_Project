@@ -19,14 +19,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: PeriodWrapper
     path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-    startLine: 34
+    startLine: 80
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Wrapper for time period information related to a measurement.
+  example: []
   syntax:
     content: public class PeriodWrapper
     content.vb: Public Class PeriodWrapper
@@ -54,14 +56,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Label
     path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-    startLine: 36
+    startLine: 85
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Human-readable label for the time period (e.g., "1 hour", "24 hour").
+  example: []
   syntax:
     content: public string Label { get; set; }
     parameters: []
@@ -83,14 +87,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Interval
     path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-    startLine: 37
+    startLine: 90
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Measurement interval in ISO 8601 duration format (e.g., "PT1H" for 1 hour).
+  example: []
   syntax:
     content: public string Interval { get; set; }
     parameters: []
@@ -112,14 +118,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: DatetimeFrom
     path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-    startLine: 39
+    startLine: 95
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Start date and time of the measurement period.
+  example: []
   syntax:
     content: >-
       [AliasAs("datetimeFrom")]
@@ -153,14 +161,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: DatetimeTo
     path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-    startLine: 42
+    startLine: 101
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: End date and time of the measurement period.
+  example: []
   syntax:
     content: >-
       [AliasAs("datetimeTo")]

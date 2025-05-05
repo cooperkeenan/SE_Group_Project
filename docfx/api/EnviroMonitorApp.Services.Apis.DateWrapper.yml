@@ -17,14 +17,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: DateWrapper
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 42
+    startLine: 117
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Wrapper for date/time information in both UTC and local time.
+  example: []
   syntax:
     content: public class DateWrapper
     content.vb: Public Class DateWrapper
@@ -52,14 +54,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Utc
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 44
+    startLine: 122
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: The date and time in UTC format.
+  example: []
   syntax:
     content: >-
       [AliasAs("utc")]
@@ -93,14 +97,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Local
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 46
+    startLine: 128
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: The date and time in local timezone format.
+  example: []
   syntax:
     content: >-
       [AliasAs("local")]

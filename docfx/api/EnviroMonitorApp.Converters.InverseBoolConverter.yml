@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Converters/InverseBoolConverter.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: InverseBoolConverter
     path: ../EnviroMonitorApp.Core/Converters/InverseBoolConverter.cs
@@ -61,7 +61,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Converters/InverseBoolConverter.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Convert
     path: ../EnviroMonitorApp.Core/Converters/InverseBoolConverter.cs
@@ -110,7 +110,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Converters/InverseBoolConverter.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: ConvertBack
     path: ../EnviroMonitorApp.Core/Converters/InverseBoolConverter.cs

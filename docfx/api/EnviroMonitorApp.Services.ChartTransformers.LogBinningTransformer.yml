@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/ChartTransformers/LogBinningTransformer.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: LogBinningTransformer
     path: ../EnviroMonitorApp.Core/ChartTransformers/LogBinningTransformer.cs
@@ -61,7 +61,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/ChartTransformers/LogBinningTransformer.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: MaxLabels
     path: ../EnviroMonitorApp.Core/ChartTransformers/LogBinningTransformer.cs
@@ -92,7 +92,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/ChartTransformers/LogBinningTransformer.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Transform
     path: ../EnviroMonitorApp.Core/ChartTransformers/LogBinningTransformer.cs

@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: IWeatherApi
     path: ../EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs
@@ -47,7 +47,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetForecast
     path: ../EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs
@@ -130,7 +130,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetWeatherAsync
     path: ../EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs

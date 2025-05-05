@@ -349,5 +349,92 @@ namespace EnviroMonitorApp.Tests.Services.Apis
             Assert.Equal(72, result.List[0].Main.Humidity);
             Assert.Equal(3.1, result.List[0].Wind.Speed);
         }
+
+
+
+        [Fact]
+        public void Measurement_Properties_Can_Be_Set_And_Retrieved()
+        {
+            // Arrange
+            var measurement = new Measurement
+            {
+                Value = 15.2,
+                Parameter = new Parameter { Id = 2, Name = "no2", DisplayName = "NO2" },
+                Period = new PeriodWrapper
+                {
+                    Label = "1 hour",
+                    Interval = "PT1H",
+                    DatetimeFrom = new DateWrapper { Utc = "2023-05-01T10:00:00Z", Local = "2023-05-01T11:00:00+01:00" },
+                    DatetimeTo = new DateWrapper { Utc = "2023-05-01T11:00:00Z", Local = "2023-05-01T12:00:00+01:00" }
+                }
+            };
+            
+            // Act & Assert
+            Assert.Equal(15.2, measurement.Value);
+            Assert.Equal(2, measurement.Parameter.Id);
+            Assert.Equal("no2", measurement.Parameter.Name);
+            Assert.Equal("NO2", measurement.Parameter.DisplayName);
+            Assert.Equal("1 hour", measurement.Period.Label);
+            Assert.Equal("PT1H", measurement.Period.Interval);
+            Assert.Equal("2023-05-01T10:00:00Z", measurement.Period.DatetimeFrom.Utc);
+            Assert.Equal("2023-05-01T11:00:00Z", measurement.Period.DatetimeTo.Utc);
+        }
+
+        [Fact]
+        public void PeriodWrapper_Properties_Can_Be_Set_And_Retrieved()
+        {
+            // Arrange
+            var period = new PeriodWrapper
+            {
+                Label = "1 hour",
+                Interval = "PT1H",
+                DatetimeFrom = new DateWrapper { Utc = "2023-05-01T10:00:00Z", Local = "2023-05-01T11:00:00+01:00" },
+                DatetimeTo = new DateWrapper { Utc = "2023-05-01T11:00:00Z", Local = "2023-05-01T12:00:00+01:00" }
+            };
+            
+            // Act & Assert
+            Assert.Equal("1 hour", period.Label);
+            Assert.Equal("PT1H", period.Interval);
+            Assert.Equal("2023-05-01T10:00:00Z", period.DatetimeFrom.Utc);
+            Assert.Equal("2023-05-01T11:00:00+01:00", period.DatetimeFrom.Local);
+            Assert.Equal("2023-05-01T11:00:00Z", period.DatetimeTo.Utc);
+            Assert.Equal("2023-05-01T12:00:00+01:00", period.DatetimeTo.Local);
+        }
+
+        [Fact]
+        public void Parameter_Properties_Can_Be_Set_And_Retrieved()
+        {
+            // Arrange
+            var parameter = new Parameter
+            {
+                Id = 2,
+                Name = "no2",
+                DisplayName = "NO2"
+            };
+            
+            // Act & Assert
+            Assert.Equal(2, parameter.Id);
+            Assert.Equal("no2", parameter.Name);
+            Assert.Equal("NO2", parameter.DisplayName);
+        }
+
+        [Fact]
+        public void MeasurementsMeta_Properties_Can_Be_Set_And_Retrieved()
+        {
+            // Arrange
+            var meta = new MeasurementsMeta
+            {
+                Name = "OpenAQ API",
+                Website = "https://openaq.org",
+                Page = 1,
+                Limit = 10
+            };
+            
+            // Act & Assert
+            Assert.Equal("OpenAQ API", meta.Name);
+            Assert.Equal("https://openaq.org", meta.Website);
+            Assert.Equal(1, meta.Page);
+            Assert.Equal(10, meta.Limit);
+        }
     }
 }

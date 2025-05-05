@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: IWaterQualityApi
     path: ../EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
@@ -47,7 +47,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetLatest
     path: ../EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
@@ -112,7 +112,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetRange
     path: ../EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs

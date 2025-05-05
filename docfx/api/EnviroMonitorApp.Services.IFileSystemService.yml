@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/IFileSystemService.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: IFileSystemService
     path: ../EnviroMonitorApp.Core/Services/IFileSystemService.cs
@@ -47,7 +47,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/IFileSystemService.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: AppDataDirectory
     path: ../EnviroMonitorApp.Core/Services/IFileSystemService.cs
@@ -78,7 +78,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/IFileSystemService.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: OpenAppPackageFileAsync
     path: ../EnviroMonitorApp.Core/Services/IFileSystemService.cs

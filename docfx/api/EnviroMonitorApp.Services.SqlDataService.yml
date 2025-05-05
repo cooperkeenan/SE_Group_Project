@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/SqlDataService.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: SqlDataService
     path: ../EnviroMonitorApp.Core/Services/SqlDataService.cs
@@ -63,7 +63,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/SqlDataService.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: .ctor
     path: ../EnviroMonitorApp.Core/Services/SqlDataService.cs
@@ -101,7 +101,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/SqlDataService.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetAirQualityAsync
     path: ../EnviroMonitorApp.Core/Services/SqlDataService.cs
@@ -147,7 +147,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/SqlDataService.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetWeatherAsync
     path: ../EnviroMonitorApp.Core/Services/SqlDataService.cs
@@ -193,7 +193,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/SqlDataService.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetWaterQualityAsync
     path: ../EnviroMonitorApp.Core/Services/SqlDataService.cs
@@ -239,7 +239,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/SqlDataService.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetWaterQualityAsync
     path: ../EnviroMonitorApp.Core/Services/SqlDataService.cs
@@ -282,7 +282,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/SqlDataService.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetHistoricalWaterQualityAsync
     path: ../EnviroMonitorApp.Core/Services/SqlDataService.cs

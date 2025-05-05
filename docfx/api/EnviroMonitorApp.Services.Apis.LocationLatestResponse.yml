@@ -17,14 +17,19 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationLastestResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: LocationLatestResponse
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationLastestResponse.cs
-    startLine: 6
+    startLine: 10
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: >-
+    Response model for the latest measurements at a specific location.
+
+    Used with the GetLocationLatest API endpoint.
+  example: []
   syntax:
     content: public class LocationLatestResponse
     content.vb: Public Class LocationLatestResponse
@@ -52,14 +57,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationLastestResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Meta
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationLastestResponse.cs
-    startLine: 8
+    startLine: 15
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Metadata about the response, including pagination information.
+  example: []
   syntax:
     content: public Meta Meta { get; set; }
     parameters: []
@@ -81,14 +88,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationLastestResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Results
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationLastestResponse.cs
-    startLine: 9
+    startLine: 20
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Array of latest measurement results from the location.
+  example: []
   syntax:
     content: public LatestResult[] Results { get; set; }
     parameters: []

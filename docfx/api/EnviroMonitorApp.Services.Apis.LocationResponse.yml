@@ -17,14 +17,19 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: LocationResponse
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 7
+    startLine: 11
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: >-
+    Response model for location information from the air quality API.
+
+    Used with the GetLocations API endpoint.
+  example: []
   syntax:
     content: public class LocationResponse
     content.vb: Public Class LocationResponse
@@ -52,14 +57,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Meta
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 9
+    startLine: 16
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Metadata about the response, including pagination information.
+  example: []
   syntax:
     content: public Meta Meta { get; set; }
     parameters: []
@@ -81,14 +88,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Results
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 10
+    startLine: 21
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Array of location results matching the query parameters.
+  example: []
   syntax:
     content: public Location[] Results { get; set; }
     parameters: []

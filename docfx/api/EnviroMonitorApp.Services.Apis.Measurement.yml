@@ -18,14 +18,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Measurement
     path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-    startLine: 27
+    startLine: 59
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Represents a single measurement record from a sensor.
+  example: []
   syntax:
     content: public class Measurement
     content.vb: Public Class Measurement
@@ -53,14 +55,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Value
     path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-    startLine: 29
+    startLine: 64
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: The measured value of the environmental parameter.
+  example: []
   syntax:
     content: public double Value { get; set; }
     parameters: []
@@ -82,14 +86,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Parameter
     path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-    startLine: 30
+    startLine: 69
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Information about the parameter being measured.
+  example: []
   syntax:
     content: public Parameter Parameter { get; set; }
     parameters: []
@@ -111,14 +117,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Period
     path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-    startLine: 31
+    startLine: 74
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Time period information for this measurement.
+  example: []
   syntax:
     content: public PeriodWrapper Period { get; set; }
     parameters: []

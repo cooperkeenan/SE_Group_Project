@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <!-- Add this line to disable test execution during build -->
-    <IsTestProject>false</IsTestProject>
+
   </PropertyGroup>
 
   <ItemGroup>

@@ -73,5 +73,41 @@ namespace EnviroMonitorApp.Tests.Services
             Assert.Equal("sample-openaq-key", provider.OpenAqKey);
             Assert.Equal("sample-openweathermap-key", provider.OpenWeatherMap);
         }
+
+
+        [Fact]
+        public void ApiKeyProperties_ReturnCorrectValues()
+        {
+            // Arrange
+            string customAqKey = "custom-openaq-key";
+            string customWeatherKey = "custom-weathermap-key";
+            var provider = new ApiKeyProvider(customAqKey, customWeatherKey);
+            
+            // Act & Assert
+            Assert.Equal(customAqKey, provider.OpenAqKey);
+            Assert.Equal(customWeatherKey, provider.OpenWeatherMap);
+        }
+
+        [Fact]
+        public void Constructor_WithNullParams_SetsDefaultValues()
+        {
+            // Arrange & Act
+            var provider = new ApiKeyProvider(null, null);
+            
+            // Assert
+            Assert.Equal("sample-openaq-key", provider.OpenAqKey);
+            Assert.Equal("sample-openweathermap-key", provider.OpenWeatherMap);
+        }
+
+        [Fact]
+        public void Constructor_WithEmptyStrings_SetsDefaultValues()
+        {
+            // Arrange & Act
+            var provider = new ApiKeyProvider("", "");
+            
+            // Assert
+            Assert.Equal("sample-openaq-key", provider.OpenAqKey);
+            Assert.Equal("sample-openweathermap-key", provider.OpenWeatherMap);
+        }
     }
 }

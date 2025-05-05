@@ -19,14 +19,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Location
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 20
+    startLine: 49
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Represents an air quality monitoring location with its associated sensors.
+  example: []
   syntax:
     content: public class Location
     content.vb: Public Class Location
@@ -54,14 +56,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Id
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 22
+    startLine: 54
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Unique identifier for the location.
+  example: []
   syntax:
     content: public int Id { get; set; }
     parameters: []
@@ -83,14 +87,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Name
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 23
+    startLine: 59
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Human-readable name of the monitoring location.
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -112,14 +118,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Sensors
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 24
+    startLine: 64
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Array of sensors available at this location.
+  example: []
   syntax:
     content: public Sensor[] Sensors { get; set; }
     parameters: []
@@ -141,14 +149,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: DatetimeLast
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 25
+    startLine: 69
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Timestamp of the most recent measurement from this location.
+  example: []
   syntax:
     content: public DateWrapper DatetimeLast { get; set; }
     parameters: []

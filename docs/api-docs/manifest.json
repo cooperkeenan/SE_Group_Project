@@ -168,7 +168,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "EnviroMonitorApp.Services.Apis.DateWrapper",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.DateWrapper.yml\" sourcestartlinenumber=\"1\">Wrapper for date/time information in both UTC and local time.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -224,7 +224,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "EnviroMonitorApp.Services.Apis.LatestResult",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.LatestResult.yml\" sourcestartlinenumber=\"1\">Represents a single measurement result from a sensor at the location.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -238,7 +238,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "EnviroMonitorApp.Services.Apis.Location",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.Location.yml\" sourcestartlinenumber=\"1\">Represents an air quality monitoring location with its associated sensors.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -252,7 +252,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "EnviroMonitorApp.Services.Apis.LocationLatestResponse",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.LocationLatestResponse.yml\" sourcestartlinenumber=\"1\">Response model for the latest measurements at a specific location.\nUsed with the GetLocationLatest API endpoint.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -266,7 +266,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "EnviroMonitorApp.Services.Apis.LocationResponse",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.LocationResponse.yml\" sourcestartlinenumber=\"1\">Response model for location information from the air quality API.\nUsed with the GetLocations API endpoint.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -280,7 +280,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "EnviroMonitorApp.Services.Apis.Measurement",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.Measurement.yml\" sourcestartlinenumber=\"1\">Represents a single measurement record from a sensor.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -294,7 +294,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "EnviroMonitorApp.Services.Apis.MeasurementsMeta",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.MeasurementsMeta.yml\" sourcestartlinenumber=\"1\">Extended metadata specific to measurement responses.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -308,7 +308,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "EnviroMonitorApp.Services.Apis.MeasurementsResponse",
-      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.MeasurementsResponse.yml\" sourcestartlinenumber=\"1\">Response wrapper for /v3/sensors/{id}/measurements</p>\n"
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.MeasurementsResponse.yml\" sourcestartlinenumber=\"1\">Response wrapper for /v3/sensors/{id}/measurements API endpoint.\nContains historical measurement data for a specific sensor.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -322,7 +322,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "EnviroMonitorApp.Services.Apis.Meta",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.Meta.yml\" sourcestartlinenumber=\"1\">Metadata information about the API response, including pagination details.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -336,7 +336,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "EnviroMonitorApp.Services.Apis.Parameter",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.Parameter.yml\" sourcestartlinenumber=\"1\">Represents an environmental parameter that can be measured.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -350,7 +350,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "EnviroMonitorApp.Services.Apis.PeriodWrapper",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.PeriodWrapper.yml\" sourcestartlinenumber=\"1\">Wrapper for time period information related to a measurement.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -378,7 +378,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "EnviroMonitorApp.Services.Apis.Sensor",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.Sensor.yml\" sourcestartlinenumber=\"1\">Represents a sensor device at a monitoring location.</p>\n"
     },
     {
       "type": "ManagedReference",

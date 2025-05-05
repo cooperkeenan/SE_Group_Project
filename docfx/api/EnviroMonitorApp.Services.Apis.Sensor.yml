@@ -18,14 +18,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Sensor
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 28
+    startLine: 75
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Represents a sensor device at a monitoring location.
+  example: []
   syntax:
     content: public class Sensor
     content.vb: Public Class Sensor
@@ -53,14 +55,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Id
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 30
+    startLine: 80
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Unique identifier for the sensor.
+  example: []
   syntax:
     content: public int Id { get; set; }
     parameters: []
@@ -82,14 +86,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Name
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 31
+    startLine: 85
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Human-readable name of the sensor.
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -111,14 +117,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Parameter
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 32
+    startLine: 90
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: The environmental parameter that this sensor measures.
+  example: []
   syntax:
     content: public Parameter Parameter { get; set; }
     parameters: []

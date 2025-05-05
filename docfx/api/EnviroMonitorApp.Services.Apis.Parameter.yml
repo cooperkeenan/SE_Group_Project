@@ -18,14 +18,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Parameter
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 35
+    startLine: 96
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Represents an environmental parameter that can be measured.
+  example: []
   syntax:
     content: public class Parameter
     content.vb: Public Class Parameter
@@ -53,14 +55,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Id
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 37
+    startLine: 101
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Unique identifier for the parameter.
+  example: []
   syntax:
     content: public int Id { get; set; }
     parameters: []
@@ -82,14 +86,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Name
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 38
+    startLine: 106
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Machine-readable name of the parameter (e.g., "no2", "pm25").
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -111,14 +117,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: DisplayName
     path: ../EnviroMonitorApp.Core/Services/Apis/LocationResponse.cs
-    startLine: 39
+    startLine: 111
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Human-readable name of the parameter (e.g., "Nitrogen Dioxide", "PM2.5").
+  example: []
   syntax:
     content: public string DisplayName { get; set; }
     parameters: []

@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/MauiFileSystemService.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: MauiFileSystemService
     path: ../EnviroMonitorApp.Core/Services/MauiFileSystemService.cs
@@ -59,7 +59,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/MauiFileSystemService.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: AppDataDirectory
     path: ../EnviroMonitorApp.Core/Services/MauiFileSystemService.cs
@@ -95,7 +95,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/MauiFileSystemService.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: OpenAppPackageFileAsync
     path: ../EnviroMonitorApp.Core/Services/MauiFileSystemService.cs

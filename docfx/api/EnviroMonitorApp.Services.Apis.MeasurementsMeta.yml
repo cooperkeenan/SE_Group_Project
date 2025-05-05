@@ -20,14 +20,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: MeasurementsMeta
     path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-    startLine: 15
+    startLine: 26
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Extended metadata specific to measurement responses.
+  example: []
   syntax:
     content: public class MeasurementsMeta
     content.vb: Public Class MeasurementsMeta
@@ -55,14 +57,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Name
     path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-    startLine: 17
+    startLine: 31
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Name of the data provider or organization.
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -84,14 +88,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Website
     path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-    startLine: 18
+    startLine: 36
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Website URL of the data provider.
+  example: []
   syntax:
     content: public string Website { get; set; }
     parameters: []
@@ -113,14 +119,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Page
     path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-    startLine: 19
+    startLine: 41
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Current page number in paginated results.
+  example: []
   syntax:
     content: public int Page { get; set; }
     parameters: []
@@ -142,14 +150,16 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Limit
     path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-    startLine: 20
+    startLine: 46
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Maximum number of items per page.
+  example: []
   syntax:
     content: public int Limit { get; set; }
     parameters: []
@@ -171,14 +181,19 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Found
     path: ../EnviroMonitorApp.Core/Services/Apis/MeasurementsResponse.cs
-    startLine: 23
+    startLine: 52
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: >-
+    Total number of items found.
+
+    Uses JsonElement to handle both numeric values and string representations like "&gt;100".
+  example: []
   syntax:
     content: >-
       [AliasAs("found")]

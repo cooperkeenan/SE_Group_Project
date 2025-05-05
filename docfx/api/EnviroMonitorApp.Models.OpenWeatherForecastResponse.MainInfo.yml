@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Models/OpenWeatherForecastResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: MainInfo
     path: ../EnviroMonitorApp.Core/Models/OpenWeatherForecastResponse.cs
@@ -52,7 +52,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Models/OpenWeatherForecastResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Temp
     path: ../EnviroMonitorApp.Core/Models/OpenWeatherForecastResponse.cs
@@ -81,7 +81,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Models/OpenWeatherForecastResponse.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Humidity
     path: ../EnviroMonitorApp.Core/Models/OpenWeatherForecastResponse.cs

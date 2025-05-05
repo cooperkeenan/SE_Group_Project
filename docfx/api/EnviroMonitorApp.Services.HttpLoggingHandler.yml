@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/HttpLoggingHandler.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: HttpLoggingHandler
     path: ../EnviroMonitorApp.Core/Services/HttpLoggingHandler.cs
@@ -64,7 +64,7 @@ items:
   source:
     remote:
       path: EnviroMonitorApp.Core/Services/HttpLoggingHandler.cs
-      branch: UnitTests/HistoricalData
+      branch: merge/HistoricalData
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: SendAsync
     path: ../EnviroMonitorApp.Core/Services/HttpLoggingHandler.cs
