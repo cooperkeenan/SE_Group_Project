@@ -1,4 +1,5 @@
 ﻿// MauiProgram.cs
+using System.IO;
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,46 +8,48 @@ using EnviroMonitorApp.Views;
 using EnviroMonitorApp.ViewModels;
 using EnviroMonitorApp.Services;
 using EnviroMonitorApp.Services.ChartTransformers;
-using SkiaSharp.Views.Maui.Controls.Hosting;     
+using SkiaSharp.Views.Maui.Controls.Hosting;
+
+// ← Add these two:
+using Microsoft.Maui.Storage;   // for FileSystem.AppDataDirectory
+using SQLite;                   // for SQLiteAsyncConnection
 
 namespace EnviroMonitorApp
 {
-    /// <summary>
-    /// Main entry point for the MAUI application.
-    /// Configures services, dependency injection, and application defaults.
-    /// </summary>
-    public static class MauiProgram
+  public static class MauiProgram
+  {
+    public static MauiApp CreateMauiApp()
     {
-        /// <summary>
-        /// Creates and configures the MAUI application instance.
-        /// </summary>
-        /// <returns>A configured MAUI application instance.</returns>
-        public static MauiApp CreateMauiApp()
-        {
-            var builder = MauiApp.CreateBuilder();
+      var builder = MauiApp.CreateBuilder();
 
-            builder
-                .UseMauiApp<App>()
-                .UseSkiaSharp()                    
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                });
+      builder
+        .UseMauiApp<App>()
+        .UseSkiaSharp()
+        .ConfigureFonts(f => f.AddFont("OpenSans-Regular.ttf", "OpenSansRegular"));
 
-            // Register data & API services
-            builder.Services.AddSingleton<IEnvironmentalDataService, SqlDataService>();
+      // ─── Core services ────────────────────────────────────────────────────
 
-            // Register chart transformer
-            builder.Services.AddSingleton<IChartTransformer, LogBinningTransformer>();
+      builder.Services.AddSingleton<IFileSystemService, MauiFileSystemService>();
 
-            // Register ViewModels
-            builder.Services.AddSingleton<HistoricalDataViewModel>();
+      // Now the compiler knows what SQLiteAsyncConnection is:
+      builder.Services.AddSingleton(sp =>
+      {
+        var folder = sp.GetRequiredService<IFileSystemService>().AppDataDirectory;
+        var path   = Path.Combine(folder, "enviro.db3");
+        return new SQLiteAsyncConnection(path);
+      });
 
-            // Register Pages
-            builder.Services.AddSingleton<HistoricalDataPage>();
-            builder.Services.AddSingleton<AppShell>();
+      builder.Services.AddSingleton<IEnvironmentalDataService, SqlDataService>();
+      builder.Services.AddHttpClient();
+      builder.Services.AddSingleton<IChartTransformer, LogBinningTransformer>();
 
-            return builder.Build();
-        }
+      // ─── UI ────────────────────────────────────────────────────────────────
+
+      builder.Services.AddTransient<HistoricalDataViewModel>();
+      builder.Services.AddTransient<HistoricalDataPage>();
+      builder.Services.AddSingleton<AppShell>();
+
+      return builder.Build();
     }
+  }
 }

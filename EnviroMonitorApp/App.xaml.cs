@@ -1,4 +1,7 @@
 ﻿// App.xaml.cs
+using System;
+using System.Diagnostics;           // ← add this
+using EnviroMonitorApp.Views;
 using Microsoft.Maui.Controls;
 
 namespace EnviroMonitorApp
@@ -17,7 +20,17 @@ namespace EnviroMonitorApp
         public App(AppShell shell)
         {
             InitializeComponent();
-            MainPage = shell; // Set the AppShell as the root page
+
+            try
+            {
+                MainPage = shell;
+                Debug.WriteLine("[App] MainPage set to AppShell");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[App] 🔥 Exception in ctor: {ex}");
+                throw;
+            }
         }
     }
 }

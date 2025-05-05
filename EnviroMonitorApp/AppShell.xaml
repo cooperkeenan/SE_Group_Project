@@ -3,13 +3,20 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:EnviroMonitorApp.Views"
-    x:Class="EnviroMonitorApp.AppShell">
+    x:Class="EnviroMonitorApp.AppShell"
+    Shell.FlyoutBehavior="Disabled">
 
-  <!-- only one menu item -->
-  <ShellItem Title="History">
+  <!-- Title bar style, etc. -->
+  <Shell.Resources>
+    <!-- your styles here -->
+  </Shell.Resources>
+
+  <!-- Single tab containing your HistoricalDataPage -->
+  <TabBar>
     <ShellContent
-      Title="Historical Data"
+      Title="History"
+      Icon="history_icon.png"
       ContentTemplate="{DataTemplate views:HistoricalDataPage}" />
-  </ShellItem>
+  </TabBar>
 
 </Shell>
