@@ -4,16 +4,19 @@ using EnviroMonitor.Core.Models;
 
 namespace EnviroMonitor.Core.Services
 {
+    /// <summary>
+    /// Defines the operations a backup service must support.
+    /// </summary>
     public interface IBackupService
     {
         /// <summary>
-        /// Copies the four Excel files from the app package into 
-        /// the backup folder, then records a Backup row.
+        /// Executes a one‑off backup immediately and returns the
+        /// resulting <see cref="Backup"/> record.
         /// </summary>
         Task<Backup> CreateManualBackupAsync();
 
         /// <summary>
-        /// All past backups, newest first.
+        /// Retrieves all recorded backups, newest first.
         /// </summary>
         Task<IReadOnlyList<Backup>> GetBackupHistoryAsync();
     }

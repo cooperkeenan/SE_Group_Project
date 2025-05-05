@@ -19,9 +19,10 @@ Thumbs.db
 # NuGet packages
 *.nupkg
 packages/
-# The packages folder can be ignored because of PackageReference but
-# if you restore to packages folder uncomment:
-# packages/*
 
 # Azure Pipelines
 .vscode/*
+
+# DocFX
+docs/_site/
+docs/api/

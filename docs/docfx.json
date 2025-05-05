@@ -1,29 +1,46 @@
 {
-    "metadata": [
+  "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../EnviroMonitor.Core",
+          "files": [
+            "EnviroMonitor.Core.csproj"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
       {
-        "src": [
-          {
-            "files": [ "../../EnviroMonitor.Core/**/*.csproj" ],
-            "exclude": [ "**/obj/**", "**/bin/**" ]
-          }
+        "files": [
+          "**/*.{md,yml}"
         ],
-        "dest": "api",
-        "filter": "apiFilterConfig.yml"
+        "exclude": [
+          "_site/**"
+        ]
       }
     ],
-    "build": {
-      "content": [
-        { "files": [ "**/*.md", "**/*.yml" ], "src": "articles" },
-        { "files": [ "api/**.yml" ] }
-      ],
-      "resource": [
-        { "files": [ "**/images/**" ], "src": "articles" }
-      ],
-      "dest": "_site",
-      "globalMetadata": {
-        "_appTitle": "EnviroMonitor Docs"
-      },
-      "template": [ "default", "templates/clinic" ]
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appName": "EnviroMonitor",
+      "_appTitle": "EnviroMonitor",
+      "_enableSearch": true,
+      "pdf": true
     }
   }
-  
+}

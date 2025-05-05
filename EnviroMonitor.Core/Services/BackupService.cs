@@ -7,15 +7,34 @@ using SQLite;
 
 namespace EnviroMonitor.Core.Services
 {
+    /// <summary>
+    /// Handles creating and tracking backups of the four Excel data files.
+    /// </summary>
     public class BackupService : IBackupService
     {
-        readonly SQLiteAsyncConnection _db;
-        readonly string _sourceFolder;
-        readonly string _backupFolder;
+        // -----------------------------------------------------------------
+        // Fields
+        // -----------------------------------------------------------------
+        private readonly SQLiteAsyncConnection _db;
+        private readonly string _sourceFolder;
+        private readonly string _backupFolder;
 
-        /// <param name="dbPath">Full path to enviro.db3</param>
-        /// <param name="sourceFolder">Where the four Excel files live</param>
-        /// <param name="backupFolder">Where to copy them</param>
+        // -----------------------------------------------------------------
+        // Construction
+        // -----------------------------------------------------------------
+
+        /// <summary>
+        /// Creates a new <see cref="BackupService"/>.
+        /// </summary>
+        /// <param name="dbPath">
+        /// Full path to the SQLite database file (<c>enviro.db3</c>).
+        /// </param>
+        /// <param name="sourceFolder">
+        /// Folder that currently contains the four live Excel files.
+        /// </param>
+        /// <param name="backupFolder">
+        /// Destination folder where the copies will be placed.
+        /// </param>
         public BackupService(string dbPath, string sourceFolder, string backupFolder)
         {
             _db           = new SQLiteAsyncConnection(dbPath);
@@ -23,10 +42,23 @@ namespace EnviroMonitor.Core.Services
             _backupFolder = backupFolder;
         }
 
+        // -----------------------------------------------------------------
+        // Public API
+        // -----------------------------------------------------------------
+
+        /// <summary>
+        /// Copies the four Excel files to <see cref="_backupFolder"/>
+        /// and records the outcome in the database.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="Backup"/> record reflecting success or failure.
+        /// </returns>
         public async Task<Backup> CreateManualBackupAsync()
         {
+            // make sure table exists
             await _db.CreateTableAsync<Backup>();
 
+            // insert initial "pending" record
             var record = new Backup
             {
                 Timestamp = DateTime.UtcNow,
@@ -38,7 +70,6 @@ namespace EnviroMonitor.Core.Services
 
             try
             {
-                // ensure backup folder exists
                 Directory.CreateDirectory(_backupFolder);
 
                 var files = new[]
@@ -56,12 +87,14 @@ namespace EnviroMonitor.Core.Services
                     File.Copy(srcPath, destPath, overwrite: true);
                 }
 
+                // success
                 record.Status  = BackupStatus.Success;
                 record.Details = $"Copied {files.Length} files.";
                 record.Path    = _backupFolder;
             }
             catch (Exception ex)
             {
+                // failure
                 record.Status  = BackupStatus.Failure;
                 record.Details = ex.Message;
             }
@@ -70,6 +103,9 @@ namespace EnviroMonitor.Core.Services
             return record;
         }
 
+        /// <summary>
+        /// Returns the backup history, newest first.
+        /// </summary>
         public Task<IReadOnlyList<Backup>> GetBackupHistoryAsync() =>
             _db.Table<Backup>()
                .OrderByDescending(b => b.Timestamp)

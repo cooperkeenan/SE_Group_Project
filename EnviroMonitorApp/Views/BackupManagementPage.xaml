@@ -1,44 +1,56 @@
 <?xml version="1.0" encoding="utf-8" ?>
+
 <ContentPage
     x:Class="EnviroMonitorApp.Views.BackupManagementPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Backups">
 
+  <!-- Layout root -->
   <StackLayout Padding="20" Spacing="12">
 
-    <!-- Create & Refresh -->
+    <!-- ───────── Commands ───────── -->
+
+    <!-- Starts a new backup -->
     <Button
       Text="▶ Create Backup"
       Command="{Binding TriggerBackupCommand}"
       HorizontalOptions="Center" />
 
+    <!-- Reloads the history list -->
     <Button
       Text="↻ Refresh History"
       Command="{Binding RefreshHistoryCommand}"
       HorizontalOptions="Center" />
 
-    <!-- NEW: Share -->
+    <!-- Shares the most recent backup via OS share sheet -->
     <Button
       Text="🔗 Share Last Backup"
       Command="{Binding ShareLastBackupCommand}"
       HorizontalOptions="Center" />
 
+    <!-- ───────── History header ───────── -->
     <Label
       Text="Backup History"
       FontAttributes="Bold"
       Margin="0,10,0,0" />
 
+    <!-- ───────── History list ───────── -->
     <CollectionView ItemsSource="{Binding History}">
       <CollectionView.ItemTemplate>
         <DataTemplate>
+          <!-- One backup record -->
           <Frame Margin="0,6" Padding="12" HasShadow="False" BorderColor="LightGray">
             <StackLayout>
+              <!-- Time stamp -->
               <Label
                 Text="{Binding Timestamp, StringFormat='{}{0:yyyy-MM-dd HH:mm}'}"
                 FontAttributes="Bold" />
+              <!-- Status (Success / Failure / Pending) -->
               <Label Text="{Binding Status}" FontAttributes="Italic" />
+              <!-- Free‑form details -->
               <Label Text="{Binding Details}" FontSize="Small" />
+              <!-- File path of backup -->
               <Label Text="{Binding Path}" FontSize="Micro" TextColor="Gray" />
             </StackLayout>
           </Frame>

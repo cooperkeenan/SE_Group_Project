@@ -7,45 +7,64 @@ using Microsoft.Maui.Storage;
 using EnviroMonitorApp.Views;
 using EnviroMonitor.Core.ViewModels;
 using EnviroMonitor.Core.Services;
-using SQLitePCL;            // for Batteries.Init()
+using SQLitePCL;
 
 namespace EnviroMonitorApp
 {
+    /// <summary>
+    /// Boot‑strapper that builds and configures the MAUI application.
+    /// </summary>
     public static class MauiProgram
     {
+        /// <summary>
+        /// Creates the <see cref="MauiApp"/> instance with all services,
+        /// pages, and view‑models registered in the DI container.
+        /// </summary>
         public static MauiApp CreateMauiApp()
         {
-            // 1) Initialize the native SQLite provider
-            Batteries.Init();
+            //
+            // ─── Native SQLite initialisation ───
+            //
+            Batteries.Init(); // required by SQLitePCLRaw on Android/iOS
 
+            //
+            // ─── MAUI builder ───
+            //
             var builder = MauiApp.CreateBuilder();
 
             builder
-                .UseMauiApp<App>()
-                .ConfigureFonts(fonts =>
+                .UseMauiApp<App>()               // root Application
+                .ConfigureFonts(fonts =>          // add one custom font
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
 
-            // 2) Register your Shell, Pages & ViewModels
+            //
+            // ─── Dependency‑injection registrations ───
+            //
+            // Shell
             builder.Services.AddSingleton<AppShell>();
+
+            // Pages
             builder.Services.AddTransient<DashboardPage>();
             builder.Services.AddTransient<UserManagementPage>();
             builder.Services.AddTransient<SensorConfigurationPage>();
             builder.Services.AddTransient<SensorHistoryPage>();
             builder.Services.AddTransient<BackupManagementPage>();
+
+            // View‑models
             builder.Services.AddTransient<BackupManagementViewModel>();
 
             //
-            // 3) Prepare on-disk folders
+            // ─── Application data paths ───
             //
-            // Base app data folder (sandboxed)
-            string appData       = FileSystem.AppDataDirectory;
+            string appData = FileSystem.AppDataDirectory; // platform‑safe folder
 
-            // 3a) Copy embedded Excel files from Resources/Raw/data → AppDataDirectory/data
-            string sourceFolder  = Path.Combine(appData, "data");
+            // Location that holds the four live Excel files
+            string sourceFolder = Path.Combine(appData, "data");
             Directory.CreateDirectory(sourceFolder);
 
+            // First‑run: copy embedded seed files to the data folder
             foreach (var fileName in new[]
             {
                 "Air_quality.xlsx",
@@ -54,31 +73,29 @@ namespace EnviroMonitorApp
                 "Weather.xlsx"
             })
             {
-                // OpenAppPackageFileAsync("data/...") points at Resources/Raw/data/...
-                using var embedded = FileSystem.OpenAppPackageFileAsync($"data/{fileName}").Result;
-                var destPath = Path.Combine(sourceFolder, fileName);
+                using var embedded  = FileSystem.OpenAppPackageFileAsync($"data/{fileName}").Result;
+                var destPath        = Path.Combine(sourceFolder, fileName);
 
-                // Overwrite if it already exists
                 using var destStream = File.Create(destPath);
                 embedded.CopyTo(destStream);
             }
 
-            // 3b) Define where backups should go
-            string backupFolder  = Path.Combine(appData, "backup_data");
+            // Folder where backups will be written
+            string backupFolder = Path.Combine(appData, "backup_data");
             Directory.CreateDirectory(backupFolder);
 
-            // 3c) Define your SQLite DB path
-            string dbPath        = Path.Combine(appData, "enviro.db3");
+            // SQLite database path
+            string dbPath = Path.Combine(appData, "enviro.db3");
 
             //
-            // 4) Register the Core BackupService
+            // Register the backup‑service singleton
             //
-            //    It will internally create its own SQLiteAsyncConnection(dbPath)
-            //    and pull from `sourceFolder`, dumping into `backupFolder`.
             builder.Services.AddSingleton<IBackupService>(_ =>
-                new BackupService(dbPath, sourceFolder, backupFolder)
-            );
+                new BackupService(dbPath, sourceFolder, backupFolder));
 
+            //
+            // ─── Build & return the app ───
+            //
             return builder.Build();
         }
     }
