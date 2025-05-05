@@ -10,12 +10,5 @@ namespace EnviroMonitorApp.Views
             InitializeComponent();
             BindingContext = vm;
         }
-
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            if (BindingContext is BackupManagementViewModel vm)
-                await vm.InitializeAsync();
-        }
     }
 }

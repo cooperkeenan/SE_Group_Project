@@ -3,34 +3,43 @@
     x:Class="EnviroMonitorApp.Views.BackupManagementPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="Backup Management">
+    Title="Backups">
 
-  <ContentPage.ToolbarItems>
-    <ToolbarItem Text="Refresh"
-                 Command="{Binding RefreshHistoryCommand}" />
-  </ContentPage.ToolbarItems>
+  <StackLayout Padding="20" Spacing="12">
 
-  <StackLayout Padding="20" Spacing="15">
+    <!-- Create & Refresh -->
+    <Button
+      Text="▶ Create Backup"
+      Command="{Binding TriggerBackupCommand}"
+      HorizontalOptions="Center" />
 
-    <!-- Next scheduled run -->
-    <Frame HasShadow="False" BorderColor="LightGray" Padding="10">
-      <Label Text="{Binding NextSchedule.NextRun, StringFormat='Next backup: {0:yyyy-MM-dd HH:mm}'}" />
-    </Frame>
+    <Button
+      Text="↻ Refresh History"
+      Command="{Binding RefreshHistoryCommand}"
+      HorizontalOptions="Center" />
 
-    <!-- Manual trigger -->
-    <Button Text="Trigger Manual Backup"
-            Command="{Binding TriggerBackupCommand}"
-            HorizontalOptions="Center" />
+    <!-- NEW: Share -->
+    <Button
+      Text="🔗 Share Last Backup"
+      Command="{Binding ShareLastBackupCommand}"
+      HorizontalOptions="Center" />
 
-    <!-- History -->
-    <Label Text="Backup History" FontAttributes="Bold" />
+    <Label
+      Text="Backup History"
+      FontAttributes="Bold"
+      Margin="0,10,0,0" />
+
     <CollectionView ItemsSource="{Binding History}">
       <CollectionView.ItemTemplate>
         <DataTemplate>
-          <Frame Margin="0,5" Padding="10" HasShadow="False" BorderColor="Gray">
+          <Frame Margin="0,6" Padding="12" HasShadow="False" BorderColor="LightGray">
             <StackLayout>
-              <Label Text="{Binding ToString()}" />
-              <Label Text="{Binding Details}" FontAttributes="Italic" FontSize="Small" />
+              <Label
+                Text="{Binding Timestamp, StringFormat='{}{0:yyyy-MM-dd HH:mm}'}"
+                FontAttributes="Bold" />
+              <Label Text="{Binding Status}" FontAttributes="Italic" />
+              <Label Text="{Binding Details}" FontSize="Small" />
+              <Label Text="{Binding Path}" FontSize="Micro" TextColor="Gray" />
             </StackLayout>
           </Frame>
         </DataTemplate>
