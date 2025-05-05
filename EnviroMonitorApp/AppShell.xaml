@@ -6,10 +6,6 @@
     x:Class="EnviroMonitorApp.AppShell"
     Shell.FlyoutBehavior="Disabled">
 
-  <!-- Title bar style, etc. -->
-  <Shell.Resources>
-    <!-- your styles here -->
-  </Shell.Resources>
 
   <!-- Single tab containing your HistoricalDataPage -->
   <TabBar>

@@ -35,7 +35,7 @@
     </HorizontalStackLayout>
 
     <!-- Load button -->
-    <Button Text="Load Data"
+    <Button Text="Load "
             Command="{Binding LoadDataCommand}"
             IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}" />
 
