@@ -1,0 +1,61 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitor.Core.Mvvm
+  commentId: N:EnviroMonitor.Core.Mvvm
+  id: EnviroMonitor.Core.Mvvm
+  children:
+  - EnviroMonitor.Core.Mvvm.ObservableObject
+  - EnviroMonitor.Core.Mvvm.RelayCommand
+  langs:
+  - csharp
+  - vb
+  name: EnviroMonitor.Core.Mvvm
+  nameWithType: EnviroMonitor.Core.Mvvm
+  fullName: EnviroMonitor.Core.Mvvm
+  type: Namespace
+  assemblies:
+  - EnviroMonitor.Core
+references:
+- uid: EnviroMonitor.Core.Mvvm.ObservableObject
+  commentId: T:EnviroMonitor.Core.Mvvm.ObservableObject
+  parent: EnviroMonitor.Core.Mvvm
+  href: EnviroMonitor.Core.Mvvm.ObservableObject.html
+  name: ObservableObject
+  nameWithType: ObservableObject
+  fullName: EnviroMonitor.Core.Mvvm.ObservableObject
+- uid: EnviroMonitor.Core.Mvvm.RelayCommand
+  commentId: T:EnviroMonitor.Core.Mvvm.RelayCommand
+  href: EnviroMonitor.Core.Mvvm.RelayCommand.html
+  name: RelayCommand
+  nameWithType: RelayCommand
+  fullName: EnviroMonitor.Core.Mvvm.RelayCommand
+- uid: EnviroMonitor.Core.Mvvm
+  commentId: N:EnviroMonitor.Core.Mvvm
+  href: EnviroMonitor.html
+  name: EnviroMonitor.Core.Mvvm
+  nameWithType: EnviroMonitor.Core.Mvvm
+  fullName: EnviroMonitor.Core.Mvvm
+  spec.csharp:
+  - uid: EnviroMonitor
+    name: EnviroMonitor
+    href: EnviroMonitor.html
+  - name: .
+  - uid: EnviroMonitor.Core
+    name: Core
+    href: EnviroMonitor.Core.html
+  - name: .
+  - uid: EnviroMonitor.Core.Mvvm
+    name: Mvvm
+    href: EnviroMonitor.Core.Mvvm.html
+  spec.vb:
+  - uid: EnviroMonitor
+    name: EnviroMonitor
+    href: EnviroMonitor.html
+  - name: .
+  - uid: EnviroMonitor.Core
+    name: Core
+    href: EnviroMonitor.Core.html
+  - name: .
+  - uid: EnviroMonitor.Core.Mvvm
+    name: Mvvm
+    href: EnviroMonitor.Core.Mvvm.html

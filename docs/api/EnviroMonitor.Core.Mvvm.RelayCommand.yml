@@ -1,0 +1,828 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitor.Core.Mvvm.RelayCommand
+  commentId: T:EnviroMonitor.Core.Mvvm.RelayCommand
+  id: RelayCommand
+  parent: EnviroMonitor.Core.Mvvm
+  children:
+  - EnviroMonitor.Core.Mvvm.RelayCommand.#ctor(System.Func{System.Threading.Tasks.Task},System.Func{System.Boolean})
+  - EnviroMonitor.Core.Mvvm.RelayCommand.CanExecute(System.Object)
+  - EnviroMonitor.Core.Mvvm.RelayCommand.CanExecuteChanged
+  - EnviroMonitor.Core.Mvvm.RelayCommand.Execute(System.Object)
+  - EnviroMonitor.Core.Mvvm.RelayCommand.RaiseCanExecuteChanged
+  langs:
+  - csharp
+  - vb
+  name: RelayCommand
+  nameWithType: RelayCommand
+  fullName: EnviroMonitor.Core.Mvvm.RelayCommand
+  type: Class
+  source:
+    remote:
+      path: EnviroMonitor.Core/Nvvm/RelayCommand.cs
+      branch: features/backup
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: RelayCommand
+    path: ../EnviroMonitor.Core/Nvvm/RelayCommand.cs
+    startLine: 19
+  assemblies:
+  - EnviroMonitor.Core
+  namespace: EnviroMonitor.Core.Mvvm
+  summary: A small helper that lets you bind any async method to a UI control.
+  remarks: >-
+    <p>
+
+    Typical XAML usage:
+
+    <pre><code class="lang-xml">&lt;Button Content="Save"
+            Command="{Binding SaveCommand}" /&gt;</code></pre>
+    </p>
+  example: []
+  syntax:
+    content: 'public class RelayCommand : ICommand'
+    content.vb: Public Class RelayCommand Implements ICommand
+  inheritance:
+  - System.Object
+  implements:
+  - System.Windows.Input.ICommand
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: EnviroMonitor.Core.Mvvm.RelayCommand.#ctor(System.Func{System.Threading.Tasks.Task},System.Func{System.Boolean})
+  commentId: M:EnviroMonitor.Core.Mvvm.RelayCommand.#ctor(System.Func{System.Threading.Tasks.Task},System.Func{System.Boolean})
+  id: '#ctor(System.Func{System.Threading.Tasks.Task},System.Func{System.Boolean})'
+  parent: EnviroMonitor.Core.Mvvm.RelayCommand
+  langs:
+  - csharp
+  - vb
+  name: RelayCommand(Func<Task>, Func<bool>?)
+  nameWithType: RelayCommand.RelayCommand(Func<Task>, Func<bool>?)
+  fullName: EnviroMonitor.Core.Mvvm.RelayCommand.RelayCommand(System.Func<System.Threading.Tasks.Task>, System.Func<bool>?)
+  type: Constructor
+  source:
+    remote:
+      path: EnviroMonitor.Core/Nvvm/RelayCommand.cs
+      branch: features/backup
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: .ctor
+    path: ../EnviroMonitor.Core/Nvvm/RelayCommand.cs
+    startLine: 53
+  assemblies:
+  - EnviroMonitor.Core
+  namespace: EnviroMonitor.Core.Mvvm
+  summary: Creates a new command.
+  example: []
+  syntax:
+    content: public RelayCommand(Func<Task> execute, Func<bool>? canExecute = null)
+    parameters:
+    - id: execute
+      type: System.Func{System.Threading.Tasks.Task}
+      description: >-
+        The async delegate to run.  
+
+        Must not be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+    - id: canExecute
+      type: System.Func{System.Boolean}
+      description: >-
+        Optional delegate that returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the
+
+        command should be enabled.  
+
+        If omitted, the command is always enabled.
+    content.vb: Public Sub New(execute As Func(Of Task), canExecute As Func(Of Boolean) = Nothing)
+  overload: EnviroMonitor.Core.Mvvm.RelayCommand.#ctor*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">execute</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  nameWithType.vb: RelayCommand.New(Func(Of Task), Func(Of Boolean))
+  fullName.vb: EnviroMonitor.Core.Mvvm.RelayCommand.New(System.Func(Of System.Threading.Tasks.Task), System.Func(Of Boolean))
+  name.vb: New(Func(Of Task), Func(Of Boolean))
+- uid: EnviroMonitor.Core.Mvvm.RelayCommand.CanExecute(System.Object)
+  commentId: M:EnviroMonitor.Core.Mvvm.RelayCommand.CanExecute(System.Object)
+  id: CanExecute(System.Object)
+  parent: EnviroMonitor.Core.Mvvm.RelayCommand
+  langs:
+  - csharp
+  - vb
+  name: CanExecute(object?)
+  nameWithType: RelayCommand.CanExecute(object?)
+  fullName: EnviroMonitor.Core.Mvvm.RelayCommand.CanExecute(object?)
+  type: Method
+  source:
+    remote:
+      path: EnviroMonitor.Core/Nvvm/RelayCommand.cs
+      branch: features/backup
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: CanExecute
+    path: ../EnviroMonitor.Core/Nvvm/RelayCommand.cs
+    startLine: 71
+  assemblies:
+  - EnviroMonitor.Core
+  namespace: EnviroMonitor.Core.Mvvm
+  summary: Checks whether the command can run.
+  example: []
+  syntax:
+    content: public bool CanExecute(object? parameter)
+    parameters:
+    - id: parameter
+      type: System.Object
+      description: Not used.
+    return:
+      type: System.Boolean
+      description: >-
+        The result of <xref href="EnviroMonitor.Core.Mvvm.RelayCommand._canExecute" data-throw-if-not-resolved="false"></xref> when supplied;
+
+        otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+    content.vb: Public Function CanExecute(parameter As Object) As Boolean
+  overload: EnviroMonitor.Core.Mvvm.RelayCommand.CanExecute*
+  implements:
+  - System.Windows.Input.ICommand.CanExecute(System.Object)
+  nameWithType.vb: RelayCommand.CanExecute(Object)
+  fullName.vb: EnviroMonitor.Core.Mvvm.RelayCommand.CanExecute(Object)
+  name.vb: CanExecute(Object)
+- uid: EnviroMonitor.Core.Mvvm.RelayCommand.Execute(System.Object)
+  commentId: M:EnviroMonitor.Core.Mvvm.RelayCommand.Execute(System.Object)
+  id: Execute(System.Object)
+  parent: EnviroMonitor.Core.Mvvm.RelayCommand
+  langs:
+  - csharp
+  - vb
+  name: Execute(object?)
+  nameWithType: RelayCommand.Execute(object?)
+  fullName: EnviroMonitor.Core.Mvvm.RelayCommand.Execute(object?)
+  type: Method
+  source:
+    remote:
+      path: EnviroMonitor.Core/Nvvm/RelayCommand.cs
+      branch: features/backup
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Execute
+    path: ../EnviroMonitor.Core/Nvvm/RelayCommand.cs
+    startLine: 79
+  assemblies:
+  - EnviroMonitor.Core
+  namespace: EnviroMonitor.Core.Mvvm
+  summary: >-
+    Executes the async delegate.  
+
+    Any exceptions are ignored; handle them inside your delegate.
+  example: []
+  syntax:
+    content: public void Execute(object? parameter)
+    parameters:
+    - id: parameter
+      type: System.Object
+      description: Not used.
+    content.vb: Public Sub Execute(parameter As Object)
+  overload: EnviroMonitor.Core.Mvvm.RelayCommand.Execute*
+  implements:
+  - System.Windows.Input.ICommand.Execute(System.Object)
+  nameWithType.vb: RelayCommand.Execute(Object)
+  fullName.vb: EnviroMonitor.Core.Mvvm.RelayCommand.Execute(Object)
+  name.vb: Execute(Object)
+- uid: EnviroMonitor.Core.Mvvm.RelayCommand.CanExecuteChanged
+  commentId: E:EnviroMonitor.Core.Mvvm.RelayCommand.CanExecuteChanged
+  id: CanExecuteChanged
+  parent: EnviroMonitor.Core.Mvvm.RelayCommand
+  langs:
+  - csharp
+  - vb
+  name: CanExecuteChanged
+  nameWithType: RelayCommand.CanExecuteChanged
+  fullName: EnviroMonitor.Core.Mvvm.RelayCommand.CanExecuteChanged
+  type: Event
+  source:
+    remote:
+      path: EnviroMonitor.Core/Nvvm/RelayCommand.cs
+      branch: features/backup
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: CanExecuteChanged
+    path: ../EnviroMonitor.Core/Nvvm/RelayCommand.cs
+    startLine: 85
+  assemblies:
+  - EnviroMonitor.Core
+  namespace: EnviroMonitor.Core.Mvvm
+  summary: >-
+    Event that UI frameworks listen to in order to re‑query
+
+    <xref href="EnviroMonitor.Core.Mvvm.RelayCommand.CanExecute(System.Object)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public event EventHandler? CanExecuteChanged
+    return:
+      type: System.EventHandler
+    content.vb: Public Event CanExecuteChanged As EventHandler
+  implements:
+  - System.Windows.Input.ICommand.CanExecuteChanged
+- uid: EnviroMonitor.Core.Mvvm.RelayCommand.RaiseCanExecuteChanged
+  commentId: M:EnviroMonitor.Core.Mvvm.RelayCommand.RaiseCanExecuteChanged
+  id: RaiseCanExecuteChanged
+  parent: EnviroMonitor.Core.Mvvm.RelayCommand
+  langs:
+  - csharp
+  - vb
+  name: RaiseCanExecuteChanged()
+  nameWithType: RelayCommand.RaiseCanExecuteChanged()
+  fullName: EnviroMonitor.Core.Mvvm.RelayCommand.RaiseCanExecuteChanged()
+  type: Method
+  source:
+    remote:
+      path: EnviroMonitor.Core/Nvvm/RelayCommand.cs
+      branch: features/backup
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: RaiseCanExecuteChanged
+    path: ../EnviroMonitor.Core/Nvvm/RelayCommand.cs
+    startLine: 96
+  assemblies:
+  - EnviroMonitor.Core
+  namespace: EnviroMonitor.Core.Mvvm
+  summary: >-
+    Forces the UI to ask again whether the command is enabled.
+
+    Call this after something that affects <xref href="EnviroMonitor.Core.Mvvm.RelayCommand._canExecute" data-throw-if-not-resolved="false"></xref>
+
+    changes (for example, when form validation state flips).
+  example: []
+  syntax:
+    content: public void RaiseCanExecuteChanged()
+    content.vb: Public Sub RaiseCanExecuteChanged()
+  overload: EnviroMonitor.Core.Mvvm.RelayCommand.RaiseCanExecuteChanged*
+references:
+- uid: EnviroMonitor.Core.Mvvm
+  commentId: N:EnviroMonitor.Core.Mvvm
+  href: EnviroMonitor.html
+  name: EnviroMonitor.Core.Mvvm
+  nameWithType: EnviroMonitor.Core.Mvvm
+  fullName: EnviroMonitor.Core.Mvvm
+  spec.csharp:
+  - uid: EnviroMonitor
+    name: EnviroMonitor
+    href: EnviroMonitor.html
+  - name: .
+  - uid: EnviroMonitor.Core
+    name: Core
+    href: EnviroMonitor.Core.html
+  - name: .
+  - uid: EnviroMonitor.Core.Mvvm
+    name: Mvvm
+    href: EnviroMonitor.Core.Mvvm.html
+  spec.vb:
+  - uid: EnviroMonitor
+    name: EnviroMonitor
+    href: EnviroMonitor.html
+  - name: .
+  - uid: EnviroMonitor.Core
+    name: Core
+    href: EnviroMonitor.Core.html
+  - name: .
+  - uid: EnviroMonitor.Core.Mvvm
+    name: Mvvm
+    href: EnviroMonitor.Core.Mvvm.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Windows.Input.ICommand
+  commentId: T:System.Windows.Input.ICommand
+  parent: System.Windows.Input
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.windows.input.icommand
+  name: ICommand
+  nameWithType: ICommand
+  fullName: System.Windows.Input.ICommand
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Windows.Input
+  commentId: N:System.Windows.Input
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Windows.Input
+  nameWithType: System.Windows.Input
+  fullName: System.Windows.Input
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.input
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.input
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: EnviroMonitor.Core.Mvvm.RelayCommand.#ctor*
+  commentId: Overload:EnviroMonitor.Core.Mvvm.RelayCommand.#ctor
+  href: EnviroMonitor.Core.Mvvm.RelayCommand.html#EnviroMonitor_Core_Mvvm_RelayCommand__ctor_System_Func_System_Threading_Tasks_Task__System_Func_System_Boolean__
+  name: RelayCommand
+  nameWithType: RelayCommand.RelayCommand
+  fullName: EnviroMonitor.Core.Mvvm.RelayCommand.RelayCommand
+  nameWithType.vb: RelayCommand.New
+  fullName.vb: EnviroMonitor.Core.Mvvm.RelayCommand.New
+  name.vb: New
+- uid: System.Func{System.Threading.Tasks.Task}
+  commentId: T:System.Func{System.Threading.Tasks.Task}
+  parent: System
+  definition: System.Func`1
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<Task>
+  nameWithType: Func<Task>
+  fullName: System.Func<System.Threading.Tasks.Task>
+  nameWithType.vb: Func(Of Task)
+  fullName.vb: System.Func(Of System.Threading.Tasks.Task)
+  name.vb: Func(Of Task)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  - name: )
+- uid: System.Func{System.Boolean}
+  commentId: T:System.Func{System.Boolean}
+  parent: System
+  definition: System.Func`1
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<bool>
+  nameWithType: Func<bool>
+  fullName: System.Func<bool>
+  nameWithType.vb: Func(Of Boolean)
+  fullName.vb: System.Func(Of Boolean)
+  name.vb: Func(Of Boolean)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Func`1
+  commentId: T:System.Func`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<TResult>
+  nameWithType: Func<TResult>
+  fullName: System.Func<TResult>
+  nameWithType.vb: Func(Of TResult)
+  fullName.vb: System.Func(Of TResult)
+  name.vb: Func(Of TResult)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: EnviroMonitor.Core.Mvvm.RelayCommand._canExecute
+  commentId: F:EnviroMonitor.Core.Mvvm.RelayCommand._canExecute
+  name: _canExecute
+  nameWithType: RelayCommand._canExecute
+  fullName: EnviroMonitor.Core.Mvvm.RelayCommand._canExecute
+- uid: EnviroMonitor.Core.Mvvm.RelayCommand.CanExecute*
+  commentId: Overload:EnviroMonitor.Core.Mvvm.RelayCommand.CanExecute
+  href: EnviroMonitor.Core.Mvvm.RelayCommand.html#EnviroMonitor_Core_Mvvm_RelayCommand_CanExecute_System_Object_
+  name: CanExecute
+  nameWithType: RelayCommand.CanExecute
+  fullName: EnviroMonitor.Core.Mvvm.RelayCommand.CanExecute
+- uid: System.Windows.Input.ICommand.CanExecute(System.Object)
+  commentId: M:System.Windows.Input.ICommand.CanExecute(System.Object)
+  parent: System.Windows.Input.ICommand
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.windows.input.icommand.canexecute
+  name: CanExecute(object)
+  nameWithType: ICommand.CanExecute(object)
+  fullName: System.Windows.Input.ICommand.CanExecute(object)
+  nameWithType.vb: ICommand.CanExecute(Object)
+  fullName.vb: System.Windows.Input.ICommand.CanExecute(Object)
+  name.vb: CanExecute(Object)
+  spec.csharp:
+  - uid: System.Windows.Input.ICommand.CanExecute(System.Object)
+    name: CanExecute
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.input.icommand.canexecute
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Windows.Input.ICommand.CanExecute(System.Object)
+    name: CanExecute
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.input.icommand.canexecute
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: EnviroMonitor.Core.Mvvm.RelayCommand.Execute*
+  commentId: Overload:EnviroMonitor.Core.Mvvm.RelayCommand.Execute
+  href: EnviroMonitor.Core.Mvvm.RelayCommand.html#EnviroMonitor_Core_Mvvm_RelayCommand_Execute_System_Object_
+  name: Execute
+  nameWithType: RelayCommand.Execute
+  fullName: EnviroMonitor.Core.Mvvm.RelayCommand.Execute
+- uid: System.Windows.Input.ICommand.Execute(System.Object)
+  commentId: M:System.Windows.Input.ICommand.Execute(System.Object)
+  parent: System.Windows.Input.ICommand
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.windows.input.icommand.execute
+  name: Execute(object)
+  nameWithType: ICommand.Execute(object)
+  fullName: System.Windows.Input.ICommand.Execute(object)
+  nameWithType.vb: ICommand.Execute(Object)
+  fullName.vb: System.Windows.Input.ICommand.Execute(Object)
+  name.vb: Execute(Object)
+  spec.csharp:
+  - uid: System.Windows.Input.ICommand.Execute(System.Object)
+    name: Execute
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.input.icommand.execute
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Windows.Input.ICommand.Execute(System.Object)
+    name: Execute
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.windows.input.icommand.execute
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: EnviroMonitor.Core.Mvvm.RelayCommand.CanExecute(System.Object)
+  commentId: M:EnviroMonitor.Core.Mvvm.RelayCommand.CanExecute(System.Object)
+  isExternal: true
+  href: EnviroMonitor.Core.Mvvm.RelayCommand.html#EnviroMonitor_Core_Mvvm_RelayCommand_CanExecute_System_Object_
+  name: CanExecute(object)
+  nameWithType: RelayCommand.CanExecute(object)
+  fullName: EnviroMonitor.Core.Mvvm.RelayCommand.CanExecute(object)
+  nameWithType.vb: RelayCommand.CanExecute(Object)
+  fullName.vb: EnviroMonitor.Core.Mvvm.RelayCommand.CanExecute(Object)
+  name.vb: CanExecute(Object)
+  spec.csharp:
+  - uid: EnviroMonitor.Core.Mvvm.RelayCommand.CanExecute(System.Object)
+    name: CanExecute
+    href: EnviroMonitor.Core.Mvvm.RelayCommand.html#EnviroMonitor_Core_Mvvm_RelayCommand_CanExecute_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: EnviroMonitor.Core.Mvvm.RelayCommand.CanExecute(System.Object)
+    name: CanExecute
+    href: EnviroMonitor.Core.Mvvm.RelayCommand.html#EnviroMonitor_Core_Mvvm_RelayCommand_CanExecute_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Windows.Input.ICommand.CanExecuteChanged
+  commentId: E:System.Windows.Input.ICommand.CanExecuteChanged
+  parent: System.Windows.Input.ICommand
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.windows.input.icommand.canexecutechanged
+  name: CanExecuteChanged
+  nameWithType: ICommand.CanExecuteChanged
+  fullName: System.Windows.Input.ICommand.CanExecuteChanged
+- uid: System.EventHandler
+  commentId: T:System.EventHandler
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler
+  name: EventHandler
+  nameWithType: EventHandler
+  fullName: System.EventHandler
+- uid: EnviroMonitor.Core.Mvvm.RelayCommand.RaiseCanExecuteChanged*
+  commentId: Overload:EnviroMonitor.Core.Mvvm.RelayCommand.RaiseCanExecuteChanged
+  href: EnviroMonitor.Core.Mvvm.RelayCommand.html#EnviroMonitor_Core_Mvvm_RelayCommand_RaiseCanExecuteChanged
+  name: RaiseCanExecuteChanged
+  nameWithType: RelayCommand.RaiseCanExecuteChanged
+  fullName: EnviroMonitor.Core.Mvvm.RelayCommand.RaiseCanExecuteChanged

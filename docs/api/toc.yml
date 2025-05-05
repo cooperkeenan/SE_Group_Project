@@ -1,0 +1,78 @@
+### YamlMime:TableOfContent
+items:
+- uid: EnviroMonitor.Core.Models
+  name: EnviroMonitor.Core.Models
+  type: Namespace
+  items:
+  - uid: EnviroMonitor.Core.Models.Backup
+    name: Backup
+    type: Class
+  - uid: EnviroMonitor.Core.Models.BackupStatus
+    name: BackupStatus
+    type: Enum
+- uid: EnviroMonitor.Core.Mvvm
+  name: EnviroMonitor.Core.Mvvm
+  type: Namespace
+  items:
+  - uid: EnviroMonitor.Core.Mvvm.ObservableObject
+    name: ObservableObject
+    type: Class
+  - uid: EnviroMonitor.Core.Mvvm.RelayCommand
+    name: RelayCommand
+    type: Class
+- uid: EnviroMonitor.Core.Services
+  name: EnviroMonitor.Core.Services
+  type: Namespace
+  items:
+  - uid: EnviroMonitor.Core.Services.BackupService
+    name: BackupService
+    type: Class
+  - uid: EnviroMonitor.Core.Services.EnvironmentalDataService
+    name: EnvironmentalDataService
+    type: Class
+  - uid: EnviroMonitor.Core.Services.ExcelReaderService
+    name: ExcelReaderService
+    type: Class
+  - uid: EnviroMonitor.Core.Services.IBackupService
+    name: IBackupService
+    type: Interface
+  - uid: EnviroMonitor.Core.Services.IEnvironmentalDataService
+    name: IEnvironmentalDataService
+    type: Interface
+- uid: EnviroMonitor.Core.ViewModels
+  name: EnviroMonitor.Core.ViewModels
+  type: Namespace
+  items:
+  - uid: EnviroMonitor.Core.ViewModels.BackupManagementViewModel
+    name: BackupManagementViewModel
+    type: Class
+- uid: EnviroMonitorApp.Models
+  name: EnviroMonitorApp.Models
+  type: Namespace
+  items:
+  - uid: EnviroMonitorApp.Models.Schedule
+    name: Schedule
+    type: Class
+  - uid: EnviroMonitorApp.Models.WeatherRecord
+    name: WeatherRecord
+    type: Class
+- uid: EnviroMonitorApp.ViewModels
+  name: EnviroMonitorApp.ViewModels
+  type: Namespace
+  items:
+  - uid: EnviroMonitorApp.ViewModels.DashboardViewModel
+    name: DashboardViewModel
+    type: Class
+  - uid: EnviroMonitorApp.ViewModels.LoginViewModel
+    name: LoginViewModel
+    type: Class
+  - uid: EnviroMonitorApp.ViewModels.SensorConfigurationViewModel
+    name: SensorConfigurationViewModel
+    type: Class
+  - uid: EnviroMonitorApp.ViewModels.SensorHistoryViewModel
+    name: SensorHistoryViewModel
+    type: Class
+  - uid: EnviroMonitorApp.ViewModels.UserManagementViewModel
+    name: UserManagementViewModel
+    type: Class
+memberLayout: SamePage

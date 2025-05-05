@@ -1,0 +1,289 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitor.Core.Services.IBackupService
+  commentId: T:EnviroMonitor.Core.Services.IBackupService
+  id: IBackupService
+  parent: EnviroMonitor.Core.Services
+  children:
+  - EnviroMonitor.Core.Services.IBackupService.CreateManualBackupAsync
+  - EnviroMonitor.Core.Services.IBackupService.GetBackupHistoryAsync
+  langs:
+  - csharp
+  - vb
+  name: IBackupService
+  nameWithType: IBackupService
+  fullName: EnviroMonitor.Core.Services.IBackupService
+  type: Interface
+  source:
+    remote:
+      path: EnviroMonitor.Core/Services/IBackupService.cs
+      branch: features/backup
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: IBackupService
+    path: ../EnviroMonitor.Core/Services/IBackupService.cs
+    startLine: 9
+  assemblies:
+  - EnviroMonitor.Core
+  namespace: EnviroMonitor.Core.Services
+  summary: Defines the operations a backup service must support.
+  example: []
+  syntax:
+    content: public interface IBackupService
+    content.vb: Public Interface IBackupService
+- uid: EnviroMonitor.Core.Services.IBackupService.CreateManualBackupAsync
+  commentId: M:EnviroMonitor.Core.Services.IBackupService.CreateManualBackupAsync
+  id: CreateManualBackupAsync
+  parent: EnviroMonitor.Core.Services.IBackupService
+  langs:
+  - csharp
+  - vb
+  name: CreateManualBackupAsync()
+  nameWithType: IBackupService.CreateManualBackupAsync()
+  fullName: EnviroMonitor.Core.Services.IBackupService.CreateManualBackupAsync()
+  type: Method
+  source:
+    remote:
+      path: EnviroMonitor.Core/Services/IBackupService.cs
+      branch: features/backup
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: CreateManualBackupAsync
+    path: ../EnviroMonitor.Core/Services/IBackupService.cs
+    startLine: 15
+  assemblies:
+  - EnviroMonitor.Core
+  namespace: EnviroMonitor.Core.Services
+  summary: >-
+    Executes a one‑off backup immediately and returns the
+
+    resulting <xref href="EnviroMonitor.Core.Models.Backup" data-throw-if-not-resolved="false"></xref> record.
+  example: []
+  syntax:
+    content: Task<Backup> CreateManualBackupAsync()
+    return:
+      type: System.Threading.Tasks.Task{EnviroMonitor.Core.Models.Backup}
+    content.vb: Function CreateManualBackupAsync() As Task(Of Backup)
+  overload: EnviroMonitor.Core.Services.IBackupService.CreateManualBackupAsync*
+- uid: EnviroMonitor.Core.Services.IBackupService.GetBackupHistoryAsync
+  commentId: M:EnviroMonitor.Core.Services.IBackupService.GetBackupHistoryAsync
+  id: GetBackupHistoryAsync
+  parent: EnviroMonitor.Core.Services.IBackupService
+  langs:
+  - csharp
+  - vb
+  name: GetBackupHistoryAsync()
+  nameWithType: IBackupService.GetBackupHistoryAsync()
+  fullName: EnviroMonitor.Core.Services.IBackupService.GetBackupHistoryAsync()
+  type: Method
+  source:
+    remote:
+      path: EnviroMonitor.Core/Services/IBackupService.cs
+      branch: features/backup
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: GetBackupHistoryAsync
+    path: ../EnviroMonitor.Core/Services/IBackupService.cs
+    startLine: 20
+  assemblies:
+  - EnviroMonitor.Core
+  namespace: EnviroMonitor.Core.Services
+  summary: Retrieves all recorded backups, newest first.
+  example: []
+  syntax:
+    content: Task<IReadOnlyList<Backup>> GetBackupHistoryAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{EnviroMonitor.Core.Models.Backup}}
+    content.vb: Function GetBackupHistoryAsync() As Task(Of IReadOnlyList(Of Backup))
+  overload: EnviroMonitor.Core.Services.IBackupService.GetBackupHistoryAsync*
+references:
+- uid: EnviroMonitor.Core.Services
+  commentId: N:EnviroMonitor.Core.Services
+  href: EnviroMonitor.html
+  name: EnviroMonitor.Core.Services
+  nameWithType: EnviroMonitor.Core.Services
+  fullName: EnviroMonitor.Core.Services
+  spec.csharp:
+  - uid: EnviroMonitor
+    name: EnviroMonitor
+    href: EnviroMonitor.html
+  - name: .
+  - uid: EnviroMonitor.Core
+    name: Core
+    href: EnviroMonitor.Core.html
+  - name: .
+  - uid: EnviroMonitor.Core.Services
+    name: Services
+    href: EnviroMonitor.Core.Services.html
+  spec.vb:
+  - uid: EnviroMonitor
+    name: EnviroMonitor
+    href: EnviroMonitor.html
+  - name: .
+  - uid: EnviroMonitor.Core
+    name: Core
+    href: EnviroMonitor.Core.html
+  - name: .
+  - uid: EnviroMonitor.Core.Services
+    name: Services
+    href: EnviroMonitor.Core.Services.html
+- uid: EnviroMonitor.Core.Models.Backup
+  commentId: T:EnviroMonitor.Core.Models.Backup
+  href: EnviroMonitor.Core.Models.Backup.html
+  name: Backup
+  nameWithType: Backup
+  fullName: EnviroMonitor.Core.Models.Backup
+- uid: EnviroMonitor.Core.Services.IBackupService.CreateManualBackupAsync*
+  commentId: Overload:EnviroMonitor.Core.Services.IBackupService.CreateManualBackupAsync
+  href: EnviroMonitor.Core.Services.IBackupService.html#EnviroMonitor_Core_Services_IBackupService_CreateManualBackupAsync
+  name: CreateManualBackupAsync
+  nameWithType: IBackupService.CreateManualBackupAsync
+  fullName: EnviroMonitor.Core.Services.IBackupService.CreateManualBackupAsync
+- uid: System.Threading.Tasks.Task{EnviroMonitor.Core.Models.Backup}
+  commentId: T:System.Threading.Tasks.Task{EnviroMonitor.Core.Models.Backup}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Backup>
+  nameWithType: Task<Backup>
+  fullName: System.Threading.Tasks.Task<EnviroMonitor.Core.Models.Backup>
+  nameWithType.vb: Task(Of Backup)
+  fullName.vb: System.Threading.Tasks.Task(Of EnviroMonitor.Core.Models.Backup)
+  name.vb: Task(Of Backup)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: EnviroMonitor.Core.Models.Backup
+    name: Backup
+    href: EnviroMonitor.Core.Models.Backup.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: EnviroMonitor.Core.Models.Backup
+    name: Backup
+    href: EnviroMonitor.Core.Models.Backup.html
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: EnviroMonitor.Core.Services.IBackupService.GetBackupHistoryAsync*
+  commentId: Overload:EnviroMonitor.Core.Services.IBackupService.GetBackupHistoryAsync
+  href: EnviroMonitor.Core.Services.IBackupService.html#EnviroMonitor_Core_Services_IBackupService_GetBackupHistoryAsync
+  name: GetBackupHistoryAsync
+  nameWithType: IBackupService.GetBackupHistoryAsync
+  fullName: EnviroMonitor.Core.Services.IBackupService.GetBackupHistoryAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{EnviroMonitor.Core.Models.Backup}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{EnviroMonitor.Core.Models.Backup}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IReadOnlyList<Backup>>
+  nameWithType: Task<IReadOnlyList<Backup>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<EnviroMonitor.Core.Models.Backup>>
+  nameWithType.vb: Task(Of IReadOnlyList(Of Backup))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyList(Of EnviroMonitor.Core.Models.Backup))
+  name.vb: Task(Of IReadOnlyList(Of Backup))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: EnviroMonitor.Core.Models.Backup
+    name: Backup
+    href: EnviroMonitor.Core.Models.Backup.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: EnviroMonitor.Core.Models.Backup
+    name: Backup
+    href: EnviroMonitor.Core.Models.Backup.html
+  - name: )
+  - name: )

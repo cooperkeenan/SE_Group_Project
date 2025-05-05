@@ -1,0 +1,51 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitorApp.ViewModels
+  commentId: N:EnviroMonitorApp.ViewModels
+  id: EnviroMonitorApp.ViewModels
+  children:
+  - EnviroMonitorApp.ViewModels.DashboardViewModel
+  - EnviroMonitorApp.ViewModels.LoginViewModel
+  - EnviroMonitorApp.ViewModels.SensorConfigurationViewModel
+  - EnviroMonitorApp.ViewModels.SensorHistoryViewModel
+  - EnviroMonitorApp.ViewModels.UserManagementViewModel
+  langs:
+  - csharp
+  - vb
+  name: EnviroMonitorApp.ViewModels
+  nameWithType: EnviroMonitorApp.ViewModels
+  fullName: EnviroMonitorApp.ViewModels
+  type: Namespace
+  assemblies:
+  - EnviroMonitor.Core
+references:
+- uid: EnviroMonitorApp.ViewModels.DashboardViewModel
+  commentId: T:EnviroMonitorApp.ViewModels.DashboardViewModel
+  href: EnviroMonitorApp.ViewModels.DashboardViewModel.html
+  name: DashboardViewModel
+  nameWithType: DashboardViewModel
+  fullName: EnviroMonitorApp.ViewModels.DashboardViewModel
+- uid: EnviroMonitorApp.ViewModels.LoginViewModel
+  commentId: T:EnviroMonitorApp.ViewModels.LoginViewModel
+  href: EnviroMonitorApp.ViewModels.LoginViewModel.html
+  name: LoginViewModel
+  nameWithType: LoginViewModel
+  fullName: EnviroMonitorApp.ViewModels.LoginViewModel
+- uid: EnviroMonitorApp.ViewModels.SensorConfigurationViewModel
+  commentId: T:EnviroMonitorApp.ViewModels.SensorConfigurationViewModel
+  href: EnviroMonitorApp.ViewModels.SensorConfigurationViewModel.html
+  name: SensorConfigurationViewModel
+  nameWithType: SensorConfigurationViewModel
+  fullName: EnviroMonitorApp.ViewModels.SensorConfigurationViewModel
+- uid: EnviroMonitorApp.ViewModels.SensorHistoryViewModel
+  commentId: T:EnviroMonitorApp.ViewModels.SensorHistoryViewModel
+  href: EnviroMonitorApp.ViewModels.SensorHistoryViewModel.html
+  name: SensorHistoryViewModel
+  nameWithType: SensorHistoryViewModel
+  fullName: EnviroMonitorApp.ViewModels.SensorHistoryViewModel
+- uid: EnviroMonitorApp.ViewModels.UserManagementViewModel
+  commentId: T:EnviroMonitorApp.ViewModels.UserManagementViewModel
+  href: EnviroMonitorApp.ViewModels.UserManagementViewModel.html
+  name: UserManagementViewModel
+  nameWithType: UserManagementViewModel
+  fullName: EnviroMonitorApp.ViewModels.UserManagementViewModel

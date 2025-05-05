@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitor.Core.ViewModels
+  commentId: N:EnviroMonitor.Core.ViewModels
+  id: EnviroMonitor.Core.ViewModels
+  children:
+  - EnviroMonitor.Core.ViewModels.BackupManagementViewModel
+  langs:
+  - csharp
+  - vb
+  name: EnviroMonitor.Core.ViewModels
+  nameWithType: EnviroMonitor.Core.ViewModels
+  fullName: EnviroMonitor.Core.ViewModels
+  type: Namespace
+  assemblies:
+  - EnviroMonitor.Core
+references:
+- uid: EnviroMonitor.Core.ViewModels.BackupManagementViewModel
+  commentId: T:EnviroMonitor.Core.ViewModels.BackupManagementViewModel
+  href: EnviroMonitor.Core.ViewModels.BackupManagementViewModel.html
+  name: BackupManagementViewModel
+  nameWithType: BackupManagementViewModel
+  fullName: EnviroMonitor.Core.ViewModels.BackupManagementViewModel

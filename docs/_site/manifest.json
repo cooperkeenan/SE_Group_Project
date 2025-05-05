@@ -1,0 +1,410 @@
+{
+  "source_base_path": "C:/Users/Kai/Documents/SE_Group_Project/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitor.Core.Models.Backup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitor.Core.Models.Backup.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitor.Core.Models.Backup",
+      "Summary": "<p sourcefile=\"api/EnviroMonitor.Core.Models.Backup.yml\" sourcestartlinenumber=\"1\">Represents a single backup record created by the\napplication’s <code>IBackupService</code>.<br>\nThe class is mapped to SQLite via <xref href=\"SQLite.PrimaryKeyAttribute\" data-throw-if-not-resolved=\"false\"></xref>\nand <xref href=\"SQLite.AutoIncrementAttribute\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitor.Core.Models.BackupStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitor.Core.Models.BackupStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitor.Core.Models.BackupStatus",
+      "Summary": "<p sourcefile=\"api/EnviroMonitor.Core.Models.BackupStatus.yml\" sourcestartlinenumber=\"1\">Indicates the outcome (or current state) of a backup operation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitor.Core.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitor.Core.Models.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitor.Core.Models",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitor.Core.Mvvm.ObservableObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitor.Core.Mvvm.ObservableObject.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitor.Core.Mvvm.ObservableObject",
+      "Summary": "<p sourcefile=\"api/EnviroMonitor.Core.Mvvm.ObservableObject.yml\" sourcestartlinenumber=\"1\">Base class that implements <xref href=\"System.ComponentModel.INotifyPropertyChanged\" data-throw-if-not-resolved=\"false\"></xref> for\nsimple MVVM view‑models and DTOs.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitor.Core.Mvvm.RelayCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitor.Core.Mvvm.RelayCommand.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitor.Core.Mvvm.RelayCommand",
+      "Summary": "<p sourcefile=\"api/EnviroMonitor.Core.Mvvm.RelayCommand.yml\" sourcestartlinenumber=\"1\">A small helper that lets you bind any async method to a UI control.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitor.Core.Mvvm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitor.Core.Mvvm.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitor.Core.Mvvm",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitor.Core.Services.BackupService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitor.Core.Services.BackupService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitor.Core.Services.BackupService",
+      "Summary": "<p sourcefile=\"api/EnviroMonitor.Core.Services.BackupService.yml\" sourcestartlinenumber=\"1\">Handles creating and tracking backups of the four Excel data files.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitor.Core.Services.EnvironmentalDataService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitor.Core.Services.EnvironmentalDataService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitor.Core.Services.EnvironmentalDataService",
+      "Summary": "<p sourcefile=\"api/EnviroMonitor.Core.Services.EnvironmentalDataService.yml\" sourcestartlinenumber=\"1\">High‑level service that works with environmental data\n(water quality, air quality, weather, etc.).<br>\nFor now it just holds a reference to <xref href=\"EnviroMonitor.Core.Services.ExcelReaderService\" data-throw-if-not-resolved=\"false\"></xref>;\nreal parsing logic will be added later.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitor.Core.Services.ExcelReaderService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitor.Core.Services.ExcelReaderService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitor.Core.Services.ExcelReaderService",
+      "Summary": "<p sourcefile=\"api/EnviroMonitor.Core.Services.ExcelReaderService.yml\" sourcestartlinenumber=\"1\">Thin wrapper around EPPlus that sets the license context\nand provides a helper to open an <xref href=\"OfficeOpenXml.ExcelPackage\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitor.Core.Services.IBackupService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitor.Core.Services.IBackupService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitor.Core.Services.IBackupService",
+      "Summary": "<p sourcefile=\"api/EnviroMonitor.Core.Services.IBackupService.yml\" sourcestartlinenumber=\"1\">Defines the operations a backup service must support.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitor.Core.Services.IEnvironmentalDataService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitor.Core.Services.IEnvironmentalDataService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitor.Core.Services.IEnvironmentalDataService",
+      "Summary": "<p sourcefile=\"api/EnviroMonitor.Core.Services.IEnvironmentalDataService.yml\" sourcestartlinenumber=\"1\">Defines read operations for weather, air‑quality, and water‑quality\ndatasets collected by the EnviroMonitor system.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitor.Core.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitor.Core.Services.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitor.Core.Services",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitor.Core.ViewModels.BackupManagementViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitor.Core.ViewModels.BackupManagementViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitor.Core.ViewModels.BackupManagementViewModel",
+      "Summary": "<p sourcefile=\"api/EnviroMonitor.Core.ViewModels.BackupManagementViewModel.yml\" sourcestartlinenumber=\"1\">View‑model that lets the user create backups\nand browse the backup history.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitor.Core.ViewModels.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitor.Core.ViewModels.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitor.Core.ViewModels",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Models.Schedule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Models.Schedule.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Models.Schedule",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Models.Schedule.yml\" sourcestartlinenumber=\"1\">Holds a CRON expression and the next time it should run.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Models.WeatherRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Models.WeatherRecord.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Models.WeatherRecord",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Models.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Models",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.ViewModels.DashboardViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.ViewModels.DashboardViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.ViewModels.DashboardViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.ViewModels.LoginViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.ViewModels.LoginViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.ViewModels.LoginViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.ViewModels.SensorConfigurationViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.ViewModels.SensorConfigurationViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.ViewModels.SensorConfigurationViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.ViewModels.SensorHistoryViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.ViewModels.SensorHistoryViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.ViewModels.SensorHistoryViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.ViewModels.UserManagementViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.ViewModels.UserManagementViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.ViewModels.UserManagementViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.ViewModels.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.ViewModels.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.ViewModels",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

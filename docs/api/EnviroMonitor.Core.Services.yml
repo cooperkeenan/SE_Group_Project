@@ -1,0 +1,83 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitor.Core.Services
+  commentId: N:EnviroMonitor.Core.Services
+  id: EnviroMonitor.Core.Services
+  children:
+  - EnviroMonitor.Core.Services.BackupService
+  - EnviroMonitor.Core.Services.EnvironmentalDataService
+  - EnviroMonitor.Core.Services.ExcelReaderService
+  - EnviroMonitor.Core.Services.IBackupService
+  - EnviroMonitor.Core.Services.IEnvironmentalDataService
+  langs:
+  - csharp
+  - vb
+  name: EnviroMonitor.Core.Services
+  nameWithType: EnviroMonitor.Core.Services
+  fullName: EnviroMonitor.Core.Services
+  type: Namespace
+  assemblies:
+  - EnviroMonitor.Core
+references:
+- uid: EnviroMonitor.Core.Services.BackupService
+  commentId: T:EnviroMonitor.Core.Services.BackupService
+  href: EnviroMonitor.Core.Services.BackupService.html
+  name: BackupService
+  nameWithType: BackupService
+  fullName: EnviroMonitor.Core.Services.BackupService
+- uid: EnviroMonitor.Core.Services.EnvironmentalDataService
+  commentId: T:EnviroMonitor.Core.Services.EnvironmentalDataService
+  href: EnviroMonitor.Core.Services.EnvironmentalDataService.html
+  name: EnvironmentalDataService
+  nameWithType: EnvironmentalDataService
+  fullName: EnviroMonitor.Core.Services.EnvironmentalDataService
+- uid: EnviroMonitor.Core.Services.ExcelReaderService
+  commentId: T:EnviroMonitor.Core.Services.ExcelReaderService
+  parent: EnviroMonitor.Core.Services
+  href: EnviroMonitor.Core.Services.ExcelReaderService.html
+  name: ExcelReaderService
+  nameWithType: ExcelReaderService
+  fullName: EnviroMonitor.Core.Services.ExcelReaderService
+- uid: EnviroMonitor.Core.Services.IBackupService
+  commentId: T:EnviroMonitor.Core.Services.IBackupService
+  parent: EnviroMonitor.Core.Services
+  href: EnviroMonitor.Core.Services.IBackupService.html
+  name: IBackupService
+  nameWithType: IBackupService
+  fullName: EnviroMonitor.Core.Services.IBackupService
+- uid: EnviroMonitor.Core.Services.IEnvironmentalDataService
+  commentId: T:EnviroMonitor.Core.Services.IEnvironmentalDataService
+  href: EnviroMonitor.Core.Services.IEnvironmentalDataService.html
+  name: IEnvironmentalDataService
+  nameWithType: IEnvironmentalDataService
+  fullName: EnviroMonitor.Core.Services.IEnvironmentalDataService
+- uid: EnviroMonitor.Core.Services
+  commentId: N:EnviroMonitor.Core.Services
+  href: EnviroMonitor.html
+  name: EnviroMonitor.Core.Services
+  nameWithType: EnviroMonitor.Core.Services
+  fullName: EnviroMonitor.Core.Services
+  spec.csharp:
+  - uid: EnviroMonitor
+    name: EnviroMonitor
+    href: EnviroMonitor.html
+  - name: .
+  - uid: EnviroMonitor.Core
+    name: Core
+    href: EnviroMonitor.Core.html
+  - name: .
+  - uid: EnviroMonitor.Core.Services
+    name: Services
+    href: EnviroMonitor.Core.Services.html
+  spec.vb:
+  - uid: EnviroMonitor
+    name: EnviroMonitor
+    href: EnviroMonitor.html
+  - name: .
+  - uid: EnviroMonitor.Core
+    name: Core
+    href: EnviroMonitor.Core.html
+  - name: .
+  - uid: EnviroMonitor.Core.Services
+    name: Services
+    href: EnviroMonitor.Core.Services.html

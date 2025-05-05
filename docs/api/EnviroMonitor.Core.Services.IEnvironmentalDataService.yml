@@ -1,0 +1,397 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitor.Core.Services.IEnvironmentalDataService
+  commentId: T:EnviroMonitor.Core.Services.IEnvironmentalDataService
+  id: IEnvironmentalDataService
+  parent: EnviroMonitor.Core.Services
+  children:
+  - EnviroMonitor.Core.Services.IEnvironmentalDataService.GetAirQualityAsync
+  - EnviroMonitor.Core.Services.IEnvironmentalDataService.GetWaterQualityAsync
+  - EnviroMonitor.Core.Services.IEnvironmentalDataService.GetWeatherAsync
+  langs:
+  - csharp
+  - vb
+  name: IEnvironmentalDataService
+  nameWithType: IEnvironmentalDataService
+  fullName: EnviroMonitor.Core.Services.IEnvironmentalDataService
+  type: Interface
+  source:
+    remote:
+      path: EnviroMonitor.Core/Services/IEnvironmentalDataService.cs
+      branch: features/backup
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: IEnvironmentalDataService
+    path: ../EnviroMonitor.Core/Services/IEnvironmentalDataService.cs
+    startLine: 11
+  assemblies:
+  - EnviroMonitor.Core
+  namespace: EnviroMonitor.Core.Services
+  summary: >-
+    Defines read operations for weather, air‑quality, and water‑quality
+
+    datasets collected by the EnviroMonitor system.
+  example: []
+  syntax:
+    content: public interface IEnvironmentalDataService
+    content.vb: Public Interface IEnvironmentalDataService
+- uid: EnviroMonitor.Core.Services.IEnvironmentalDataService.GetWeatherAsync
+  commentId: M:EnviroMonitor.Core.Services.IEnvironmentalDataService.GetWeatherAsync
+  id: GetWeatherAsync
+  parent: EnviroMonitor.Core.Services.IEnvironmentalDataService
+  langs:
+  - csharp
+  - vb
+  name: GetWeatherAsync()
+  nameWithType: IEnvironmentalDataService.GetWeatherAsync()
+  fullName: EnviroMonitor.Core.Services.IEnvironmentalDataService.GetWeatherAsync()
+  type: Method
+  source:
+    remote:
+      path: EnviroMonitor.Core/Services/IEnvironmentalDataService.cs
+      branch: features/backup
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: GetWeatherAsync
+    path: ../EnviroMonitor.Core/Services/IEnvironmentalDataService.cs
+    startLine: 21
+  assemblies:
+  - EnviroMonitor.Core
+  namespace: EnviroMonitor.Core.Services
+  summary: >-
+    Gets the latest weather observations—
+
+    temperature, humidity, rainfall, etc.
+  example: []
+  syntax:
+    content: Task<List<WeatherRecord>> GetWeatherAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.WeatherRecord}}
+      description: >-
+        A list of <xref href="EnviroMonitorApp.Models.WeatherRecord" data-throw-if-not-resolved="false"></xref> items
+
+        ordered from newest to oldest.
+    content.vb: Function GetWeatherAsync() As Task(Of List(Of WeatherRecord))
+  overload: EnviroMonitor.Core.Services.IEnvironmentalDataService.GetWeatherAsync*
+- uid: EnviroMonitor.Core.Services.IEnvironmentalDataService.GetAirQualityAsync
+  commentId: M:EnviroMonitor.Core.Services.IEnvironmentalDataService.GetAirQualityAsync
+  id: GetAirQualityAsync
+  parent: EnviroMonitor.Core.Services.IEnvironmentalDataService
+  langs:
+  - csharp
+  - vb
+  name: GetAirQualityAsync()
+  nameWithType: IEnvironmentalDataService.GetAirQualityAsync()
+  fullName: EnviroMonitor.Core.Services.IEnvironmentalDataService.GetAirQualityAsync()
+  type: Method
+  source:
+    remote:
+      path: EnviroMonitor.Core/Services/IEnvironmentalDataService.cs
+      branch: features/backup
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: GetAirQualityAsync
+    path: ../EnviroMonitor.Core/Services/IEnvironmentalDataService.cs
+    startLine: 27
+  assemblies:
+  - EnviroMonitor.Core
+  namespace: EnviroMonitor.Core.Services
+  summary: >-
+    Gets the most recent air‑quality readings
+
+    such as CO₂, PM2.5, and NO₂.
+  example: []
+  syntax:
+    content: Task<List<AirQualityRecord>> GetAirQualityAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{AirQualityRecord}}
+    content.vb: Function GetAirQualityAsync() As Task(Of List(Of AirQualityRecord))
+  overload: EnviroMonitor.Core.Services.IEnvironmentalDataService.GetAirQualityAsync*
+- uid: EnviroMonitor.Core.Services.IEnvironmentalDataService.GetWaterQualityAsync
+  commentId: M:EnviroMonitor.Core.Services.IEnvironmentalDataService.GetWaterQualityAsync
+  id: GetWaterQualityAsync
+  parent: EnviroMonitor.Core.Services.IEnvironmentalDataService
+  langs:
+  - csharp
+  - vb
+  name: GetWaterQualityAsync()
+  nameWithType: IEnvironmentalDataService.GetWaterQualityAsync()
+  fullName: EnviroMonitor.Core.Services.IEnvironmentalDataService.GetWaterQualityAsync()
+  type: Method
+  source:
+    remote:
+      path: EnviroMonitor.Core/Services/IEnvironmentalDataService.cs
+      branch: features/backup
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: GetWaterQualityAsync
+    path: ../EnviroMonitor.Core/Services/IEnvironmentalDataService.cs
+    startLine: 32
+  assemblies:
+  - EnviroMonitor.Core
+  namespace: EnviroMonitor.Core.Services
+  summary: Gets water‑quality data—pH, turbidity, dissolved oxygen, and so on.
+  example: []
+  syntax:
+    content: Task<List<WaterQualityRecord>> GetWaterQualityAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{WaterQualityRecord}}
+    content.vb: Function GetWaterQualityAsync() As Task(Of List(Of WaterQualityRecord))
+  overload: EnviroMonitor.Core.Services.IEnvironmentalDataService.GetWaterQualityAsync*
+references:
+- uid: EnviroMonitor.Core.Services
+  commentId: N:EnviroMonitor.Core.Services
+  href: EnviroMonitor.html
+  name: EnviroMonitor.Core.Services
+  nameWithType: EnviroMonitor.Core.Services
+  fullName: EnviroMonitor.Core.Services
+  spec.csharp:
+  - uid: EnviroMonitor
+    name: EnviroMonitor
+    href: EnviroMonitor.html
+  - name: .
+  - uid: EnviroMonitor.Core
+    name: Core
+    href: EnviroMonitor.Core.html
+  - name: .
+  - uid: EnviroMonitor.Core.Services
+    name: Services
+    href: EnviroMonitor.Core.Services.html
+  spec.vb:
+  - uid: EnviroMonitor
+    name: EnviroMonitor
+    href: EnviroMonitor.html
+  - name: .
+  - uid: EnviroMonitor.Core
+    name: Core
+    href: EnviroMonitor.Core.html
+  - name: .
+  - uid: EnviroMonitor.Core.Services
+    name: Services
+    href: EnviroMonitor.Core.Services.html
+- uid: EnviroMonitorApp.Models.WeatherRecord
+  commentId: T:EnviroMonitorApp.Models.WeatherRecord
+  href: EnviroMonitorApp.Models.WeatherRecord.html
+  name: WeatherRecord
+  nameWithType: WeatherRecord
+  fullName: EnviroMonitorApp.Models.WeatherRecord
+- uid: EnviroMonitor.Core.Services.IEnvironmentalDataService.GetWeatherAsync*
+  commentId: Overload:EnviroMonitor.Core.Services.IEnvironmentalDataService.GetWeatherAsync
+  href: EnviroMonitor.Core.Services.IEnvironmentalDataService.html#EnviroMonitor_Core_Services_IEnvironmentalDataService_GetWeatherAsync
+  name: GetWeatherAsync
+  nameWithType: IEnvironmentalDataService.GetWeatherAsync
+  fullName: EnviroMonitor.Core.Services.IEnvironmentalDataService.GetWeatherAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.WeatherRecord}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.WeatherRecord}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<WeatherRecord>>
+  nameWithType: Task<List<WeatherRecord>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<EnviroMonitorApp.Models.WeatherRecord>>
+  nameWithType.vb: Task(Of List(Of WeatherRecord))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of EnviroMonitorApp.Models.WeatherRecord))
+  name.vb: Task(Of List(Of WeatherRecord))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: EnviroMonitorApp.Models.WeatherRecord
+    name: WeatherRecord
+    href: EnviroMonitorApp.Models.WeatherRecord.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: EnviroMonitorApp.Models.WeatherRecord
+    name: WeatherRecord
+    href: EnviroMonitorApp.Models.WeatherRecord.html
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: EnviroMonitor.Core.Services.IEnvironmentalDataService.GetAirQualityAsync*
+  commentId: Overload:EnviroMonitor.Core.Services.IEnvironmentalDataService.GetAirQualityAsync
+  href: EnviroMonitor.Core.Services.IEnvironmentalDataService.html#EnviroMonitor_Core_Services_IEnvironmentalDataService_GetAirQualityAsync
+  name: GetAirQualityAsync
+  nameWithType: IEnvironmentalDataService.GetAirQualityAsync
+  fullName: EnviroMonitor.Core.Services.IEnvironmentalDataService.GetAirQualityAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{AirQualityRecord}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{AirQualityRecord}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<AirQualityRecord>>
+  nameWithType: Task<List<AirQualityRecord>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<AirQualityRecord>>
+  nameWithType.vb: Task(Of List(Of AirQualityRecord))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of AirQualityRecord))
+  name.vb: Task(Of List(Of AirQualityRecord))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: AirQualityRecord
+    name: AirQualityRecord
+    href: AirQualityRecord.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AirQualityRecord
+    name: AirQualityRecord
+    href: AirQualityRecord.html
+  - name: )
+  - name: )
+- uid: EnviroMonitor.Core.Services.IEnvironmentalDataService.GetWaterQualityAsync*
+  commentId: Overload:EnviroMonitor.Core.Services.IEnvironmentalDataService.GetWaterQualityAsync
+  href: EnviroMonitor.Core.Services.IEnvironmentalDataService.html#EnviroMonitor_Core_Services_IEnvironmentalDataService_GetWaterQualityAsync
+  name: GetWaterQualityAsync
+  nameWithType: IEnvironmentalDataService.GetWaterQualityAsync
+  fullName: EnviroMonitor.Core.Services.IEnvironmentalDataService.GetWaterQualityAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{WaterQualityRecord}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{WaterQualityRecord}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<WaterQualityRecord>>
+  nameWithType: Task<List<WaterQualityRecord>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<WaterQualityRecord>>
+  nameWithType.vb: Task(Of List(Of WaterQualityRecord))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of WaterQualityRecord))
+  name.vb: Task(Of List(Of WaterQualityRecord))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: WaterQualityRecord
+    name: WaterQualityRecord
+    href: WaterQualityRecord.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: WaterQualityRecord
+    name: WaterQualityRecord
+    href: WaterQualityRecord.html
+  - name: )
+  - name: )

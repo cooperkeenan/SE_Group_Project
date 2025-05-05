@@ -1,0 +1,61 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitor.Core.Models
+  commentId: N:EnviroMonitor.Core.Models
+  id: EnviroMonitor.Core.Models
+  children:
+  - EnviroMonitor.Core.Models.Backup
+  - EnviroMonitor.Core.Models.BackupStatus
+  langs:
+  - csharp
+  - vb
+  name: EnviroMonitor.Core.Models
+  nameWithType: EnviroMonitor.Core.Models
+  fullName: EnviroMonitor.Core.Models
+  type: Namespace
+  assemblies:
+  - EnviroMonitor.Core
+references:
+- uid: EnviroMonitor.Core.Models.Backup
+  commentId: T:EnviroMonitor.Core.Models.Backup
+  href: EnviroMonitor.Core.Models.Backup.html
+  name: Backup
+  nameWithType: Backup
+  fullName: EnviroMonitor.Core.Models.Backup
+- uid: EnviroMonitor.Core.Models.BackupStatus
+  commentId: T:EnviroMonitor.Core.Models.BackupStatus
+  parent: EnviroMonitor.Core.Models
+  href: EnviroMonitor.Core.Models.BackupStatus.html
+  name: BackupStatus
+  nameWithType: BackupStatus
+  fullName: EnviroMonitor.Core.Models.BackupStatus
+- uid: EnviroMonitor.Core.Models
+  commentId: N:EnviroMonitor.Core.Models
+  href: EnviroMonitor.html
+  name: EnviroMonitor.Core.Models
+  nameWithType: EnviroMonitor.Core.Models
+  fullName: EnviroMonitor.Core.Models
+  spec.csharp:
+  - uid: EnviroMonitor
+    name: EnviroMonitor
+    href: EnviroMonitor.html
+  - name: .
+  - uid: EnviroMonitor.Core
+    name: Core
+    href: EnviroMonitor.Core.html
+  - name: .
+  - uid: EnviroMonitor.Core.Models
+    name: Models
+    href: EnviroMonitor.Core.Models.html
+  spec.vb:
+  - uid: EnviroMonitor
+    name: EnviroMonitor
+    href: EnviroMonitor.html
+  - name: .
+  - uid: EnviroMonitor.Core
+    name: Core
+    href: EnviroMonitor.Core.html
+  - name: .
+  - uid: EnviroMonitor.Core.Models
+    name: Models
+    href: EnviroMonitor.Core.Models.html

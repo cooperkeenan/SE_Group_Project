@@ -1,0 +1,167 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitor.Core.Models.BackupStatus
+  commentId: T:EnviroMonitor.Core.Models.BackupStatus
+  id: BackupStatus
+  parent: EnviroMonitor.Core.Models
+  children:
+  - EnviroMonitor.Core.Models.BackupStatus.Failure
+  - EnviroMonitor.Core.Models.BackupStatus.Pending
+  - EnviroMonitor.Core.Models.BackupStatus.Success
+  langs:
+  - csharp
+  - vb
+  name: BackupStatus
+  nameWithType: BackupStatus
+  fullName: EnviroMonitor.Core.Models.BackupStatus
+  type: Enum
+  source:
+    remote:
+      path: EnviroMonitor.Core/Models/BackupStatus.cs
+      branch: features/backup
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: BackupStatus
+    path: ../EnviroMonitor.Core/Models/BackupStatus.cs
+    startLine: 5
+  assemblies:
+  - EnviroMonitor.Core
+  namespace: EnviroMonitor.Core.Models
+  summary: Indicates the outcome (or current state) of a backup operation.
+  example: []
+  syntax:
+    content: public enum BackupStatus
+    content.vb: Public Enum BackupStatus
+- uid: EnviroMonitor.Core.Models.BackupStatus.Success
+  commentId: F:EnviroMonitor.Core.Models.BackupStatus.Success
+  id: Success
+  parent: EnviroMonitor.Core.Models.BackupStatus
+  langs:
+  - csharp
+  - vb
+  name: Success
+  nameWithType: BackupStatus.Success
+  fullName: EnviroMonitor.Core.Models.BackupStatus.Success
+  type: Field
+  source:
+    remote:
+      path: EnviroMonitor.Core/Models/BackupStatus.cs
+      branch: features/backup
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Success
+    path: ../EnviroMonitor.Core/Models/BackupStatus.cs
+    startLine: 10
+  assemblies:
+  - EnviroMonitor.Core
+  namespace: EnviroMonitor.Core.Models
+  summary: The backup completed without errors and is usable.
+  example: []
+  syntax:
+    content: Success = 0
+    return:
+      type: EnviroMonitor.Core.Models.BackupStatus
+- uid: EnviroMonitor.Core.Models.BackupStatus.Failure
+  commentId: F:EnviroMonitor.Core.Models.BackupStatus.Failure
+  id: Failure
+  parent: EnviroMonitor.Core.Models.BackupStatus
+  langs:
+  - csharp
+  - vb
+  name: Failure
+  nameWithType: BackupStatus.Failure
+  fullName: EnviroMonitor.Core.Models.BackupStatus.Failure
+  type: Field
+  source:
+    remote:
+      path: EnviroMonitor.Core/Models/BackupStatus.cs
+      branch: features/backup
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Failure
+    path: ../EnviroMonitor.Core/Models/BackupStatus.cs
+    startLine: 16
+  assemblies:
+  - EnviroMonitor.Core
+  namespace: EnviroMonitor.Core.Models
+  summary: >-
+    The backup failed; see the accompanying
+
+    <code>Details</code> field on <xref href="EnviroMonitor.Core.Models.Backup" data-throw-if-not-resolved="false"></xref> for the reason.
+  example: []
+  syntax:
+    content: Failure = 1
+    return:
+      type: EnviroMonitor.Core.Models.BackupStatus
+- uid: EnviroMonitor.Core.Models.BackupStatus.Pending
+  commentId: F:EnviroMonitor.Core.Models.BackupStatus.Pending
+  id: Pending
+  parent: EnviroMonitor.Core.Models.BackupStatus
+  langs:
+  - csharp
+  - vb
+  name: Pending
+  nameWithType: BackupStatus.Pending
+  fullName: EnviroMonitor.Core.Models.BackupStatus.Pending
+  type: Field
+  source:
+    remote:
+      path: EnviroMonitor.Core/Models/BackupStatus.cs
+      branch: features/backup
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Pending
+    path: ../EnviroMonitor.Core/Models/BackupStatus.cs
+    startLine: 22
+  assemblies:
+  - EnviroMonitor.Core
+  namespace: EnviroMonitor.Core.Models
+  summary: >-
+    The backup has been requested but has not yet finished
+
+    (applies to asynchronous operations).
+  example: []
+  syntax:
+    content: Pending = 2
+    return:
+      type: EnviroMonitor.Core.Models.BackupStatus
+references:
+- uid: EnviroMonitor.Core.Models
+  commentId: N:EnviroMonitor.Core.Models
+  href: EnviroMonitor.html
+  name: EnviroMonitor.Core.Models
+  nameWithType: EnviroMonitor.Core.Models
+  fullName: EnviroMonitor.Core.Models
+  spec.csharp:
+  - uid: EnviroMonitor
+    name: EnviroMonitor
+    href: EnviroMonitor.html
+  - name: .
+  - uid: EnviroMonitor.Core
+    name: Core
+    href: EnviroMonitor.Core.html
+  - name: .
+  - uid: EnviroMonitor.Core.Models
+    name: Models
+    href: EnviroMonitor.Core.Models.html
+  spec.vb:
+  - uid: EnviroMonitor
+    name: EnviroMonitor
+    href: EnviroMonitor.html
+  - name: .
+  - uid: EnviroMonitor.Core
+    name: Core
+    href: EnviroMonitor.Core.html
+  - name: .
+  - uid: EnviroMonitor.Core.Models
+    name: Models
+    href: EnviroMonitor.Core.Models.html
+- uid: EnviroMonitor.Core.Models.BackupStatus
+  commentId: T:EnviroMonitor.Core.Models.BackupStatus
+  parent: EnviroMonitor.Core.Models
+  href: EnviroMonitor.Core.Models.BackupStatus.html
+  name: BackupStatus
+  nameWithType: BackupStatus
+  fullName: EnviroMonitor.Core.Models.BackupStatus
+- uid: EnviroMonitor.Core.Models.Backup
+  commentId: T:EnviroMonitor.Core.Models.Backup
+  href: EnviroMonitor.Core.Models.Backup.html
+  name: Backup
+  nameWithType: Backup
+  fullName: EnviroMonitor.Core.Models.Backup

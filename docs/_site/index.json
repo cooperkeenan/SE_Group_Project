@@ -1,0 +1,132 @@
+{
+  "api/EnviroMonitor.Core.Models.Backup.html": {
+    "href": "api/EnviroMonitor.Core.Models.Backup.html",
+    "title": "Class Backup | EnviroMonitor",
+    "summary": "Class Backup Namespace EnviroMonitor.Core.Models Assembly EnviroMonitor.Core.dll Represents a single backup record created by the application’s IBackupService. The class is mapped to SQLite via SQLite.PrimaryKeyAttribute and SQLite.AutoIncrementAttribute. public class Backup Inheritance object Backup Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) Properties Details Optional human‑readable details such as an error message returned by the backup routine. public string Details { get; set; } Property Value string Id Auto‑incrementing primary key. [PrimaryKey] [AutoIncrement] public int Id { get; set; } Property Value int Path File‑system location of the generated backup archive or folder. public string Path { get; set; } Property Value string Status Outcome of the backup operation — e.g. Success, Failure, or Pending. public BackupStatus Status { get; set; } Property Value BackupStatus Timestamp Coordinated Universal Time when the backup was executed. public DateTime Timestamp { get; set; } Property Value DateTime Methods ToString() Formats the record as \"YYYY‑MM‑DD HH:mm → Status\". public override string ToString() Returns string"
+  },
+  "api/EnviroMonitor.Core.Models.BackupStatus.html": {
+    "href": "api/EnviroMonitor.Core.Models.BackupStatus.html",
+    "title": "Enum BackupStatus | EnviroMonitor",
+    "summary": "Enum BackupStatus Namespace EnviroMonitor.Core.Models Assembly EnviroMonitor.Core.dll Indicates the outcome (or current state) of a backup operation. public enum BackupStatus Fields Failure = 1 The backup failed; see the accompanying Details field on Backup for the reason. Pending = 2 The backup has been requested but has not yet finished (applies to asynchronous operations). Success = 0 The backup completed without errors and is usable."
+  },
+  "api/EnviroMonitor.Core.Models.html": {
+    "href": "api/EnviroMonitor.Core.Models.html",
+    "title": "Namespace EnviroMonitor.Core.Models | EnviroMonitor",
+    "summary": "Namespace EnviroMonitor.Core.Models Classes Backup Represents a single backup record created by the application’s IBackupService. The class is mapped to SQLite via SQLite.PrimaryKeyAttribute and SQLite.AutoIncrementAttribute. Enums BackupStatus Indicates the outcome (or current state) of a backup operation."
+  },
+  "api/EnviroMonitor.Core.Mvvm.ObservableObject.html": {
+    "href": "api/EnviroMonitor.Core.Mvvm.ObservableObject.html",
+    "title": "Class ObservableObject | EnviroMonitor",
+    "summary": "Class ObservableObject Namespace EnviroMonitor.Core.Mvvm Assembly EnviroMonitor.Core.dll Base class that implements INotifyPropertyChanged for simple MVVM view‑models and DTOs. public abstract class ObservableObject : INotifyPropertyChanged Inheritance object ObservableObject Implements INotifyPropertyChanged Derived BackupManagementViewModel Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Methods OnPropertyChanged(string?) Raises PropertyChanged for the supplied name (defaults to the caller member). protected void OnPropertyChanged(string? name = null) Parameters name string Property name. Automatically supplied by CallerMemberNameAttribute when omitted. SetProperty<T>(ref T, T, string?) Assigns value to field if it is different and raises PropertyChanged. protected bool SetProperty<T>(ref T field, T value, string? name = null) Parameters field T Reference to the backing field. value T New value requested by the caller. name string Property name (inferred automatically). Returns bool true if the value actually changed; false if the incoming value equals the current one (no event is raised in that case). Type Parameters T Type of the backing field. Events PropertyChanged Occurs when a property value changes. public event PropertyChangedEventHandler? PropertyChanged Event Type PropertyChangedEventHandler"
+  },
+  "api/EnviroMonitor.Core.Mvvm.RelayCommand.html": {
+    "href": "api/EnviroMonitor.Core.Mvvm.RelayCommand.html",
+    "title": "Class RelayCommand | EnviroMonitor",
+    "summary": "Class RelayCommand Namespace EnviroMonitor.Core.Mvvm Assembly EnviroMonitor.Core.dll A small helper that lets you bind any async method to a UI control. public class RelayCommand : ICommand Inheritance object RelayCommand Implements ICommand Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Remarks Typical XAML usage: <Button Content=\"Save\" Command=\"{Binding SaveCommand}\" /> Constructors RelayCommand(Func<Task>, Func<bool>?) Creates a new command. public RelayCommand(Func<Task> execute, Func<bool>? canExecute = null) Parameters execute Func<Task> The async delegate to run. Must not be null. canExecute Func<bool> Optional delegate that returns true when the command should be enabled. If omitted, the command is always enabled. Exceptions ArgumentNullException Thrown if execute is null. Methods CanExecute(object?) Checks whether the command can run. public bool CanExecute(object? parameter) Parameters parameter object Not used. Returns bool The result of EnviroMonitor.Core.Mvvm.RelayCommand._canExecute when supplied; otherwise true. Execute(object?) Executes the async delegate. Any exceptions are ignored; handle them inside your delegate. public void Execute(object? parameter) Parameters parameter object Not used. RaiseCanExecuteChanged() Forces the UI to ask again whether the command is enabled. Call this after something that affects EnviroMonitor.Core.Mvvm.RelayCommand._canExecute changes (for example, when form validation state flips). public void RaiseCanExecuteChanged() Events CanExecuteChanged Event that UI frameworks listen to in order to re‑query CanExecute(object?). public event EventHandler? CanExecuteChanged Event Type EventHandler"
+  },
+  "api/EnviroMonitor.Core.Mvvm.html": {
+    "href": "api/EnviroMonitor.Core.Mvvm.html",
+    "title": "Namespace EnviroMonitor.Core.Mvvm | EnviroMonitor",
+    "summary": "Namespace EnviroMonitor.Core.Mvvm Classes ObservableObject Base class that implements INotifyPropertyChanged for simple MVVM view‑models and DTOs. RelayCommand A small helper that lets you bind any async method to a UI control."
+  },
+  "api/EnviroMonitor.Core.Services.BackupService.html": {
+    "href": "api/EnviroMonitor.Core.Services.BackupService.html",
+    "title": "Class BackupService | EnviroMonitor",
+    "summary": "Class BackupService Namespace EnviroMonitor.Core.Services Assembly EnviroMonitor.Core.dll Handles creating and tracking backups of the four Excel data files. public class BackupService : IBackupService Inheritance object BackupService Implements IBackupService Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Constructors BackupService(string, string, string) Creates a new BackupService. public BackupService(string dbPath, string sourceFolder, string backupFolder) Parameters dbPath string Full path to the SQLite database file (enviro.db3). sourceFolder string Folder that currently contains the four live Excel files. backupFolder string Destination folder where the copies will be placed. Methods CreateManualBackupAsync() Copies the four Excel files to EnviroMonitor.Core.Services.BackupService._backupFolder and records the outcome in the database. public Task<Backup> CreateManualBackupAsync() Returns Task<Backup> A Backup record reflecting success or failure. GetBackupHistoryAsync() Returns the backup history, newest first. public Task<IReadOnlyList<Backup>> GetBackupHistoryAsync() Returns Task<IReadOnlyList<Backup>>"
+  },
+  "api/EnviroMonitor.Core.Services.EnvironmentalDataService.html": {
+    "href": "api/EnviroMonitor.Core.Services.EnvironmentalDataService.html",
+    "title": "Class EnvironmentalDataService | EnviroMonitor",
+    "summary": "Class EnvironmentalDataService Namespace EnviroMonitor.Core.Services Assembly EnviroMonitor.Core.dll High‑level service that works with environmental data (water quality, air quality, weather, etc.). For now it just holds a reference to ExcelReaderService; real parsing logic will be added later. public class EnvironmentalDataService Inheritance object EnvironmentalDataService Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Constructors EnvironmentalDataService(ExcelReaderService) Creates the service. public EnvironmentalDataService(ExcelReaderService excel) Parameters excel ExcelReaderService Instance of ExcelReaderService injected at startup. Methods DoNothing() Placeholder method used by unit tests; currently does nothing and should never throw. public void DoNothing()"
+  },
+  "api/EnviroMonitor.Core.Services.ExcelReaderService.html": {
+    "href": "api/EnviroMonitor.Core.Services.ExcelReaderService.html",
+    "title": "Class ExcelReaderService | EnviroMonitor",
+    "summary": "Class ExcelReaderService Namespace EnviroMonitor.Core.Services Assembly EnviroMonitor.Core.dll Thin wrapper around EPPlus that sets the license context and provides a helper to open an OfficeOpenXml.ExcelPackage. public class ExcelReaderService Inheritance object ExcelReaderService Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Constructors ExcelReaderService() Constructor — sets EPPlus to the free OfficeOpenXml.LicenseContext.NonCommercial mode. public ExcelReaderService() Methods LoadPackage(string) Loads an .xlsx file into an OfficeOpenXml.ExcelPackage. public ExcelPackage LoadPackage(string filePath) Parameters filePath string Full path to the Excel workbook. Returns ExcelPackage An open OfficeOpenXml.ExcelPackage ready for reading."
+  },
+  "api/EnviroMonitor.Core.Services.IBackupService.html": {
+    "href": "api/EnviroMonitor.Core.Services.IBackupService.html",
+    "title": "Interface IBackupService | EnviroMonitor",
+    "summary": "Interface IBackupService Namespace EnviroMonitor.Core.Services Assembly EnviroMonitor.Core.dll Defines the operations a backup service must support. public interface IBackupService Methods CreateManualBackupAsync() Executes a one‑off backup immediately and returns the resulting Backup record. Task<Backup> CreateManualBackupAsync() Returns Task<Backup> GetBackupHistoryAsync() Retrieves all recorded backups, newest first. Task<IReadOnlyList<Backup>> GetBackupHistoryAsync() Returns Task<IReadOnlyList<Backup>>"
+  },
+  "api/EnviroMonitor.Core.Services.IEnvironmentalDataService.html": {
+    "href": "api/EnviroMonitor.Core.Services.IEnvironmentalDataService.html",
+    "title": "Interface IEnvironmentalDataService | EnviroMonitor",
+    "summary": "Interface IEnvironmentalDataService Namespace EnviroMonitor.Core.Services Assembly EnviroMonitor.Core.dll Defines read operations for weather, air‑quality, and water‑quality datasets collected by the EnviroMonitor system. public interface IEnvironmentalDataService Methods GetAirQualityAsync() Gets the most recent air‑quality readings such as CO₂, PM2.5, and NO₂. Task<List<AirQualityRecord>> GetAirQualityAsync() Returns Task<List<AirQualityRecord>> GetWaterQualityAsync() Gets water‑quality data—pH, turbidity, dissolved oxygen, and so on. Task<List<WaterQualityRecord>> GetWaterQualityAsync() Returns Task<List<WaterQualityRecord>> GetWeatherAsync() Gets the latest weather observations— temperature, humidity, rainfall, etc. Task<List<WeatherRecord>> GetWeatherAsync() Returns Task<List<WeatherRecord>> A list of WeatherRecord items ordered from newest to oldest."
+  },
+  "api/EnviroMonitor.Core.Services.html": {
+    "href": "api/EnviroMonitor.Core.Services.html",
+    "title": "Namespace EnviroMonitor.Core.Services | EnviroMonitor",
+    "summary": "Namespace EnviroMonitor.Core.Services Classes BackupService Handles creating and tracking backups of the four Excel data files. EnvironmentalDataService High‑level service that works with environmental data (water quality, air quality, weather, etc.). For now it just holds a reference to ExcelReaderService; real parsing logic will be added later. ExcelReaderService Thin wrapper around EPPlus that sets the license context and provides a helper to open an OfficeOpenXml.ExcelPackage. Interfaces IBackupService Defines the operations a backup service must support. IEnvironmentalDataService Defines read operations for weather, air‑quality, and water‑quality datasets collected by the EnviroMonitor system."
+  },
+  "api/EnviroMonitor.Core.ViewModels.BackupManagementViewModel.html": {
+    "href": "api/EnviroMonitor.Core.ViewModels.BackupManagementViewModel.html",
+    "title": "Class BackupManagementViewModel | EnviroMonitor",
+    "summary": "Class BackupManagementViewModel Namespace EnviroMonitor.Core.ViewModels Assembly EnviroMonitor.Core.dll View‑model that lets the user create backups and browse the backup history. public class BackupManagementViewModel : ObservableObject, INotifyPropertyChanged Inheritance object ObservableObject BackupManagementViewModel Implements INotifyPropertyChanged Inherited Members ObservableObject.PropertyChanged ObservableObject.OnPropertyChanged(string) ObservableObject.SetProperty<T>(ref T, T, string) object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Constructors BackupManagementViewModel(IBackupService) Creates the view‑model. public BackupManagementViewModel(IBackupService backupService) Parameters backupService IBackupService Concrete implementation injected by DI. Properties History Observable list shown in the UI (newest first). public ObservableCollection<Backup> History { get; } Property Value ObservableCollection<Backup> RefreshHistoryCommand Refreshes the History list from the database. public ICommand RefreshHistoryCommand { get; } Property Value ICommand TriggerBackupCommand Runs TriggerBackupAsync() when the user presses “Backup Now”. public ICommand TriggerBackupCommand { get; } Property Value ICommand Methods InitializeAsync() Call once from the view (e.g. OnLoaded) to populate the initial backup history. public Task InitializeAsync() Returns Task RefreshHistoryAsync() Clears History then loads records from EnviroMonitor.Core.ViewModels.BackupManagementViewModel._backupService. public Task RefreshHistoryAsync() Returns Task TriggerBackupAsync() Creates a new backup and immediately refreshes the grid. public Task TriggerBackupAsync() Returns Task"
+  },
+  "api/EnviroMonitor.Core.ViewModels.html": {
+    "href": "api/EnviroMonitor.Core.ViewModels.html",
+    "title": "Namespace EnviroMonitor.Core.ViewModels | EnviroMonitor",
+    "summary": "Namespace EnviroMonitor.Core.ViewModels Classes BackupManagementViewModel View‑model that lets the user create backups and browse the backup history."
+  },
+  "api/EnviroMonitorApp.Models.Schedule.html": {
+    "href": "api/EnviroMonitorApp.Models.Schedule.html",
+    "title": "Class Schedule | EnviroMonitor",
+    "summary": "Class Schedule Namespace EnviroMonitorApp.Models Assembly EnviroMonitor.Core.dll Holds a CRON expression and the next time it should run. public class Schedule Inheritance object Schedule Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Properties CronExpression CRON expression (minute hour day‑of‑month month day‑of‑week). Default: run every day at 02:00. public string CronExpression { get; set; } Property Value string NextRun Next scheduled run in local time. public DateTime NextRun { get; set; } Property Value DateTime Methods CalculateNextRun() Sets NextRun to tomorrow at 02:00. public void CalculateNextRun()"
+  },
+  "api/EnviroMonitorApp.Models.WeatherRecord.html": {
+    "href": "api/EnviroMonitorApp.Models.WeatherRecord.html",
+    "title": "Class WeatherRecord | EnviroMonitor",
+    "summary": "Class WeatherRecord Namespace EnviroMonitorApp.Models Assembly EnviroMonitor.Core.dll public class WeatherRecord Inheritance object WeatherRecord Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Properties Date public string? Date { get; set; } Property Value string Humidity public double Humidity { get; set; } Property Value double Temperature public double Temperature { get; set; } Property Value double"
+  },
+  "api/EnviroMonitorApp.Models.html": {
+    "href": "api/EnviroMonitorApp.Models.html",
+    "title": "Namespace EnviroMonitorApp.Models | EnviroMonitor",
+    "summary": "Namespace EnviroMonitorApp.Models Classes Schedule Holds a CRON expression and the next time it should run. WeatherRecord"
+  },
+  "api/EnviroMonitorApp.ViewModels.DashboardViewModel.html": {
+    "href": "api/EnviroMonitorApp.ViewModels.DashboardViewModel.html",
+    "title": "Class DashboardViewModel | EnviroMonitor",
+    "summary": "Class DashboardViewModel Namespace EnviroMonitorApp.ViewModels Assembly EnviroMonitor.Core.dll public class DashboardViewModel Inheritance object DashboardViewModel Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString()"
+  },
+  "api/EnviroMonitorApp.ViewModels.LoginViewModel.html": {
+    "href": "api/EnviroMonitorApp.ViewModels.LoginViewModel.html",
+    "title": "Class LoginViewModel | EnviroMonitor",
+    "summary": "Class LoginViewModel Namespace EnviroMonitorApp.ViewModels Assembly EnviroMonitor.Core.dll public class LoginViewModel Inheritance object LoginViewModel Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString()"
+  },
+  "api/EnviroMonitorApp.ViewModels.SensorConfigurationViewModel.html": {
+    "href": "api/EnviroMonitorApp.ViewModels.SensorConfigurationViewModel.html",
+    "title": "Class SensorConfigurationViewModel | EnviroMonitor",
+    "summary": "Class SensorConfigurationViewModel Namespace EnviroMonitorApp.ViewModels Assembly EnviroMonitor.Core.dll public class SensorConfigurationViewModel Inheritance object SensorConfigurationViewModel Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString()"
+  },
+  "api/EnviroMonitorApp.ViewModels.SensorHistoryViewModel.html": {
+    "href": "api/EnviroMonitorApp.ViewModels.SensorHistoryViewModel.html",
+    "title": "Class SensorHistoryViewModel | EnviroMonitor",
+    "summary": "Class SensorHistoryViewModel Namespace EnviroMonitorApp.ViewModels Assembly EnviroMonitor.Core.dll public class SensorHistoryViewModel Inheritance object SensorHistoryViewModel Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString()"
+  },
+  "api/EnviroMonitorApp.ViewModels.UserManagementViewModel.html": {
+    "href": "api/EnviroMonitorApp.ViewModels.UserManagementViewModel.html",
+    "title": "Class UserManagementViewModel | EnviroMonitor",
+    "summary": "Class UserManagementViewModel Namespace EnviroMonitorApp.ViewModels Assembly EnviroMonitor.Core.dll public class UserManagementViewModel Inheritance object UserManagementViewModel Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString()"
+  },
+  "api/EnviroMonitorApp.ViewModels.html": {
+    "href": "api/EnviroMonitorApp.ViewModels.html",
+    "title": "Namespace EnviroMonitorApp.ViewModels | EnviroMonitor",
+    "summary": "Namespace EnviroMonitorApp.ViewModels Classes DashboardViewModel LoginViewModel SensorConfigurationViewModel SensorHistoryViewModel UserManagementViewModel"
+  },
+  "docs/getting-started.html": {
+    "href": "docs/getting-started.html",
+    "title": "Getting Started | EnviroMonitor",
+    "summary": "Getting Started"
+  },
+  "docs/introduction.html": {
+    "href": "docs/introduction.html",
+    "title": "Welcome to EnviroMonitor | EnviroMonitor",
+    "summary": "Welcome to EnviroMonitor EnviroMonitor helps you back up and analyse environmental data. Key areas Backups – Manual + scheduled copies of your Excel datasets. Sensors – Configure, calibrate, and view history. API docs – See the API tab for full reference."
+  },
+  "index.html": {
+    "href": "index.html",
+    "title": "| EnviroMonitor",
+    "summary": "Press Docs to get STARTED"
+  }
+}

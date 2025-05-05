@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitorApp.Models
+  commentId: N:EnviroMonitorApp.Models
+  id: EnviroMonitorApp.Models
+  children:
+  - EnviroMonitorApp.Models.Schedule
+  - EnviroMonitorApp.Models.WeatherRecord
+  langs:
+  - csharp
+  - vb
+  name: EnviroMonitorApp.Models
+  nameWithType: EnviroMonitorApp.Models
+  fullName: EnviroMonitorApp.Models
+  type: Namespace
+  assemblies:
+  - EnviroMonitor.Core
+references:
+- uid: EnviroMonitorApp.Models.Schedule
+  commentId: T:EnviroMonitorApp.Models.Schedule
+  href: EnviroMonitorApp.Models.Schedule.html
+  name: Schedule
+  nameWithType: Schedule
+  fullName: EnviroMonitorApp.Models.Schedule
+- uid: EnviroMonitorApp.Models.WeatherRecord
+  commentId: T:EnviroMonitorApp.Models.WeatherRecord
+  href: EnviroMonitorApp.Models.WeatherRecord.html
+  name: WeatherRecord
+  nameWithType: WeatherRecord
+  fullName: EnviroMonitorApp.Models.WeatherRecord
