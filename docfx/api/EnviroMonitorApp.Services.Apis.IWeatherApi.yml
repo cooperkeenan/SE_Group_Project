@@ -21,11 +21,14 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: IWeatherApi
     path: ../EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs
-    startLine: 9
+    startLine: 10
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
-  summary: Refit interface for OpenWeather’s forecast endpoint
+  summary: >-
+    Interface for accessing weather data from OpenWeather and other weather APIs.
+
+    Provides methods to retrieve weather forecasts and historical weather data.
   example: []
   syntax:
     content: public interface IWeatherApi
@@ -48,10 +51,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetForecast
     path: ../EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs
-    startLine: 11
+    startLine: 20
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Retrieves a 5-day weather forecast with 3-hour step from OpenWeather API.
+  example: []
   syntax:
     content: >-
       [Get("/data/2.5/forecast")]
@@ -60,6 +65,7 @@ items:
     parameters:
     - id: lat
       type: System.Double
+      description: Latitude coordinate
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -68,6 +74,7 @@ items:
           value: lat
     - id: lon
       type: System.Double
+      description: Longitude coordinate
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -76,6 +83,7 @@ items:
           value: lon
     - id: apiKey
       type: System.String
+      description: OpenWeatherMap API key
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -84,6 +92,7 @@ items:
           value: appid
     - id: units
       type: System.String
+      description: Units of measurement (e.g., "metric", "imperial")
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -92,6 +101,7 @@ items:
           value: units
     return:
       type: System.Threading.Tasks.Task{EnviroMonitorApp.Models.OpenWeatherForecastResponse}
+      description: A response containing forecast data for the specified location
     content.vb: >-
       <Get("/data/2.5/forecast")>
 
@@ -124,21 +134,27 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetWeatherAsync
     path: ../EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs
-    startLine: 19
+    startLine: 35
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Retrieves historical weather data for a specific location and time period.
+  example: []
   syntax:
     content: Task<WeatherRecord> GetWeatherAsync(DateTime startDate, DateTime endDate, string region)
     parameters:
     - id: startDate
       type: System.DateTime
+      description: The start date of the requested time period
     - id: endDate
       type: System.DateTime
+      description: The end date of the requested time period
     - id: region
       type: System.String
+      description: The geographic region identifier (e.g., "London")
     return:
       type: System.Threading.Tasks.Task{EnviroMonitorApp.Models.WeatherRecord}
+      description: A WeatherRecord containing historical weather data
     content.vb: Function GetWeatherAsync(startDate As Date, endDate As Date, region As String) As Task(Of WeatherRecord)
   overload: EnviroMonitorApp.Services.Apis.IWeatherApi.GetWeatherAsync*
   nameWithType.vb: IWeatherApi.GetWeatherAsync(Date, Date, String)

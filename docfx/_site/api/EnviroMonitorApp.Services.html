@@ -76,26 +76,36 @@
 Classes
 </h3>
       <h4><a class="xref" href="EnviroMonitorApp.Services.ApiKeyProvider.html">ApiKeyProvider</a></h4>
-      <section></section>
+      <section><p>Provides API keys for external services such as OpenAQ and OpenWeatherMap.
+Contains default keys for testing and allows custom keys to be provided.</p>
+</section>
       <h4><a class="xref" href="EnviroMonitorApp.Services.EnvironmentalDataApiService.html">EnvironmentalDataApiService</a></h4>
       <section><p>Fetches and paginates historical environmental data from OpenAQ, OpenWeatherMap, and
 UK Hydrology, pivoting into our record models.</p>
 </section>
       <h4><a class="xref" href="EnviroMonitorApp.Services.HttpLoggingHandler.html">HttpLoggingHandler</a></h4>
-      <section><p>Dumps every request/response to Debug so you can
-watch JSON (or errors) in logcat / VS output.</p>
+      <section><p>HTTP message handler that logs all requests and responses to the debug output.
+Useful for debugging API calls by showing full request/response details in the console.</p>
 </section>
       <h4><a class="xref" href="EnviroMonitorApp.Services.MauiFileSystemService.html">MauiFileSystemService</a></h4>
-      <section></section>
+      <section><p>Implementation of IFileSystemService that uses MAUI's FileSystem APIs
+to provide cross-platform file system access.</p>
+</section>
       <h4><a class="xref" href="EnviroMonitorApp.Services.SqlDataService.html">SqlDataService</a></h4>
-      <section></section>
+      <section><p>Implementation of IEnvironmentalDataService that uses SQLite database
+to store and retrieve environmental data.</p>
+</section>
     <h3 id="interfaces">
 Interfaces
 </h3>
       <h4><a class="xref" href="EnviroMonitorApp.Services.IEnvironmentalDataService.html">IEnvironmentalDataService</a></h4>
-      <section></section>
+      <section><p>Interface for environmental data services that provide access to air quality,
+weather, and water quality data from various sources.</p>
+</section>
       <h4><a class="xref" href="EnviroMonitorApp.Services.IFileSystemService.html">IFileSystemService</a></h4>
-      <section></section>
+      <section><p>Interface for file system operations that provides platform-independent access to app-specific directories
+and files bundled with the application package.</p>
+</section>
 
 
 </article>

@@ -27,10 +27,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: AirQualityRecord
     path: ../EnviroMonitorApp.Core/Models/AirQualityRecord.cs
-    startLine: 2
+    startLine: 6
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: >-
+    Represents a record of air quality measurements at a specific point in time.
+
+    Contains various pollutant measurements and an overall air quality category.
+  example: []
   syntax:
     content: public class AirQualityRecord
     content.vb: Public Class AirQualityRecord
@@ -62,10 +67,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Timestamp
     path: ../EnviroMonitorApp.Core/Models/AirQualityRecord.cs
-    startLine: 4
+    startLine: 11
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: The date and time when the air quality measurements were recorded.
+  example: []
   syntax:
     content: public DateTime Timestamp { get; set; }
     parameters: []
@@ -91,10 +98,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: NO2
     path: ../EnviroMonitorApp.Core/Models/AirQualityRecord.cs
-    startLine: 6
+    startLine: 16
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: Nitrogen Dioxide concentration in micrograms per cubic meter (μg/m³).
+  example: []
   syntax:
     content: public double? NO2 { get; set; }
     parameters: []
@@ -120,10 +129,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: SO2
     path: ../EnviroMonitorApp.Core/Models/AirQualityRecord.cs
-    startLine: 7
+    startLine: 21
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: Sulfur Dioxide concentration in micrograms per cubic meter (μg/m³).
+  example: []
   syntax:
     content: public double? SO2 { get; set; }
     parameters: []
@@ -149,10 +160,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: PM25
     path: ../EnviroMonitorApp.Core/Models/AirQualityRecord.cs
-    startLine: 8
+    startLine: 27
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: >-
+    Particulate Matter 2.5 concentration in micrograms per cubic meter (μg/m³).
+
+    Particles with diameter less than 2.5 micrometers.
+  example: []
   syntax:
     content: public double? PM25 { get; set; }
     parameters: []
@@ -178,10 +194,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: PM10
     path: ../EnviroMonitorApp.Core/Models/AirQualityRecord.cs
-    startLine: 9
+    startLine: 33
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: >-
+    Particulate Matter 10 concentration in micrograms per cubic meter (μg/m³).
+
+    Particles with diameter less than 10 micrometers.
+  example: []
   syntax:
     content: public double? PM10 { get; set; }
     parameters: []
@@ -207,10 +228,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Pm25
     path: ../EnviroMonitorApp.Core/Models/AirQualityRecord.cs
-    startLine: 10
+    startLine: 38
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: Alternative property for PM2.5 measurement (maintained for compatibility).
+  example: []
   syntax:
     content: public double? Pm25 { get; set; }
     parameters: []
@@ -236,10 +259,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Pm10
     path: ../EnviroMonitorApp.Core/Models/AirQualityRecord.cs
-    startLine: 11
+    startLine: 43
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: Alternative property for PM10 measurement (maintained for compatibility).
+  example: []
   syntax:
     content: public double? Pm10 { get; set; }
     parameters: []
@@ -265,10 +290,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Category
     path: ../EnviroMonitorApp.Core/Models/AirQualityRecord.cs
-    startLine: 12
+    startLine: 48
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: Air quality category description (e.g., "Good", "Moderate", "Poor").
+  example: []
   syntax:
     content: public string Category { get; set; }
     parameters: []

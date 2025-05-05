@@ -25,9 +25,9 @@ items:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services
   summary: >-
-    Dumps every request/response to Debug so you can
+    HTTP message handler that logs all requests and responses to the debug output.
 
-    watch JSON (or errors) in logcat / VS output.
+    Useful for debugging API calls by showing full request/response details in the console.
   example: []
   syntax:
     content: 'public class HttpLoggingHandler : DelegatingHandler, IDisposable'
@@ -68,30 +68,30 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: SendAsync
     path: ../EnviroMonitorApp.Core/Services/HttpLoggingHandler.cs
-    startLine: 13
+    startLine: 20
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services
-  summary: Sends an HTTP request to the inner handler to send to the server as an asynchronous operation.
+  summary: >-
+    Intercepts HTTP requests, logs them, and then forwards them to the inner handler.
+
+    After receiving a response, logs it and returns it to the caller.
   example: []
   syntax:
     content: protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken ct)
     parameters:
     - id: request
       type: System.Net.Http.HttpRequestMessage
-      description: The HTTP request message to send to the server.
+      description: The HTTP request message to send.
     - id: ct
       type: System.Threading.CancellationToken
+      description: Cancellation token to cancel the operation.
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: The task object representing the asynchronous operation.
+      description: The HTTP response message from the inner handler.
     content.vb: Protected Overrides Function SendAsync(request As HttpRequestMessage, ct As CancellationToken) As Task(Of HttpResponseMessage)
   overridden: System.Net.Http.DelegatingHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)
   overload: EnviroMonitorApp.Services.HttpLoggingHandler.SendAsync*
-  exceptions:
-  - type: System.ArgumentNullException
-    commentId: T:System.ArgumentNullException
-    description: The <code class="paramref">request</code> was <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
 references:
 - uid: EnviroMonitorApp.Services
   commentId: N:EnviroMonitorApp.Services
@@ -518,13 +518,6 @@ references:
     name: Http
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.net.http
-- uid: System.ArgumentNullException
-  commentId: T:System.ArgumentNullException
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
-  name: ArgumentNullException
-  nameWithType: ArgumentNullException
-  fullName: System.ArgumentNullException
 - uid: System.Net.Http.DelegatingHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)
   commentId: M:System.Net.Http.DelegatingHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)
   parent: System.Net.Http.DelegatingHandler

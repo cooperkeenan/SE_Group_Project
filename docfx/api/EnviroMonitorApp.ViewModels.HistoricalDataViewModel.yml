@@ -32,7 +32,10 @@ items:
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.ViewModels
-  summary: A base class for objects of which the properties must be observable.
+  summary: >-
+    ViewModel for the Historical Data page, providing data and commands
+
+    for visualizing historical environmental measurements.
   example: []
   syntax:
     content: 'public class HistoricalDataViewModel : ObservableObject, INotifyPropertyChanged, INotifyPropertyChanging'
@@ -85,17 +88,21 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: .ctor
     path: ../EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs
-    startLine: 24
+    startLine: 33
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.ViewModels
+  summary: Initializes a new instance of the HistoricalDataViewModel class.
+  example: []
   syntax:
     content: public HistoricalDataViewModel(IEnvironmentalDataService dataService, IChartTransformer transformer)
     parameters:
     - id: dataService
       type: EnviroMonitorApp.Services.IEnvironmentalDataService
+      description: Service for retrieving environmental data.
     - id: transformer
       type: EnviroMonitorApp.Services.ChartTransformers.IChartTransformer
+      description: Transformer for converting data into chart entries.
     content.vb: Public Sub New(dataService As IEnvironmentalDataService, transformer As IChartTransformer)
   overload: EnviroMonitorApp.ViewModels.HistoricalDataViewModel.#ctor*
   nameWithType.vb: HistoricalDataViewModel.New(IEnvironmentalDataService, IChartTransformer)
@@ -119,10 +126,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: SensorTypes
     path: ../EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs
-    startLine: 44
+    startLine: 56
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.ViewModels
+  summary: Gets the available sensor types (Air, Weather, Water).
+  example: []
   syntax:
     content: public string[] SensorTypes { get; }
     parameters: []
@@ -148,10 +157,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: ChartData
     path: ../EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs
-    startLine: 77
+    startLine: 134
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.ViewModels
+  summary: Gets the collection of chart entries for visualization.
+  example: []
   syntax:
     content: public ObservableCollection<ChartEntry> ChartData { get; }
     parameters: []
@@ -177,10 +188,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: LoadDataCommand
     path: ../EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs
-    startLine: 78
+    startLine: 139
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.ViewModels
+  summary: Gets the command to load data based on current selections.
+  example: []
   syntax:
     content: public ICommand LoadDataCommand { get; }
     parameters: []
@@ -206,10 +219,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Chart
     path: ../EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs
-    startLine: 80
+    startLine: 144
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.ViewModels
+  summary: Gets a chart object configured with the current chart data.
+  example: []
   syntax:
     content: public Chart Chart { get; }
     parameters: []
@@ -235,6 +250,7 @@ items:
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.ViewModels
+  summary: Gets or sets the currently selected sensor type.
   example: []
   syntax:
     content: public string SelectedSensorType { get; set; }
@@ -261,6 +277,7 @@ items:
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.ViewModels
+  summary: Gets or sets the available metric types for the current sensor type.
   example: []
   syntax:
     content: public string[] MetricTypes { get; set; }
@@ -287,6 +304,7 @@ items:
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.ViewModels
+  summary: Gets or sets the currently selected metric.
   example: []
   syntax:
     content: public string SelectedMetric { get; set; }
@@ -313,6 +331,7 @@ items:
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.ViewModels
+  summary: Gets or sets the start date for data retrieval.
   example: []
   syntax:
     content: public DateTime StartDate { get; set; }
@@ -339,6 +358,7 @@ items:
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.ViewModels
+  summary: Gets or sets the end date for data retrieval.
   example: []
   syntax:
     content: public DateTime EndDate { get; set; }
@@ -365,6 +385,7 @@ items:
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.ViewModels
+  summary: Gets or sets a value indicating whether data is currently being loaded.
   example: []
   syntax:
     content: public bool IsBusy { get; set; }
@@ -391,6 +412,7 @@ items:
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.ViewModels
+  summary: Gets or sets a value indicating whether no data is available for the current selection.
   example: []
   syntax:
     content: public bool NoData { get; set; }
@@ -417,6 +439,7 @@ items:
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.ViewModels
+  summary: Gets or sets the maximum allowed end date based on the selected sensor type.
   example: []
   syntax:
     content: public DateTime MaxDate { get; set; }

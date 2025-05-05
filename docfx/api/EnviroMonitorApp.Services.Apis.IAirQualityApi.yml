@@ -22,10 +22,17 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: IAirQualityApi
     path: ../EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs
-    startLine: 6
+    startLine: 11
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: >-
+    Interface for accessing air quality data from external APIs.
+
+    Provides methods to retrieve location data, latest air quality measurements,
+
+    and historical air quality data for specific sensors.
+  example: []
   syntax:
     content: public interface IAirQualityApi
     content.vb: Public Interface IAirQualityApi
@@ -47,10 +54,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetLocations
     path: ../EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs
-    startLine: 8
+    startLine: 22
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Retrieves a list of air quality monitoring locations based on geographic criteria.
+  example: []
   syntax:
     content: >-
       [Get("/v3/locations")]
@@ -59,6 +68,7 @@ items:
     parameters:
     - id: iso
       type: System.String
+      description: The ISO country code (e.g., "GB" for Great Britain)
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -67,6 +77,7 @@ items:
           value: iso
     - id: latlon
       type: System.String
+      description: Comma-separated latitude and longitude coordinates (e.g., "51.5074,-0.1278")
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -75,6 +86,7 @@ items:
           value: coordinates
     - id: radiusMeters
       type: System.Int32
+      description: Search radius in meters from the specified coordinates
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -83,6 +95,7 @@ items:
           value: radius
     - id: parameterIdsCsv
       type: System.String
+      description: Comma-separated list of parameter IDs to filter by (e.g., "2,1,7,9" for specific pollutants)
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -91,6 +104,7 @@ items:
           value: parameters_id
     - id: limit
       type: System.Int32
+      description: Maximum number of locations to return
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -99,6 +113,7 @@ items:
           value: limit
     return:
       type: System.Threading.Tasks.Task{EnviroMonitorApp.Services.Apis.LocationResponse}
+      description: A response containing matching air quality monitoring locations
     content.vb: >-
       <Get("/v3/locations")>
 
@@ -131,10 +146,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetLocationLatest
     path: ../EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs
-    startLine: 17
+    startLine: 36
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Gets the latest air quality measurements for a specific location.
+  example: []
   syntax:
     content: >-
       [Get("/v3/locations/{locationId}/latest")]
@@ -143,8 +160,10 @@ items:
     parameters:
     - id: locationId
       type: System.Int32
+      description: The unique identifier of the location
     return:
       type: System.Threading.Tasks.Task{EnviroMonitorApp.Services.Apis.LocationLatestResponse}
+      description: A response containing the latest measurements for the specified location
     content.vb: >-
       <Get("/v3/locations/{locationId}/latest")>
 
@@ -177,10 +196,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetSensorMeasurementsAsync
     path: ../EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs
-    startLine: 21
+    startLine: 48
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Retrieves historical air quality measurements for a specific sensor within a date range.
+  example: []
   syntax:
     content: >-
       [Get("/v3/sensors/{sensorId}/measurements")]
@@ -189,6 +210,7 @@ items:
     parameters:
     - id: sensorId
       type: System.Int32
+      description: The unique identifier of the sensor
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -197,6 +219,7 @@ items:
           value: sensorId
     - id: datetimeFromUtc
       type: System.String
+      description: Start date and time in UTC format
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -205,6 +228,7 @@ items:
           value: datetime_from
     - id: datetimeToUtc
       type: System.String
+      description: End date and time in UTC format
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -213,6 +237,7 @@ items:
           value: datetime_to
     - id: limit
       type: System.Int32
+      description: Maximum number of measurements to return per page
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -221,6 +246,7 @@ items:
           value: limit
     - id: page
       type: System.Int32
+      description: Page number for paginated results
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -229,6 +255,7 @@ items:
           value: page
     return:
       type: System.Threading.Tasks.Task{EnviroMonitorApp.Services.Apis.MeasurementsResponse}
+      description: A response containing historical measurements for the specified sensor
     content.vb: >-
       <Get("/v3/sensors/{sensorId}/measurements")>
 

@@ -20,10 +20,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: WaterQualityResponse
     path: ../EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
-    startLine: 6
+    startLine: 9
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Response object for water quality data containing a collection of reading items.
+  example: []
   syntax:
     content: public class WaterQualityResponse
     content.vb: Public Class WaterQualityResponse
@@ -55,10 +57,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Items
     path: ../EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
-    startLine: 8
+    startLine: 14
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Collection of water quality reading items.
+  example: []
   syntax:
     content: public List<ReadingItem> Items { get; set; }
     parameters: []

@@ -50,10 +50,11 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Transform
     path: ../EnviroMonitorApp.Core/ChartTransformers/IChartTransformer.cs
-    startLine: 16
+    startLine: 19
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.ChartTransformers
+  summary: Transforms raw timestamped data into chart entries suitable for visualization.
   example: []
   syntax:
     content: IList<ChartEntry> Transform(IEnumerable<(DateTime timestamp, double value)> raw, DateTime start, DateTime end)

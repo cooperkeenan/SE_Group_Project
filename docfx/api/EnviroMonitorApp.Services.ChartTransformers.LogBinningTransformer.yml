@@ -21,14 +21,16 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: LogBinningTransformer
     path: ../EnviroMonitorApp.Core/ChartTransformers/LogBinningTransformer.cs
-    startLine: 13
+    startLine: 14
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.ChartTransformers
   summary: >-
-    Approximate max number of X‐axis labels to draw.
+    Chart transformer that bins points by day/week/month based on date range,
 
-    Bins points by day/week/month and log‐scales Y.
+    applying logarithmic scaling to the Y-axis values.
+
+    Limits the number of X-axis labels to improve readability.
   example: []
   syntax:
     content: 'public class LogBinningTransformer : IChartTransformer'
@@ -63,10 +65,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: MaxLabels
     path: ../EnviroMonitorApp.Core/ChartTransformers/LogBinningTransformer.cs
-    startLine: 15
+    startLine: 19
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.ChartTransformers
+  summary: Maximum number of X-axis labels to display on the chart.
+  example: []
   syntax:
     content: public int MaxLabels { get; set; }
     parameters: []
@@ -92,26 +96,30 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Transform
     path: ../EnviroMonitorApp.Core/ChartTransformers/LogBinningTransformer.cs
-    startLine: 17
+    startLine: 29
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.ChartTransformers
+  summary: >-
+    Transforms raw timestamped data into chart entries with logarithmic Y-axis scaling
+
+    and appropriate time-based binning based on the date range.
   example: []
   syntax:
     content: public IList<ChartEntry> Transform(IEnumerable<(DateTime timestamp, double value)> raw, DateTime start, DateTime end)
     parameters:
     - id: raw
       type: System.Collections.Generic.IEnumerable{System.ValueTuple{System.DateTime,System.Double}}
-      description: A sequence of (timestamp, value) pairs.
+      description: Raw timestamped data points to transform.
     - id: start
       type: System.DateTime
-      description: Chart start date.
+      description: Start date of the chart range.
     - id: end
       type: System.DateTime
-      description: Chart end date.
+      description: End date of the chart range.
     return:
       type: System.Collections.Generic.IList{Microcharts.ChartEntry}
-      description: Ready-to-plot ChartEntry list.
+      description: A list of chart entries ready for visualization.
     content.vb: Public Function Transform(raw As IEnumerable(Of (timestamp As Date, value As Double)), start As Date, [end] As Date) As IList(Of ChartEntry)
   overload: EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer.Transform*
   implements:

@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Interface IWeatherApi ">
     
-    <meta name="description" content="Refit interface for OpenWeather’s forecast endpoint">
+    <meta name="description" content="Interface for accessing weather data from OpenWeather and other weather APIs. Provides methods to retrieve weather forecasts and historical weather data.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -71,7 +71,8 @@
 
 
   <h1 id="EnviroMonitorApp_Services_Apis_IWeatherApi" data-uid="EnviroMonitorApp.Services.Apis.IWeatherApi" class="text-break">Interface IWeatherApi</h1>
-  <div class="markdown level0 summary"><p>Refit interface for OpenWeather’s forecast endpoint</p>
+  <div class="markdown level0 summary"><p>Interface for accessing weather data from OpenWeather and other weather APIs.
+Provides methods to retrieve weather forecasts and historical weather data.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="EnviroMonitorApp.html">EnviroMonitorApp</a>.<a class="xref" href="EnviroMonitorApp.Services.html">Services</a>.<a class="xref" href="EnviroMonitorApp.Services.Apis.html">Apis</a></h6>
@@ -87,11 +88,12 @@
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_Apis_IWeatherApi_GetForecast_System_Double_System_Double_System_String_System_String_.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.Apis.IWeatherApi.GetForecast(System.Double%2CSystem.Double%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs/#L12">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs/#L21">View Source</a>
   </span>
   <a id="EnviroMonitorApp_Services_Apis_IWeatherApi_GetForecast_" data-uid="EnviroMonitorApp.Services.Apis.IWeatherApi.GetForecast*"></a>
   <h4 id="EnviroMonitorApp_Services_Apis_IWeatherApi_GetForecast_System_Double_System_Double_System_String_System_String_" data-uid="EnviroMonitorApp.Services.Apis.IWeatherApi.GetForecast(System.Double,System.Double,System.String,System.String)">GetForecast(double, double, string, string)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Retrieves a 5-day weather forecast with 3-hour step from OpenWeather API.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -111,22 +113,26 @@ Task&lt;OpenWeatherForecastResponse&gt; GetForecast(double lat, double lon, stri
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
         <td><span class="parametername">lat</span></td>
-        <td></td>
+        <td><p>Latitude coordinate</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
         <td><span class="parametername">lon</span></td>
-        <td></td>
+        <td><p>Longitude coordinate</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">apiKey</span></td>
-        <td></td>
+        <td><p>OpenWeatherMap API key</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">units</span></td>
-        <td></td>
+        <td><p>Units of measurement (e.g., &quot;metric&quot;, &quot;imperial&quot;)</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -141,7 +147,8 @@ Task&lt;OpenWeatherForecastResponse&gt; GetForecast(double lat, double lon, stri
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="EnviroMonitorApp.Models.OpenWeatherForecastResponse.html">OpenWeatherForecastResponse</a>&gt;</td>
-        <td></td>
+        <td><p>A response containing forecast data for the specified location</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -150,11 +157,12 @@ Task&lt;OpenWeatherForecastResponse&gt; GetForecast(double lat, double lon, stri
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_Apis_IWeatherApi_GetWeatherAsync_System_DateTime_System_DateTime_System_String_.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.Apis.IWeatherApi.GetWeatherAsync(System.DateTime%2CSystem.DateTime%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs/#L20">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs/#L36">View Source</a>
   </span>
   <a id="EnviroMonitorApp_Services_Apis_IWeatherApi_GetWeatherAsync_" data-uid="EnviroMonitorApp.Services.Apis.IWeatherApi.GetWeatherAsync*"></a>
   <h4 id="EnviroMonitorApp_Services_Apis_IWeatherApi_GetWeatherAsync_System_DateTime_System_DateTime_System_String_" data-uid="EnviroMonitorApp.Services.Apis.IWeatherApi.GetWeatherAsync(System.DateTime,System.DateTime,System.String)">GetWeatherAsync(DateTime, DateTime, string)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Retrieves historical weather data for a specific location and time period.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -173,17 +181,20 @@ Task&lt;OpenWeatherForecastResponse&gt; GetForecast(double lat, double lon, stri
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
         <td><span class="parametername">startDate</span></td>
-        <td></td>
+        <td><p>The start date of the requested time period</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
         <td><span class="parametername">endDate</span></td>
-        <td></td>
+        <td><p>The end date of the requested time period</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">region</span></td>
-        <td></td>
+        <td><p>The geographic region identifier (e.g., &quot;London&quot;)</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -198,7 +209,8 @@ Task&lt;OpenWeatherForecastResponse&gt; GetForecast(double lat, double lon, stri
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="EnviroMonitorApp.Models.WeatherRecord.html">WeatherRecord</a>&gt;</td>
-        <td></td>
+        <td><p>A WeatherRecord containing historical weather data</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -214,7 +226,7 @@ Task&lt;OpenWeatherForecastResponse&gt; GetForecast(double lat, double lon, stri
                     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_Apis_IWeatherApi.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.Apis.IWeatherApi%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs/#L10" class="contribution-link">View Source</a>
+                    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IWeatherApi.cs/#L11" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

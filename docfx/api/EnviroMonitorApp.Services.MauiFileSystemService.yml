@@ -21,10 +21,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: MauiFileSystemService
     path: ../EnviroMonitorApp.Core/Services/MauiFileSystemService.cs
-    startLine: 7
+    startLine: 11
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services
+  summary: >-
+    Implementation of IFileSystemService that uses MAUI's FileSystem APIs
+
+    to provide cross-platform file system access.
+  example: []
   syntax:
     content: 'public class MauiFileSystemService : IFileSystemService'
     content.vb: Public Class MauiFileSystemService Implements IFileSystemService
@@ -58,10 +63,14 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: AppDataDirectory
     path: ../EnviroMonitorApp.Core/Services/MauiFileSystemService.cs
-    startLine: 9
+    startLine: 17
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services
+  summary: >-
+    Gets the platform-specific application data directory where the app can store files.
+
+    This directory is typically private to the application.
   example: []
   syntax:
     content: public string AppDataDirectory { get; }
@@ -90,18 +99,21 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: OpenAppPackageFileAsync
     path: ../EnviroMonitorApp.Core/Services/MauiFileSystemService.cs
-    startLine: 11
+    startLine: 24
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services
+  summary: Opens a file that is bundled with the application package.
   example: []
   syntax:
     content: public Task<Stream> OpenAppPackageFileAsync(string filename)
     parameters:
     - id: filename
       type: System.String
+      description: The name of the file to open.
     return:
       type: System.Threading.Tasks.Task{System.IO.Stream}
+      description: A stream containing the file contents.
     content.vb: Public Function OpenAppPackageFileAsync(filename As String) As Task(Of Stream)
   overload: EnviroMonitorApp.Services.MauiFileSystemService.OpenAppPackageFileAsync*
   implements:

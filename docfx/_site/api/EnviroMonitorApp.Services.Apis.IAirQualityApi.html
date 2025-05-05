@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Interface IAirQualityApi ">
     
-    
+    <meta name="description" content="Interface for accessing air quality data from external APIs. Provides methods to retrieve location data, latest air quality measurements, and historical air quality data for specific sensors.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -71,7 +71,10 @@
 
 
   <h1 id="EnviroMonitorApp_Services_Apis_IAirQualityApi" data-uid="EnviroMonitorApp.Services.Apis.IAirQualityApi" class="text-break">Interface IAirQualityApi</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Interface for accessing air quality data from external APIs.
+Provides methods to retrieve location data, latest air quality measurements,
+and historical air quality data for specific sensors.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="EnviroMonitorApp.html">EnviroMonitorApp</a>.<a class="xref" href="EnviroMonitorApp.Services.html">Services</a>.<a class="xref" href="EnviroMonitorApp.Services.Apis.html">Apis</a></h6>
   <h6><strong>Assembly</strong>: EnviroMonitorApp.Core.dll</h6>
@@ -86,11 +89,12 @@
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_Apis_IAirQualityApi_GetLocationLatest_System_Int32_.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.Apis.IAirQualityApi.GetLocationLatest(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs/#L18">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs/#L37">View Source</a>
   </span>
   <a id="EnviroMonitorApp_Services_Apis_IAirQualityApi_GetLocationLatest_" data-uid="EnviroMonitorApp.Services.Apis.IAirQualityApi.GetLocationLatest*"></a>
   <h4 id="EnviroMonitorApp_Services_Apis_IAirQualityApi_GetLocationLatest_System_Int32_" data-uid="EnviroMonitorApp.Services.Apis.IAirQualityApi.GetLocationLatest(System.Int32)">GetLocationLatest(int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the latest air quality measurements for a specific location.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -110,7 +114,8 @@ Task&lt;LocationLatestResponse&gt; GetLocationLatest(int locationId)</code></pre
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">locationId</span></td>
-        <td></td>
+        <td><p>The unique identifier of the location</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -125,7 +130,8 @@ Task&lt;LocationLatestResponse&gt; GetLocationLatest(int locationId)</code></pre
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="EnviroMonitorApp.Services.Apis.LocationLatestResponse.html">LocationLatestResponse</a>&gt;</td>
-        <td></td>
+        <td><p>A response containing the latest measurements for the specified location</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -134,11 +140,12 @@ Task&lt;LocationLatestResponse&gt; GetLocationLatest(int locationId)</code></pre
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_Apis_IAirQualityApi_GetLocations_System_String_System_String_System_Int32_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.Apis.IAirQualityApi.GetLocations(System.String%2CSystem.String%2CSystem.Int32%2CSystem.String%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs/#L9">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs/#L23">View Source</a>
   </span>
   <a id="EnviroMonitorApp_Services_Apis_IAirQualityApi_GetLocations_" data-uid="EnviroMonitorApp.Services.Apis.IAirQualityApi.GetLocations*"></a>
   <h4 id="EnviroMonitorApp_Services_Apis_IAirQualityApi_GetLocations_System_String_System_String_System_Int32_System_String_System_Int32_" data-uid="EnviroMonitorApp.Services.Apis.IAirQualityApi.GetLocations(System.String,System.String,System.Int32,System.String,System.Int32)">GetLocations(string, string, int, string, int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Retrieves a list of air quality monitoring locations based on geographic criteria.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -158,27 +165,32 @@ Task&lt;LocationResponse&gt; GetLocations(string iso, string latlon, int radiusM
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">iso</span></td>
-        <td></td>
+        <td><p>The ISO country code (e.g., &quot;GB&quot; for Great Britain)</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">latlon</span></td>
-        <td></td>
+        <td><p>Comma-separated latitude and longitude coordinates (e.g., &quot;51.5074,-0.1278&quot;)</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">radiusMeters</span></td>
-        <td></td>
+        <td><p>Search radius in meters from the specified coordinates</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">parameterIdsCsv</span></td>
-        <td></td>
+        <td><p>Comma-separated list of parameter IDs to filter by (e.g., &quot;2,1,7,9&quot; for specific pollutants)</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">limit</span></td>
-        <td></td>
+        <td><p>Maximum number of locations to return</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -193,7 +205,8 @@ Task&lt;LocationResponse&gt; GetLocations(string iso, string latlon, int radiusM
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="EnviroMonitorApp.Services.Apis.LocationResponse.html">LocationResponse</a>&gt;</td>
-        <td></td>
+        <td><p>A response containing matching air quality monitoring locations</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -202,11 +215,12 @@ Task&lt;LocationResponse&gt; GetLocations(string iso, string latlon, int radiusM
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_Apis_IAirQualityApi_GetSensorMeasurementsAsync_System_Int32_System_String_System_String_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.Apis.IAirQualityApi.GetSensorMeasurementsAsync(System.Int32%2CSystem.String%2CSystem.String%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs/#L22">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs/#L49">View Source</a>
   </span>
   <a id="EnviroMonitorApp_Services_Apis_IAirQualityApi_GetSensorMeasurementsAsync_" data-uid="EnviroMonitorApp.Services.Apis.IAirQualityApi.GetSensorMeasurementsAsync*"></a>
   <h4 id="EnviroMonitorApp_Services_Apis_IAirQualityApi_GetSensorMeasurementsAsync_System_Int32_System_String_System_String_System_Int32_System_Int32_" data-uid="EnviroMonitorApp.Services.Apis.IAirQualityApi.GetSensorMeasurementsAsync(System.Int32,System.String,System.String,System.Int32,System.Int32)">GetSensorMeasurementsAsync(int, string, string, int, int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Retrieves historical air quality measurements for a specific sensor within a date range.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -226,27 +240,32 @@ Task&lt;MeasurementsResponse&gt; GetSensorMeasurementsAsync(int sensorId, string
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">sensorId</span></td>
-        <td></td>
+        <td><p>The unique identifier of the sensor</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">datetimeFromUtc</span></td>
-        <td></td>
+        <td><p>Start date and time in UTC format</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">datetimeToUtc</span></td>
-        <td></td>
+        <td><p>End date and time in UTC format</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">limit</span></td>
-        <td></td>
+        <td><p>Maximum number of measurements to return per page</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">page</span></td>
-        <td></td>
+        <td><p>Page number for paginated results</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -261,7 +280,8 @@ Task&lt;MeasurementsResponse&gt; GetSensorMeasurementsAsync(int sensorId, string
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="EnviroMonitorApp.Services.Apis.MeasurementsResponse.html">MeasurementsResponse</a>&gt;</td>
-        <td></td>
+        <td><p>A response containing historical measurements for the specified sensor</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -277,7 +297,7 @@ Task&lt;MeasurementsResponse&gt; GetSensorMeasurementsAsync(int sensorId, string
                     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_Apis_IAirQualityApi.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.Apis.IAirQualityApi%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs/#L7" class="contribution-link">View Source</a>
+                    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/Apis/IAirQualityApi.cs/#L12" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

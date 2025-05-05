@@ -24,10 +24,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: IEnvironmentalDataService
     path: ../EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services
+  summary: >-
+    Interface for environmental data services that provide access to air quality,
+
+    weather, and water quality data from various sources.
+  example: []
   syntax:
     content: public interface IEnvironmentalDataService
     content.vb: Public Interface IEnvironmentalDataService
@@ -49,21 +54,27 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetAirQualityAsync
     path: ../EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs
-    startLine: 7
+    startLine: 18
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services
+  summary: Retrieves air quality data for a specified time period and region.
+  example: []
   syntax:
     content: Task<List<AirQualityRecord>> GetAirQualityAsync(DateTime from, DateTime to, string region)
     parameters:
     - id: from
       type: System.DateTime
+      description: Start date and time.
     - id: to
       type: System.DateTime
+      description: End date and time.
     - id: region
       type: System.String
+      description: Geographic region identifier (e.g., "London").
     return:
       type: System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.AirQualityRecord}}
+      description: A list of air quality records for the specified period and region.
     content.vb: Function GetAirQualityAsync(from As Date, [to] As Date, region As String) As Task(Of List(Of AirQualityRecord))
   overload: EnviroMonitorApp.Services.IEnvironmentalDataService.GetAirQualityAsync*
   nameWithType.vb: IEnvironmentalDataService.GetAirQualityAsync(Date, Date, String)
@@ -87,21 +98,27 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetWeatherAsync
     path: ../EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs
-    startLine: 10
+    startLine: 28
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services
+  summary: Retrieves weather data for a specified time period and region.
+  example: []
   syntax:
     content: Task<List<WeatherRecord>> GetWeatherAsync(DateTime from, DateTime to, string region)
     parameters:
     - id: from
       type: System.DateTime
+      description: Start date and time.
     - id: to
       type: System.DateTime
+      description: End date and time.
     - id: region
       type: System.String
+      description: Geographic region identifier (e.g., "London").
     return:
       type: System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.WeatherRecord}}
+      description: A list of weather records for the specified period and region.
     content.vb: Function GetWeatherAsync(from As Date, [to] As Date, region As String) As Task(Of List(Of WeatherRecord))
   overload: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWeatherAsync*
   nameWithType.vb: IEnvironmentalDataService.GetWeatherAsync(Date, Date, String)
@@ -125,21 +142,27 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetWaterQualityAsync
     path: ../EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs
-    startLine: 13
+    startLine: 38
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services
+  summary: Retrieves water quality data for a specified time period and region.
+  example: []
   syntax:
     content: Task<List<WaterQualityRecord>> GetWaterQualityAsync(DateTime from, DateTime to, string region)
     parameters:
     - id: from
       type: System.DateTime
+      description: Start date and time.
     - id: to
       type: System.DateTime
+      description: End date and time.
     - id: region
       type: System.String
+      description: Geographic region identifier.
     return:
       type: System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.WaterQualityRecord}}
+      description: A list of water quality records for the specified period and region.
     content.vb: Function GetWaterQualityAsync(from As Date, [to] As Date, region As String) As Task(Of List(Of WaterQualityRecord))
   overload: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync*
   nameWithType.vb: IEnvironmentalDataService.GetWaterQualityAsync(Date, Date, String)
@@ -163,19 +186,24 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetWaterQualityAsync
     path: ../EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs
-    startLine: 17
+    startLine: 47
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services
+  summary: Retrieves water quality data for a specified number of hours up to the present.
+  example: []
   syntax:
     content: Task<List<WaterQualityRecord>> GetWaterQualityAsync(int hours, string region = "")
     parameters:
     - id: hours
       type: System.Int32
+      description: Number of hours of data to retrieve.
     - id: region
       type: System.String
+      description: Geographic region identifier (optional).
     return:
       type: System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.WaterQualityRecord}}
+      description: A list of water quality records for the specified duration.
     content.vb: Function GetWaterQualityAsync(hours As Integer, region As String = "") As Task(Of List(Of WaterQualityRecord))
   overload: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync*
   nameWithType.vb: IEnvironmentalDataService.GetWaterQualityAsync(Integer, String)
@@ -199,21 +227,27 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetHistoricalWaterQualityAsync
     path: ../EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs
-    startLine: 20
+    startLine: 57
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services
+  summary: Retrieves historical water quality data for a specified time period and region.
+  example: []
   syntax:
     content: Task<List<WaterQualityRecord>> GetHistoricalWaterQualityAsync(DateTime from, DateTime to, string region)
     parameters:
     - id: from
       type: System.DateTime
+      description: Start date and time.
     - id: to
       type: System.DateTime
+      description: End date and time.
     - id: region
       type: System.String
+      description: Geographic region identifier.
     return:
       type: System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.WaterQualityRecord}}
+      description: A list of historical water quality records for the specified period and region.
     content.vb: Function GetHistoricalWaterQualityAsync(from As Date, [to] As Date, region As String) As Task(Of List(Of WaterQualityRecord))
   overload: EnviroMonitorApp.Services.IEnvironmentalDataService.GetHistoricalWaterQualityAsync*
   nameWithType.vb: IEnvironmentalDataService.GetHistoricalWaterQualityAsync(Date, Date, String)

@@ -21,10 +21,17 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: InverseBoolConverter
     path: ../EnviroMonitorApp.Core/Converters/InverseBoolConverter.cs
-    startLine: 6
+    startLine: 11
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Converters
+  summary: >-
+    Converter that inverts boolean values.
+
+    Useful for scenarios like binding the IsEnabled property of controls to a "busy" flag,
+
+    where the control should be disabled when the busy flag is true.
+  example: []
   syntax:
     content: 'public class InverseBoolConverter : IValueConverter'
     content.vb: Public Class InverseBoolConverter Implements IValueConverter
@@ -58,24 +65,30 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Convert
     path: ../EnviroMonitorApp.Core/Converters/InverseBoolConverter.cs
-    startLine: 8
+    startLine: 21
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Converters
+  summary: Converts a boolean value to its inverse.
   example: []
   syntax:
     content: public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     parameters:
     - id: value
       type: System.Object
+      description: The value to convert, expected to be a boolean.
     - id: targetType
       type: System.Type
+      description: The type to which the value is being converted (ignored).
     - id: parameter
       type: System.Object
+      description: Additional parameter (ignored).
     - id: culture
       type: System.Globalization.CultureInfo
+      description: The culture to use for conversion (ignored).
     return:
       type: System.Object
+      description: If the value is a boolean, returns its logical inverse; otherwise, returns the original value.
     content.vb: Public Function Convert(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object
   overload: EnviroMonitorApp.Converters.InverseBoolConverter.Convert*
   implements:
@@ -101,24 +114,30 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: ConvertBack
     path: ../EnviroMonitorApp.Core/Converters/InverseBoolConverter.cs
-    startLine: 11
+    startLine: 32
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Converters
+  summary: Converts a boolean value back to its inverse.
   example: []
   syntax:
     content: public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
     parameters:
     - id: value
       type: System.Object
+      description: The value to convert, expected to be a boolean.
     - id: targetType
       type: System.Type
+      description: The type to which the value is being converted (ignored).
     - id: parameter
       type: System.Object
+      description: Additional parameter (ignored).
     - id: culture
       type: System.Globalization.CultureInfo
+      description: The culture to use for conversion (ignored).
     return:
       type: System.Object
+      description: If the value is a boolean, returns its logical inverse; otherwise, returns the original value.
     content.vb: Public Function ConvertBack(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object
   overload: EnviroMonitorApp.Converters.InverseBoolConverter.ConvertBack*
   implements:

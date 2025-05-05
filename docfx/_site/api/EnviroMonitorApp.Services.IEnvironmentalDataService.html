@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Interface IEnvironmentalDataService ">
     
-    
+    <meta name="description" content="Interface for environmental data services that provide access to air quality, weather, and water quality data from various sources.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -71,7 +71,9 @@
 
 
   <h1 id="EnviroMonitorApp_Services_IEnvironmentalDataService" data-uid="EnviroMonitorApp.Services.IEnvironmentalDataService" class="text-break">Interface IEnvironmentalDataService</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Interface for environmental data services that provide access to air quality,
+weather, and water quality data from various sources.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="EnviroMonitorApp.html">EnviroMonitorApp</a>.<a class="xref" href="EnviroMonitorApp.Services.html">Services</a></h6>
   <h6><strong>Assembly</strong>: EnviroMonitorApp.Core.dll</h6>
@@ -86,11 +88,12 @@
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_IEnvironmentalDataService_GetAirQualityAsync_System_DateTime_System_DateTime_System_String_.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.IEnvironmentalDataService.GetAirQualityAsync(System.DateTime%2CSystem.DateTime%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs/#L8">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs/#L19">View Source</a>
   </span>
   <a id="EnviroMonitorApp_Services_IEnvironmentalDataService_GetAirQualityAsync_" data-uid="EnviroMonitorApp.Services.IEnvironmentalDataService.GetAirQualityAsync*"></a>
   <h4 id="EnviroMonitorApp_Services_IEnvironmentalDataService_GetAirQualityAsync_System_DateTime_System_DateTime_System_String_" data-uid="EnviroMonitorApp.Services.IEnvironmentalDataService.GetAirQualityAsync(System.DateTime,System.DateTime,System.String)">GetAirQualityAsync(DateTime, DateTime, string)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Retrieves air quality data for a specified time period and region.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -109,17 +112,20 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
         <td><span class="parametername">from</span></td>
-        <td></td>
+        <td><p>Start date and time.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
         <td><span class="parametername">to</span></td>
-        <td></td>
+        <td><p>End date and time.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">region</span></td>
-        <td></td>
+        <td><p>Geographic region identifier (e.g., &quot;London&quot;).</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -134,7 +140,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="EnviroMonitorApp.Models.AirQualityRecord.html">AirQualityRecord</a>&gt;&gt;</td>
-        <td></td>
+        <td><p>A list of air quality records for the specified period and region.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -143,11 +150,12 @@
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_IEnvironmentalDataService_GetHistoricalWaterQualityAsync_System_DateTime_System_DateTime_System_String_.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.IEnvironmentalDataService.GetHistoricalWaterQualityAsync(System.DateTime%2CSystem.DateTime%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs/#L21">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs/#L58">View Source</a>
   </span>
   <a id="EnviroMonitorApp_Services_IEnvironmentalDataService_GetHistoricalWaterQualityAsync_" data-uid="EnviroMonitorApp.Services.IEnvironmentalDataService.GetHistoricalWaterQualityAsync*"></a>
   <h4 id="EnviroMonitorApp_Services_IEnvironmentalDataService_GetHistoricalWaterQualityAsync_System_DateTime_System_DateTime_System_String_" data-uid="EnviroMonitorApp.Services.IEnvironmentalDataService.GetHistoricalWaterQualityAsync(System.DateTime,System.DateTime,System.String)">GetHistoricalWaterQualityAsync(DateTime, DateTime, string)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Retrieves historical water quality data for a specified time period and region.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -166,17 +174,20 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
         <td><span class="parametername">from</span></td>
-        <td></td>
+        <td><p>Start date and time.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
         <td><span class="parametername">to</span></td>
-        <td></td>
+        <td><p>End date and time.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">region</span></td>
-        <td></td>
+        <td><p>Geographic region identifier.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -191,7 +202,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="EnviroMonitorApp.Models.WaterQualityRecord.html">WaterQualityRecord</a>&gt;&gt;</td>
-        <td></td>
+        <td><p>A list of historical water quality records for the specified period and region.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -200,11 +212,12 @@
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_IEnvironmentalDataService_GetWaterQualityAsync_System_DateTime_System_DateTime_System_String_.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync(System.DateTime%2CSystem.DateTime%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs/#L14">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs/#L39">View Source</a>
   </span>
   <a id="EnviroMonitorApp_Services_IEnvironmentalDataService_GetWaterQualityAsync_" data-uid="EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync*"></a>
   <h4 id="EnviroMonitorApp_Services_IEnvironmentalDataService_GetWaterQualityAsync_System_DateTime_System_DateTime_System_String_" data-uid="EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync(System.DateTime,System.DateTime,System.String)">GetWaterQualityAsync(DateTime, DateTime, string)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Retrieves water quality data for a specified time period and region.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -223,17 +236,20 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
         <td><span class="parametername">from</span></td>
-        <td></td>
+        <td><p>Start date and time.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
         <td><span class="parametername">to</span></td>
-        <td></td>
+        <td><p>End date and time.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">region</span></td>
-        <td></td>
+        <td><p>Geographic region identifier.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -248,7 +264,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="EnviroMonitorApp.Models.WaterQualityRecord.html">WaterQualityRecord</a>&gt;&gt;</td>
-        <td></td>
+        <td><p>A list of water quality records for the specified period and region.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -257,11 +274,12 @@
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_IEnvironmentalDataService_GetWaterQualityAsync_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync(System.Int32%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs/#L18">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs/#L48">View Source</a>
   </span>
   <a id="EnviroMonitorApp_Services_IEnvironmentalDataService_GetWaterQualityAsync_" data-uid="EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync*"></a>
   <h4 id="EnviroMonitorApp_Services_IEnvironmentalDataService_GetWaterQualityAsync_System_Int32_System_String_" data-uid="EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync(System.Int32,System.String)">GetWaterQualityAsync(int, string)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Retrieves water quality data for a specified number of hours up to the present.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -280,12 +298,14 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">hours</span></td>
-        <td></td>
+        <td><p>Number of hours of data to retrieve.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">region</span></td>
-        <td></td>
+        <td><p>Geographic region identifier (optional).</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -300,7 +320,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="EnviroMonitorApp.Models.WaterQualityRecord.html">WaterQualityRecord</a>&gt;&gt;</td>
-        <td></td>
+        <td><p>A list of water quality records for the specified duration.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -309,11 +330,12 @@
     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_IEnvironmentalDataService_GetWeatherAsync_System_DateTime_System_DateTime_System_String_.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.IEnvironmentalDataService.GetWeatherAsync(System.DateTime%2CSystem.DateTime%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs/#L11">View Source</a>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs/#L29">View Source</a>
   </span>
   <a id="EnviroMonitorApp_Services_IEnvironmentalDataService_GetWeatherAsync_" data-uid="EnviroMonitorApp.Services.IEnvironmentalDataService.GetWeatherAsync*"></a>
   <h4 id="EnviroMonitorApp_Services_IEnvironmentalDataService_GetWeatherAsync_System_DateTime_System_DateTime_System_String_" data-uid="EnviroMonitorApp.Services.IEnvironmentalDataService.GetWeatherAsync(System.DateTime,System.DateTime,System.String)">GetWeatherAsync(DateTime, DateTime, string)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Retrieves weather data for a specified time period and region.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -332,17 +354,20 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
         <td><span class="parametername">from</span></td>
-        <td></td>
+        <td><p>Start date and time.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
         <td><span class="parametername">to</span></td>
-        <td></td>
+        <td><p>End date and time.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">region</span></td>
-        <td></td>
+        <td><p>Geographic region identifier (e.g., &quot;London&quot;).</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -357,7 +382,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="EnviroMonitorApp.Models.WeatherRecord.html">WeatherRecord</a>&gt;&gt;</td>
-        <td></td>
+        <td><p>A list of weather records for the specified period and region.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -373,7 +399,7 @@
                     <a href="https://github.com/cooperkeenan/SE_Group_Project/new/UnitTests/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_Services_IEnvironmentalDataService.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.Services.IEnvironmentalDataService%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs/#L6" class="contribution-link">View Source</a>
+                    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/UnitTests/HistoricalData/EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

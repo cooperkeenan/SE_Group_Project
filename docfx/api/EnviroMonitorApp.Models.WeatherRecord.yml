@@ -32,10 +32,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: WeatherRecord
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
-    startLine: 6
+    startLine: 10
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: >-
+    Represents a record of weather measurements at a specific point in time.
+
+    Contains various weather parameters from both forecast APIs and historical CSV data.
+  example: []
   syntax:
     content: public class WeatherRecord
     content.vb: Public Class WeatherRecord
@@ -67,10 +72,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Timestamp
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
-    startLine: 8
+    startLine: 15
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: The date and time when the weather measurements were recorded.
+  example: []
   syntax:
     content: public DateTime Timestamp { get; set; }
     parameters: []
@@ -96,10 +103,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Temperature
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
-    startLine: 11
+    startLine: 21
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: >-
+    Current air temperature in degrees Celsius (°C).
+
+    This is typically sourced from the 5-day forecast API.
+  example: []
   syntax:
     content: public double Temperature { get; set; }
     parameters: []
@@ -125,10 +137,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Humidity
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
-    startLine: 12
+    startLine: 27
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: >-
+    Relative humidity percentage (0-100).
+
+    This is typically sourced from the 5-day forecast API.
+  example: []
   syntax:
     content: public double Humidity { get; set; }
     parameters: []
@@ -154,10 +171,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: WindSpeed
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
-    startLine: 13
+    startLine: 33
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: >-
+    Wind speed in meters per second (m/s).
+
+    This is typically sourced from the 5-day forecast API.
+  example: []
   syntax:
     content: public double WindSpeed { get; set; }
     parameters: []
@@ -183,10 +205,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: CloudCover
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
-    startLine: 16
+    startLine: 39
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: >-
+    Cloud cover percentage (0-100).
+
+    This is typically sourced from CSV backfill data.
+  example: []
   syntax:
     content: public double CloudCover { get; set; }
     parameters: []
@@ -212,10 +239,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Sunshine
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
-    startLine: 17
+    startLine: 45
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: >-
+    Sunshine duration in hours.
+
+    This is typically sourced from CSV backfill data.
+  example: []
   syntax:
     content: public double Sunshine { get; set; }
     parameters: []
@@ -241,10 +273,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GlobalRadiation
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
-    startLine: 18
+    startLine: 51
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: >-
+    Global radiation in watts per square meter (W/m²).
+
+    This is typically sourced from CSV backfill data.
+  example: []
   syntax:
     content: public double GlobalRadiation { get; set; }
     parameters: []
@@ -270,10 +307,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: MaxTemp
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
-    startLine: 19
+    startLine: 57
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: >-
+    Maximum temperature for the day in degrees Celsius (°C).
+
+    This is typically sourced from CSV backfill data.
+  example: []
   syntax:
     content: public double MaxTemp { get; set; }
     parameters: []
@@ -299,10 +341,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: MeanTemp
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
-    startLine: 20
+    startLine: 63
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: >-
+    Mean temperature for the day in degrees Celsius (°C).
+
+    This is typically sourced from CSV backfill data.
+  example: []
   syntax:
     content: public double MeanTemp { get; set; }
     parameters: []
@@ -328,10 +375,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: MinTemp
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
-    startLine: 21
+    startLine: 69
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: >-
+    Minimum temperature for the day in degrees Celsius (°C).
+
+    This is typically sourced from CSV backfill data.
+  example: []
   syntax:
     content: public double MinTemp { get; set; }
     parameters: []
@@ -357,10 +409,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Precipitation
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
-    startLine: 22
+    startLine: 75
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: >-
+    Precipitation amount in millimeters (mm).
+
+    This is typically sourced from CSV backfill data.
+  example: []
   syntax:
     content: public double Precipitation { get; set; }
     parameters: []
@@ -386,10 +443,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Pressure
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
-    startLine: 23
+    startLine: 81
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: >-
+    Atmospheric pressure in hectopascals (hPa).
+
+    This is typically sourced from CSV backfill data.
+  example: []
   syntax:
     content: public double Pressure { get; set; }
     parameters: []
@@ -415,10 +477,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: SnowDepth
     path: ../EnviroMonitorApp.Core/Models/WeatherRecord.cs
-    startLine: 24
+    startLine: 87
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: >-
+    Snow depth in centimeters (cm).
+
+    This is typically sourced from CSV backfill data.
+  example: []
   syntax:
     content: public double SnowDepth { get; set; }
     parameters: []

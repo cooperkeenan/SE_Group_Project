@@ -21,10 +21,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: IFileSystemService
     path: ../EnviroMonitorApp.Core/Services/IFileSystemService.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services
+  summary: >-
+    Interface for file system operations that provides platform-independent access to app-specific directories 
+
+    and files bundled with the application package.
+  example: []
   syntax:
     content: public interface IFileSystemService
     content.vb: Public Interface IFileSystemService
@@ -46,10 +51,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: AppDataDirectory
     path: ../EnviroMonitorApp.Core/Services/IFileSystemService.cs
-    startLine: 7
+    startLine: 14
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services
+  summary: Gets the platform-specific application data directory where the app can store files.
+  example: []
   syntax:
     content: string AppDataDirectory { get; }
     parameters: []
@@ -75,17 +82,21 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: OpenAppPackageFileAsync
     path: ../EnviroMonitorApp.Core/Services/IFileSystemService.cs
-    startLine: 8
+    startLine: 21
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services
+  summary: Opens a file that is bundled with the application package.
+  example: []
   syntax:
     content: Task<Stream> OpenAppPackageFileAsync(string filename)
     parameters:
     - id: filename
       type: System.String
+      description: The name of the file to open.
     return:
       type: System.Threading.Tasks.Task{System.IO.Stream}
+      description: A stream containing the file contents.
     content.vb: Function OpenAppPackageFileAsync(filename As String) As Task(Of Stream)
   overload: EnviroMonitorApp.Services.IFileSystemService.OpenAppPackageFileAsync*
   nameWithType.vb: IFileSystemService.OpenAppPackageFileAsync(String)

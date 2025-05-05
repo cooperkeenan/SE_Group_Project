@@ -21,10 +21,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: IWaterQualityApi
     path: ../EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
-    startLine: 17
+    startLine: 37
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: >-
+    Interface for accessing water quality data from external APIs.
+
+    Provides methods to retrieve latest readings and historical data within specified timeframes.
+  example: []
   syntax:
     content: public interface IWaterQualityApi
     content.vb: Public Interface IWaterQualityApi
@@ -46,10 +51,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetLatest
     path: ../EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
-    startLine: 19
+    startLine: 45
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Gets the latest water quality readings for a specific measurement parameter.
+  example: []
   syntax:
     content: >-
       [Get("/hydrology/data/readings.json")]
@@ -58,6 +65,7 @@ items:
     parameters:
     - id: latest
       type: System.Boolean
+      description: Flag to indicate whether to retrieve only the latest reading
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -66,6 +74,7 @@ items:
           value: latest
     - id: measureUrl
       type: System.String
+      description: URL identifying the specific water quality measure to retrieve
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -74,6 +83,7 @@ items:
           value: measure
     return:
       type: System.Threading.Tasks.Task{EnviroMonitorApp.Services.Apis.WaterQualityResponse}
+      description: A response containing the latest water quality readings
     content.vb: >-
       <Get("/hydrology/data/readings.json")>
 
@@ -106,10 +116,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: GetRange
     path: ../EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
-    startLine: 26
+    startLine: 58
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Gets water quality readings within a specified time range for a particular measurement parameter.
+  example: []
   syntax:
     content: >-
       [Get("/hydrology/data/readings.json")]
@@ -118,6 +130,7 @@ items:
     parameters:
     - id: measureUrl
       type: System.String
+      description: URL identifying the specific water quality measure to retrieve
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -126,6 +139,7 @@ items:
           value: measure
     - id: sinceUtc
       type: System.String
+      description: Start date and time in UTC format
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -134,6 +148,7 @@ items:
           value: since
     - id: limit
       type: System.Int32
+      description: 'Maximum number of readings to return (default: 96)'
       attributes:
       - type: Refit.AliasAsAttribute
         ctor: Refit.AliasAsAttribute.#ctor(System.String)
@@ -142,6 +157,7 @@ items:
           value: _limit
     return:
       type: System.Threading.Tasks.Task{EnviroMonitorApp.Services.Apis.WaterQualityResponse}
+      description: A response containing water quality readings within the specified time range
     content.vb: >-
       <Get("/hydrology/data/readings.json")>
 

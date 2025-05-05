@@ -24,10 +24,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: WaterQualityRecord
     path: ../EnviroMonitorApp.Core/Models/WaterQualityRecord.cs
-    startLine: 2
+    startLine: 6
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: >-
+    Represents a record of water quality measurements at a specific point in time.
+
+    Contains various water quality parameters including nitrate, pH, dissolved oxygen, and temperature.
+  example: []
   syntax:
     content: public class WaterQualityRecord
     content.vb: Public Class WaterQualityRecord
@@ -59,10 +64,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Timestamp
     path: ../EnviroMonitorApp.Core/Models/WaterQualityRecord.cs
-    startLine: 4
+    startLine: 11
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: The date and time when the water quality measurements were recorded.
+  example: []
   syntax:
     content: public DateTime Timestamp { get; set; }
     parameters: []
@@ -88,10 +95,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Nitrate
     path: ../EnviroMonitorApp.Core/Models/WaterQualityRecord.cs
-    startLine: 6
+    startLine: 16
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: Nitrate concentration in milligrams per liter (mg/L).
+  example: []
   syntax:
     content: public double? Nitrate { get; set; }
     parameters: []
@@ -117,10 +126,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: PH
     path: ../EnviroMonitorApp.Core/Models/WaterQualityRecord.cs
-    startLine: 7
+    startLine: 21
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: pH value indicating the acidity or alkalinity of the water (scale of 0-14).
+  example: []
   syntax:
     content: public double? PH { get; set; }
     parameters: []
@@ -146,10 +157,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: DissolvedOxygen
     path: ../EnviroMonitorApp.Core/Models/WaterQualityRecord.cs
-    startLine: 8
+    startLine: 26
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: Dissolved oxygen level in milligrams per liter (mg/L).
+  example: []
   syntax:
     content: public double? DissolvedOxygen { get; set; }
     parameters: []
@@ -175,10 +188,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Temperature
     path: ../EnviroMonitorApp.Core/Models/WaterQualityRecord.cs
-    startLine: 9
+    startLine: 31
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Models
+  summary: Water temperature in degrees Celsius (°C).
+  example: []
   syntax:
     content: public double? Temperature { get; set; }
     parameters: []

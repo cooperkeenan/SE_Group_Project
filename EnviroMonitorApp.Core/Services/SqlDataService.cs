@@ -10,12 +10,21 @@ using EnviroMonitorApp.Models;
 
 namespace EnviroMonitorApp.Services
 {
+    /// <summary>
+    /// Implementation of IEnvironmentalDataService that uses SQLite database
+    /// to store and retrieve environmental data.
+    /// </summary>
     public class SqlDataService : IEnvironmentalDataService
     {
         private readonly SQLiteAsyncConnection _db;
         private readonly IFileSystemService _fileSystem;
         private const string FileName = "enviro.db3";
 
+        /// <summary>
+        /// Initializes a new instance of the SqlDataService class.
+        /// Sets up the SQLite database connection and ensures tables are created.
+        /// </summary>
+        /// <param name="fileSystem">File system service to access app directories and files.</param>
         public SqlDataService(IFileSystemService fileSystem)
         {
             _fileSystem = fileSystem;
@@ -40,6 +49,10 @@ namespace EnviroMonitorApp.Services
             LogTableCounts().Wait();
         }
 
+        /// <summary>
+        /// Copies the bundled database file to the application data directory.
+        /// </summary>
+        /// <param name="dest">Destination path for the copied database file.</param>
         private async Task CopyBundledDbAsync(string dest)
         {
             try
@@ -55,6 +68,9 @@ namespace EnviroMonitorApp.Services
             }
         }
 
+        /// <summary>
+        /// Logs the number of records in each table to debug output.
+        /// </summary>
         private async Task LogTableCounts()
         {
             var totalAir = await _db.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM AirQualityRecord");
@@ -66,6 +82,9 @@ namespace EnviroMonitorApp.Services
             Debug.WriteLine($"[SqlDataService] WaterQuality rows: {totalWatr}");
         }
 
+        /// <summary>
+        /// Raw air quality data class for database queries.
+        /// </summary>
         private class RawAir
         {
             public string Timestamp { get; set; } = "";
@@ -75,6 +94,9 @@ namespace EnviroMonitorApp.Services
             public double? PM10 { get; set; }
         }
 
+        /// <summary>
+        /// Raw climate data class for database queries.
+        /// </summary>
         private class RawClimate
         {
             public string Date { get; set; } = "";
@@ -89,6 +111,9 @@ namespace EnviroMonitorApp.Services
             public double? SnowDepth { get; set; }
         }
 
+        /// <summary>
+        /// Raw water quality data class for database queries.
+        /// </summary>
         private class RawWater
         {
             public string Timestamp { get; set; } = "";
@@ -98,6 +123,13 @@ namespace EnviroMonitorApp.Services
             public double? Temperature { get; set; }
         }
 
+        /// <summary>
+        /// Retrieves air quality data for a specified time period and region from the SQLite database.
+        /// </summary>
+        /// <param name="from">Start date and time.</param>
+        /// <param name="to">End date and time.</param>
+        /// <param name="region">Geographic region identifier.</param>
+        /// <returns>A list of air quality records for the specified period and region.</returns>
         public async Task<List<AirQualityRecord>> GetAirQualityAsync(DateTime from, DateTime to, string region)
         {
             Debug.WriteLine("[SqlDataService] Loading AirQualityRecord rows");
@@ -126,6 +158,13 @@ namespace EnviroMonitorApp.Services
             return list;
         }
 
+        /// <summary>
+        /// Retrieves weather data for a specified time period and region from the SQLite database.
+        /// </summary>
+        /// <param name="from">Start date and time.</param>
+        /// <param name="to">End date and time.</param>
+        /// <param name="region">Geographic region identifier.</param>
+        /// <returns>A list of weather records for the specified period and region.</returns>
         public async Task<List<WeatherRecord>> GetWeatherAsync(DateTime from, DateTime to, string region)
         {
             Debug.WriteLine("[SqlDataService] Loading ClimateRecord rows");
@@ -180,6 +219,13 @@ namespace EnviroMonitorApp.Services
             return list;
         }
 
+        /// <summary>
+        /// Retrieves water quality data for a specified time period and region from the SQLite database.
+        /// </summary>
+        /// <param name="from">Start date and time.</param>
+        /// <param name="to">End date and time.</param>
+        /// <param name="region">Geographic region identifier.</param>
+        /// <returns>A list of water quality records for the specified period and region.</returns>
         public async Task<List<WaterQualityRecord>> GetWaterQualityAsync(DateTime from, DateTime to, string region)
         {
             Debug.WriteLine("[SqlDataService] Loading WaterQualityRecord rows");
@@ -214,6 +260,12 @@ namespace EnviroMonitorApp.Services
             return list;
         }
 
+        /// <summary>
+        /// Attempts to parse a timestamp string in various formats.
+        /// </summary>
+        /// <param name="raw">The timestamp string to parse.</param>
+        /// <param name="dt">When this method returns, contains the parsed DateTime if successful.</param>
+        /// <returns>True if parsing was successful; otherwise, false.</returns>
         private bool TryParseTimestamp(string raw, out DateTime dt)
         {
             return DateTime.TryParseExact(raw, "yyyy-MM-dd'T'HH:mm:ss'Z'",
@@ -222,9 +274,22 @@ namespace EnviroMonitorApp.Services
                        DateTimeStyles.AdjustToUniversal, out dt);
         }
 
+        /// <summary>
+        /// Retrieves water quality data for a specified number of hours up to the present.
+        /// </summary>
+        /// <param name="hours">Number of hours of data to retrieve.</param>
+        /// <param name="region">Geographic region identifier.</param>
+        /// <returns>A list of water quality records for the specified duration.</returns>
         public Task<List<WaterQualityRecord>> GetWaterQualityAsync(int hours, string region = "")
             => Task.FromResult(new List<WaterQualityRecord>());
 
+        /// <summary>
+        /// Retrieves historical water quality data for a specified time period and region.
+        /// </summary>
+        /// <param name="from">Start date and time.</param>
+        /// <param name="to">End date and time.</param>
+        /// <param name="region">Geographic region identifier.</param>
+        /// <returns>A list of historical water quality records for the specified period and region.</returns>
         public Task<List<WaterQualityRecord>> GetHistoricalWaterQualityAsync(DateTime from, DateTime to, string region)
             => GetWaterQualityAsync(from, to, region);
     }

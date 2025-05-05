@@ -22,10 +22,15 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: ApiKeyProvider
     path: ../EnviroMonitorApp.Core/Services/ApiKeyProvider.cs
-    startLine: 2
+    startLine: 6
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services
+  summary: >-
+    Provides API keys for external services such as OpenAQ and OpenWeatherMap.
+
+    Contains default keys for testing and allows custom keys to be provided.
+  example: []
   syntax:
     content: public class ApiKeyProvider
     content.vb: Public Class ApiKeyProvider
@@ -57,17 +62,21 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: .ctor
     path: ../EnviroMonitorApp.Core/Services/ApiKeyProvider.cs
-    startLine: 9
+    startLine: 17
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services
+  summary: Initializes a new instance of the ApiKeyProvider class.
+  example: []
   syntax:
     content: public ApiKeyProvider(string openAqKey = null, string openWeatherMapKey = null)
     parameters:
     - id: openAqKey
       type: System.String
+      description: Custom OpenAQ API key (optional). If null or empty, the default key is used.
     - id: openWeatherMapKey
       type: System.String
+      description: Custom OpenWeatherMap API key (optional). If null or empty, the default key is used.
     content.vb: Public Sub New(openAqKey As String = Nothing, openWeatherMapKey As String = Nothing)
   overload: EnviroMonitorApp.Services.ApiKeyProvider.#ctor*
   nameWithType.vb: ApiKeyProvider.New(String, String)
@@ -91,10 +100,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: OpenAqKey
     path: ../EnviroMonitorApp.Core/Services/ApiKeyProvider.cs
-    startLine: 18
+    startLine: 29
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services
+  summary: Gets the OpenAQ API key.
+  example: []
   syntax:
     content: public string OpenAqKey { get; }
     parameters: []
@@ -120,10 +131,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: OpenWeatherMap
     path: ../EnviroMonitorApp.Core/Services/ApiKeyProvider.cs
-    startLine: 19
+    startLine: 34
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services
+  summary: Gets the OpenWeatherMap API key.
+  example: []
   syntax:
     content: public string OpenWeatherMap { get; }
     parameters: []

@@ -21,10 +21,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: ReadingItem
     path: ../EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
-    startLine: 11
+    startLine: 20
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: Represents a single water quality reading with timestamp and measured value.
+  example: []
   syntax:
     content: public class ReadingItem
     content.vb: Public Class ReadingItem
@@ -56,10 +58,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: DateTime
     path: ../EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
-    startLine: 13
+    startLine: 25
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: The date and time when the reading was taken, in ISO 8601 format.
+  example: []
   syntax:
     content: public string DateTime { get; set; }
     parameters: []
@@ -85,10 +89,12 @@ items:
       repo: https://github.com/cooperkeenan/SE_Group_Project.git
     id: Value
     path: ../EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
-    startLine: 14
+    startLine: 30
   assemblies:
   - EnviroMonitorApp.Core
   namespace: EnviroMonitorApp.Services.Apis
+  summary: The measured value of the water quality parameter.
+  example: []
   syntax:
     content: public double Value { get; set; }
     parameters: []
