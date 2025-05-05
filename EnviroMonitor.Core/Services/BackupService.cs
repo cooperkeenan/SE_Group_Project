@@ -2,25 +2,31 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using EnviroMonitorApp.Models;
-using Microsoft.Maui.Storage;
+using EnviroMonitor.Core.Models;
 using SQLite;
 
-namespace EnviroMonitorApp.Services
+namespace EnviroMonitor.Core.Services
 {
     public class BackupService : IBackupService
     {
         readonly SQLiteAsyncConnection _db;
+        readonly string _sourceFolder;
+        readonly string _backupFolder;
 
-        public BackupService(SQLiteAsyncConnection db)
-            => _db = db;
+        /// <param name="dbPath">Full path to enviro.db3</param>
+        /// <param name="sourceFolder">Where the four Excel files live</param>
+        /// <param name="backupFolder">Where to copy them</param>
+        public BackupService(string dbPath, string sourceFolder, string backupFolder)
+        {
+            _db           = new SQLiteAsyncConnection(dbPath);
+            _sourceFolder = sourceFolder;
+            _backupFolder = backupFolder;
+        }
 
         public async Task<Backup> CreateManualBackupAsync()
         {
-            // ensure table exists
             await _db.CreateTableAsync<Backup>();
 
-            // create record
             var record = new Backup
             {
                 Timestamp = DateTime.UtcNow,
@@ -32,12 +38,9 @@ namespace EnviroMonitorApp.Services
 
             try
             {
-                // prepare target folder
-                var appData   = FileSystem.AppDataDirectory;
-                var backupDir = Path.Combine(appData, "backup_data");
-                Directory.CreateDirectory(backupDir);
+                // ensure backup folder exists
+                Directory.CreateDirectory(_backupFolder);
 
-                // the four Excel files in Resources/Raw/data/
                 var files = new[]
                 {
                     "Air_quality.xlsx",
@@ -46,18 +49,16 @@ namespace EnviroMonitorApp.Services
                     "Weather.xlsx"
                 };
 
-                // copy each
                 foreach (var f in files)
                 {
-                    using var src  = await FileSystem.OpenAppPackageFileAsync($"data/{f}");
-                    var destPath   = Path.Combine(backupDir, f);
-                    using var dest = File.OpenWrite(destPath);
-                    await src.CopyToAsync(dest);
+                    var srcPath  = Path.Combine(_sourceFolder, f);
+                    var destPath = Path.Combine(_backupFolder, f);
+                    File.Copy(srcPath, destPath, overwrite: true);
                 }
 
                 record.Status  = BackupStatus.Success;
                 record.Details = $"Copied {files.Length} files.";
-                record.Path    = backupDir;
+                record.Path    = _backupFolder;
             }
             catch (Exception ex)
             {

@@ -1,19 +1,19 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using EnviroMonitorApp.Models;
+using EnviroMonitor.Core.Models;
 
-namespace EnviroMonitorApp.Services
+namespace EnviroMonitor.Core.Services
 {
     public interface IBackupService
     {
         /// <summary>
-        /// Copies the four Excel files from Resources/Raw/data into
-        /// AppDataDirectory/backup_data and records a Backup entry.
+        /// Copies the four Excel files from the app package into 
+        /// the backup folder, then records a Backup row.
         /// </summary>
         Task<Backup> CreateManualBackupAsync();
 
         /// <summary>
-        /// Retrieves all past backups in descending timestamp order.
+        /// All past backups, newest first.
         /// </summary>
         Task<IReadOnlyList<Backup>> GetBackupHistoryAsync();
     }

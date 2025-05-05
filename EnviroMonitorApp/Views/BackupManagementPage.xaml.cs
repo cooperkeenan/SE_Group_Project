@@ -1,4 +1,4 @@
-using EnviroMonitorApp.ViewModels;
+using EnviroMonitor.Core.ViewModels;
 using Microsoft.Maui.Controls;
 
 namespace EnviroMonitorApp.Views
@@ -9,6 +9,12 @@ namespace EnviroMonitorApp.Views
         {
             InitializeComponent();
             BindingContext = vm;
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await ((BackupManagementViewModel)BindingContext).InitializeAsync();
         }
     }
 }

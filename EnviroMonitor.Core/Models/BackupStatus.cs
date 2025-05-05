@@ -1,4 +1,4 @@
-namespace EnviroMonitorApp.Models
+namespace EnviroMonitor.Core.Models
 {
     public enum BackupStatus
     {

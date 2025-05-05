@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <!-- MAUI on Android (net8.0-android) -->
     <TargetFramework>net8.0-android</TargetFramework>
     <OutputType>Exe</OutputType>
     <UseMaui>true</UseMaui>
@@ -10,15 +11,25 @@
     <EnableDefaultItems>true</EnableDefaultItems>
     <JavaSdkDirectory>/opt/homebrew/opt/openjdk@17</JavaSdkDirectory>
 
+    <!-- ensure the linker doesn’t strip our SQLite native libs -->
     <AndroidLinkSkip>
       SQLitePCLRaw.core;
       SQLitePCLRaw.bundle_e_sqlite3;
       SQLitePCLRaw.provider.dynamic_cdecl;
       sqlite-net-pcl
     </AndroidLinkSkip>
+
+    <!-- STOP auto-generating assembly info (no more duplicates) -->
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
 
+  <!-- Exclude any test code under Tests\ from the MAUI build -->
+  <ItemGroup>
+    <Compile Remove="Tests\**\*.cs" />
+  </ItemGroup>
 
+  <!-- MAUI resources -->
   <ItemGroup>
     <MauiIcon Include="Resources/AppIcon/appicon.svg"
               ForegroundFile="Resources/AppIcon/appiconfg.svg"
@@ -35,18 +46,25 @@
                LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 
-
+  <!-- Reference the shared Core library -->
   <ItemGroup>
+    <ProjectReference Include="..\EnviroMonitor.Core\EnviroMonitor.Core.csproj" />
+  </ItemGroup>
 
+  <!-- NuGet dependencies -->
+  <ItemGroup>
+    <!-- Core MAUI -->
     <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
     <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
 
-
+    <!-- Excel libraries -->
     <PackageReference Include="ClosedXML" Version="0.104.2" />
-    <PackageReference Include="EPPlus"   Version="7.0.0" />
+    <PackageReference Include="EPPlus" Version="7.0.0" />
 
+    <PackageReference Include="coverlet.collector" Version="4.1.0" />
 
+    <!-- SQLite & native provider bundle -->
     <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.0.4" />
     <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.0.4" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
