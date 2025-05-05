@@ -10,7 +10,6 @@
     <EnableDefaultItems>true</EnableDefaultItems>
     <JavaSdkDirectory>/opt/homebrew/opt/openjdk@17</JavaSdkDirectory>
 
-    <!-- prevent the linker from stripping our SQLite native & managed libs -->
     <AndroidLinkSkip>
       SQLitePCLRaw.core;
       SQLitePCLRaw.bundle_e_sqlite3;
@@ -19,7 +18,7 @@
     </AndroidLinkSkip>
   </PropertyGroup>
 
-  <!-- MAUI resources -->
+
   <ItemGroup>
     <MauiIcon Include="Resources/AppIcon/appicon.svg"
               ForegroundFile="Resources/AppIcon/appiconfg.svg"
@@ -36,18 +35,18 @@
                LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 
-  <!-- NuGet dependencies -->
+
   <ItemGroup>
-    <!-- Core MAUI -->
+
     <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
     <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
 
-    <!-- Excel libraries -->
+
     <PackageReference Include="ClosedXML" Version="0.104.2" />
     <PackageReference Include="EPPlus"   Version="7.0.0" />
 
-    <!-- SQLite: V2 bundle + explicit dynamic_cdecl provider -->
+
     <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.0.4" />
     <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.0.4" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
