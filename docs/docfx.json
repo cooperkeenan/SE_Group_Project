@@ -1,0 +1,29 @@
+{
+    "metadata": [
+      {
+        "src": [
+          {
+            "files": [ "../../EnviroMonitor.Core/**/*.csproj" ],
+            "exclude": [ "**/obj/**", "**/bin/**" ]
+          }
+        ],
+        "dest": "api",
+        "filter": "apiFilterConfig.yml"
+      }
+    ],
+    "build": {
+      "content": [
+        { "files": [ "**/*.md", "**/*.yml" ], "src": "articles" },
+        { "files": [ "api/**.yml" ] }
+      ],
+      "resource": [
+        { "files": [ "**/images/**" ], "src": "articles" }
+      ],
+      "dest": "_site",
+      "globalMetadata": {
+        "_appTitle": "EnviroMonitor Docs"
+      },
+      "template": [ "default", "templates/clinic" ]
+    }
+  }
+  
