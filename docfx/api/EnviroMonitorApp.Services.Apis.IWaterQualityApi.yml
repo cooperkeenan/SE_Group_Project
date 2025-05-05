@@ -1,0 +1,355 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitorApp.Services.Apis.IWaterQualityApi
+  commentId: T:EnviroMonitorApp.Services.Apis.IWaterQualityApi
+  id: IWaterQualityApi
+  parent: EnviroMonitorApp.Services.Apis
+  children:
+  - EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetLatest(System.Boolean,System.String)
+  - EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetRange(System.String,System.String,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: IWaterQualityApi
+  nameWithType: IWaterQualityApi
+  fullName: EnviroMonitorApp.Services.Apis.IWaterQualityApi
+  type: Interface
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: IWaterQualityApi
+    path: ../EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
+    startLine: 37
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services.Apis
+  summary: >-
+    Interface for accessing water quality data from external APIs.
+
+    Provides methods to retrieve latest readings and historical data within specified timeframes.
+  example: []
+  syntax:
+    content: public interface IWaterQualityApi
+    content.vb: Public Interface IWaterQualityApi
+- uid: EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetLatest(System.Boolean,System.String)
+  commentId: M:EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetLatest(System.Boolean,System.String)
+  id: GetLatest(System.Boolean,System.String)
+  parent: EnviroMonitorApp.Services.Apis.IWaterQualityApi
+  langs:
+  - csharp
+  - vb
+  name: GetLatest(bool, string)
+  nameWithType: IWaterQualityApi.GetLatest(bool, string)
+  fullName: EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetLatest(bool, string)
+  type: Method
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: GetLatest
+    path: ../EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
+    startLine: 45
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services.Apis
+  summary: Gets the latest water quality readings for a specific measurement parameter.
+  example: []
+  syntax:
+    content: >-
+      [Get("/hydrology/data/readings.json")]
+
+      Task<WaterQualityResponse> GetLatest(bool latest, string measureUrl)
+    parameters:
+    - id: latest
+      type: System.Boolean
+      description: Flag to indicate whether to retrieve only the latest reading
+      attributes:
+      - type: Refit.AliasAsAttribute
+        ctor: Refit.AliasAsAttribute.#ctor(System.String)
+        arguments:
+        - type: System.String
+          value: latest
+    - id: measureUrl
+      type: System.String
+      description: URL identifying the specific water quality measure to retrieve
+      attributes:
+      - type: Refit.AliasAsAttribute
+        ctor: Refit.AliasAsAttribute.#ctor(System.String)
+        arguments:
+        - type: System.String
+          value: measure
+    return:
+      type: System.Threading.Tasks.Task{EnviroMonitorApp.Services.Apis.WaterQualityResponse}
+      description: A response containing the latest water quality readings
+    content.vb: >-
+      <Get("/hydrology/data/readings.json")>
+
+      Function GetLatest(latest As Boolean, measureUrl As String) As Task(Of WaterQualityResponse)
+  overload: EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetLatest*
+  attributes:
+  - type: Refit.GetAttribute
+    ctor: Refit.GetAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: /hydrology/data/readings.json
+  nameWithType.vb: IWaterQualityApi.GetLatest(Boolean, String)
+  fullName.vb: EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetLatest(Boolean, String)
+  name.vb: GetLatest(Boolean, String)
+- uid: EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetRange(System.String,System.String,System.Int32)
+  commentId: M:EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetRange(System.String,System.String,System.Int32)
+  id: GetRange(System.String,System.String,System.Int32)
+  parent: EnviroMonitorApp.Services.Apis.IWaterQualityApi
+  langs:
+  - csharp
+  - vb
+  name: GetRange(string, string, int)
+  nameWithType: IWaterQualityApi.GetRange(string, string, int)
+  fullName: EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetRange(string, string, int)
+  type: Method
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: GetRange
+    path: ../EnviroMonitorApp.Core/Services/Apis/IWaterQualityApi.cs
+    startLine: 58
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services.Apis
+  summary: Gets water quality readings within a specified time range for a particular measurement parameter.
+  example: []
+  syntax:
+    content: >-
+      [Get("/hydrology/data/readings.json")]
+
+      Task<WaterQualityResponse> GetRange(string measureUrl, string sinceUtc, int limit = 96)
+    parameters:
+    - id: measureUrl
+      type: System.String
+      description: URL identifying the specific water quality measure to retrieve
+      attributes:
+      - type: Refit.AliasAsAttribute
+        ctor: Refit.AliasAsAttribute.#ctor(System.String)
+        arguments:
+        - type: System.String
+          value: measure
+    - id: sinceUtc
+      type: System.String
+      description: Start date and time in UTC format
+      attributes:
+      - type: Refit.AliasAsAttribute
+        ctor: Refit.AliasAsAttribute.#ctor(System.String)
+        arguments:
+        - type: System.String
+          value: since
+    - id: limit
+      type: System.Int32
+      description: 'Maximum number of readings to return (default: 96)'
+      attributes:
+      - type: Refit.AliasAsAttribute
+        ctor: Refit.AliasAsAttribute.#ctor(System.String)
+        arguments:
+        - type: System.String
+          value: _limit
+    return:
+      type: System.Threading.Tasks.Task{EnviroMonitorApp.Services.Apis.WaterQualityResponse}
+      description: A response containing water quality readings within the specified time range
+    content.vb: >-
+      <Get("/hydrology/data/readings.json")>
+
+      Function GetRange(measureUrl As String, sinceUtc As String, limit As Integer = 96) As Task(Of WaterQualityResponse)
+  overload: EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetRange*
+  attributes:
+  - type: Refit.GetAttribute
+    ctor: Refit.GetAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: /hydrology/data/readings.json
+  nameWithType.vb: IWaterQualityApi.GetRange(String, String, Integer)
+  fullName.vb: EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetRange(String, String, Integer)
+  name.vb: GetRange(String, String, Integer)
+references:
+- uid: EnviroMonitorApp.Services.Apis
+  commentId: N:EnviroMonitorApp.Services.Apis
+  href: EnviroMonitorApp.html
+  name: EnviroMonitorApp.Services.Apis
+  nameWithType: EnviroMonitorApp.Services.Apis
+  fullName: EnviroMonitorApp.Services.Apis
+  spec.csharp:
+  - uid: EnviroMonitorApp
+    name: EnviroMonitorApp
+    href: EnviroMonitorApp.html
+  - name: .
+  - uid: EnviroMonitorApp.Services
+    name: Services
+    href: EnviroMonitorApp.Services.html
+  - name: .
+  - uid: EnviroMonitorApp.Services.Apis
+    name: Apis
+    href: EnviroMonitorApp.Services.Apis.html
+  spec.vb:
+  - uid: EnviroMonitorApp
+    name: EnviroMonitorApp
+    href: EnviroMonitorApp.html
+  - name: .
+  - uid: EnviroMonitorApp.Services
+    name: Services
+    href: EnviroMonitorApp.Services.html
+  - name: .
+  - uid: EnviroMonitorApp.Services.Apis
+    name: Apis
+    href: EnviroMonitorApp.Services.Apis.html
+- uid: EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetLatest*
+  commentId: Overload:EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetLatest
+  href: EnviroMonitorApp.Services.Apis.IWaterQualityApi.html#EnviroMonitorApp_Services_Apis_IWaterQualityApi_GetLatest_System_Boolean_System_String_
+  name: GetLatest
+  nameWithType: IWaterQualityApi.GetLatest
+  fullName: EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetLatest
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{EnviroMonitorApp.Services.Apis.WaterQualityResponse}
+  commentId: T:System.Threading.Tasks.Task{EnviroMonitorApp.Services.Apis.WaterQualityResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<WaterQualityResponse>
+  nameWithType: Task<WaterQualityResponse>
+  fullName: System.Threading.Tasks.Task<EnviroMonitorApp.Services.Apis.WaterQualityResponse>
+  nameWithType.vb: Task(Of WaterQualityResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of EnviroMonitorApp.Services.Apis.WaterQualityResponse)
+  name.vb: Task(Of WaterQualityResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: EnviroMonitorApp.Services.Apis.WaterQualityResponse
+    name: WaterQualityResponse
+    href: EnviroMonitorApp.Services.Apis.WaterQualityResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: EnviroMonitorApp.Services.Apis.WaterQualityResponse
+    name: WaterQualityResponse
+    href: EnviroMonitorApp.Services.Apis.WaterQualityResponse.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetRange*
+  commentId: Overload:EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetRange
+  href: EnviroMonitorApp.Services.Apis.IWaterQualityApi.html#EnviroMonitorApp_Services_Apis_IWaterQualityApi_GetRange_System_String_System_String_System_Int32_
+  name: GetRange
+  nameWithType: IWaterQualityApi.GetRange
+  fullName: EnviroMonitorApp.Services.Apis.IWaterQualityApi.GetRange
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

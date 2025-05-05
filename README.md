@@ -26,3 +26,7 @@ Or use the following connection string:
 Server=localhost;Database=EnviroMonitorDB;User Id=sa;Password=[Password];TrustServerCertificate=True;
 ```
 
+## Documentation
+
+- **API Docs:** https://raw.githack.com/…
+- **Coverage:**  https://rawcdn.githack.com/…

@@ -1,0 +1,173 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitorApp.Services.Apis
+  commentId: N:EnviroMonitorApp.Services.Apis
+  id: EnviroMonitorApp.Services.Apis
+  children:
+  - EnviroMonitorApp.Services.Apis.DateWrapper
+  - EnviroMonitorApp.Services.Apis.IAirQualityApi
+  - EnviroMonitorApp.Services.Apis.IWaterQualityApi
+  - EnviroMonitorApp.Services.Apis.IWeatherApi
+  - EnviroMonitorApp.Services.Apis.LatestResult
+  - EnviroMonitorApp.Services.Apis.Location
+  - EnviroMonitorApp.Services.Apis.LocationLatestResponse
+  - EnviroMonitorApp.Services.Apis.LocationResponse
+  - EnviroMonitorApp.Services.Apis.Measurement
+  - EnviroMonitorApp.Services.Apis.MeasurementsMeta
+  - EnviroMonitorApp.Services.Apis.MeasurementsResponse
+  - EnviroMonitorApp.Services.Apis.Meta
+  - EnviroMonitorApp.Services.Apis.Parameter
+  - EnviroMonitorApp.Services.Apis.PeriodWrapper
+  - EnviroMonitorApp.Services.Apis.ReadingItem
+  - EnviroMonitorApp.Services.Apis.Sensor
+  - EnviroMonitorApp.Services.Apis.WaterQualityResponse
+  langs:
+  - csharp
+  - vb
+  name: EnviroMonitorApp.Services.Apis
+  nameWithType: EnviroMonitorApp.Services.Apis
+  fullName: EnviroMonitorApp.Services.Apis
+  type: Namespace
+  assemblies:
+  - EnviroMonitorApp.Core
+references:
+- uid: EnviroMonitorApp.Services.Apis.IAirQualityApi
+  commentId: T:EnviroMonitorApp.Services.Apis.IAirQualityApi
+  parent: EnviroMonitorApp.Services.Apis
+  href: EnviroMonitorApp.Services.Apis.IAirQualityApi.html
+  name: IAirQualityApi
+  nameWithType: IAirQualityApi
+  fullName: EnviroMonitorApp.Services.Apis.IAirQualityApi
+- uid: EnviroMonitorApp.Services.Apis.WaterQualityResponse
+  commentId: T:EnviroMonitorApp.Services.Apis.WaterQualityResponse
+  href: EnviroMonitorApp.Services.Apis.WaterQualityResponse.html
+  name: WaterQualityResponse
+  nameWithType: WaterQualityResponse
+  fullName: EnviroMonitorApp.Services.Apis.WaterQualityResponse
+- uid: EnviroMonitorApp.Services.Apis.ReadingItem
+  commentId: T:EnviroMonitorApp.Services.Apis.ReadingItem
+  href: EnviroMonitorApp.Services.Apis.ReadingItem.html
+  name: ReadingItem
+  nameWithType: ReadingItem
+  fullName: EnviroMonitorApp.Services.Apis.ReadingItem
+- uid: EnviroMonitorApp.Services.Apis.IWaterQualityApi
+  commentId: T:EnviroMonitorApp.Services.Apis.IWaterQualityApi
+  parent: EnviroMonitorApp.Services.Apis
+  href: EnviroMonitorApp.Services.Apis.IWaterQualityApi.html
+  name: IWaterQualityApi
+  nameWithType: IWaterQualityApi
+  fullName: EnviroMonitorApp.Services.Apis.IWaterQualityApi
+- uid: EnviroMonitorApp.Services.Apis.IWeatherApi
+  commentId: T:EnviroMonitorApp.Services.Apis.IWeatherApi
+  parent: EnviroMonitorApp.Services.Apis
+  href: EnviroMonitorApp.Services.Apis.IWeatherApi.html
+  name: IWeatherApi
+  nameWithType: IWeatherApi
+  fullName: EnviroMonitorApp.Services.Apis.IWeatherApi
+- uid: EnviroMonitorApp.Services.Apis.LocationLatestResponse
+  commentId: T:EnviroMonitorApp.Services.Apis.LocationLatestResponse
+  href: EnviroMonitorApp.Services.Apis.LocationLatestResponse.html
+  name: LocationLatestResponse
+  nameWithType: LocationLatestResponse
+  fullName: EnviroMonitorApp.Services.Apis.LocationLatestResponse
+- uid: EnviroMonitorApp.Services.Apis.LatestResult
+  commentId: T:EnviroMonitorApp.Services.Apis.LatestResult
+  href: EnviroMonitorApp.Services.Apis.LatestResult.html
+  name: LatestResult
+  nameWithType: LatestResult
+  fullName: EnviroMonitorApp.Services.Apis.LatestResult
+- uid: EnviroMonitorApp.Services.Apis.LocationResponse
+  commentId: T:EnviroMonitorApp.Services.Apis.LocationResponse
+  href: EnviroMonitorApp.Services.Apis.LocationResponse.html
+  name: LocationResponse
+  nameWithType: LocationResponse
+  fullName: EnviroMonitorApp.Services.Apis.LocationResponse
+- uid: EnviroMonitorApp.Services.Apis.Meta
+  commentId: T:EnviroMonitorApp.Services.Apis.Meta
+  parent: EnviroMonitorApp.Services.Apis
+  href: EnviroMonitorApp.Services.Apis.Meta.html
+  name: Meta
+  nameWithType: Meta
+  fullName: EnviroMonitorApp.Services.Apis.Meta
+- uid: EnviroMonitorApp.Services.Apis.Location
+  commentId: T:EnviroMonitorApp.Services.Apis.Location
+  href: EnviroMonitorApp.Services.Apis.Location.html
+  name: Location
+  nameWithType: Location
+  fullName: EnviroMonitorApp.Services.Apis.Location
+- uid: EnviroMonitorApp.Services.Apis.Sensor
+  commentId: T:EnviroMonitorApp.Services.Apis.Sensor
+  href: EnviroMonitorApp.Services.Apis.Sensor.html
+  name: Sensor
+  nameWithType: Sensor
+  fullName: EnviroMonitorApp.Services.Apis.Sensor
+- uid: EnviroMonitorApp.Services.Apis.Parameter
+  commentId: T:EnviroMonitorApp.Services.Apis.Parameter
+  parent: EnviroMonitorApp.Services.Apis
+  href: EnviroMonitorApp.Services.Apis.Parameter.html
+  name: Parameter
+  nameWithType: Parameter
+  fullName: EnviroMonitorApp.Services.Apis.Parameter
+- uid: EnviroMonitorApp.Services.Apis.DateWrapper
+  commentId: T:EnviroMonitorApp.Services.Apis.DateWrapper
+  parent: EnviroMonitorApp.Services.Apis
+  href: EnviroMonitorApp.Services.Apis.DateWrapper.html
+  name: DateWrapper
+  nameWithType: DateWrapper
+  fullName: EnviroMonitorApp.Services.Apis.DateWrapper
+- uid: EnviroMonitorApp.Services.Apis.MeasurementsResponse
+  commentId: T:EnviroMonitorApp.Services.Apis.MeasurementsResponse
+  href: EnviroMonitorApp.Services.Apis.MeasurementsResponse.html
+  name: MeasurementsResponse
+  nameWithType: MeasurementsResponse
+  fullName: EnviroMonitorApp.Services.Apis.MeasurementsResponse
+- uid: EnviroMonitorApp.Services.Apis.MeasurementsMeta
+  commentId: T:EnviroMonitorApp.Services.Apis.MeasurementsMeta
+  parent: EnviroMonitorApp.Services.Apis
+  href: EnviroMonitorApp.Services.Apis.MeasurementsMeta.html
+  name: MeasurementsMeta
+  nameWithType: MeasurementsMeta
+  fullName: EnviroMonitorApp.Services.Apis.MeasurementsMeta
+- uid: EnviroMonitorApp.Services.Apis.Measurement
+  commentId: T:EnviroMonitorApp.Services.Apis.Measurement
+  href: EnviroMonitorApp.Services.Apis.Measurement.html
+  name: Measurement
+  nameWithType: Measurement
+  fullName: EnviroMonitorApp.Services.Apis.Measurement
+- uid: EnviroMonitorApp.Services.Apis.PeriodWrapper
+  commentId: T:EnviroMonitorApp.Services.Apis.PeriodWrapper
+  parent: EnviroMonitorApp.Services.Apis
+  href: EnviroMonitorApp.Services.Apis.PeriodWrapper.html
+  name: PeriodWrapper
+  nameWithType: PeriodWrapper
+  fullName: EnviroMonitorApp.Services.Apis.PeriodWrapper
+- uid: EnviroMonitorApp.Services.Apis
+  commentId: N:EnviroMonitorApp.Services.Apis
+  href: EnviroMonitorApp.html
+  name: EnviroMonitorApp.Services.Apis
+  nameWithType: EnviroMonitorApp.Services.Apis
+  fullName: EnviroMonitorApp.Services.Apis
+  spec.csharp:
+  - uid: EnviroMonitorApp
+    name: EnviroMonitorApp
+    href: EnviroMonitorApp.html
+  - name: .
+  - uid: EnviroMonitorApp.Services
+    name: Services
+    href: EnviroMonitorApp.Services.html
+  - name: .
+  - uid: EnviroMonitorApp.Services.Apis
+    name: Apis
+    href: EnviroMonitorApp.Services.Apis.html
+  spec.vb:
+  - uid: EnviroMonitorApp
+    name: EnviroMonitorApp
+    href: EnviroMonitorApp.html
+  - name: .
+  - uid: EnviroMonitorApp.Services
+    name: Services
+    href: EnviroMonitorApp.Services.html
+  - name: .
+  - uid: EnviroMonitorApp.Services.Apis
+    name: Apis
+    href: EnviroMonitorApp.Services.Apis.html

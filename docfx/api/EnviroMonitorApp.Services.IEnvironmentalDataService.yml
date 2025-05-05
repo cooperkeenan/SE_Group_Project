@@ -1,0 +1,548 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitorApp.Services.IEnvironmentalDataService
+  commentId: T:EnviroMonitorApp.Services.IEnvironmentalDataService
+  id: IEnvironmentalDataService
+  parent: EnviroMonitorApp.Services
+  children:
+  - EnviroMonitorApp.Services.IEnvironmentalDataService.GetAirQualityAsync(System.DateTime,System.DateTime,System.String)
+  - EnviroMonitorApp.Services.IEnvironmentalDataService.GetHistoricalWaterQualityAsync(System.DateTime,System.DateTime,System.String)
+  - EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync(System.DateTime,System.DateTime,System.String)
+  - EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync(System.Int32,System.String)
+  - EnviroMonitorApp.Services.IEnvironmentalDataService.GetWeatherAsync(System.DateTime,System.DateTime,System.String)
+  langs:
+  - csharp
+  - vb
+  name: IEnvironmentalDataService
+  nameWithType: IEnvironmentalDataService
+  fullName: EnviroMonitorApp.Services.IEnvironmentalDataService
+  type: Interface
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: IEnvironmentalDataService
+    path: ../EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs
+    startLine: 9
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services
+  summary: >-
+    Interface for environmental data services that provide access to air quality,
+
+    weather, and water quality data from various sources.
+  example: []
+  syntax:
+    content: public interface IEnvironmentalDataService
+    content.vb: Public Interface IEnvironmentalDataService
+- uid: EnviroMonitorApp.Services.IEnvironmentalDataService.GetAirQualityAsync(System.DateTime,System.DateTime,System.String)
+  commentId: M:EnviroMonitorApp.Services.IEnvironmentalDataService.GetAirQualityAsync(System.DateTime,System.DateTime,System.String)
+  id: GetAirQualityAsync(System.DateTime,System.DateTime,System.String)
+  parent: EnviroMonitorApp.Services.IEnvironmentalDataService
+  langs:
+  - csharp
+  - vb
+  name: GetAirQualityAsync(DateTime, DateTime, string)
+  nameWithType: IEnvironmentalDataService.GetAirQualityAsync(DateTime, DateTime, string)
+  fullName: EnviroMonitorApp.Services.IEnvironmentalDataService.GetAirQualityAsync(System.DateTime, System.DateTime, string)
+  type: Method
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: GetAirQualityAsync
+    path: ../EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs
+    startLine: 18
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services
+  summary: Retrieves air quality data for a specified time period and region.
+  example: []
+  syntax:
+    content: Task<List<AirQualityRecord>> GetAirQualityAsync(DateTime from, DateTime to, string region)
+    parameters:
+    - id: from
+      type: System.DateTime
+      description: Start date and time.
+    - id: to
+      type: System.DateTime
+      description: End date and time.
+    - id: region
+      type: System.String
+      description: Geographic region identifier (e.g., "London").
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.AirQualityRecord}}
+      description: A list of air quality records for the specified period and region.
+    content.vb: Function GetAirQualityAsync(from As Date, [to] As Date, region As String) As Task(Of List(Of AirQualityRecord))
+  overload: EnviroMonitorApp.Services.IEnvironmentalDataService.GetAirQualityAsync*
+  nameWithType.vb: IEnvironmentalDataService.GetAirQualityAsync(Date, Date, String)
+  fullName.vb: EnviroMonitorApp.Services.IEnvironmentalDataService.GetAirQualityAsync(Date, Date, String)
+  name.vb: GetAirQualityAsync(Date, Date, String)
+- uid: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWeatherAsync(System.DateTime,System.DateTime,System.String)
+  commentId: M:EnviroMonitorApp.Services.IEnvironmentalDataService.GetWeatherAsync(System.DateTime,System.DateTime,System.String)
+  id: GetWeatherAsync(System.DateTime,System.DateTime,System.String)
+  parent: EnviroMonitorApp.Services.IEnvironmentalDataService
+  langs:
+  - csharp
+  - vb
+  name: GetWeatherAsync(DateTime, DateTime, string)
+  nameWithType: IEnvironmentalDataService.GetWeatherAsync(DateTime, DateTime, string)
+  fullName: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWeatherAsync(System.DateTime, System.DateTime, string)
+  type: Method
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: GetWeatherAsync
+    path: ../EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs
+    startLine: 28
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services
+  summary: Retrieves weather data for a specified time period and region.
+  example: []
+  syntax:
+    content: Task<List<WeatherRecord>> GetWeatherAsync(DateTime from, DateTime to, string region)
+    parameters:
+    - id: from
+      type: System.DateTime
+      description: Start date and time.
+    - id: to
+      type: System.DateTime
+      description: End date and time.
+    - id: region
+      type: System.String
+      description: Geographic region identifier (e.g., "London").
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.WeatherRecord}}
+      description: A list of weather records for the specified period and region.
+    content.vb: Function GetWeatherAsync(from As Date, [to] As Date, region As String) As Task(Of List(Of WeatherRecord))
+  overload: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWeatherAsync*
+  nameWithType.vb: IEnvironmentalDataService.GetWeatherAsync(Date, Date, String)
+  fullName.vb: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWeatherAsync(Date, Date, String)
+  name.vb: GetWeatherAsync(Date, Date, String)
+- uid: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync(System.DateTime,System.DateTime,System.String)
+  commentId: M:EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync(System.DateTime,System.DateTime,System.String)
+  id: GetWaterQualityAsync(System.DateTime,System.DateTime,System.String)
+  parent: EnviroMonitorApp.Services.IEnvironmentalDataService
+  langs:
+  - csharp
+  - vb
+  name: GetWaterQualityAsync(DateTime, DateTime, string)
+  nameWithType: IEnvironmentalDataService.GetWaterQualityAsync(DateTime, DateTime, string)
+  fullName: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync(System.DateTime, System.DateTime, string)
+  type: Method
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: GetWaterQualityAsync
+    path: ../EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs
+    startLine: 38
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services
+  summary: Retrieves water quality data for a specified time period and region.
+  example: []
+  syntax:
+    content: Task<List<WaterQualityRecord>> GetWaterQualityAsync(DateTime from, DateTime to, string region)
+    parameters:
+    - id: from
+      type: System.DateTime
+      description: Start date and time.
+    - id: to
+      type: System.DateTime
+      description: End date and time.
+    - id: region
+      type: System.String
+      description: Geographic region identifier.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.WaterQualityRecord}}
+      description: A list of water quality records for the specified period and region.
+    content.vb: Function GetWaterQualityAsync(from As Date, [to] As Date, region As String) As Task(Of List(Of WaterQualityRecord))
+  overload: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync*
+  nameWithType.vb: IEnvironmentalDataService.GetWaterQualityAsync(Date, Date, String)
+  fullName.vb: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync(Date, Date, String)
+  name.vb: GetWaterQualityAsync(Date, Date, String)
+- uid: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync(System.Int32,System.String)
+  commentId: M:EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync(System.Int32,System.String)
+  id: GetWaterQualityAsync(System.Int32,System.String)
+  parent: EnviroMonitorApp.Services.IEnvironmentalDataService
+  langs:
+  - csharp
+  - vb
+  name: GetWaterQualityAsync(int, string)
+  nameWithType: IEnvironmentalDataService.GetWaterQualityAsync(int, string)
+  fullName: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync(int, string)
+  type: Method
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: GetWaterQualityAsync
+    path: ../EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs
+    startLine: 47
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services
+  summary: Retrieves water quality data for a specified number of hours up to the present.
+  example: []
+  syntax:
+    content: Task<List<WaterQualityRecord>> GetWaterQualityAsync(int hours, string region = "")
+    parameters:
+    - id: hours
+      type: System.Int32
+      description: Number of hours of data to retrieve.
+    - id: region
+      type: System.String
+      description: Geographic region identifier (optional).
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.WaterQualityRecord}}
+      description: A list of water quality records for the specified duration.
+    content.vb: Function GetWaterQualityAsync(hours As Integer, region As String = "") As Task(Of List(Of WaterQualityRecord))
+  overload: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync*
+  nameWithType.vb: IEnvironmentalDataService.GetWaterQualityAsync(Integer, String)
+  fullName.vb: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync(Integer, String)
+  name.vb: GetWaterQualityAsync(Integer, String)
+- uid: EnviroMonitorApp.Services.IEnvironmentalDataService.GetHistoricalWaterQualityAsync(System.DateTime,System.DateTime,System.String)
+  commentId: M:EnviroMonitorApp.Services.IEnvironmentalDataService.GetHistoricalWaterQualityAsync(System.DateTime,System.DateTime,System.String)
+  id: GetHistoricalWaterQualityAsync(System.DateTime,System.DateTime,System.String)
+  parent: EnviroMonitorApp.Services.IEnvironmentalDataService
+  langs:
+  - csharp
+  - vb
+  name: GetHistoricalWaterQualityAsync(DateTime, DateTime, string)
+  nameWithType: IEnvironmentalDataService.GetHistoricalWaterQualityAsync(DateTime, DateTime, string)
+  fullName: EnviroMonitorApp.Services.IEnvironmentalDataService.GetHistoricalWaterQualityAsync(System.DateTime, System.DateTime, string)
+  type: Method
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: GetHistoricalWaterQualityAsync
+    path: ../EnviroMonitorApp.Core/Services/IEnvironmentalDataService.cs
+    startLine: 57
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services
+  summary: Retrieves historical water quality data for a specified time period and region.
+  example: []
+  syntax:
+    content: Task<List<WaterQualityRecord>> GetHistoricalWaterQualityAsync(DateTime from, DateTime to, string region)
+    parameters:
+    - id: from
+      type: System.DateTime
+      description: Start date and time.
+    - id: to
+      type: System.DateTime
+      description: End date and time.
+    - id: region
+      type: System.String
+      description: Geographic region identifier.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.WaterQualityRecord}}
+      description: A list of historical water quality records for the specified period and region.
+    content.vb: Function GetHistoricalWaterQualityAsync(from As Date, [to] As Date, region As String) As Task(Of List(Of WaterQualityRecord))
+  overload: EnviroMonitorApp.Services.IEnvironmentalDataService.GetHistoricalWaterQualityAsync*
+  nameWithType.vb: IEnvironmentalDataService.GetHistoricalWaterQualityAsync(Date, Date, String)
+  fullName.vb: EnviroMonitorApp.Services.IEnvironmentalDataService.GetHistoricalWaterQualityAsync(Date, Date, String)
+  name.vb: GetHistoricalWaterQualityAsync(Date, Date, String)
+references:
+- uid: EnviroMonitorApp.Services
+  commentId: N:EnviroMonitorApp.Services
+  href: EnviroMonitorApp.html
+  name: EnviroMonitorApp.Services
+  nameWithType: EnviroMonitorApp.Services
+  fullName: EnviroMonitorApp.Services
+  spec.csharp:
+  - uid: EnviroMonitorApp
+    name: EnviroMonitorApp
+    href: EnviroMonitorApp.html
+  - name: .
+  - uid: EnviroMonitorApp.Services
+    name: Services
+    href: EnviroMonitorApp.Services.html
+  spec.vb:
+  - uid: EnviroMonitorApp
+    name: EnviroMonitorApp
+    href: EnviroMonitorApp.html
+  - name: .
+  - uid: EnviroMonitorApp.Services
+    name: Services
+    href: EnviroMonitorApp.Services.html
+- uid: EnviroMonitorApp.Services.IEnvironmentalDataService.GetAirQualityAsync*
+  commentId: Overload:EnviroMonitorApp.Services.IEnvironmentalDataService.GetAirQualityAsync
+  href: EnviroMonitorApp.Services.IEnvironmentalDataService.html#EnviroMonitorApp_Services_IEnvironmentalDataService_GetAirQualityAsync_System_DateTime_System_DateTime_System_String_
+  name: GetAirQualityAsync
+  nameWithType: IEnvironmentalDataService.GetAirQualityAsync
+  fullName: EnviroMonitorApp.Services.IEnvironmentalDataService.GetAirQualityAsync
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.AirQualityRecord}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.AirQualityRecord}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<AirQualityRecord>>
+  nameWithType: Task<List<AirQualityRecord>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<EnviroMonitorApp.Models.AirQualityRecord>>
+  nameWithType.vb: Task(Of List(Of AirQualityRecord))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of EnviroMonitorApp.Models.AirQualityRecord))
+  name.vb: Task(Of List(Of AirQualityRecord))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: EnviroMonitorApp.Models.AirQualityRecord
+    name: AirQualityRecord
+    href: EnviroMonitorApp.Models.AirQualityRecord.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: EnviroMonitorApp.Models.AirQualityRecord
+    name: AirQualityRecord
+    href: EnviroMonitorApp.Models.AirQualityRecord.html
+  - name: )
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWeatherAsync*
+  commentId: Overload:EnviroMonitorApp.Services.IEnvironmentalDataService.GetWeatherAsync
+  href: EnviroMonitorApp.Services.IEnvironmentalDataService.html#EnviroMonitorApp_Services_IEnvironmentalDataService_GetWeatherAsync_System_DateTime_System_DateTime_System_String_
+  name: GetWeatherAsync
+  nameWithType: IEnvironmentalDataService.GetWeatherAsync
+  fullName: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWeatherAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.WeatherRecord}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.WeatherRecord}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<WeatherRecord>>
+  nameWithType: Task<List<WeatherRecord>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<EnviroMonitorApp.Models.WeatherRecord>>
+  nameWithType.vb: Task(Of List(Of WeatherRecord))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of EnviroMonitorApp.Models.WeatherRecord))
+  name.vb: Task(Of List(Of WeatherRecord))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: EnviroMonitorApp.Models.WeatherRecord
+    name: WeatherRecord
+    href: EnviroMonitorApp.Models.WeatherRecord.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: EnviroMonitorApp.Models.WeatherRecord
+    name: WeatherRecord
+    href: EnviroMonitorApp.Models.WeatherRecord.html
+  - name: )
+  - name: )
+- uid: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync*
+  commentId: Overload:EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync
+  href: EnviroMonitorApp.Services.IEnvironmentalDataService.html#EnviroMonitorApp_Services_IEnvironmentalDataService_GetWaterQualityAsync_System_DateTime_System_DateTime_System_String_
+  name: GetWaterQualityAsync
+  nameWithType: IEnvironmentalDataService.GetWaterQualityAsync
+  fullName: EnviroMonitorApp.Services.IEnvironmentalDataService.GetWaterQualityAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.WaterQualityRecord}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{EnviroMonitorApp.Models.WaterQualityRecord}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<WaterQualityRecord>>
+  nameWithType: Task<List<WaterQualityRecord>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<EnviroMonitorApp.Models.WaterQualityRecord>>
+  nameWithType.vb: Task(Of List(Of WaterQualityRecord))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of EnviroMonitorApp.Models.WaterQualityRecord))
+  name.vb: Task(Of List(Of WaterQualityRecord))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: EnviroMonitorApp.Models.WaterQualityRecord
+    name: WaterQualityRecord
+    href: EnviroMonitorApp.Models.WaterQualityRecord.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: EnviroMonitorApp.Models.WaterQualityRecord
+    name: WaterQualityRecord
+    href: EnviroMonitorApp.Models.WaterQualityRecord.html
+  - name: )
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: EnviroMonitorApp.Services.IEnvironmentalDataService.GetHistoricalWaterQualityAsync*
+  commentId: Overload:EnviroMonitorApp.Services.IEnvironmentalDataService.GetHistoricalWaterQualityAsync
+  href: EnviroMonitorApp.Services.IEnvironmentalDataService.html#EnviroMonitorApp_Services_IEnvironmentalDataService_GetHistoricalWaterQualityAsync_System_DateTime_System_DateTime_System_String_
+  name: GetHistoricalWaterQualityAsync
+  nameWithType: IEnvironmentalDataService.GetHistoricalWaterQualityAsync
+  fullName: EnviroMonitorApp.Services.IEnvironmentalDataService.GetHistoricalWaterQualityAsync

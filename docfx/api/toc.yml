@@ -1,0 +1,139 @@
+### YamlMime:TableOfContent
+items:
+- uid: EnviroMonitorApp.Converters
+  name: EnviroMonitorApp.Converters
+  type: Namespace
+  items:
+  - uid: EnviroMonitorApp.Converters.InverseBoolConverter
+    name: InverseBoolConverter
+    type: Class
+- uid: EnviroMonitorApp.Models
+  name: EnviroMonitorApp.Models
+  type: Namespace
+  items:
+  - uid: EnviroMonitorApp.Models.AirQualityRecord
+    name: AirQualityRecord
+    type: Class
+  - uid: EnviroMonitorApp.Models.OpenWeatherForecastResponse
+    name: OpenWeatherForecastResponse
+    type: Class
+  - uid: EnviroMonitorApp.Models.OpenWeatherForecastResponse.ListItem
+    name: OpenWeatherForecastResponse.ListItem
+    type: Class
+  - uid: EnviroMonitorApp.Models.OpenWeatherForecastResponse.MainInfo
+    name: OpenWeatherForecastResponse.MainInfo
+    type: Class
+  - uid: EnviroMonitorApp.Models.OpenWeatherForecastResponse.WindInfo
+    name: OpenWeatherForecastResponse.WindInfo
+    type: Class
+  - uid: EnviroMonitorApp.Models.WaterQualityRecord
+    name: WaterQualityRecord
+    type: Class
+  - uid: EnviroMonitorApp.Models.WeatherRecord
+    name: WeatherRecord
+    type: Class
+- uid: EnviroMonitorApp.Services
+  name: EnviroMonitorApp.Services
+  type: Namespace
+  items:
+  - uid: EnviroMonitorApp.Services.ApiKeyProvider
+    name: ApiKeyProvider
+    type: Class
+  - uid: EnviroMonitorApp.Services.EnvironmentalDataApiService
+    name: EnvironmentalDataApiService
+    type: Class
+  - uid: EnviroMonitorApp.Services.HttpLoggingHandler
+    name: HttpLoggingHandler
+    type: Class
+  - uid: EnviroMonitorApp.Services.IEnvironmentalDataService
+    name: IEnvironmentalDataService
+    type: Interface
+  - uid: EnviroMonitorApp.Services.IFileSystemService
+    name: IFileSystemService
+    type: Interface
+  - uid: EnviroMonitorApp.Services.MauiFileSystemService
+    name: MauiFileSystemService
+    type: Class
+  - uid: EnviroMonitorApp.Services.SqlDataService
+    name: SqlDataService
+    type: Class
+- uid: EnviroMonitorApp.Services.Apis
+  name: EnviroMonitorApp.Services.Apis
+  type: Namespace
+  items:
+  - uid: EnviroMonitorApp.Services.Apis.DateWrapper
+    name: DateWrapper
+    type: Class
+  - uid: EnviroMonitorApp.Services.Apis.IAirQualityApi
+    name: IAirQualityApi
+    type: Interface
+  - uid: EnviroMonitorApp.Services.Apis.IWaterQualityApi
+    name: IWaterQualityApi
+    type: Interface
+  - uid: EnviroMonitorApp.Services.Apis.IWeatherApi
+    name: IWeatherApi
+    type: Interface
+  - uid: EnviroMonitorApp.Services.Apis.LatestResult
+    name: LatestResult
+    type: Class
+  - uid: EnviroMonitorApp.Services.Apis.Location
+    name: Location
+    type: Class
+  - uid: EnviroMonitorApp.Services.Apis.LocationLatestResponse
+    name: LocationLatestResponse
+    type: Class
+  - uid: EnviroMonitorApp.Services.Apis.LocationResponse
+    name: LocationResponse
+    type: Class
+  - uid: EnviroMonitorApp.Services.Apis.Measurement
+    name: Measurement
+    type: Class
+  - uid: EnviroMonitorApp.Services.Apis.MeasurementsMeta
+    name: MeasurementsMeta
+    type: Class
+  - uid: EnviroMonitorApp.Services.Apis.MeasurementsResponse
+    name: MeasurementsResponse
+    type: Class
+  - uid: EnviroMonitorApp.Services.Apis.Meta
+    name: Meta
+    type: Class
+  - uid: EnviroMonitorApp.Services.Apis.Parameter
+    name: Parameter
+    type: Class
+  - uid: EnviroMonitorApp.Services.Apis.PeriodWrapper
+    name: PeriodWrapper
+    type: Class
+  - uid: EnviroMonitorApp.Services.Apis.ReadingItem
+    name: ReadingItem
+    type: Class
+  - uid: EnviroMonitorApp.Services.Apis.Sensor
+    name: Sensor
+    type: Class
+  - uid: EnviroMonitorApp.Services.Apis.WaterQualityResponse
+    name: WaterQualityResponse
+    type: Class
+- uid: EnviroMonitorApp.Services.ChartTransformers
+  name: EnviroMonitorApp.Services.ChartTransformers
+  type: Namespace
+  items:
+  - uid: EnviroMonitorApp.Services.ChartTransformers.IChartTransformer
+    name: IChartTransformer
+    type: Interface
+  - uid: EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer
+    name: LogBinningTransformer
+    type: Class
+- uid: EnviroMonitorApp.ViewModels
+  name: EnviroMonitorApp.ViewModels
+  type: Namespace
+  items:
+  - uid: EnviroMonitorApp.ViewModels.HistoricalDataViewModel
+    name: HistoricalDataViewModel
+    type: Class
+- uid: Microsoft.Maui.Controls
+  name: Microsoft.Maui.Controls
+  type: Namespace
+  items:
+  - uid: Microsoft.Maui.Controls.IValueConverter
+    name: IValueConverter
+    type: Interface
+memberLayout: SamePage

@@ -1,0 +1,61 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitorApp.Services.ChartTransformers
+  commentId: N:EnviroMonitorApp.Services.ChartTransformers
+  id: EnviroMonitorApp.Services.ChartTransformers
+  children:
+  - EnviroMonitorApp.Services.ChartTransformers.IChartTransformer
+  - EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer
+  langs:
+  - csharp
+  - vb
+  name: EnviroMonitorApp.Services.ChartTransformers
+  nameWithType: EnviroMonitorApp.Services.ChartTransformers
+  fullName: EnviroMonitorApp.Services.ChartTransformers
+  type: Namespace
+  assemblies:
+  - EnviroMonitorApp.Core
+references:
+- uid: EnviroMonitorApp.Services.ChartTransformers.IChartTransformer
+  commentId: T:EnviroMonitorApp.Services.ChartTransformers.IChartTransformer
+  parent: EnviroMonitorApp.Services.ChartTransformers
+  href: EnviroMonitorApp.Services.ChartTransformers.IChartTransformer.html
+  name: IChartTransformer
+  nameWithType: IChartTransformer
+  fullName: EnviroMonitorApp.Services.ChartTransformers.IChartTransformer
+- uid: EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer
+  commentId: T:EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer
+  href: EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer.html
+  name: LogBinningTransformer
+  nameWithType: LogBinningTransformer
+  fullName: EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer
+- uid: EnviroMonitorApp.Services.ChartTransformers
+  commentId: N:EnviroMonitorApp.Services.ChartTransformers
+  href: EnviroMonitorApp.html
+  name: EnviroMonitorApp.Services.ChartTransformers
+  nameWithType: EnviroMonitorApp.Services.ChartTransformers
+  fullName: EnviroMonitorApp.Services.ChartTransformers
+  spec.csharp:
+  - uid: EnviroMonitorApp
+    name: EnviroMonitorApp
+    href: EnviroMonitorApp.html
+  - name: .
+  - uid: EnviroMonitorApp.Services
+    name: Services
+    href: EnviroMonitorApp.Services.html
+  - name: .
+  - uid: EnviroMonitorApp.Services.ChartTransformers
+    name: ChartTransformers
+    href: EnviroMonitorApp.Services.ChartTransformers.html
+  spec.vb:
+  - uid: EnviroMonitorApp
+    name: EnviroMonitorApp
+    href: EnviroMonitorApp.html
+  - name: .
+  - uid: EnviroMonitorApp.Services
+    name: Services
+    href: EnviroMonitorApp.Services.html
+  - name: .
+  - uid: EnviroMonitorApp.Services.ChartTransformers
+    name: ChartTransformers
+    href: EnviroMonitorApp.Services.ChartTransformers.html

@@ -1,0 +1,16 @@
+[2025-05-05T12:12:55] === Documentation generation started ===
+[2025-05-05T12:12:55] DocFX found at /Users/cooperkeenan/.dotnet/tools/docfx
+[2025-05-05T12:12:55] ===== Generating EnviroMonitorApp Documentation =====
+[2025-05-05T12:12:55] Project root: /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project
+[2025-05-05T12:12:55] Removing old output at /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docs/api-docs
+[2025-05-05T12:12:55] Running metadata generation...
+[2025-05-05T12:13:00] Metadata generation succeeded
+[2025-05-05T12:13:00] Building documentation...
+[2025-05-05T12:13:01] Documentation build succeeded
+[2025-05-05T12:13:01] Copying documentation to /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docs/api-docs...
+[2025-05-05T12:13:01] 🌐 Documentation URLs:
+[2025-05-05T12:13:01]    Dev (instant): https://rawcdn.githack.com/cooperkeenan/SE_Group_Project/merge/HistoricalData/docs/api-docs/index.html
+[2025-05-05T12:13:01]    Production:    https://raw.githack.com/cooperkeenan/SE_Group_Project/merge/HistoricalData/docs/api-docs/index.html
+[2025-05-05T12:13:01]    (raw.githack.com will refresh the production URL in a few minutes)
+[2025-05-05T12:13:46] Skipping GitHub push. Documentation is available locally at: /Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docs/api-docs/index.html
+[2025-05-05T12:13:46] === Documentation generation complete ===

@@ -7,3 +7,21 @@ obj/
 
 .env
 .DS_Store
+
+senv/ *.sh
+
+*.sh
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+.vs/
+*.user
+*.suo
+
+
+# macOS specific
+.DS_Store
+._*
+*.icloud

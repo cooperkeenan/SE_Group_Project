@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: Microsoft.Maui.Controls
+  commentId: N:Microsoft.Maui.Controls
+  id: Microsoft.Maui.Controls
+  children:
+  - Microsoft.Maui.Controls.IValueConverter
+  langs:
+  - csharp
+  - vb
+  name: Microsoft.Maui.Controls
+  nameWithType: Microsoft.Maui.Controls
+  fullName: Microsoft.Maui.Controls
+  type: Namespace
+  assemblies:
+  - EnviroMonitorApp.Core
+references:
+- uid: Microsoft.Maui.Controls.IValueConverter
+  commentId: T:Microsoft.Maui.Controls.IValueConverter
+  parent: Microsoft.Maui.Controls
+  href: Microsoft.Maui.Controls.IValueConverter.html
+  name: IValueConverter
+  nameWithType: IValueConverter
+  fullName: Microsoft.Maui.Controls.IValueConverter
+- uid: Microsoft.Maui.Controls
+  commentId: N:Microsoft.Maui.Controls
+  href: Microsoft.html
+  name: Microsoft.Maui.Controls
+  nameWithType: Microsoft.Maui.Controls
+  fullName: Microsoft.Maui.Controls
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    href: Microsoft.html
+  - name: .
+  - uid: Microsoft.Maui
+    name: Maui
+    href: Microsoft.Maui.html
+  - name: .
+  - uid: Microsoft.Maui.Controls
+    name: Controls
+    href: Microsoft.Maui.Controls.html
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    href: Microsoft.html
+  - name: .
+  - uid: Microsoft.Maui
+    name: Maui
+    href: Microsoft.Maui.html
+  - name: .
+  - uid: Microsoft.Maui.Controls
+    name: Controls
+    href: Microsoft.Maui.Controls.html

@@ -1,81 +1,63 @@
-﻿using Microsoft.Extensions.Logging;
-using Refit;
-using EnviroMonitorApp.Services;
-using EnviroMonitorApp.Services.Apis;
-using EnviroMonitorApp.Views;  
+﻿// MauiProgram.cs
+using System;
+using System.IO;
+using Microsoft.Maui;
+using Microsoft.Maui.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Maui.Storage;           // ← for FileSystem.AppDataDirectory
+using SQLite;                           // ← for SQLiteAsyncConnection
+using EnviroMonitorApp;
+using EnviroMonitorApp.Views;
 using EnviroMonitorApp.ViewModels;
+using EnviroMonitorApp.Services;
+using EnviroMonitorApp.Services.ChartTransformers;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
-namespace EnviroMonitorApp;
-
-public static class MauiProgram
+namespace EnviroMonitorApp
 {
-    public static MauiApp CreateMauiApp()
+    /// <summary>
+    /// Main entry point for the MAUI application.
+    /// Configures services, dependency injection, and application defaults.
+    /// </summary>
+    public static class MauiProgram
     {
-        var builder = MauiApp.CreateBuilder();
+        public static MauiApp CreateMauiApp()
+        {
+            var builder = MauiApp.CreateBuilder();
 
-        builder
-            .UseMauiApp<App>()
-            .ConfigureFonts(fonts =>
+            builder
+                .UseMauiApp<App>()
+                .UseSkiaSharp()
+                .ConfigureFonts(f =>
+                {
+                    f.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                });
+
+            // ─── Platform / FileSystem service ───────────────────────────────────────────
+            builder.Services.AddSingleton<IFileSystemService, MauiFileSystemService>();
+
+            // ─── Register SQLiteAsyncConnection so DI knows what it is ────────────────────
+            builder.Services.AddSingleton(sp =>
             {
-                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                // pull the AppDataDirectory path from our file‐system abstraction
+                var folder = sp.GetRequiredService<IFileSystemService>().AppDataDirectory;
+                var dbPath = Path.Combine(folder, "enviro.db3");
+                return new SQLiteAsyncConnection(dbPath);
             });
 
-#if DEBUG
-        builder.Logging.AddDebug();
-#endif
+            // ─── Core Data & API services ───────────────────────────────────────────────
+            builder.Services.AddSingleton<IEnvironmentalDataService, SqlDataService>();
+            builder.Services.AddHttpClient();
+            builder.Services.AddSingleton<IChartTransformer, LogBinningTransformer>();
 
-		builder.Services.AddSingleton<AppShell>();       // root
-		builder.Services.AddTransient<AirQualityPage>(); // tab pages
-		builder.Services.AddTransient<WeatherPage>();
-		builder.Services.AddTransient<WaterQualityPage>();
-		builder.Services.AddTransient<WaterQualityViewModel>();
+            // ─── UI: view‐models & pages ─────────────────────────────────────────────────
+            builder.Services.AddTransient<HistoricalDataViewModel>();
+            builder.Services.AddTransient<HistoricalDataPage>();
 
+            // ─── Shell ─────────────────────────────────────────────────────────────────
+            builder.Services.AddSingleton<AppShell>();
 
-
-        // your key provider
-        builder.Services.AddSingleton<ApiKeyProvider>();
-
-		builder.Services.AddTransient<HttpLoggingHandler>();
-
-
-        // OpenAQ v3 client — inject your X-API-Key header here
-        builder.Services
-			.AddRefitClient<IAirQualityApi>()
-			.AddHttpMessageHandler<HttpLoggingHandler>()
-			.ConfigureHttpClient(c =>
-			{
-				c.BaseAddress = new Uri("https://api.openaq.org/");
-				var kp = builder.Services
-								.BuildServiceProvider()
-								.GetRequiredService<ApiKeyProvider>();
-				c.DefaultRequestHeaders.Add("X-API-Key", kp.OpenAqKey);
-			});
-
-        // OpenWeatherMap
-        builder.Services
-            .AddRefitClient<IWeatherApi>()
-			.AddHttpMessageHandler<HttpLoggingHandler>()
-            .ConfigureHttpClient(c =>
-            {
-                c.BaseAddress = new Uri("https://api.openweathermap.org/");
-            });
-
-		builder.Services
-			.AddRefitClient<IWaterQualityApi>()
-			.ConfigureHttpClient(c =>
-			{
-				c.BaseAddress = new Uri("https://environment.data.gov.uk/");
-			});
-
-
-        // register your data service
-        builder.Services
-            .AddSingleton<IEnvironmentalDataService, EnvironmentalDataApiService>();
-		
-
-
-        return builder.Build();
+            return builder.Build();
+        }
     }
 }
-

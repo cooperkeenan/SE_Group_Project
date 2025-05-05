@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:chart="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+  xmlns:models="clr-namespace:EnviroMonitorApp.Models;assembly=EnviroMonitorApp.Core"
+  x:Class="EnviroMonitorApp.Views.HistoricalDataPage"
+  Title="Historical Data">
+
+  <VerticalStackLayout Spacing="12" Padding="16">
+    <!-- Date filters -->
+    <!-- Views/HistoricalDataPage.xaml -->
+      <HorizontalStackLayout Spacing="8">
+        <DatePicker
+          Date="{Binding StartDate}"
+          MinimumDate="2010-01-01"
+          MaximumDate="{Binding MaxDate}" />
+        <DatePicker
+          Date="{Binding EndDate}"
+          MinimumDate="2010-01-01"
+          MaximumDate="{Binding MaxDate}" />
+      </HorizontalStackLayout>
+
+
+    <!-- Sensor & Region pickers -->
+    <HorizontalStackLayout Spacing="8">
+      <Picker Title="Sensor"
+              ItemsSource="{Binding SensorTypes}"
+              SelectedItem="{Binding SelectedSensorType}" />
+
+      <!-- NEW: metrics dropdown -->
+      <Picker Title="Metric"
+              ItemsSource="{Binding MetricTypes}"
+              SelectedItem="{Binding SelectedMetric}" />
+    </HorizontalStackLayout>
+
+    <!-- Load button -->
+    <Button Text="Load "
+            Command="{Binding LoadDataCommand}"
+            IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}" />
+
+    <!-- Busy spinner -->
+    <ActivityIndicator IsRunning="{Binding IsBusy}"
+                       IsVisible="{Binding IsBusy}" />
+
+    <!-- Chart -->
+    <chart:ChartView HeightRequest="300"
+                     Chart="{Binding Chart}" />
+
+    <!-- Raw list at bottom -->
+    <CollectionView ItemsSource="{Binding RawData}">
+      <CollectionView.ItemTemplate>
+        <DataTemplate x:DataType="models:AirQualityRecord">
+          <Frame Margin="4" Padding="8">
+            <VerticalStackLayout>
+              <Label Text="{Binding Timestamp, StringFormat='{0:MM/dd HH:mm}'}"
+                     FontAttributes="Bold" />
+              <Label Text="{Binding NO2, StringFormat='NO₂: {0:F1}'}" />
+            </VerticalStackLayout>
+          </Frame>
+        </DataTemplate>
+      </CollectionView.ItemTemplate>
+    </CollectionView>
+  </VerticalStackLayout>
+</ContentPage>

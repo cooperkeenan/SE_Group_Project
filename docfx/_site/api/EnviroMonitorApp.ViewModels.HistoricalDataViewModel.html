@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class HistoricalDataViewModel </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class HistoricalDataViewModel ">
+    
+    <meta name="description" content="ViewModel for the Historical Data page, providing data and commands for visualizing historical environmental measurements.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel">
+
+
+
+  <h1 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel" class="text-break">Class HistoricalDataViewModel</h1>
+  <div class="markdown level0 summary"><p>ViewModel for the Historical Data page, providing data and commands
+for visualizing historical environmental measurements.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject">ObservableObject</a></div>
+    <div class="level2"><span class="xref">HistoricalDataViewModel</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanging">INotifyPropertyChanging</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.onpropertychanged#communitytoolkit-mvvm-componentmodel-observableobject-onpropertychanged(system-componentmodel-propertychangedeventargs)">ObservableObject.OnPropertyChanged(PropertyChangedEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.onpropertychanging#communitytoolkit-mvvm-componentmodel-observableobject-onpropertychanging(system-componentmodel-propertychangingeventargs)">ObservableObject.OnPropertyChanging(PropertyChangingEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.onpropertychanged#communitytoolkit-mvvm-componentmodel-observableobject-onpropertychanged(system-string)">ObservableObject.OnPropertyChanged(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.onpropertychanging#communitytoolkit-mvvm-componentmodel-observableobject-onpropertychanging(system-string)">ObservableObject.OnPropertyChanging(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setproperty#communitytoolkit-mvvm-componentmodel-observableobject-setproperty-1(-0@-0-system-string)">ObservableObject.SetProperty&lt;T&gt;(ref T, T, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setproperty#communitytoolkit-mvvm-componentmodel-observableobject-setproperty-1(-0@-0-system-collections-generic-iequalitycomparer((-0))-system-string)">ObservableObject.SetProperty&lt;T&gt;(ref T, T, IEqualityComparer&lt;T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setproperty#communitytoolkit-mvvm-componentmodel-observableobject-setproperty-1(-0-0-system-action((-0))-system-string)">ObservableObject.SetProperty&lt;T&gt;(T, T, Action&lt;T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setproperty#communitytoolkit-mvvm-componentmodel-observableobject-setproperty-1(-0-0-system-collections-generic-iequalitycomparer((-0))-system-action((-0))-system-string)">ObservableObject.SetProperty&lt;T&gt;(T, T, IEqualityComparer&lt;T&gt;, Action&lt;T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setproperty#communitytoolkit-mvvm-componentmodel-observableobject-setproperty-2(-1-1-0-system-action((-0-1))-system-string)">ObservableObject.SetProperty&lt;TModel, T&gt;(T, T, TModel, Action&lt;TModel, T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setproperty#communitytoolkit-mvvm-componentmodel-observableobject-setproperty-2(-1-1-system-collections-generic-iequalitycomparer((-1))-0-system-action((-0-1))-system-string)">ObservableObject.SetProperty&lt;TModel, T&gt;(T, T, IEqualityComparer&lt;T&gt;, TModel, Action&lt;TModel, T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setpropertyandnotifyoncompletion#communitytoolkit-mvvm-componentmodel-observableobject-setpropertyandnotifyoncompletion(communitytoolkit-mvvm-componentmodel-observableobject-tasknotifier@-system-threading-tasks-task-system-string)">ObservableObject.SetPropertyAndNotifyOnCompletion(ref ObservableObject.TaskNotifier, Task, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setpropertyandnotifyoncompletion#communitytoolkit-mvvm-componentmodel-observableobject-setpropertyandnotifyoncompletion(communitytoolkit-mvvm-componentmodel-observableobject-tasknotifier@-system-threading-tasks-task-system-action((system-threading-tasks-task))-system-string)">ObservableObject.SetPropertyAndNotifyOnCompletion(ref ObservableObject.TaskNotifier, Task, Action&lt;Task&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setpropertyandnotifyoncompletion#communitytoolkit-mvvm-componentmodel-observableobject-setpropertyandnotifyoncompletion-1(communitytoolkit-mvvm-componentmodel-observableobject-tasknotifier((-0))@-system-threading-tasks-task((-0))-system-string)">ObservableObject.SetPropertyAndNotifyOnCompletion&lt;T&gt;(ref ObservableObject.TaskNotifier&lt;T&gt;, Task&lt;T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setpropertyandnotifyoncompletion#communitytoolkit-mvvm-componentmodel-observableobject-setpropertyandnotifyoncompletion-1(communitytoolkit-mvvm-componentmodel-observableobject-tasknotifier((-0))@-system-threading-tasks-task((-0))-system-action((system-threading-tasks-task((-0))))-system-string)">ObservableObject.SetPropertyAndNotifyOnCompletion&lt;T&gt;(ref ObservableObject.TaskNotifier&lt;T&gt;, Task&lt;T&gt;, Action&lt;Task&lt;T&gt;&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.propertychanged">ObservableObject.PropertyChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.propertychanging">ObservableObject.PropertyChanging</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="EnviroMonitorApp.html">EnviroMonitorApp</a>.<a class="xref" href="EnviroMonitorApp.ViewModels.html">ViewModels</a></h6>
+  <h6><strong>Assembly</strong>: EnviroMonitorApp.Core.dll</h6>
+  <h5 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class HistoricalDataViewModel : ObservableObject, INotifyPropertyChanged, INotifyPropertyChanging</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/new/merge/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_ViewModels_HistoricalDataViewModel__ctor_EnviroMonitorApp_Services_IEnvironmentalDataService_EnviroMonitorApp_Services_ChartTransformers_IChartTransformer_.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.ViewModels.HistoricalDataViewModel.%23ctor(EnviroMonitorApp.Services.IEnvironmentalDataService%2CEnviroMonitorApp.Services.ChartTransformers.IChartTransformer)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/merge/HistoricalData/EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs/#L34">View Source</a>
+  </span>
+  <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel__ctor_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.#ctor*"></a>
+  <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel__ctor_EnviroMonitorApp_Services_IEnvironmentalDataService_EnviroMonitorApp_Services_ChartTransformers_IChartTransformer_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.#ctor(EnviroMonitorApp.Services.IEnvironmentalDataService,EnviroMonitorApp.Services.ChartTransformers.IChartTransformer)">HistoricalDataViewModel(IEnvironmentalDataService, IChartTransformer)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the HistoricalDataViewModel class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HistoricalDataViewModel(IEnvironmentalDataService dataService, IChartTransformer transformer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="EnviroMonitorApp.Services.IEnvironmentalDataService.html">IEnvironmentalDataService</a></td>
+        <td><span class="parametername">dataService</span></td>
+        <td><p>Service for retrieving environmental data.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="EnviroMonitorApp.Services.ChartTransformers.IChartTransformer.html">IChartTransformer</a></td>
+        <td><span class="parametername">transformer</span></td>
+        <td><p>Transformer for converting data into chart entries.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/new/merge/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_ViewModels_HistoricalDataViewModel_Chart.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.ViewModels.HistoricalDataViewModel.Chart%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/merge/HistoricalData/EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs/#L145">View Source</a>
+  </span>
+  <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_Chart_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.Chart*"></a>
+  <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_Chart" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.Chart">Chart</h4>
+  <div class="markdown level1 summary"><p>Gets a chart object configured with the current chart data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Chart Chart { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Chart</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/new/merge/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_ViewModels_HistoricalDataViewModel_ChartData.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.ViewModels.HistoricalDataViewModel.ChartData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/merge/HistoricalData/EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs/#L135">View Source</a>
+  </span>
+  <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_ChartData_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.ChartData*"></a>
+  <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_ChartData" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.ChartData">ChartData</h4>
+  <div class="markdown level1 summary"><p>Gets the collection of chart entries for visualization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ObservableCollection&lt;ChartEntry&gt; ChartData { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1">ObservableCollection</a>&lt;<span class="xref">ChartEntry</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_EndDate_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.EndDate*"></a>
+  <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_EndDate" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.EndDate">EndDate</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the end date for data retrieval.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime EndDate { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_IsBusy_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.IsBusy*"></a>
+  <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_IsBusy" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.IsBusy">IsBusy</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether data is currently being loaded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsBusy { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/new/merge/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_ViewModels_HistoricalDataViewModel_LoadDataCommand.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.ViewModels.HistoricalDataViewModel.LoadDataCommand%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/merge/HistoricalData/EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs/#L140">View Source</a>
+  </span>
+  <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_LoadDataCommand_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.LoadDataCommand*"></a>
+  <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_LoadDataCommand" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.LoadDataCommand">LoadDataCommand</h4>
+  <div class="markdown level1 summary"><p>Gets the command to load data based on current selections.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICommand LoadDataCommand { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_MaxDate_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.MaxDate*"></a>
+  <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_MaxDate" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.MaxDate">MaxDate</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the maximum allowed end date based on the selected sensor type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime MaxDate { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_MetricTypes_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.MetricTypes*"></a>
+  <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_MetricTypes" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.MetricTypes">MetricTypes</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the available metric types for the current sensor type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] MetricTypes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_NoData_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.NoData*"></a>
+  <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_NoData" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.NoData">NoData</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether no data is available for the current selection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool NoData { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_SelectedMetric_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.SelectedMetric*"></a>
+  <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_SelectedMetric" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.SelectedMetric">SelectedMetric</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the currently selected metric.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SelectedMetric { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_SelectedSensorType_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.SelectedSensorType*"></a>
+  <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_SelectedSensorType" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.SelectedSensorType">SelectedSensorType</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the currently selected sensor type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SelectedSensorType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/new/merge/HistoricalData/apiSpec/new?filename=EnviroMonitorApp_ViewModels_HistoricalDataViewModel_SensorTypes.md&amp;value=---%0Auid%3A%20EnviroMonitorApp.ViewModels.HistoricalDataViewModel.SensorTypes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/cooperkeenan/SE_Group_Project/blob/merge/HistoricalData/EnviroMonitorApp.Core/ViewModels/HistoricalDataViewModel.cs/#L57">View Source</a>
+  </span>
+  <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_SensorTypes_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.SensorTypes*"></a>
+  <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_SensorTypes" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.SensorTypes">SensorTypes</h4>
+  <div class="markdown level1 summary"><p>Gets the available sensor types (Air, Weather, Water).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] SensorTypes { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_StartDate_" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.StartDate*"></a>
+  <h4 id="EnviroMonitorApp_ViewModels_HistoricalDataViewModel_StartDate" data-uid="EnviroMonitorApp.ViewModels.HistoricalDataViewModel.StartDate">StartDate</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the start date for data retrieval.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime StartDate { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanging">INotifyPropertyChanging</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

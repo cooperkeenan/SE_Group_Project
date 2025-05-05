@@ -1,0 +1,257 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitorApp.Services.IFileSystemService
+  commentId: T:EnviroMonitorApp.Services.IFileSystemService
+  id: IFileSystemService
+  parent: EnviroMonitorApp.Services
+  children:
+  - EnviroMonitorApp.Services.IFileSystemService.AppDataDirectory
+  - EnviroMonitorApp.Services.IFileSystemService.OpenAppPackageFileAsync(System.String)
+  langs:
+  - csharp
+  - vb
+  name: IFileSystemService
+  nameWithType: IFileSystemService
+  fullName: EnviroMonitorApp.Services.IFileSystemService
+  type: Interface
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/IFileSystemService.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: IFileSystemService
+    path: ../EnviroMonitorApp.Core/Services/IFileSystemService.cs
+    startLine: 9
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services
+  summary: >-
+    Interface for file system operations that provides platform-independent access to app-specific directories 
+
+    and files bundled with the application package.
+  example: []
+  syntax:
+    content: public interface IFileSystemService
+    content.vb: Public Interface IFileSystemService
+- uid: EnviroMonitorApp.Services.IFileSystemService.AppDataDirectory
+  commentId: P:EnviroMonitorApp.Services.IFileSystemService.AppDataDirectory
+  id: AppDataDirectory
+  parent: EnviroMonitorApp.Services.IFileSystemService
+  langs:
+  - csharp
+  - vb
+  name: AppDataDirectory
+  nameWithType: IFileSystemService.AppDataDirectory
+  fullName: EnviroMonitorApp.Services.IFileSystemService.AppDataDirectory
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/IFileSystemService.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: AppDataDirectory
+    path: ../EnviroMonitorApp.Core/Services/IFileSystemService.cs
+    startLine: 14
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services
+  summary: Gets the platform-specific application data directory where the app can store files.
+  example: []
+  syntax:
+    content: string AppDataDirectory { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property AppDataDirectory As String
+  overload: EnviroMonitorApp.Services.IFileSystemService.AppDataDirectory*
+- uid: EnviroMonitorApp.Services.IFileSystemService.OpenAppPackageFileAsync(System.String)
+  commentId: M:EnviroMonitorApp.Services.IFileSystemService.OpenAppPackageFileAsync(System.String)
+  id: OpenAppPackageFileAsync(System.String)
+  parent: EnviroMonitorApp.Services.IFileSystemService
+  langs:
+  - csharp
+  - vb
+  name: OpenAppPackageFileAsync(string)
+  nameWithType: IFileSystemService.OpenAppPackageFileAsync(string)
+  fullName: EnviroMonitorApp.Services.IFileSystemService.OpenAppPackageFileAsync(string)
+  type: Method
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Services/IFileSystemService.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: OpenAppPackageFileAsync
+    path: ../EnviroMonitorApp.Core/Services/IFileSystemService.cs
+    startLine: 21
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Services
+  summary: Opens a file that is bundled with the application package.
+  example: []
+  syntax:
+    content: Task<Stream> OpenAppPackageFileAsync(string filename)
+    parameters:
+    - id: filename
+      type: System.String
+      description: The name of the file to open.
+    return:
+      type: System.Threading.Tasks.Task{System.IO.Stream}
+      description: A stream containing the file contents.
+    content.vb: Function OpenAppPackageFileAsync(filename As String) As Task(Of Stream)
+  overload: EnviroMonitorApp.Services.IFileSystemService.OpenAppPackageFileAsync*
+  nameWithType.vb: IFileSystemService.OpenAppPackageFileAsync(String)
+  fullName.vb: EnviroMonitorApp.Services.IFileSystemService.OpenAppPackageFileAsync(String)
+  name.vb: OpenAppPackageFileAsync(String)
+references:
+- uid: EnviroMonitorApp.Services
+  commentId: N:EnviroMonitorApp.Services
+  href: EnviroMonitorApp.html
+  name: EnviroMonitorApp.Services
+  nameWithType: EnviroMonitorApp.Services
+  fullName: EnviroMonitorApp.Services
+  spec.csharp:
+  - uid: EnviroMonitorApp
+    name: EnviroMonitorApp
+    href: EnviroMonitorApp.html
+  - name: .
+  - uid: EnviroMonitorApp.Services
+    name: Services
+    href: EnviroMonitorApp.Services.html
+  spec.vb:
+  - uid: EnviroMonitorApp
+    name: EnviroMonitorApp
+    href: EnviroMonitorApp.html
+  - name: .
+  - uid: EnviroMonitorApp.Services
+    name: Services
+    href: EnviroMonitorApp.Services.html
+- uid: EnviroMonitorApp.Services.IFileSystemService.AppDataDirectory*
+  commentId: Overload:EnviroMonitorApp.Services.IFileSystemService.AppDataDirectory
+  href: EnviroMonitorApp.Services.IFileSystemService.html#EnviroMonitorApp_Services_IFileSystemService_AppDataDirectory
+  name: AppDataDirectory
+  nameWithType: IFileSystemService.AppDataDirectory
+  fullName: EnviroMonitorApp.Services.IFileSystemService.AppDataDirectory
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: EnviroMonitorApp.Services.IFileSystemService.OpenAppPackageFileAsync*
+  commentId: Overload:EnviroMonitorApp.Services.IFileSystemService.OpenAppPackageFileAsync
+  href: EnviroMonitorApp.Services.IFileSystemService.html#EnviroMonitorApp_Services_IFileSystemService_OpenAppPackageFileAsync_System_String_
+  name: OpenAppPackageFileAsync
+  nameWithType: IFileSystemService.OpenAppPackageFileAsync
+  fullName: EnviroMonitorApp.Services.IFileSystemService.OpenAppPackageFileAsync
+- uid: System.Threading.Tasks.Task{System.IO.Stream}
+  commentId: T:System.Threading.Tasks.Task{System.IO.Stream}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Stream>
+  nameWithType: Task<Stream>
+  fullName: System.Threading.Tasks.Task<System.IO.Stream>
+  nameWithType.vb: Task(Of Stream)
+  fullName.vb: System.Threading.Tasks.Task(Of System.IO.Stream)
+  name.vb: Task(Of Stream)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

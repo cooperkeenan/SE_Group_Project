@@ -5,6 +5,12 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnviroMonitorApp", "EnviroMonitorApp\EnviroMonitorApp.csproj", "{2FBA5515-A284-4B96-AA02-7211EA9AA621}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnviroMonitorApp.Core", "EnviroMonitorApp.Core\EnviroMonitorApp.Core.csproj", "{D8FEBE0E-8C1D-4EDE-A0D4-49382DD33AEE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EnviroMonitorApp", "EnviroMonitorApp", "{ECA541E6-9A80-406B-9CCA-1F9F57FB9821}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnviroMonitorApp.Tests", "EnviroMonitorApp\EnviroMonitorApp.Tests\EnviroMonitorApp.Tests.csproj", "{D1CEE210-7A97-4DF5-B200-08B3648A4243}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +24,17 @@ Global
 		{2FBA5515-A284-4B96-AA02-7211EA9AA621}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FBA5515-A284-4B96-AA02-7211EA9AA621}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FBA5515-A284-4B96-AA02-7211EA9AA621}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8FEBE0E-8C1D-4EDE-A0D4-49382DD33AEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8FEBE0E-8C1D-4EDE-A0D4-49382DD33AEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8FEBE0E-8C1D-4EDE-A0D4-49382DD33AEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8FEBE0E-8C1D-4EDE-A0D4-49382DD33AEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1CEE210-7A97-4DF5-B200-08B3648A4243}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1CEE210-7A97-4DF5-B200-08B3648A4243}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1CEE210-7A97-4DF5-B200-08B3648A4243}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1CEE210-7A97-4DF5-B200-08B3648A4243}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2FBA5515-A284-4B96-AA02-7211EA9AA621} = {ECA541E6-9A80-406B-9CCA-1F9F57FB9821}
+		{D1CEE210-7A97-4DF5-B200-08B3648A4243} = {ECA541E6-9A80-406B-9CCA-1F9F57FB9821}
 	EndGlobalSection
 EndGlobal

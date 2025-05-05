@@ -1,0 +1,686 @@
+### YamlMime:ManagedReference
+items:
+- uid: EnviroMonitorApp.Models.AirQualityRecord
+  commentId: T:EnviroMonitorApp.Models.AirQualityRecord
+  id: AirQualityRecord
+  parent: EnviroMonitorApp.Models
+  children:
+  - EnviroMonitorApp.Models.AirQualityRecord.Category
+  - EnviroMonitorApp.Models.AirQualityRecord.NO2
+  - EnviroMonitorApp.Models.AirQualityRecord.PM10
+  - EnviroMonitorApp.Models.AirQualityRecord.PM25
+  - EnviroMonitorApp.Models.AirQualityRecord.Pm10
+  - EnviroMonitorApp.Models.AirQualityRecord.Pm25
+  - EnviroMonitorApp.Models.AirQualityRecord.SO2
+  - EnviroMonitorApp.Models.AirQualityRecord.Timestamp
+  langs:
+  - csharp
+  - vb
+  name: AirQualityRecord
+  nameWithType: AirQualityRecord
+  fullName: EnviroMonitorApp.Models.AirQualityRecord
+  type: Class
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/AirQualityRecord.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: AirQualityRecord
+    path: ../EnviroMonitorApp.Core/Models/AirQualityRecord.cs
+    startLine: 6
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  summary: >-
+    Represents a record of air quality measurements at a specific point in time.
+
+    Contains various pollutant measurements and an overall air quality category.
+  example: []
+  syntax:
+    content: public class AirQualityRecord
+    content.vb: Public Class AirQualityRecord
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: EnviroMonitorApp.Models.AirQualityRecord.Timestamp
+  commentId: P:EnviroMonitorApp.Models.AirQualityRecord.Timestamp
+  id: Timestamp
+  parent: EnviroMonitorApp.Models.AirQualityRecord
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: AirQualityRecord.Timestamp
+  fullName: EnviroMonitorApp.Models.AirQualityRecord.Timestamp
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/AirQualityRecord.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Timestamp
+    path: ../EnviroMonitorApp.Core/Models/AirQualityRecord.cs
+    startLine: 11
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  summary: The date and time when the air quality measurements were recorded.
+  example: []
+  syntax:
+    content: public DateTime Timestamp { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property Timestamp As Date
+  overload: EnviroMonitorApp.Models.AirQualityRecord.Timestamp*
+- uid: EnviroMonitorApp.Models.AirQualityRecord.NO2
+  commentId: P:EnviroMonitorApp.Models.AirQualityRecord.NO2
+  id: NO2
+  parent: EnviroMonitorApp.Models.AirQualityRecord
+  langs:
+  - csharp
+  - vb
+  name: NO2
+  nameWithType: AirQualityRecord.NO2
+  fullName: EnviroMonitorApp.Models.AirQualityRecord.NO2
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/AirQualityRecord.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: NO2
+    path: ../EnviroMonitorApp.Core/Models/AirQualityRecord.cs
+    startLine: 16
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  summary: Nitrogen Dioxide concentration in micrograms per cubic meter (μg/m³).
+  example: []
+  syntax:
+    content: public double? NO2 { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Double}
+    content.vb: Public Property NO2 As Double?
+  overload: EnviroMonitorApp.Models.AirQualityRecord.NO2*
+- uid: EnviroMonitorApp.Models.AirQualityRecord.SO2
+  commentId: P:EnviroMonitorApp.Models.AirQualityRecord.SO2
+  id: SO2
+  parent: EnviroMonitorApp.Models.AirQualityRecord
+  langs:
+  - csharp
+  - vb
+  name: SO2
+  nameWithType: AirQualityRecord.SO2
+  fullName: EnviroMonitorApp.Models.AirQualityRecord.SO2
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/AirQualityRecord.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: SO2
+    path: ../EnviroMonitorApp.Core/Models/AirQualityRecord.cs
+    startLine: 21
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  summary: Sulfur Dioxide concentration in micrograms per cubic meter (μg/m³).
+  example: []
+  syntax:
+    content: public double? SO2 { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Double}
+    content.vb: Public Property SO2 As Double?
+  overload: EnviroMonitorApp.Models.AirQualityRecord.SO2*
+- uid: EnviroMonitorApp.Models.AirQualityRecord.PM25
+  commentId: P:EnviroMonitorApp.Models.AirQualityRecord.PM25
+  id: PM25
+  parent: EnviroMonitorApp.Models.AirQualityRecord
+  langs:
+  - csharp
+  - vb
+  name: PM25
+  nameWithType: AirQualityRecord.PM25
+  fullName: EnviroMonitorApp.Models.AirQualityRecord.PM25
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/AirQualityRecord.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: PM25
+    path: ../EnviroMonitorApp.Core/Models/AirQualityRecord.cs
+    startLine: 27
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  summary: >-
+    Particulate Matter 2.5 concentration in micrograms per cubic meter (μg/m³).
+
+    Particles with diameter less than 2.5 micrometers.
+  example: []
+  syntax:
+    content: public double? PM25 { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Double}
+    content.vb: Public Property PM25 As Double?
+  overload: EnviroMonitorApp.Models.AirQualityRecord.PM25*
+- uid: EnviroMonitorApp.Models.AirQualityRecord.PM10
+  commentId: P:EnviroMonitorApp.Models.AirQualityRecord.PM10
+  id: PM10
+  parent: EnviroMonitorApp.Models.AirQualityRecord
+  langs:
+  - csharp
+  - vb
+  name: PM10
+  nameWithType: AirQualityRecord.PM10
+  fullName: EnviroMonitorApp.Models.AirQualityRecord.PM10
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/AirQualityRecord.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: PM10
+    path: ../EnviroMonitorApp.Core/Models/AirQualityRecord.cs
+    startLine: 33
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  summary: >-
+    Particulate Matter 10 concentration in micrograms per cubic meter (μg/m³).
+
+    Particles with diameter less than 10 micrometers.
+  example: []
+  syntax:
+    content: public double? PM10 { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Double}
+    content.vb: Public Property PM10 As Double?
+  overload: EnviroMonitorApp.Models.AirQualityRecord.PM10*
+- uid: EnviroMonitorApp.Models.AirQualityRecord.Pm25
+  commentId: P:EnviroMonitorApp.Models.AirQualityRecord.Pm25
+  id: Pm25
+  parent: EnviroMonitorApp.Models.AirQualityRecord
+  langs:
+  - csharp
+  - vb
+  name: Pm25
+  nameWithType: AirQualityRecord.Pm25
+  fullName: EnviroMonitorApp.Models.AirQualityRecord.Pm25
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/AirQualityRecord.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Pm25
+    path: ../EnviroMonitorApp.Core/Models/AirQualityRecord.cs
+    startLine: 38
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  summary: Alternative property for PM2.5 measurement (maintained for compatibility).
+  example: []
+  syntax:
+    content: public double? Pm25 { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Double}
+    content.vb: Public Property Pm25 As Double?
+  overload: EnviroMonitorApp.Models.AirQualityRecord.Pm25*
+- uid: EnviroMonitorApp.Models.AirQualityRecord.Pm10
+  commentId: P:EnviroMonitorApp.Models.AirQualityRecord.Pm10
+  id: Pm10
+  parent: EnviroMonitorApp.Models.AirQualityRecord
+  langs:
+  - csharp
+  - vb
+  name: Pm10
+  nameWithType: AirQualityRecord.Pm10
+  fullName: EnviroMonitorApp.Models.AirQualityRecord.Pm10
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/AirQualityRecord.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Pm10
+    path: ../EnviroMonitorApp.Core/Models/AirQualityRecord.cs
+    startLine: 43
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  summary: Alternative property for PM10 measurement (maintained for compatibility).
+  example: []
+  syntax:
+    content: public double? Pm10 { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Double}
+    content.vb: Public Property Pm10 As Double?
+  overload: EnviroMonitorApp.Models.AirQualityRecord.Pm10*
+- uid: EnviroMonitorApp.Models.AirQualityRecord.Category
+  commentId: P:EnviroMonitorApp.Models.AirQualityRecord.Category
+  id: Category
+  parent: EnviroMonitorApp.Models.AirQualityRecord
+  langs:
+  - csharp
+  - vb
+  name: Category
+  nameWithType: AirQualityRecord.Category
+  fullName: EnviroMonitorApp.Models.AirQualityRecord.Category
+  type: Property
+  source:
+    remote:
+      path: EnviroMonitorApp.Core/Models/AirQualityRecord.cs
+      branch: merge/HistoricalData
+      repo: https://github.com/cooperkeenan/SE_Group_Project.git
+    id: Category
+    path: ../EnviroMonitorApp.Core/Models/AirQualityRecord.cs
+    startLine: 48
+  assemblies:
+  - EnviroMonitorApp.Core
+  namespace: EnviroMonitorApp.Models
+  summary: Air quality category description (e.g., "Good", "Moderate", "Poor").
+  example: []
+  syntax:
+    content: public string Category { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Category As String
+  overload: EnviroMonitorApp.Models.AirQualityRecord.Category*
+references:
+- uid: EnviroMonitorApp.Models
+  commentId: N:EnviroMonitorApp.Models
+  href: EnviroMonitorApp.html
+  name: EnviroMonitorApp.Models
+  nameWithType: EnviroMonitorApp.Models
+  fullName: EnviroMonitorApp.Models
+  spec.csharp:
+  - uid: EnviroMonitorApp
+    name: EnviroMonitorApp
+    href: EnviroMonitorApp.html
+  - name: .
+  - uid: EnviroMonitorApp.Models
+    name: Models
+    href: EnviroMonitorApp.Models.html
+  spec.vb:
+  - uid: EnviroMonitorApp
+    name: EnviroMonitorApp
+    href: EnviroMonitorApp.html
+  - name: .
+  - uid: EnviroMonitorApp.Models
+    name: Models
+    href: EnviroMonitorApp.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: EnviroMonitorApp.Models.AirQualityRecord.Timestamp*
+  commentId: Overload:EnviroMonitorApp.Models.AirQualityRecord.Timestamp
+  href: EnviroMonitorApp.Models.AirQualityRecord.html#EnviroMonitorApp_Models_AirQualityRecord_Timestamp
+  name: Timestamp
+  nameWithType: AirQualityRecord.Timestamp
+  fullName: EnviroMonitorApp.Models.AirQualityRecord.Timestamp
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: EnviroMonitorApp.Models.AirQualityRecord.NO2*
+  commentId: Overload:EnviroMonitorApp.Models.AirQualityRecord.NO2
+  href: EnviroMonitorApp.Models.AirQualityRecord.html#EnviroMonitorApp_Models_AirQualityRecord_NO2
+  name: NO2
+  nameWithType: AirQualityRecord.NO2
+  fullName: EnviroMonitorApp.Models.AirQualityRecord.NO2
+- uid: System.Nullable{System.Double}
+  commentId: T:System.Nullable{System.Double}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double?
+  nameWithType: double?
+  fullName: double?
+  nameWithType.vb: Double?
+  fullName.vb: Double?
+  name.vb: Double?
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: EnviroMonitorApp.Models.AirQualityRecord.SO2*
+  commentId: Overload:EnviroMonitorApp.Models.AirQualityRecord.SO2
+  href: EnviroMonitorApp.Models.AirQualityRecord.html#EnviroMonitorApp_Models_AirQualityRecord_SO2
+  name: SO2
+  nameWithType: AirQualityRecord.SO2
+  fullName: EnviroMonitorApp.Models.AirQualityRecord.SO2
+- uid: EnviroMonitorApp.Models.AirQualityRecord.PM25*
+  commentId: Overload:EnviroMonitorApp.Models.AirQualityRecord.PM25
+  href: EnviroMonitorApp.Models.AirQualityRecord.html#EnviroMonitorApp_Models_AirQualityRecord_PM25
+  name: PM25
+  nameWithType: AirQualityRecord.PM25
+  fullName: EnviroMonitorApp.Models.AirQualityRecord.PM25
+- uid: EnviroMonitorApp.Models.AirQualityRecord.PM10*
+  commentId: Overload:EnviroMonitorApp.Models.AirQualityRecord.PM10
+  href: EnviroMonitorApp.Models.AirQualityRecord.html#EnviroMonitorApp_Models_AirQualityRecord_PM10
+  name: PM10
+  nameWithType: AirQualityRecord.PM10
+  fullName: EnviroMonitorApp.Models.AirQualityRecord.PM10
+- uid: EnviroMonitorApp.Models.AirQualityRecord.Pm25*
+  commentId: Overload:EnviroMonitorApp.Models.AirQualityRecord.Pm25
+  href: EnviroMonitorApp.Models.AirQualityRecord.html#EnviroMonitorApp_Models_AirQualityRecord_Pm25
+  name: Pm25
+  nameWithType: AirQualityRecord.Pm25
+  fullName: EnviroMonitorApp.Models.AirQualityRecord.Pm25
+- uid: EnviroMonitorApp.Models.AirQualityRecord.Pm10*
+  commentId: Overload:EnviroMonitorApp.Models.AirQualityRecord.Pm10
+  href: EnviroMonitorApp.Models.AirQualityRecord.html#EnviroMonitorApp_Models_AirQualityRecord_Pm10
+  name: Pm10
+  nameWithType: AirQualityRecord.Pm10
+  fullName: EnviroMonitorApp.Models.AirQualityRecord.Pm10
+- uid: EnviroMonitorApp.Models.AirQualityRecord.Category*
+  commentId: Overload:EnviroMonitorApp.Models.AirQualityRecord.Category
+  href: EnviroMonitorApp.Models.AirQualityRecord.html#EnviroMonitorApp_Models_AirQualityRecord_Category
+  name: Category
+  nameWithType: AirQualityRecord.Category
+  fullName: EnviroMonitorApp.Models.AirQualityRecord.Category
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

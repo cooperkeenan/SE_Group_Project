@@ -1,0 +1,659 @@
+{
+  "source_base_path": "/Users/cooperkeenan/Documents/GitHub/SE_GP/SE_Group_Project/docfx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Converters.InverseBoolConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Converters.InverseBoolConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Converters.InverseBoolConverter",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Converters.InverseBoolConverter.yml\" sourcestartlinenumber=\"1\">Converter that inverts boolean values.\nUseful for scenarios like binding the IsEnabled property of controls to a &quot;busy&quot; flag,\nwhere the control should be disabled when the busy flag is true.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Converters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Converters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Converters",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Models.AirQualityRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Models.AirQualityRecord.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Models.AirQualityRecord",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Models.AirQualityRecord.yml\" sourcestartlinenumber=\"1\">Represents a record of air quality measurements at a specific point in time.\nContains various pollutant measurements and an overall air quality category.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Models.OpenWeatherForecastResponse.ListItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Models.OpenWeatherForecastResponse.ListItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Models.OpenWeatherForecastResponse.ListItem",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Models.OpenWeatherForecastResponse.MainInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Models.OpenWeatherForecastResponse.MainInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Models.OpenWeatherForecastResponse.MainInfo",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Models.OpenWeatherForecastResponse.WindInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Models.OpenWeatherForecastResponse.WindInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Models.OpenWeatherForecastResponse.WindInfo",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Models.OpenWeatherForecastResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Models.OpenWeatherForecastResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Models.OpenWeatherForecastResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Models.WaterQualityRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Models.WaterQualityRecord.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Models.WaterQualityRecord",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Models.WaterQualityRecord.yml\" sourcestartlinenumber=\"1\">Represents a record of water quality measurements at a specific point in time.\nContains various water quality parameters including nitrate, pH, dissolved oxygen, and temperature.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Models.WeatherRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Models.WeatherRecord.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Models.WeatherRecord",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Models.WeatherRecord.yml\" sourcestartlinenumber=\"1\">Represents a record of weather measurements at a specific point in time.\nContains various weather parameters from both forecast APIs and historical CSV data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Models.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Models",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.ApiKeyProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.ApiKeyProvider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.ApiKeyProvider",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.ApiKeyProvider.yml\" sourcestartlinenumber=\"1\">Provides API keys for external services such as OpenAQ and OpenWeatherMap.\nContains default keys for testing and allows custom keys to be provided.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.DateWrapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.DateWrapper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.DateWrapper",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.DateWrapper.yml\" sourcestartlinenumber=\"1\">Wrapper for date/time information in both UTC and local time.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.IAirQualityApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.IAirQualityApi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.IAirQualityApi",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.IAirQualityApi.yml\" sourcestartlinenumber=\"1\">Interface for accessing air quality data from external APIs.\nProvides methods to retrieve location data, latest air quality measurements,\nand historical air quality data for specific sensors.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.IWaterQualityApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.IWaterQualityApi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.IWaterQualityApi",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.IWaterQualityApi.yml\" sourcestartlinenumber=\"1\">Interface for accessing water quality data from external APIs.\nProvides methods to retrieve latest readings and historical data within specified timeframes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.IWeatherApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.IWeatherApi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.IWeatherApi",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.IWeatherApi.yml\" sourcestartlinenumber=\"1\">Interface for accessing weather data from OpenWeather and other weather APIs.\nProvides methods to retrieve weather forecasts and historical weather data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.LatestResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.LatestResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.LatestResult",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.LatestResult.yml\" sourcestartlinenumber=\"1\">Represents a single measurement result from a sensor at the location.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.Location.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.Location.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.Location",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.Location.yml\" sourcestartlinenumber=\"1\">Represents an air quality monitoring location with its associated sensors.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.LocationLatestResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.LocationLatestResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.LocationLatestResponse",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.LocationLatestResponse.yml\" sourcestartlinenumber=\"1\">Response model for the latest measurements at a specific location.\nUsed with the GetLocationLatest API endpoint.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.LocationResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.LocationResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.LocationResponse",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.LocationResponse.yml\" sourcestartlinenumber=\"1\">Response model for location information from the air quality API.\nUsed with the GetLocations API endpoint.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.Measurement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.Measurement.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.Measurement",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.Measurement.yml\" sourcestartlinenumber=\"1\">Represents a single measurement record from a sensor.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.MeasurementsMeta.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.MeasurementsMeta.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.MeasurementsMeta",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.MeasurementsMeta.yml\" sourcestartlinenumber=\"1\">Extended metadata specific to measurement responses.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.MeasurementsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.MeasurementsResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.MeasurementsResponse",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.MeasurementsResponse.yml\" sourcestartlinenumber=\"1\">Response wrapper for /v3/sensors/{id}/measurements API endpoint.\nContains historical measurement data for a specific sensor.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.Meta.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.Meta.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.Meta",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.Meta.yml\" sourcestartlinenumber=\"1\">Metadata information about the API response, including pagination details.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.Parameter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.Parameter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.Parameter",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.Parameter.yml\" sourcestartlinenumber=\"1\">Represents an environmental parameter that can be measured.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.PeriodWrapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.PeriodWrapper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.PeriodWrapper",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.PeriodWrapper.yml\" sourcestartlinenumber=\"1\">Wrapper for time period information related to a measurement.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.ReadingItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.ReadingItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.ReadingItem",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.ReadingItem.yml\" sourcestartlinenumber=\"1\">Represents a single water quality reading with timestamp and measured value.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.Sensor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.Sensor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.Sensor",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.Sensor.yml\" sourcestartlinenumber=\"1\">Represents a sensor device at a monitoring location.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.WaterQualityResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.WaterQualityResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis.WaterQualityResponse",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.Apis.WaterQualityResponse.yml\" sourcestartlinenumber=\"1\">Response object for water quality data containing a collection of reading items.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.Apis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.Apis.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.Apis",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.ChartTransformers.IChartTransformer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.ChartTransformers.IChartTransformer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.ChartTransformers.IChartTransformer",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.ChartTransformers.IChartTransformer.yml\" sourcestartlinenumber=\"1\">Transforms a series of timestamped values into a list of ChartEntry\n(handles binning, scaling, labels, etc).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.ChartTransformers.LogBinningTransformer.yml\" sourcestartlinenumber=\"1\">Chart transformer that bins points by day/week/month based on date range,\napplying logarithmic scaling to the Y-axis values.\nLimits the number of X-axis labels to improve readability.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.ChartTransformers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.ChartTransformers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.ChartTransformers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.EnvironmentalDataApiService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.EnvironmentalDataApiService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.EnvironmentalDataApiService",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.EnvironmentalDataApiService.yml\" sourcestartlinenumber=\"1\">Fetches and paginates historical environmental data from OpenAQ, OpenWeatherMap, and\nUK Hydrology, pivoting into our record models.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.HttpLoggingHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.HttpLoggingHandler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.HttpLoggingHandler",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.HttpLoggingHandler.yml\" sourcestartlinenumber=\"1\">HTTP message handler that logs all requests and responses to the debug output.\nUseful for debugging API calls by showing full request/response details in the console.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.IEnvironmentalDataService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.IEnvironmentalDataService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.IEnvironmentalDataService",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.IEnvironmentalDataService.yml\" sourcestartlinenumber=\"1\">Interface for environmental data services that provide access to air quality,\nweather, and water quality data from various sources.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.IFileSystemService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.IFileSystemService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.IFileSystemService",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.IFileSystemService.yml\" sourcestartlinenumber=\"1\">Interface for file system operations that provides platform-independent access to app-specific directories\nand files bundled with the application package.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.MauiFileSystemService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.MauiFileSystemService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.MauiFileSystemService",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.MauiFileSystemService.yml\" sourcestartlinenumber=\"1\">Implementation of IFileSystemService that uses MAUI's FileSystem APIs\nto provide cross-platform file system access.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.SqlDataService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.SqlDataService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services.SqlDataService",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.Services.SqlDataService.yml\" sourcestartlinenumber=\"1\">Implementation of IEnvironmentalDataService that uses SQLite database\nto store and retrieve environmental data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.Services.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.Services",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.ViewModels.HistoricalDataViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.ViewModels.HistoricalDataViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.ViewModels.HistoricalDataViewModel",
+      "Summary": "<p sourcefile=\"api/EnviroMonitorApp.ViewModels.HistoricalDataViewModel.yml\" sourcestartlinenumber=\"1\">ViewModel for the Historical Data page, providing data and commands\nfor visualizing historical environmental measurements.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EnviroMonitorApp.ViewModels.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EnviroMonitorApp.ViewModels.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EnviroMonitorApp.ViewModels",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Maui.Controls.IValueConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Maui.Controls.IValueConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Microsoft.Maui.Controls.IValueConverter",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Maui.Controls.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Maui.Controls.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Microsoft.Maui.Controls",
+      "Summary": null
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
