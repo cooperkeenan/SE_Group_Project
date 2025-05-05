@@ -5,15 +5,37 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Backup Management">
 
-  <Shell.TitleView>
-    <Label Text="Backup Management"
-           HorizontalOptions="Center"
-           VerticalOptions="Center" />
-  </Shell.TitleView>
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Refresh"
+                 Command="{Binding RefreshHistoryCommand}" />
+  </ContentPage.ToolbarItems>
 
-  <ContentPage.Content>
-    <Label Text="Backup Management Page"
-           VerticalOptions="Center"
-           HorizontalOptions="Center" />
-  </ContentPage.Content>
+  <StackLayout Padding="20" Spacing="15">
+
+    <!-- Next scheduled run -->
+    <Frame HasShadow="False" BorderColor="LightGray" Padding="10">
+      <Label Text="{Binding NextSchedule.NextRun, StringFormat='Next backup: {0:yyyy-MM-dd HH:mm}'}" />
+    </Frame>
+
+    <!-- Manual trigger -->
+    <Button Text="Trigger Manual Backup"
+            Command="{Binding TriggerBackupCommand}"
+            HorizontalOptions="Center" />
+
+    <!-- History -->
+    <Label Text="Backup History" FontAttributes="Bold" />
+    <CollectionView ItemsSource="{Binding History}">
+      <CollectionView.ItemTemplate>
+        <DataTemplate>
+          <Frame Margin="0,5" Padding="10" HasShadow="False" BorderColor="Gray">
+            <StackLayout>
+              <Label Text="{Binding ToString()}" />
+              <Label Text="{Binding Details}" FontAttributes="Italic" FontSize="Small" />
+            </StackLayout>
+          </Frame>
+        </DataTemplate>
+      </CollectionView.ItemTemplate>
+    </CollectionView>
+
+  </StackLayout>
 </ContentPage>

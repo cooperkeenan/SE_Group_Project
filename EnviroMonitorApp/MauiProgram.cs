@@ -1,5 +1,4 @@
-﻿// MauiProgram.cs
-using Microsoft.Maui;
+﻿using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using Microsoft.Maui.Storage;
 using System.IO;
@@ -7,6 +6,7 @@ using EnviroMonitorApp.Views;
 using EnviroMonitorApp.Services;
 using EnviroMonitorApp.ViewModels;
 using SQLite;
+using SQLitePCL;    // for Batteries_V2
 
 namespace EnviroMonitorApp
 {
@@ -14,6 +14,9 @@ namespace EnviroMonitorApp
     {
         public static MauiApp CreateMauiApp()
         {
+            // Initialize the V2 bundle (this loads dynamic_cdecl + e_sqlite3.so)
+            Batteries_V2.Init();
+
             var builder = MauiApp.CreateBuilder();
 
             builder
@@ -31,17 +34,16 @@ namespace EnviroMonitorApp
             builder.Services.AddTransient<SensorHistoryPage>();
             builder.Services.AddTransient<BackupManagementPage>();
 
-            // --- SQLite registration ---
+            // --- SQLite connection registration ---
             string dbPath = Path.Combine(FileSystem.AppDataDirectory, "enviro.db3");
             builder.Services.AddSingleton(_ =>
             {
                 var conn = new SQLiteAsyncConnection(dbPath);
-                // Ensure the table exists
                 conn.CreateTableAsync<Models.Backup>().Wait();
                 return conn;
             });
 
-            // --- Backup service & ViewModel ---
+            // --- Backup service & VM ---
             builder.Services.AddSingleton<IBackupService, BackupService>();
             builder.Services.AddTransient<BackupManagementViewModel>();
 

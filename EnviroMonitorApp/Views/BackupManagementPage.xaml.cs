@@ -1,18 +1,21 @@
-using System;
+using EnviroMonitorApp.ViewModels;
 using Microsoft.Maui.Controls;
 
 namespace EnviroMonitorApp.Views
 {
     public partial class BackupManagementPage : ContentPage
     {
-        public BackupManagementPage()
+        public BackupManagementPage(BackupManagementViewModel vm)
         {
             InitializeComponent();
+            BindingContext = vm;
         }
 
-        void OnMenuClicked(object sender, EventArgs e)
+        protected override async void OnAppearing()
         {
-            Shell.Current.FlyoutIsPresented = !Shell.Current.FlyoutIsPresented;
+            base.OnAppearing();
+            if (BindingContext is BackupManagementViewModel vm)
+                await vm.InitializeAsync();
         }
     }
 }
