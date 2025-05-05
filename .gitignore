@@ -1,4 +1,4 @@
-# Build Folders
+﻿# Build Folders
 **/bin/
 **/obj/
 
@@ -23,6 +23,3 @@ packages/
 # Azure Pipelines
 .vscode/*
 
-# DocFX
-docs/_site/
-docs/api/
